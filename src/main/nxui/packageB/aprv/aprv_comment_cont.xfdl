@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="aprv_comment_cont" left="0" top="0" width="600" height="540" titletext="New Form" onload="aprv_comment_cont">
+    <Layouts>
+      <Layout>
+        <ImageViewer id="img_00" taborder="18" left="14" top="392" width="572" height="112" style="background:lavenderblush;border:1 solid #a8a8a8ff ;align:left middle;"/>
+        <ImageViewer id="img_02" taborder="19" left="14" top="245" width="572" height="112" style="background:lavenderblush;border:1 solid #a8a8a8ff ;align:left middle;"/>
+        <ImageViewer id="img_01" taborder="17" left="14" top="98" width="572" height="112" style="background:lavenderblush;border:1 solid #a8a8a8ff ;align:left middle;"/>
+        <Div id="Div00" taborder="0" text="  결제자 의견" left="14" top="7" width="572" height="50" style="align:left;background:#3366ffff;color:#ffffffff;font:bold 12 Dotum;">
+          <Layouts>
+            <Layout width="572" height="50"/>
+          </Layouts>
+        </Div>
+        <Static id="Static00" taborder="1" left="20" top="104" width="560" height="100" style="background:#eaeaeaff;border:1 solid #c8c8c8ff ;"/>
+        <Static id="Static03" taborder="2" text="1차 결제자 의견" left="20" top="104" width="105" height="100" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;bordertype:normal 0 0 ;align:center middle;font:bold 9 dotum;"/>
+        <Static id="Static01" taborder="3" left="20" top="251" width="560" height="100" style="background:#eaeaeaff;border:1 solid #c8c8c8ff ;"/>
+        <Static id="Static02" taborder="4" text="2차 결제자 의견" left="20" top="251" width="105" height="100" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;bordertype:normal 0 0 ;align:center middle;font:bold 9 dotum;"/>
+        <Static id="Static04" taborder="5" left="20" top="398" width="560" height="100" style="background:#eaeaeaff;border:1 solid #c8c8c8ff ;"/>
+        <Static id="Static05" taborder="6" text="3차 결제자 의견" left="20" top="398" width="105" height="100" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;bordertype:normal 0 0 ;align:center middle;font:bold 9 dotum;"/>
+        <Button id="Button_close" taborder="7" text="닫기" onclick="Button_close_onclick" left="531" top="515" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Gulim;"/>
+        <Static id="Static22" taborder="11" left="14" top="217" width="146" height="25" style="font:bold 9 Dotum,굴림;"/>
+        <Static id="Static33" taborder="12" left="14" top="364" width="146" height="25" style="font:bold 9 Dotum,굴림;"/>
+        <Static id="Static11" taborder="13" left="14" top="70" width="146" height="25" style="font:bold 9 Dotum,굴림;"/>
+        <TextArea id="Edit_depuName01" taborder="14" left="126" top="106" width="450" height="96" style="padding:0 3 0 3;background:#f7f7f7ff;border:1 solid #d5d5d5ff ;color:#999999ff;bordertype:normal 0 0 ;align:left middle;"/>
+        <TextArea id="Edit_depuName00" taborder="15" left="126" top="253" width="450" height="96" style="padding:0 3 0 3;background:#f7f7f7ff;border:1 solid #d5d5d5ff ;color:#999999ff;bordertype:normal 0 0 ;align:left middle;"/>
+        <TextArea id="Edit_depuName02" taborder="16" left="126" top="400" width="450" height="96" style="padding:0 3 0 3;background:#f7f7f7ff;border:1 solid #d5d5d5ff ;color:#999999ff;bordertype:normal 0 0 ;align:left middle;"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="Edit_depuName01" propid="value" datasetid="ds_aprvInfo" columnid="aprvinfocont"/>
+      <BindItem id="item1" compid="Edit_depuName00" propid="value" datasetid="ds_aprvInfo" columnid="aprvinfocont1"/>
+      <BindItem id="item2" compid="Edit_depuName02" propid="value" datasetid="ds_aprvInfo" columnid="aprvinfocont2"/>
+    </Bind>
+    <Objects>
+      <Dataset id="ds_aprvInfo">
+        <ColumnInfo>
+          <Column id="aprvInfoName" type="STRING" size="256"/>
+          <Column id="aprvInfoDeptName" type="STRING" size="256"/>
+          <Column id="aprvInfoCont" type="STRING" size="256"/>
+          <Column id="aprvinfoname1" type="STRING" size="256"/>
+          <Column id="aprvinfodeptname1" type="STRING" size="256"/>
+          <Column id="aprvinfocont1" type="STRING" size="256"/>
+          <Column id="aprvinfoname2" type="STRING" size="256"/>
+          <Column id="aprvinfodeptname2" type="STRING" size="256"/>
+          <Column id="aprvinfocont2" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_search">
+        <ColumnInfo>
+          <Column id="aprvprgrInfoStepCode" type="STRING" size="256"/>
+          <Column id="aprvprgrInfoBookNo" type="STRING" size="256"/>
+          <Column id="aprvprgrInfoSeq" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "Lib::common.xjs"; //공통함수 호출
+
+this.aprv_comment_cont = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.aprvComment();
+	
+	trace("!!!!모달성공!!!!");
+}
+
+
+this.aprvComment = function()
+{
+	this.ds_search.setColumn(0, "aprvprgrInfoStepCode", application.gds_aprverInfo.getColumn(0, "aprvprgrInfoStepCode"));
+	this.ds_search.setColumn(0, "aprvprgrInfoBookNo", application.gds_aprverInfo.getColumn(0, "aprvprgrInfoBookNo"));
+	this.ds_search.setColumn(0, "aprvprgrInfoSeq", application.gds_aprverInfo.getColumn(0, "aprvprgrInfoSeq"));
+	
+	//trace(this.ds_search.saveXML());
+	
+	this.gfn_transaction(this,
+		  "getAprvCommentInfo",
+		  "aprvListEmpl/getPayerInfo.do",
+		  "ds_search=ds_search",
+		  "ds_aprvInfo=ds_aprvInfo",
+		  "",
+		  "fn_callback");
+}
+
+
+this.fn_callback = function(svcId, errCd, errMsg)
+{
+trace("sfsfsf : "+this.ds_aprvInfo.saveXML());
+	if(svcId == "getAprvCommentInfo")
+	{
+		if(typeof(this.ds_aprvInfo.getColumn(0, "aprvinfodeptname")) != 'undefined')
+		{
+		trace("111");
+			this.Static11.set_text(this.ds_aprvInfo.getColumn(0, "aprvinfodeptname")+ " "+this.ds_aprvInfo.getColumn(0, "aprvinfoname"));
+		}
+		if(typeof(this.ds_aprvInfo.getColumn(0, "aprvinfodeptname1")) != 'undefined')
+		{
+			this.Static22.set_text(this.ds_aprvInfo.getColumn(0, "aprvinfodeptname1")+ " "+this.ds_aprvInfo.getColumn(0, "aprvinfoname1"));
+		}
+		if(typeof(this.ds_aprvInfo.getColumn(0, "aprvinfodeptname2")) != 'undefined')
+		{
+			this.Static33.set_text(this.ds_aprvInfo.getColumn(0, "aprvinfodeptname2")+ " "+this.ds_aprvInfo.getColumn(0, "aprvinfoname2"));
+		}
+	}
+}
+this.Button_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close(); 
+}
+]]></Script>
+  </Form>
+</FDL>

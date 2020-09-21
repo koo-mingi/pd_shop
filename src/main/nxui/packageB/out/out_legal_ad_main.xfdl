@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="out_legal_ad_main" classname="out_legal_ad_main" left="0" top="0" width="1024" height="768" titletext="New Form" onload="out_legal_ad_main_onload">
+    <Layouts>
+      <Layout>
+        <Plugin id="Plugin00" left="0%" top="0" right="0%" height="715" taborder="0" classid="{8856F961-340A-11D0-A96B-00C04FD705A2}" popupstyle="true"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.out_legal_ad_main_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	//this.Plugin00.callMethod("Navigate2","http://www.naver.com");
+}
+]]></Script>
+  </Form>
+</FDL>

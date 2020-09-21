@@ -1,0 +1,571 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="OUT_legal_ad_re" classname="OUT_legal_ad_re_skw" left="0" top="0" width="1024" height="768" titletext="New Form" onload="re_onload">
+    <Layouts>
+      <Layout>
+        <ImageViewer id="img_view03" taborder="34" left="14" top="374" width="993" height="130" style="background:lavenderblush;border:1 solid #a8a8a8ff ;"/>
+        <ImageViewer id="img_view02" taborder="31" left="14" top="201" width="994" height="136" style="background:lavenderblush;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_06" taborder="33" left="43" top="206" width="958" height="26" style="background:#eaeaeaff;border:1 solid #c8c8c8ff ;color:#444444ff;"/>
+        <ImageViewer id="img_view01" taborder="30" left="14" top="127" width="994" height="35" style="background:lavenderblush;border:1 solid #a8a8a8ff ;"/>
+        <ImageViewer id="img_view00" taborder="29" left="14" top="65" width="996" height="35" style="background:lavenderblush;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_05" taborder="28" left="48" top="281" width="953" height="50" style="background:#eaeaeaff;border:1 solid #c8c8c8ff ;color:#444444ff;"/>
+        <Div id="DivTitle" taborder="0" text="  외부법률자문회신" left="14" top="7" width="996" height="50" style="align:left;background:#3366ffff;color:#ffffffff;font:bold 12 굴림체;">
+          <Layouts>
+            <Layout width="996" height="50"/>
+          </Layouts>
+        </Div>
+        <Static id="sta_00" taborder="1" left="77" top="70" width="926" height="25" style="background:#eaeaeaff;border:1 solid #a8a8a8ff ;color:#444444ff;"/>
+        <Static id="sta_01" taborder="2" text="의뢰번호" left="20" top="70" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Edit id="edt_00" taborder="3" left="140" top="73" width="140" height="19" enable="false" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <Button id="btn_01" taborder="4" text="검색" onclick="search_onclick" left="284" top="72" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;"/>
+        <Button id="btn_00" taborder="5" text="초기화" onclick="Button01_onclick" left="942" top="72" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;"/>
+        <Static id="subTitle_06" taborder="6" text="  회신정보" left="1.37%" top="106" right="79.69%" height="15" style="font:bold 9 굴림;"/>
+        <Static id="sta_02" taborder="7" left="43" top="132" width="958" height="25" style="background:#eaeaeaff;border:1 solid #a8a8a8ff ;color:#444444ff;"/>
+        <Static id="sta_03" taborder="8" text="의뢰담당자" left="20" top="132" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Edit id="edt_01" taborder="9" left="140" top="135" width="140" height="19" enable="false" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <Static id="sta_04" taborder="10" text="의뢰일자" left="346" top="132" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Calendar id="cal_00" taborder="11" left="467" top="135" height="19" type="normal" enable="false" width="140" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <Static id="subTitle_05" taborder="12" text="  회신사항" left="1.37%" top="181" right="79.69%" height="15" style="font:bold 9 굴림;"/>
+        <Static id="sta_07" taborder="13" left="48" top="230" width="953" height="52" style="background:#eaeaeaff;border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;color:#444444ff;"/>
+        <Static id="wSta_09" taborder="15" text="회신내용" left="20" top="230" width="115" height="52" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="wSta_10" taborder="16" text="기타회신사항" left="20" top="281" width="115" height="50" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Edit id="edt_02_nosize" taborder="17" left="140" top="209" width="858" height="19" style="border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;" maxlength="100"/>
+        <TextArea id="TextArea00" taborder="18" left="140" top="233" height="46" width="858" style="padding:0 3 0 3;border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;" maxlength="255"/>
+        <TextArea id="TextArea01" taborder="19" left="140" top="283" width="857" height="46" style="padding:0 3 0 3;border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;" maxlength="255"/>
+        <Static id="subTitle_11" taborder="20" text="  자문비내역" left="1.37%" top="356" right="79.69%" height="15" style="font:bold 9 굴림;"/>
+        <Button id="btn_02" taborder="21" text="추가" onclick="Button02_onclick" left="892" top="345" width="55" height="23" visible="false" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;"/>
+        <Button id="btn_03" taborder="22" text="삭제" onclick="Button03_onclick" left="952" top="345" width="55" height="23" visible="false" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;"/>
+        <Grid id="grd_00" taborder="23" useinputpanel="false" left="21" top="381" height="117" binddataset="ds_cost" autofittype="col" width="978" onheadclick="Grid00_onheadclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="59"/>
+                <Column size="474"/>
+                <Column size="111"/>
+                <Column size="101"/>
+                <Column size="115"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+                <Row size="24" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="No."/>
+                <Cell col="1" text="회신내용"/>
+                <Cell col="2" text="자문수수료"/>
+                <Cell col="3" text="부가세"/>
+                <Cell col="4" text="청구합계금액"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:currow+1"/>
+                <Cell col="1" edittype="text" text="bind:legaladvCostRepCont" editlimit="4000"/>
+                <Cell col="2" displaytype="number" edittype="masknumber" style="align:right;" text="bind:legaladvCostReqCost" mask="###,###,###" editlimitbymask="integer"/>
+                <Cell col="3" displaytype="number" style="align:right;" text="bind:legaladvCostStax" mask="###,###,###" editlimitbymask="integer"/>
+                <Cell col="4" displaytype="number" edittype="none" style="align:right;" text="bind:legaladvCostClamsumChg" mask="#,###,###,###" editlimitbymask="integer"/>
+              </Band>
+              <Band id="summary">
+                <Cell colspan="4" text="총계"/>
+                <Cell col="4" displaytype="number" style="align:right;" expr="expr:dataset.getSum(&quot;parseInt(legaladvCostClamsumChg)&quot;)" mask="#,###"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_05" taborder="25" text="저장" onclick="Button05_onclick" left="893" top="518" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 dotum;"/>
+        <Button id="Button04" taborder="26" text="자문의뢰 보기" left="898" top="173" height="23" width="110" onclick="Button04_onclick" visible="false" cssclass="btn_WFSA_Search" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Dotum;"/>
+        <Button id="btn_06" taborder="27" text="닫기" left="953" top="518" height="23" onclick="Button06_onclick" width="55" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;"/>
+        <Static id="sta_08" taborder="14" text="회신제목" left="20" top="206" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="star_Static20" taborder="35" text="*" left="43" top="206" width="37" height="23" style="color:#ff0000ff;font:dotum,14,bold;"/>
+        <Static id="star_Static00" taborder="36" text="*" left="43" top="245" width="37" height="23" style="color:#ff0000ff;font:dotum,14,bold;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_cost" oncolumnchanged="ds_cost_oncolumnchanged" useclientlayout="true">
+        <ColumnInfo>
+          <Column id="legaladvCostLawadvReqno" type="STRING" size="256"/>
+          <Column id="legaladvCostLawadvSeq" type="STRING" size="256"/>
+          <Column id="legaladvCostReqCost" type="STRING" size="256"/>
+          <Column id="legaladvCostStax" type="STRING" size="256"/>
+          <Column id="legaladvCostClamsumChg" type="STRING" size="256"/>
+          <Column id="legaladvCostRepCont" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_legal_ad">
+        <ColumnInfo>
+          <Column id="legaladvLawAdvReqNo" type="STRING" size="256"/>
+          <Column id="legaladvOutReqDate" type="STRING" size="256"/>
+          <Column id="legaladvRepTit" type="STRING" size="256"/>
+          <Column id="legaladvRepCont" type="STRING" size="256"/>
+          <Column id="legaladvEtcRepPoin" type="STRING" size="256"/>
+          <Column id="repMgrName" type="STRING" size="256"/>
+          <Column id="reqMgrName" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_cost_search">
+        <ColumnInfo>
+          <Column id="legaladvCostLawadvReqno" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_search_legal_ad">
+        <ColumnInfo>
+          <Column id="legaladvLawAdvReqNo" type="STRING" size="256"/>
+          <Column id="legaladvOutReqLyrid" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset00">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1w11w</Col>
+            <Col id="Column1">e3e</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="edt_00" propid="value" datasetid="ds_search_legal_ad" columnid="legaladvLawAdvReqNo"/>
+      <BindItem id="item1" compid="edt_01" propid="value" datasetid="ds_legal_ad" columnid="repMgrName"/>
+      <BindItem id="item2" compid="cal_00" propid="value" datasetid="ds_legal_ad" columnid="legaladvOutReqDate"/>
+      <BindItem id="item3" compid="edt_02_nosize" propid="value" datasetid="ds_legal_ad" columnid="legaladvRepTit"/>
+      <BindItem id="item4" compid="TextArea00" propid="value" datasetid="ds_legal_ad" columnid="legaladvRepCont"/>
+      <BindItem id="item5" compid="TextArea01" propid="value" datasetid="ds_legal_ad" columnid="legaladvEtcRepPoin"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "Lib::common.xjs";
+
+var legaladvLawAdvReqNo = '';
+var legaladvOutReqLyrid = '';
+
+// dataset(gds_legalad)의 정보가 바뀔때마다 this.re_onload(); 되어야한다.
+// form 열였을때 로드하기
+this.re_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	//this.gfnOnload(this);
+	var rtnObj = this.gfnGetArgument();
+	legaladvLawAdvReqNo = rtnObj.legaladvLawAdvReqNo;
+	legaladvOutReqLyrid = rtnObj.legaladvOutReqLyrid;
+	
+	if(!this.gfn_IsNull(legaladvLawAdvReqNo))
+	{		
+		this.fnSearch();
+	}
+	
+	/*
+	if(legaladvNo != null)
+	{
+		this.ds_search_legal_ad.addRow();
+		this.ds_search_legal_ad.setColumn(this.ds_search_legal_ad.rowposition, "legaladvLawAdvReqNo", legaladvNo);
+		this.ds_search_legal_ad.setColumn(this.ds_search_legal_ad.rowposition, "legaladvOutReqLyrid", outlegalLyrid);
+		
+		trace("-------------"+this.ds_search_legal_ad.getRowCount());
+		trace("gds_legalad 의뢰번호 : ", this.ds_search_legal_ad.getColumn(this.ds_search_legal_ad.rowposition, "legaladvLawAdvReqNo"));
+		trace("gds_legalal 변호사번호 : ", this.ds_search_legal_ad.getColumn(this.ds_search_legal_ad.rowposition, "legaladvOutReqLyrid"));
+		
+		this.getOutLegalAdvInfo();
+		
+	}
+	else
+	{
+		trace("page load~~~~~normally");
+	}
+	*/
+}
+
+this.fnSearch = function ()
+{
+	trace("legaladvLawAdvReqNo(re) : "+legaladvLawAdvReqNo);
+	trace("legaladvOutReqLyrid(re) : "+legaladvOutReqLyrid);
+		
+	if(this.gfn_IsNull(legaladvOutReqLyrid))
+	{
+		legaladvOutReqLyrid = application.gds_User.getColumn(application.gds_User.rowposition, "sabun");
+	}
+	
+	this.ds_search_legal_ad.setColumn(0,'legaladvLawAdvReqNo',legaladvLawAdvReqNo);
+	this.ds_search_legal_ad.setColumn(0,'legaladvOutReqLyrid',legaladvOutReqLyrid);
+	
+	this.btn_02.set_visible(true);
+	this.btn_03.set_visible(true);
+	this.getOutLegalAdvInfo();
+};
+
+//검색버튼
+this.search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//this.reload();
+	var nLeft = system.clientToScreenX(this, 10);
+	var nTop = system.clientToScreenY(this, 10);	
+	var newChild = new ChildFrame;
+	
+	//모달팝업창 불러옴
+	newChild.init("Popup", "absolute", nLeft, nTop, 300, 250, null, null,
+					"out::OUT_legal_ad_out_no.xfdl");
+	newChild.set_openalign("center middle");
+	newChild.set_dragmovetype("all");
+	newChild.showModal(this.getOwnerFrame(), "", this, "modal_callback");
+}
+
+//모달창 callback
+this.modal_callback = function(strID, variant)
+{
+	if(strID == "Popup")
+	{
+		
+		legaladvLawAdvReqNo = variant; //variant : modal창 닫힐때 반환값
+		
+		this.ds_cost.clearData();
+		
+		if(!this.gfn_IsNull(legaladvLawAdvReqNo))
+		{
+			this.fnSearch();
+		}
+		
+		/*
+		var x = legaladvLawAdvReqNo.length;
+		var lyrid = application.gds_User.getColumn(application.gds_User.rowposition, "sabun");
+		
+		
+		trace("legaladvLawAdvReqNo : " + legaladvLawAdvReqNo);
+		trace("x : " + x);
+		trace("lyrid : " + lyrid);
+		
+		if(this.gfn_IsNull(legaladvLawAdvReqNo)) //법률자문의뢰번호 없을때
+		{
+			this.alert("기본사항이 없습니다.");
+			return false;
+		}
+		else if(!this.gfn_IsNull(legaladvLawAdvReqNo))
+		{	
+			this.ds_search_legal_ad.addRow();
+			this.ds_search_legal_ad.setColumn(this.ds_search_legal_ad.rowposition, "legaladvLawAdvReqNo", legaladvLawAdvReqNo);
+			this.ds_search_legal_ad.setColumn(this.ds_search_legal_ad.rowposition, "legaladvOutReqLyrid", lyrid);
+			this.getOutLegalAdvInfo();
+		}
+		*/
+	}
+}
+
+//법률자문 Info 조회
+this.getOutLegalAdvInfo = function()
+{
+	var strSvcid = "getOutLegalAdvInfo";
+	var strController = "/out/getOutLegalAdvInfo.do";
+	
+	this.gfn_transaction(this,
+						strSvcid, strController,
+						"ds_search=ds_search_legal_ad",
+						"ds_legal_ad=ds_output",
+						"",
+						"FnCallback");
+}
+
+//costInfo 조회
+this.getOutLegalCostInfo = function()
+{
+	var legaladvCostLawadvReqno = this.ds_legal_ad.getColumn(this.ds_legal_ad.rowposition, "legaladvLawAdvReqNo");
+	trace("legaladvCostLawadvReqno : "+legaladvCostLawadvReqno);
+	
+	this.ds_cost_search.setColumn(0, "legaladvCostLawadvReqno",legaladvCostLawadvReqno);
+	
+	var strSvcid = "getOutLegalAdvCostInfo";
+	var strController = "/out/getOutLegalAdvCostInfo.do";
+	
+	this.gfn_transaction(this,
+						strSvcid, strController,
+						"ds_search=ds_cost_search",
+						"ds_cost=ds_output",
+						"",
+						"FnCallback");
+}
+
+
+//callback 함수
+this.FnCallback = function(svcid, errcd, errmsg)
+{
+	if(errcd <0)
+	{
+		//alert("적절하지 않은 요청입니다.");
+		trace(svcid + "-" + errcd + "-" +errmsg);
+	}
+	else
+	{
+		switch(svcid)
+		{
+			case "getOutLegalAdvInfo":
+				/*
+				if(this.ds_legal_ad.getRowCount==0)
+				{
+					alert("자료가 없습니다.");
+				}
+				else
+				{
+					this.ds_search_legal_ad.clearData();
+					application.gds_legalad.clearData();
+					//alert("gds_legalad : "+application.gds_legalad.getRowCount());
+					//alert("조회완료");
+					this.btn_02.set_visible(true);
+					this.btn_03.set_visible(true);
+					this.getOutLegalCostInfo();
+				}*/
+				this.cal_00.set_value(this.gfn_Today());
+				this.getOutLegalCostInfo();
+				
+				break;
+			case "getOutLegalAdvCostInfo":
+				/*
+				if(this.ds_cost.rowcount==0)
+				{
+					alert("자문비내역이 없습니다.");
+				}
+				else
+				{
+					//alert("자문비내역 조회완료");
+				}
+				*/
+				break;
+			case "deleteCostInfo":
+				alert("자문비내역을 삭제하였습니다.");
+				this.getOutLegalCostInfo();
+				break;
+			case "saveCostInfo":
+				alert("자문의뢰회신을 저장하였습니다.");
+				alert("자문비내역을 저장하였습니다.");
+				this.fnSearch();
+				break;
+			case "saveCostInfo1":
+				alert("자문의뢰회신을 저장하였습니다.");
+				this.fnSearch();
+				break;
+			case "saveCostInfo2":
+				alert("자문비내역을 저장하였습니다.");
+				this.fnSearch();
+				break;
+		}
+	}
+}//end FnCallback
+
+//초기화 버튼
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//this.reload();
+	this.ds_legal_ad.clearData();
+	this.ds_cost.clearData();
+	
+	this.btn_02.set_visible(false);
+	this.btn_03.set_visible(false);
+}
+
+
+//추가버튼
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_cost.insertRow(0);
+	this.grd_00.setCellPos(1);
+	/*
+	this.ds_cost.addRow();
+	var legaladvCostLawadvReqno = this.ds_legal_ad.getColumn(this.ds_legal_ad.rowposition, "legaladvLawAdvReqNo");
+	this.ds_cost.setColumn(this.ds_cost.rowposition, "legaladvCostLawadvReqno", legaladvCostLawadvReqno);
+	alert("추가 후 저장버튼을 눌러야 저장됩니다.");
+	*/
+}
+
+//삭제버튼
+this.Button03_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var cRow = this.ds_cost.rowposition;
+	
+	if(this.ds_cost.rowcount == 0)	return	alert("삭제할 데이터가 없습니다.");
+    
+    if(this.ds_cost.getRowType(cRow) == Dataset.ROWTYPE_INSERT){
+		this.ds_cost.deleteRow(cRow);
+    }else{
+		this.ds_cost.deleteRow(cRow);
+		this.costDel("deleteCostInfo");
+		//this.cud_transaction("deleteCostInfo");
+    }
+	
+}
+
+this.fnValidation = function()
+{
+	var mCRow = this.ds_legal_ad.rowposition;
+	var rCnt  = this.ds_cost.rowcount;
+	
+	var outTit 	= this.ds_legal_ad.getColumn(mCRow,"legaladvRepTit");
+	var outCont = this.ds_legal_ad.getColumn(mCRow,"legaladvRepCont");
+	
+	if(this.gfn_IsNull(outTit))
+	{
+		alert("회신제목을 입력해주세요.");
+		this.edt_02_nosize.setFocus();
+		return false;
+	}
+	else if(this.gfn_IsNull(outCont))
+	{
+		alert("회신내용을 입력해주세요.");
+		this.TextArea00.setFocus();
+		return false;
+	}
+	else if(rCnt > 0)
+	{	
+		for(var i=0; i<rCnt; i++){
+			
+			var cost = this.ds_cost.getColumn(i, "legaladvCostReqCost");
+			var stax = this.ds_cost.getColumn(i, "legaladvCostStax");
+			var cont = this.ds_cost.getColumn(i, "legaladvCostRepCont");
+			
+			if(this.gfn_IsNull(cost)){
+				alert("자문수수료를 입력해주세요.");
+				return false;
+			}else if(this.gfn_IsNull(stax)){
+				alert("부가세를 입력해주세요.");
+				return false;
+			}else if(this.gfn_IsNull(cont)){
+				alert("자문비 회신내용을 입력해주세요.");
+				return false;
+			}
+		}
+	}
+		
+	return true;
+};
+
+//저장버튼
+this.Button05_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var no = this.ds_legal_ad.getColumn(this.ds_legal_ad.rowposition, "legaladvLawAdvReqNo");
+	
+	if(this.gfn_IsNull(no))						return alert("법률자문의뢰번호를 검색해주세요.");
+	
+	var rtnBol1 = this.gfnDsChangeCheck(this.ds_legal_ad);
+	var rtnBol2 = this.gfnDsChangeCheck(this.ds_cost);
+	
+	if(	!rtnBol1
+	&&	!rtnBol2)	return alert("저장할 데이터가 없습니다.");
+	if(!this.fnValidation())					return false;
+	
+	if(rtnBol1 && rtnBol2)	this.cud_transaction("saveCostInfo");
+	else if(rtnBol1)		this.cud_transaction("saveCostInfo1");
+	else if(rtnBol2)		this.cud_transaction("saveCostInfo2");
+	
+	/*
+	var yn = confirm("저장 하시겠습니까?");
+	
+	if(yn == true)
+	{
+		this.cud_transaction("saveCostInfo");
+	}
+	else
+	{
+		if(this.ds_cost.getRowCount() < 1)
+		{
+			alert("처리할 정보가 없습니다.");
+		}
+		else
+		{
+			return false;
+		}
+	}
+	*/
+};
+
+//삭제
+this.costDel = function(sSvcid)
+{
+	var legaladvLawAdvReqNo = this.ds_legal_ad.getColumn(0,"legaladvLawAdvReqNo");
+	
+	for(var i=0; i<this.ds_cost.rowcount; i++){
+		this.ds_cost.setColumn(i, "legaladvCostLawadvReqno", legaladvLawAdvReqNo);
+	}
+	
+	var strSvcid = sSvcid;
+	var strController = "/out/OutLegalCostDel.do";
+	
+	this.gfn_transaction(this,
+						strSvcid, strController,
+						"ds_cost=ds_cost:U",
+						"",
+						"",
+						"FnCallback");
+}
+
+//저장, 수정, 삭제 시 transaction method
+this.cud_transaction = function(sSvcid)
+{
+	var legaladvLawAdvReqNo = this.ds_legal_ad.getColumn(0,"legaladvLawAdvReqNo");
+	
+	for(var i=0; i<this.ds_cost.rowcount; i++){
+		this.ds_cost.setColumn(i, "legaladvCostLawadvReqno", legaladvLawAdvReqNo);
+		//?? this.ds_cost.setColumn(i, "legaladvCostLawadvSeq", costSeq);
+	}
+	
+	var strSvcid = sSvcid;
+	var strController = "/out/OutLegalCostListCud.do";
+	
+	this.gfn_transaction(this,
+						strSvcid, strController,
+						"ds_cost=ds_cost:U ds_outLegalAdv=ds_legal_ad:U",
+						"",
+						"",
+						"FnCallback");
+}
+
+//자문의뢰 보기 버튼((닫기/이동 2개 기능 동시에 작동이 안된다...)
+this.Button04_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//닫기
+	var winId = Iject.$["workFrame"].getActiveFrame().name;
+	trace("winId : "+winId);
+    Iject.$["workFrame"].frames[winId].destroy();
+	
+	//이동
+	/*var oObj = {
+          ds    : application.gds_menu,   // 메뉴 dataset 
+          nRow  : 24,          // 선택된
+          oArgs : []              //넘길 argument
+		};
+    
+	Iject.Mdi.call(this,oObj);
+	this.reload();*/
+}
+
+//닫기 버튼
+this.Button06_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfnClose();
+}
+
+this.Grid00_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.gfnGridHeadSort(obj.getBindDataset(), e.cell, false);
+}
+
+this.ds_cost_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	for(var i=0; i<obj.rowcount; i++){
+		var legaladvCostReqCost = nexacro.toNumber(obj.getColumn(i,'legaladvCostReqCost'));
+		var legaladvCostStax	= legaladvCostReqCost * 0.1;
+		
+		if(	this.gfn_IsNull(legaladvCostStax)
+		||	typeof legaladvCostStax != "number") 
+			legaladvCostStax 	= null;
+				
+		var legaladvCostClamsumChg =	this.gfnNVL(legaladvCostReqCost,0)
+									+	this.gfnNVL(legaladvCostStax,0);
+									
+		obj.setColumn(i,'legaladvCostStax',legaladvCostStax);							
+		obj.setColumn(i,'legaladvCostClamsumChg',legaladvCostClamsumChg);
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

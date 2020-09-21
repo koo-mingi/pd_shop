@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="mainFrameNew" classname="mainFrameNew" left="0" top="0" width="1280" height="819" titletext="New Form" style="color:transparent;" tooltiptype="hover">
+    <Layouts>
+      <Layout>
+        <ImageViewer id="ImageViewer00" taborder="0" left="0" top="200" height="559" image="URL('img::lawH.bmp')" stretch="fixaspectratio" width="1010" style="border:0 none white ;"/>
+        <Static id="Static00" taborder="1" text="P" left="22" top="51" right="884" height="117" style="color:yellowgreen;font:italic 92 @HY견고딕;"/>
+        <Static id="Static02" taborder="3" text="Law" left="186" top="90" right="636" height="62" style="color:#646464ff;font:italic 50 @HY견고딕;"/>
+        <Static id="Static03" taborder="4" left="104" top="164" height="5" style="background:yellowgreen;" width="265"/>
+        <Static id="Static04" taborder="5" text="Judicial Affairs Management System" left="66" top="169" right="587" height="22" style="color:#646464ff;font:bold 12 휴먼모음T;"/>
+        <Static id="Static01" taborder="6" text="D" left="94" top="49" right="822" height="117" style="color:yellowgreen;align:left;font:italic 82 @HY견고딕;"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************************
+* SYSTEM      : 넥사크로플랫폼 PackageB
+* BUSINESS    : 넥사크로플랫폼 PackageB
+* FILE NAME   : MainFrame.xfdl
+* PROGRAMMER  : 
+* DATE        : 
+* DESCRIPTION : MainFrame
+*------------------------------------------------------------------
+* MODIFY DATE   PROGRAMMER			DESCRIPTION
+*------------------------------------------------------------------
+* 
+*------------------------------------------------------------------
+***********************************************************************************/
+
+/***********************************************************************************
+* Common Library
+***********************************************************************************/
+include "Lib::common.xjs";
+
+
+/***********************************************************************************
+* Global/Local Variable
+***********************************************************************************/
+
+
+/***********************************************************************************
+* Form Event
+***********************************************************************************/
+/**
+ * form onload 함수
+ * @return 
+ * @example
+ *
+ * @memberOf this
+ */
+this.MainFrame_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+
+}
+]]></Script>
+  </Form>
+</FDL>

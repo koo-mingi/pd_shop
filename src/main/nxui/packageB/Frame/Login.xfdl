@@ -1,0 +1,506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Login" classname="Login" left="0" top="0" width="450" height="290" onload="form_onload" style="background:transparent;" onsize="Login_onsize" titletext="Login" scrollbars="none">
+    <Layouts>
+      <Layout>
+        <Div id="div_login" taborder="0" left="0" top="0" width="450" height="310" style="background:transparent URL('img::LOGINBG.png');" scrollbars="none">
+          <Layouts>
+            <Layout width="553" height="321">
+              <Edit id="txt_userId" taborder="27" displaynulltext="User ID" oneditclick="div_login_txt_userId_oneditclick" left="103" top="136" width="150" height="25"/>
+              <Edit id="txt_userPwd" taborder="28" password="true" displaynulltext="Password" onkeydown="login_onkeydown" left="103" top="165" width="150" height="25"/>
+              <Button id="btn_login" taborder="29" text="로그인" wordwrap="char" onclick="btn_login_onclick" onkeyup="div_login_btn_login_onkeyup" top="136" right="127" width="60" height="50" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;"/>
+              <Button id="btn_close" taborder="30" text="X" onclick="fn_close" visible="false" top="8" right="15" width="29" height="19" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;"/>
+              <CheckBox id="legal_checkbox" taborder="31" text="법률관계자 로그인" onclick="legal_checkbox_onclick" left="106" top="194" right="197" height="22"/>
+              <Button id="btn_join" taborder="32" text="회원가입" onclick="btn_join_onclick" left="332" top="136" width="60" height="50" style="background:URL('img::btn_WF_crud_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;opacity:100;shadow:outer 0,0 0 gray;"/>
+              <Button id="programmar" taborder="33" text="개발전용로그인" onclick="programmar_onclick" left="784" top="104" width="115" height="22" style="color:#333333ff;font:bold 9 Dotum;opacity:100;"/>
+              <Button id="Button01" taborder="34" text="    관리자    2013102001" wordwrap="char" onclick="Button01_onclick" left="4" top="223" width="70" height="27" style="background:@gradation;align:center middle;font:8 Dotum;"/>
+              <Button id="Button02" taborder="35" text="    민성운    2013102002" wordwrap="char" onclick="Button02_onclick" left="78" top="223" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
+              <Button id="Button03" taborder="36" text="    박연주    2013102012" wordwrap="char" onclick="Button03_onclick" left="152" top="223" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
+              <Button id="Button04" taborder="37" text="    신윤권    2013102011" wordwrap="char" onclick="Button04_onclick" left="227" top="223" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
+              <Button id="Button05" taborder="38" text="    이하늘    2013102008" wordwrap="char" onclick="Button05_onclick" left="301" top="223" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
+              <Button id="Button06" taborder="39" text="    전지희    2001030402" wordwrap="char" onclick="Button06_onclick" left="375" top="223" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
+              <Button id="Button07" taborder="40" text="    한현진    2013102009" wordwrap="char" onclick="Button07_onclick" left="4" top="253" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
+              <Button id="Button08" taborder="41" text="    신미향    2014021201" wordwrap="char" onclick="Button08_onclick" left="78" top="253" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
+              <Button id="Button09" taborder="42" text="    김유나    2013032901" wordwrap="char" onclick="Button09_onclick" left="152" top="253" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
+              <Button id="Button10" taborder="43" text="    이세형    2013102003" wordwrap="char" onclick="Button10_onclick" left="227" top="253" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
+              <Button id="Button11" taborder="44" text="    허성렬    2013102007" wordwrap="char" onclick="Button11_onclick" left="301" top="253" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
+              <Button id="Button12" taborder="45" text=" 외부변호사   2013082601" wordwrap="char" onclick="Button12_onclick" left="375" top="253" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_idpw">
+        <ColumnInfo>
+          <Column id="msg" type="STRING" size="256"/>
+          <Column id="insaId" type="STRING" size="256"/>
+          <Column id="insaName" type="STRING" size="256"/>
+          <Column id="insaPwd" type="STRING" size="256"/>
+          <Column id="insaSabun" type="STRING" size="256"/>
+          <Column id="insaStat" type="STRING" size="256"/>
+          <Column id="insaPutWtr" type="STRING" size="256"/>
+          <Column id="insaDeptCode" type="STRING" size="256"/>
+          <Column id="insaDeptName" type="STRING" size="256"/>
+          <Column id="insaAdmYn" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************************
+* SYSTEM      : 넥사크로플랫폼 PackageB
+* BUSINESS    : 넥사크로플랫폼 PackageB
+* FILE NAME   : Login.xfdl
+* PROGRAMMER  : 
+* DATE        : 
+* DESCRIPTION : 로그인 화면
+*------------------------------------------------------------------
+* MODIFY DATE   PROGRAMMER			DESCRIPTION
+*------------------------------------------------------------------
+* 
+*------------------------------------------------------------------
+***********************************************************************************/
+
+/***********************************************************************************
+* Common Library
+***********************************************************************************/
+include "Lib::common.xjs";
+
+
+/***********************************************************************************
+* Global/Local Variable
+***********************************************************************************/
+
+
+/***********************************************************************************
+* Form Event
+***********************************************************************************/
+/**
+ * form onload 함수
+ * @return 
+ * @example
+ *
+ * @memberOf this
+ */
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{
+	if(nexacro.Browser == "Runtime") this.div_login.btn_close.set_visible(true);
+
+	Iject.formOnload(obj);
+	this.form_onsize();
+}
+
+ 
+/***********************************************************************************
+* User Function
+***********************************************************************************/
+
+/**
+* form onsize
+* @return 
+* @example
+* @memberOf public
+*/ 
+this.form_onsize = function()
+{
+  	if(nexacro.Browser == "Runtime") return;
+
+  	var nLeft = (application.mainframe.width / 2) - Math.round((this.div_login.getOffsetWidth()) / 2);
+  	var nTop = (application.mainframe.height / 2) - Math.round((this.div_login.getOffsetHeight()) / 2);
+
+	if(nLeft <= 0)
+	{
+		this.div_login.setOffsetLeft(0);
+	}
+	else
+	{
+    	this.div_login.setOffsetLeft(nLeft);
+		this.div_login.setOffsetTop(nTop);
+	}
+}
+
+
+/***********************************************************************************
+* Component Event
+***********************************************************************************/
+this.btn_login_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    if(this.div_login.legal_checkbox.value==true)
+    {
+		this.fn_outLogin();
+    }
+    else
+    {
+		this.fn_login();
+    }
+}
+
+//법률관계자 로그인
+this.fn_outLogin = function()
+{
+	this.ds_idpw.clearData();
+	application.gds_User.clearData();
+	
+	// id 입력 안했을때
+	if(this.gfn_IsNull(this.div_login.txt_userId.value)){
+		this.alert("ID를 입력해주시기 바랍니다.");
+		return;
+	}
+	// pw 입력 안했을때
+	if(this.gfn_IsNull(this.div_login.txt_userPwd.value)){
+		this.alert("비밀번호를 입력해주시기 바랍니다.");
+		return;
+	}
+	
+	var idValue = this.gfn_Trim(this.div_login.txt_userId.value);
+	var pwdValue = this.gfn_Trim(this.div_login.txt_userPwd.value);
+	
+	var strParam = "id="+idValue+" pwd="+pwdValue;
+	
+	this.gfn_transaction(this,
+						"outLoginCheck",
+						"administrator/outLogin.do",
+						"",
+						"ds_idpw=ds_output",
+						strParam,
+						"transaction_callback"
+						);
+	
+}
+
+//일반 login function
+this.fn_login = function()
+{
+	this.ds_idpw.clearData();
+	application.gds_User.clearData();
+	
+	// id 입력 안했을때
+	if(this.gfn_IsNull(this.div_login.txt_userId.value)){
+		this.alert("ID를 입력해주시기 바랍니다.");
+		return;
+	}
+	// pw 입력 안했을때
+	if(this.gfn_IsNull(this.div_login.txt_userPwd.value)){
+		this.alert("비밀번호를 입력해주시기 바랍니다.");
+		return;
+	}
+	
+	var idValue = this.gfn_Trim(this.div_login.txt_userId.value);
+	var pwdValue = this.gfn_Trim(this.div_login.txt_userPwd.value);
+	
+	var strParam = "id=" + idValue + " pwd=" + pwdValue;
+	
+	this.gfn_transaction(this,
+						"loginCheck",
+						"administrator/login.do",
+						"",
+						"ds_idpw=ds_output",
+						strParam,
+						"transaction_callback"
+						);
+	
+}
+
+// 트랜잭션 콜백
+this.transaction_callback = function(sSvcId, nErrorCode, sErrorMsg)
+{
+	if(nErrorCode < 0)
+	{
+		this.alert(sSvcId + " : " + sErrorMsg);
+		return;
+	}
+	
+	if(sSvcId == "loginCheck"){
+		
+		var msg = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "msg");
+	
+		if(msg == "ok"){
+
+			var insaSabun = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaSabun");
+			var insaId = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaId");
+			var insaDeptCode = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaDeptCode");
+			var insaDeptName = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaDeptName");
+			var insaName = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaName");
+			var insaAdmYn = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaAdmYn");
+			
+			if(this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaStat") == "002"){
+				
+				if(this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaPutWtr") !== 'N'){
+					application.gds_User.addRow();
+					application.gds_User.setColumn(application.gds_User.rowposition, "name", insaName);
+					application.gds_User.setColumn(application.gds_User.rowposition, "id", insaId);
+					application.gds_User.setColumn(application.gds_User.rowposition, "sabun", insaSabun);
+					application.gds_User.setColumn(application.gds_User.rowposition, "insaDeptCode", insaDeptCode);
+					application.gds_User.setColumn(application.gds_User.rowposition, "insaDeptName", insaDeptName);
+					
+					trace("gds_User : "+application.gds_User.getColumn(application.gds_User.rowposition, "name"));
+					
+					//권한 추가 -> admin 로그인 시 메뉴 필터링
+					application.gds_User.setColumn(application.gds_User.rowposition, "menuAuth", insaAdmYn);
+					Iject.$["leftFrame"].form.fnMenuFilterByAuth(insaAdmYn);
+					
+					var oArgs = "close";
+					trace("확인 :: "+ typeof Iject.popClose);
+					Iject.popClose(this,oArgs);
+					
+				}
+				else
+				{
+					this.null_text("로그인 권한이 없습니다.");
+				}
+				
+			}else if(this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaStat") == "003"){
+				this.null_text("승인거부입니다. 관리자에게 문의해주세요.");
+			}else if(this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaStat") == "004"){
+				this.null_text("로그인 보류입니다. 관리자에게 문의해주세요.");
+			}else{
+				this.null_text("로그인 권한이 없습니다.");
+			}
+		}else if(msg == "password"){
+			this.null_text("아이디나 암호를 확인해주세요");
+		}else if(msg == "none"){
+			this.null_text("아이디가 존재하지 않습니다.");
+		}
+	}//end login_callback
+	
+	//법률관계자 login_callback
+	if(sSvcId == "outLoginCheck"){
+		
+		var msg = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "msg");
+		
+		if(msg == "ok"){
+			
+			var insaSabun = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaSabun");
+			var insaId = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaId");
+			var insaDeptCode = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaDeptCode");
+			var insaDeptName = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaDeptName");
+			var insaName = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaName");
+			
+			if(this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaSabun") != null)
+			{
+				application.gds_User.addRow();
+				application.gds_User.setColumn(application.gds_User.rowposition, "name", insaName);
+				application.gds_User.setColumn(application.gds_User.rowposition, "id", insaId);
+				application.gds_User.setColumn(application.gds_User.rowposition, "sabun", insaSabun);
+				application.gds_User.setColumn(application.gds_User.rowposition, "insaDeptCode", insaDeptCode);
+				application.gds_User.setColumn(application.gds_User.rowposition, "insaDeptName", insaDeptName);
+				
+				trace("gds_User : "+application.gds_User.getColumn(application.gds_User.rowposition, "name"));
+				
+				//권한 추가 -> 외부 변호사 로그인 시 메뉴 필터링
+				application.gds_User.setColumn(application.gds_User.rowposition, "menuAuth", 'O');
+				Iject.$["leftFrame"].form.fnMenuFilterByAuth('O');
+				
+				var oArgs = "close";
+				Iject.popClose(this,oArgs);
+			}
+			else
+			{
+				this.null_text("로그인 권한이 없습니다.");
+			}
+			
+		}
+		else if(msg == "password")
+		{
+			this.null_text("아이디나 암호를 확인해주세요");
+		}
+		else if(msg == "none")
+		{
+			this.null_text("아이디가 존재하지 않습니다.");
+		}
+	}//end outLogin_callback
+}//end callback 함수	
+
+// 경고창 및 edit component set null
+this.null_text = function(msg)
+{
+	this.alert(msg);
+	this.div_login.txt_userId.set_value(null);
+	this.div_login.txt_userPwd.set_value(null);
+	this.div_login.txt_userId.setFocus();
+}
+
+
+/**
+* 프레임 open
+* @return 
+* @example
+* @memberOf public
+*/ 
+
+this.fn_menuOpen = function()
+{
+    gv_vFrameSet.set_separatesize("0,*,42");
+    gv_workFrame.frames["MainForm"].setFocus();
+}
+
+
+this.Login_onsize = function(obj:Form, e:nexacro.SizeEventInfo)
+{
+     this.form_onsize(e.cx, e.cy);
+}
+
+this.fn_close = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	application.exit();
+}
+
+this.login_onkeydown = function(obj:Button, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13)
+	{
+		this.btn_login_onclick();
+	}
+}
+
+//개발자전용 로그인
+this.programmar_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArgs = "close";
+    Iject.popClose(this,oArgs);
+}
+
+// 회원가입 모달창
+this.btn_join_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var nLeft = system.clientToScreenX(this, 10);
+	var nTop = system.clientToScreenY(this, 10);
+	 
+	 var newChild = new ChildFrame;
+	 newChild.init("member"
+					, "absolute", nLeft, nTop, 300, 250, null, null
+					, "member::member.xfdl");
+					
+	newChild.set_openalign("center middle");
+	newChild.set_dragmovetype("all");
+	
+	system.showModalWindow(newChild, 
+							"memberModal",
+							this.getOwnerFrame(),
+							"",
+							this);
+}
+
+
+
+this.legal_checkbox_onclick = function(obj:CheckBox,  e:nexacro.ClickEventInfo)
+{
+	trace("checkBox value : "+this.div_login.legal_checkbox.value);
+}
+
+// 관리자 로그인
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	// 관리자 아이디는 원래 관리자유무 체크값이 있어야 함(TAB_INSA의 INSA_ADM_YN)
+	// As-Is는 대표이사님 아이디를 하드코딩 했고, To-be는 로그인에서 따로 체크하지 않음
+	this.div_login.txt_userId.set_value("admin");
+	this.div_login.txt_userPwd.set_value("1111");
+	sSvcId = "loginCheck";
+	this.fn_login();
+}
+
+// 이하 사원 로그인 프리셋
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	// 민성운
+	this.div_login.txt_userId.set_value("1234");
+	this.div_login.txt_userPwd.set_value("1111");
+	sSvcId = "loginCheck";
+	this.fn_login();
+}
+
+this.Button03_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	// 박연주
+	this.div_login.txt_userId.set_value("parkyj");
+	this.div_login.txt_userPwd.set_value("1111");
+	sSvcId = "loginCheck";
+	this.fn_login();
+}
+
+this.Button04_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	// 신윤권
+	this.div_login.txt_userId.set_value("3333");
+	this.div_login.txt_userPwd.set_value("1111");
+	sSvcId = "loginCheck";
+	this.fn_login();
+}
+
+this.Button05_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	// 이하늘
+	this.div_login.txt_userId.set_value("1111");
+	this.div_login.txt_userPwd.set_value("1111");
+	sSvcId = "loginCheck";
+	this.fn_login();
+}
+
+this.Button06_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	// 전지희
+	this.div_login.txt_userId.set_value("003");
+	this.div_login.txt_userPwd.set_value("1111");
+	sSvcId = "loginCheck";
+	this.fn_login();
+}
+
+this.Button07_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	// 한현진
+	this.div_login.txt_userId.set_value("hanhj");
+	this.div_login.txt_userPwd.set_value("1111");
+	sSvcId = "loginCheck";
+	this.fn_login();
+}
+
+this.Button08_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	// 신미향
+	this.div_login.txt_userId.set_value("shinmh");
+	this.div_login.txt_userPwd.set_value("1111");
+	sSvcId = "loginCheck";
+	this.fn_login();
+}
+
+this.Button09_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	// 김유나
+	this.div_login.txt_userId.set_value("002");
+	this.div_login.txt_userPwd.set_value("1111");
+	sSvcId = "loginCheck";
+	this.fn_login();
+}
+
+this.Button10_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	// 이세형
+	this.div_login.txt_userId.set_value("leesh");
+	this.div_login.txt_userPwd.set_value("1111");
+	sSvcId = "loginCheck";
+	this.fn_login();
+}
+
+this.Button11_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	// 허성렬
+	this.div_login.txt_userId.set_value("huhsr");
+	this.div_login.txt_userPwd.set_value("1111");
+	sSvcId = "loginCheck";
+	this.fn_login();
+}
+
+// 법률관계자 로그인 프리셋
+this.Button12_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.div_login.txt_userId.set_value("2013082601");
+	this.div_login.txt_userPwd.set_value("1234");
+	sSvcId = "outLoginCheck";
+	this.alert("법률관계자로 로그인합니다.");
+	/*this.alert("value" + txt_userId.value);*/
+	this.fn_outLogin();
+}
+
+]]></Script>
+  </Form>
+</FDL>

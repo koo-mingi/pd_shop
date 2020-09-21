@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="zipcode" classname="zipcode" inheritanceid="" position="absolute" titletext="New Form" left="0" top="0" width="465" height="193">
+    <Layouts>
+      <Layout>
+        <Grid id="grd_plaintiff" taborder="1" binddataset="ds_pladef" scrollbars="fixedvert" useinputpanel="false" nodatatext="데이터가 없습니다." visible="false" position="absolute" left="499" width="445" top="115" height="106">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="44"/>
+                <Column size="67"/>
+                <Column size="321"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="NO"/>
+                <Cell col="1" text="우편번호"/>
+                <Cell col="2" text="주소"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:center;" text="bind:pladefSeq" expr="currow+1"/>
+                <Cell col="1" edittype="normal" style="align:center;" text="bind:pladefName" editlimit="30"/>
+                <Cell col="2" displaytype="number" edittype="mask" style="align:right;" text="bind:pladefClamVol" mask="###,###.###,###" editlimit="15"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="sta_33" text="기본정보" style="color:black;align:left top;font:굴림,9,bold;" position="absolute" left="7" width="96" top="69" height="19"/>
+        <ImageViewer id="img_titlebg" taborder="1" style="background:cornflowerblue;" position="absolute" left="8" width="445" top="8" height="50"/>
+        <Static id="sta_title" text="우편번호조회" onclick="sta_title_onclick" style="color:whitesmoke;align:left middle;font:굴림,12,bold;" position="absolute" left="26" width="168" top="18" height="29"/>
+        <Static id="sta_01" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;" visible="false" position="absolute" left="504" width="433" top="81" height="25"/>
+        <Static id="sta_no" text="동이름" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" onclick="sta_no_onclick" visible="false" position="absolute" left="499" width="100" top="81" height="25"/>
+        <Edit id="edt_no" taborder="1" maxlength="10" enable="false" style=":disabled {border:1 solid #a8a8a8ff ;color:#505050ff;}" visible="false" position="absolute" left="601" width="156" top="84" height="19"/>
+        <Button id="btn_search" taborder="1" text="검색" onclick="btn_search_onclick" visible="true" position="absolute" left="400" width="52" top="66" height="21"/>
+        <Static id="sta_00" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;" position="absolute" left="13" width="433" top="98" height="25"/>
+        <Static id="sta_04" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;" position="absolute" left="13" width="433" top="122" height="25"/>
+        <Static id="sta_05" text="주소" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="13" width="100" top="98" height="25"/>
+        <Static id="sta_06" text="상대주소" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" onclick="sta_06_onclick" position="absolute" left="13" width="100" top="122" height="25"/>
+        <Edit id="edt_addr2" taborder="1" imemode="alpha" maxlength="100" autoselect="true" autoskip="true" oneditclick="edt_app_case_no_oneditclick" enable="true" style=":disabled {border:1 solid #a8a8a8ff ;color:black;}" position="absolute" left="116" width="326" top="125" height="19"/>
+        <Edit id="edt_pos" taborder="1" visible="true" style="font:굴림,9;" enable="false" position="absolute" left="116" width="60" top="100" height="20"/>
+        <Edit id="edt_addr" taborder="1" visible="true" style="font:굴림,9;" enable="false" position="absolute" left="176" width="266" top="100" height="20"/>
+        <Button id="btn_save" taborder="1" text="저장" onclick="btn_save_onclick" position="absolute" left="343" width="52" top="160" height="21"/>
+        <Button id="btn_cancel" taborder="1" text="취소" onclick="btn_cancel_onclick" position="absolute" left="400" width="52" top="160" height="21"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item20" compid="grd_plaintiff" propid="visible" datasetid="ds_pladef" columnid=""/>
+      <BindItem id="item1" compid="edt_no" propid="value" datasetid="ds_lawsuit" columnid="lawsuitAdmNo"/>
+      <BindItem id="item5" compid="edt_addr2" propid="value" datasetid="ds_lawsuit" columnid="lawsuitAplCaseCode"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "Lib::common.xjs"; //공통함수 호출
+
+var fv_chk = "";
+
+this.btn_search_onclick=function(obj:Button,  e:ClickEventInfo)
+{
+	fv_chk = "";
+	
+	acx_browser.Navigate2("http://localhost:8080/zipcodeSearch.jsp");	//Jsp 호출
+}
+
+function acx_browser_TitleChange(obj:ActiveX, e)
+{
+	if (fv_chk != "" && fv_chk != e.Text)
+    {
+		var address = e.Text;
+		
+		var addressspl = address.split("_");
+        edt_pos.value = addressspl[0];
+        edt_addr.value = addressspl[1];
+    }
+   
+    fv_chk = e.Text;
+}
+
+function btn_save_onclick(obj:Button,  e:ClickEventInfo)
+{
+	var addr = edt_addr.value + " " + edt_addr2.value
+	var rtn = edt_pos.value + "&" + addr
+	close(rtn);
+}
+
+function btn_cancel_onclick(obj:Button,  e:ClickEventInfo)
+{
+	close();
+}
+]]></Script>
+  </Form>
+</FDL>

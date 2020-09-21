@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="LAWSUIT_NOTI_LIST" classname="Work" inheritanceid="" position="absolute" titletext="소송고지관리" left="0" width="1024" top="0" height="768" onload="LAWSUIT_NOTI_LIST_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static08" taborder="27" left="14" top="161" width="996" height="519" style="background:lavenderblush;border:1 solid #c8c8c8ff ;"/>
+        <Static id="Static00" taborder="0" left="14" top="65" width="996" height="60" style="background:lavenderblush;border:1 solid #c8c8c8ff ;"/>
+        <Static id="Static01" taborder="1" left="20" top="70" width="984" height="25" style="background:#eaeaeaff;border:1 solid #c8c8c8ff ;"/>
+        <Static id="Static02" taborder="2" text="검색조건" left="20" top="70" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;bordertype:normal 0 0 ;align:center middle;font:bold 9 dotum;"/>
+        <Static id="Static05" taborder="6" left="20" top="94" width="984" height="25" style="background:#eaeaeaff;border:1 solid #c8c8c8ff ;align:right;"/>
+        <Static id="Static04" taborder="7" text="법원명" left="20" top="94" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;bordertype:normal 0 0 ;align:center middle;font:bold 9 dotum;"/>
+        <Static id="Static06" taborder="9" text="고지일자" left="430" top="94" width="105" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;bordertype:normal 0 0 ;align:center middle;font:bold 9 dotum;"/>
+        <Static id="Static07" taborder="11" text="~" left="692" top="105" width="16" height="21"/>
+        <Button id="btn_list_search00" taborder="13" text="검색" onclick="btn_search_onclick" left="883" top="96" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;border:1 solid #999999ff ;color:white;font:bold 9 Gulim;"/>
+        <Button id="btn_clean" taborder="14" text="초기화" onclick="btn_reset_onclick" left="943" top="96" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Gulim;"/>
+        <Grid id="grd_Search" taborder="16" binddataset="ds_lawsuitNoti" useinputpanel="false" left="20" top="167" width="984" height="506" onheadclick="grd_Search_OnHeadClick" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="95"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="120"/>
+                <Column size="90"/>
+                <Column size="115"/>
+                <Column size="115"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="No"/>
+                <Cell col="1" text="소송고지번호"/>
+                <Cell col="2" text="고지일자"/>
+                <Cell col="3" text="사건번호"/>
+                <Cell col="4" text="법원명"/>
+                <Cell col="5" text="소송관리번호"/>
+                <Cell col="6" text="원고명"/>
+                <Cell col="7" text="피고명"/>
+                <Cell col="8" text="최종심급"/>
+                <Cell col="9" text="총판결금액"/>
+                <Cell col="10" text="담당자명"/>
+              </Band>
+              <Band id="body">
+                <Cell expr="expr:currow+1"/>
+                <Cell col="1" text="bind:lawsuitNotiAdmNo"/>
+                <Cell col="2" text="bind:lawsuitNotiDate"/>
+                <Cell col="3" text="bind:lawsuitNotiCaseNo"/>
+                <Cell col="4" displaytype="combo" text="bind:lawsuitNotiCortCode" combodataset="ds_court" combocodecol="codeno" combodatacol="codenm"/>
+                <Cell col="5" text="bind:lawsuitAdmNo"/>
+                <Cell col="6" text="bind:lawsuitNotiPlaName"/>
+                <Cell col="7" text="bind:lawsuitNotiDefName"/>
+                <Cell col="8" displaytype="combo" text="bind:instAdmCode" combodataset="ds_instanceType1" combocodecol="codeno" combodatacol="codenm"/>
+                <Cell col="9" displaytype="number" text="bind:pladefJudgChg"/>
+                <Cell col="10" text="bind:insaName"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Div id="Div02" taborder="17" text="  소송 고지 명세" left="14" top="7" width="996" height="50" style="align:left;background:#3366ffff;color:#ffffffff;font:bold 12 Dotum;"/>
+        <Combo id="search1" taborder="20" innerdataset="@ds_combo" codecolumn="value" datacolumn="id" onitemchanged="combo_Clas_Code_onitemchanged" left="140" top="73" width="140" height="19" style="background:#ffffffff;color:#333333ff;" index="0" value="0" text="전체"/>
+        <Edit id="legal_input" taborder="21" enable="false" left="285" top="73" width="140" height="19" style=":disabled {background:#f7f7f7ff;color:#999999ff;}" onkeydown="edt_ID_OnKeyDown" oneditclick="legal_input_oneditclick"/>
+        <Combo id="combo_search_court" taborder="22" innerdataset="@ds_court" codecolumn="codeno" datacolumn="codenm" onitemchanged="combo_Clas_Code_onitemchanged" left="140" top="97" width="140" height="19" style="background:#ffffffff;color:#333333ff;"/>
+        <Calendar id="cal_Noti_Date2" taborder="23" left="714" top="97" height="19" width="140"/>
+        <Calendar id="cal_Noti_Date1" taborder="24" left="540" top="97" width="140" height="19"/>
+        <Static id="Static03" taborder="25" text="소송 고지 명세" left="14" top="134" width="996" height="19" style="font:bold 9 굴림;"/>
+        <Button id="btn_close" taborder="26" text="닫기" onclick="btn_zip_onclick" left="955" top="689" width="55" height="25" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_instanceType">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+          <Column id="codeFull" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_court">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+          <Column id="codeFull" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_lawsuitNoti">
+        <ColumnInfo>
+          <Column id="lawsuitNotiAdmNo" type="STRING" size="256"/>
+          <Column id="lawsuitNotiDate" type="STRING" size="256"/>
+          <Column id="lawsuitNotiCaseNo" type="STRING" size="256"/>
+          <Column id="lawsuitNotiCortCode" type="STRING" size="256"/>
+          <Column id="lawsuitAdmNo" type="STRING" size="256"/>
+          <Column id="lawsuitNotiPlaName" type="STRING" size="256"/>
+          <Column id="lawsuitNotiPlaEtcNo" type="STRING" size="256"/>
+          <Column id="lawsuitNotiDefName" type="STRING" size="256"/>
+          <Column id="lawsuitNotiDefEtcNo" type="STRING" size="256"/>
+          <Column id="instAdmCode" type="STRING" size="256"/>
+          <Column id="pladefJudgChg" type="STRING" size="256"/>
+          <Column id="insaName" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_combo">
+        <ColumnInfo>
+          <Column id="id" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="id">전체</Col>
+            <Col id="value">0</Col>
+          </Row>
+          <Row>
+            <Col id="id">소송담당자</Col>
+            <Col id="value">1</Col>
+          </Row>
+          <Row>
+            <Col id="id">사건번호</Col>
+            <Col id="value">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">원고명</Col>
+            <Col id="value">3</Col>
+          </Row>
+          <Row>
+            <Col id="id">피고명</Col>
+            <Col id="value">4</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_instanceType1">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+          <Column id="codeFull" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="codeno">대법원</Col>
+            <Col id="codenm">002</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item3" compid="Static00" propid="text" datasetid="ds_mgr" columnid="insaName"/>
+      <BindItem id="item4" compid="legal_input" propid="value" datasetid="ds_mgr" columnid="insaName"/>
+      <BindItem id="item0" compid="Static08" propid="text" datasetid="ds_mgr" columnid="insaName"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "Lib::common.xjs";
+
+//load
+this.LAWSUIT_NOTI_LIST_onload=function(obj:Form, e:nexacro.LoadEventInfo){
+
+this.ds_lawsuitNoti.clearData();
+this.ds_court.clearData();
+this.ds_instanceType1.clearData();
+this.combo_search_court.set_value("");
+this.search1.set_value("0");
+this.legal_input.set_value("");
+this.cal_Noti_Date1.set_value("");
+this.cal_Noti_Date2.set_value("");
+
+this.gf_codeComListLoad("ds_court",  "ds_court",   "Y", "", "", "fnCallback", "A01");
+this.gf_codeComListLoad("ds_instanceType1",  "ds_instanceType1",  "Y", "", "", "fnCallback", "G01");
+
+
+this.btn_search_onclick();
+}
+
+this.fnCallback=function(strSvcId, nErrCode, strErrMessage)
+{
+	trace("err :" +nErrCode);
+	switch(strSvcId)
+	{	
+						
+		case "ds_court": 
+			this.ds_court.deleteRow(0);
+			break;	
+			case "lawsuitNotiStatement": 
+			if(nErrCode==0){
+			//trace("row " +this.ds_lawsuitNoti.saveXML());
+				if(this.ds_lawsuitNoti.getRowCount()<1) {
+				trace("없어");
+				alert("조회 내용이 없습니다.");
+				this.LAWSUIT_NOTI_LIST_onload();
+				}
+			}
+			else alert(strErrMessage);
+			break;	
+	}
+}
+
+//검색버튼
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo){
+if(this.cal_Noti_Date1.value > this.cal_Noti_Date2.value)
+	{
+		alert("뒤의 날짜가 더 작습니다..");
+		this.cal_Noti_Date1.value="";
+		this.cal_Noti_Date2.value="";
+		this.cal_Noti_Date1.setFocus();
+		return;	
+	}
+	else
+	{
+var strParam="";
+
+		(typeof this.search1.value== 'undefined') ? strParam += "" : strParam += "selectedId=" +"\"" +this.search1.value +"\""; 	
+	(typeof this.legal_input.value== 'undefined') ? strParam += "": (strParam += "selectedId1=" +"\""+this.legal_input.value+"\""); 
+			(typeof this.combo_search_court.value== 'undefined') ? strParam += "": (strParam += "selectedId2=" +"\""+this.combo_search_court.value+"\""); 
+		this.gfn_IsNull(this.cal_Noti_Date1.value) ? strParam += ""  : strParam += "selectedId3=" +"\""+this.cal_Noti_Date1.value+"\"";
+ 		this.gfn_IsNull(this.cal_Noti_Date2.value) ? strParam += ""  : strParam += "selectedId4=" +"\""+this.cal_Noti_Date2.value+"\"";
+		trace("strParam :: "+strParam);
+		this.gfn_transaction(this,"lawsuitNotiStatement","/noti/lawsuitNotiStatement.do", "", "ds_lawsuitNoti=ds_output", strParam, "fnCallback");
+	}
+}
+
+this.btn_reset_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+	this.LAWSUIT_NOTI_LIST_onload();
+}
+
+//엔터키
+this.edt_ID_OnKeyDown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+    if( e.keycode == 13 ){
+       this.btn_search_onclick();
+    }
+}
+this.combo_Clas_Code_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	if(this.search1.value=='전체') this.legal_input.enable(false);
+	else this.legal_input.set_enable(true);
+}
+
+//헤더정렬
+this.grd_Search_OnHeadClick=function(obj:Grid,e:nexacro.GridSelectEventInfo){
+
+	this.gfn_GridSort(this.grd_Search,this.ds_lawsuitNoti,e.col,13);
+}
+
+
+
+this.btn_zip_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var winId = Iject.$["workFrame"].getActiveFrame().name;
+	trace("winId : "+winId);
+    Iject.$["workFrame"].frames[winId].destroy();
+}
+]]></Script>
+  </Form>
+</FDL>

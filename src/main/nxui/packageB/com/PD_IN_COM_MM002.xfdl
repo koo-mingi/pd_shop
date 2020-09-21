@@ -1,0 +1,667 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="PD_IN_COM_MM002" classname="PD_IN_COM_MM002" inheritanceid="" position="absolute" titletext="공통코드상세관리" left="0" top="0" width="1024" height="768" onload="PD_IN_COM_MM002_onload">
+    <Layouts>
+      <Layout>
+        <ImageViewer id="img02" taborder="56" left="14" top="457" width="996" height="135" style="background:lavenderblush;border:1 solid #a8a8a8ff ;align:left middle;"/>
+        <ImageViewer id="img_05" taborder="55" left="55" top="560" width="950" height="25" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;color:black;"/>
+        <ImageViewer id="img_04" taborder="54" left="55" top="536" width="950" height="25" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;color:black;"/>
+        <ImageViewer id="img_03" taborder="53" left="55" top="512" width="950" height="25" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;color:black;"/>
+        <ImageViewer id="img_00" taborder="52" left="55" top="488" width="950" height="25" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;color:black;"/>
+        <ImageViewer id="img_01" taborder="40" style="background:lavenderblush;border:1 solid #a8a8a8ff ;align:left middle;" position="absolute" left="14" top="65" height="35" width="996"/>
+        <Static id="sta_01" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;" onclick="sta_01_onclick" position="absolute" left="60" top="70" height="25" taborder="39" width="944"/>
+        <ImageViewer id="img_titlebg" taborder="38" style="background:#3366ffff;color:#ffffffff;" position="absolute" left="14" top="7" height="50" width="996"/>
+        <Static id="sta_title" text="공통코드 상세관리" style="color:whitesmoke;align:left middle;font:굴림,12,bold;" onclick="sta_title_onclick" position="absolute" left="26" width="168" top="18" height="29" taborder="37"/>
+        <Static id="sta_no" text="분류코드" onclick="sta_no_onclick" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="20" width="115" top="70" height="25" taborder="36"/>
+        <Button id="btn_lawsuit_search" taborder="47" text="검색" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;border:1 solid #999999ff ;color:white;bordertype:round 3 3 ;font:bold 9 Dotum;gradation:linear 0,0 #fefefeff 0,100 #ecece5ff;" position="absolute" top="71" height="23" onclick="btn_lawsuit_search_onclick" left="949" width="55"/>
+        <Button id="btn_clear" taborder="46" text="초기화" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;border:1 solid #999999ff ;color:white;bordertype:round 3 3 ;font:bold 9 Dotum;gradation:linear 0,0 #fefefeff 0,100 #ecece5ff;" position="absolute" width="52" top="419" height="23" onclick="btn_clear_onclick" left="951"/>
+        <ImageViewer id="img_02" taborder="35" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;color:black;" position="absolute" left="55" top="464" height="25" width="950"/>
+        <Static id="sta_15" text="분류코드" onclick="sta_15_onclick" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="20" width="115" top="464" height="25" taborder="34"/>
+        <Static id="sta_16" text="상세코드명2" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" onclick="sta_16_onclick" position="absolute" left="20" width="115" top="488" height="25" taborder="33"/>
+        <Static id="sta_17" text="상세코드" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" onclick="sta_17_onclick" position="absolute" left="351" width="115" top="464" height="25" taborder="32"/>
+        <Static id="sta_18" text="코드영문명" onclick="sta_18_onclick" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="351" width="115" top="488" height="25" taborder="31"/>
+        <Static id="sta_19" text="상세코드명" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" onclick="sta_19_onclick" position="absolute" left="682" width="115" top="464" height="25" taborder="30"/>
+        <Static id="sta_20" text="기타코드1" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" onclick="sta_20_onclick" position="absolute" left="682" width="115" top="488" height="25" taborder="29"/>
+        <Edit id="Edit01" taborder="2" maxlength="3" style=":disabled {border:1 solid #a8a8a8ff ;color:#505050ff;}" enable="false" inputtype="number" position="absolute" left="471" width="140" top="467" height="19"/>
+        <Edit id="Edit02" taborder="3" maxlength="10" style=":disabled {border:1 solid #a8a8a8ff ;color:#505050ff;}" enable="false" position="absolute" left="802" width="140" top="467" height="19"/>
+        <Edit id="Edit05" taborder="6" maxlength="10" style=":disabled {border:1 solid #a8a8a8ff ;color:#505050ff;}" enable="false" position="absolute" left="802" width="140" top="491" height="19"/>
+        <Static id="sta_33" text="공통코드상세리스트" style="color:#46463dff;align:left top;font:bold 9 굴림;" position="absolute" left="17" width="120" top="123" height="13" taborder="28"/>
+        <Button id="btn_delete" taborder="45" text="삭제" style="pusheddrawoffset:0 0;background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;border:1 solid #999999ff ;color:white;bordertype:round 3 3 ;font:bold 9 Dotum;cursor:hand;gradation:linear 0,0 #fefefeff 0,100 #ecece5ff;" position="absolute" width="55" top="419" height="23" onclick="btn_delete_onclick" left="777"/>
+        <Grid id="grd_plaintiff" taborder="44" binddataset="ds_detailCodeList" scrollbars="autovert" useinputpanel="false" nodatatext="데이터가 없습니다." enable="true" selecttype="row" autofittype="col" position="absolute" left="14" top="145" height="266" width="996">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="50"/>
+                <Column size="115"/>
+                <Column size="130"/>
+                <Column size="179"/>
+                <Column size="180"/>
+                <Column size="50"/>
+                <Column size="50"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell style="font:bold 9 dotum;" text="NO"/>
+                <Cell col="1" style="font:bold 9 dotum;" text="분류코드"/>
+                <Cell col="2" style="font:bold 9 dotum;" text="분류명칭"/>
+                <Cell col="3" style="font:bold 9 dotum;" text="상세코드"/>
+                <Cell col="4" style="font:bold 9 dotum;" text="상세코드명"/>
+                <Cell col="5" style="font:bold 9 dotum;" text="사용여부" combodataset="ds_useYn" combocodecol="id" combodatacol="value"/>
+                <Cell col="6" style="font:bold 9 dotum;" text="정렬순서"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:center;" text="bind:rownum"/>
+                <Cell col="1" edittype="none" style="align:center;" text="bind:classCode" editlimit="30"/>
+                <Cell col="2" edittype="none" style="align:center;" text="bind:codeName2" editlimit="15"/>
+                <Cell col="3" edittype="none" style="align:center;" text="bind:codeNo" editlimit="15"/>
+                <Cell col="4" edittype="none" style="align:center;" text="bind:codeName" editlimit="11"/>
+                <Cell col="5" displaytype="combo" edittype="none" style="align:center;" text="bind:useYn" editlimit="11" combodataset="ds_useYn" combocodecol="id" combodatacol="value"/>
+                <Cell col="6" edittype="none" style="align:center;" text="bind:sortSeq" editlimit="11"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_new" taborder="43" text="신규" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;border:1 solid #999999ff ;color:white;bordertype:round 3 3 ;font:bold 9 Dotum;gradation:linear 0,0 #fefefeff 0,100 #ecece5ff;" position="absolute" width="55" top="419" height="23" onclick="btn_new_onclick" left="835"/>
+        <Button id="btn_save" taborder="42" text="저장" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;border:1 solid #999999ff ;color:white;bordertype:round 3 3 ;font:bold 9 Dotum;gradation:linear 0,0 #fefefeff 0,100 #ecece5ff;" position="absolute" width="55" top="419" height="23" onclick="btn_save_onclick" left="893"/>
+        <Edit id="Edit03" taborder="4" maxlength="10" style=":disabled {border:1 solid #a8a8a8ff ;color:#505050ff;}" enable="false" position="absolute" left="141" width="140" top="491" height="19"/>
+        <Edit id="Edit04" taborder="5" maxlength="10" style=":disabled {border:1 solid #a8a8a8ff ;color:#505050ff;}" enable="false" inputtype="english" position="absolute" left="471" width="140" top="491" height="19"/>
+        <Combo id="Combo02" taborder="1" codecolumn="classCode" datacolumn="codeFull" index="-1" innerdataset="@ds_code" enable="false" position="absolute" left="141" width="140" top="467" height="19"/>
+        <Static id="sta_no00" text="상세코드" onclick="sta_no_onclick" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="351" width="115" top="70" height="25" taborder="27"/>
+        <Static id="sta_no01" text="코드명" onclick="sta_no_onclick" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" top="70" height="25" taborder="26" left="682" width="115"/>
+        <Static id="sta_00" text="기타코드2" onclick="sta_16_onclick" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="20" width="115" top="512" height="25" taborder="25"/>
+        <Static id="sta_02" text="상세코드설명" onclick="sta_18_onclick" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="351" width="115" top="512" height="25" taborder="24"/>
+        <Static id="sta_04" text="사용여부" onclick="sta_16_onclick" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="20" width="115" top="536" height="25" taborder="23"/>
+        <Static id="sta_05" text="정렬순서" onclick="sta_18_onclick" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="351" width="115" top="536" height="25" taborder="22"/>
+        <Static id="sta_06" text="등록일자" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" onclick="sta_06_onclick" position="absolute" left="682" width="115" top="560" height="25" taborder="21"/>
+        <Static id="sta_07" text="수정일자" onclick="sta_16_onclick" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="20" width="115" top="560" height="25" taborder="20"/>
+        <Static id="sta_08" text="최종수정일자" onclick="sta_18_onclick" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="351" width="115" top="560" height="25" taborder="19"/>
+        <Edit id="Edit07" taborder="7" maxlength="10" style=":disabled {border:1 solid #a8a8a8ff ;color:#505050ff;}" enable="false" position="absolute" left="141" width="140" top="515" height="19"/>
+        <Edit id="Edit08" taborder="8" maxlength="10" style=":disabled {border:1 solid #a8a8a8ff ;color:#505050ff;}" enable="false" position="absolute" left="471" width="471" top="515" height="19"/>
+        <Combo id="Combo01" taborder="9" index="-1" enable="false" codecolumn="codecolumn" datacolumn="datacolumn" position="absolute" left="141" width="140" top="539" height="19" displaynulltext="선택">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">Y</Col>
+                <Col id="datacolumn">사용</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">N</Col>
+                <Col id="datacolumn">미사용</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Edit id="Edit00" taborder="12" position="absolute" left="471" width="140" top="73" height="19"/>
+        <Edit id="Edit06" taborder="13" position="absolute" top="73" height="19" left="802" width="140"/>
+        <Edit id="Edit11" taborder="10" maxlength="10" style=":disabled {border:1 solid #a8a8a8ff ;color:#505050ff;}" enable="false" inputtype="number" position="absolute" left="471" width="140" top="539" height="19"/>
+        <MaskEdit id="Edit12" taborder="41" mask="####-##-##" type="string" style="align:left;" position="absolute" left="802" width="140" top="563" height="19" enable="false"/>
+        <MaskEdit id="MaskEdit00" taborder="18" mask="####-##-##" type="string" style="align:left;" position="absolute" left="141" width="140" top="563" height="19" enable="false"/>
+        <MaskEdit id="MaskEdit01" taborder="17" mask="####-##-##" type="string" style="align:left;" position="absolute" left="471" width="140" top="563" height="19" enable="false"/>
+        <Combo id="Combo00" taborder="11" index="-1" innerdataset="@ds_code" codecolumn="classCode" datacolumn="codeFull" position="absolute" left="141" width="140" top="73" height="19" onitemchanged="Combo00_onitemchanged"/>
+        <Static id="Static02" text="*" style="color:red;font:arial,18;" position="absolute" left="39" width="18" top="471" height="22" taborder="16"/>
+        <Static id="Static00" text="*" style="color:red;font:arial,18;" position="absolute" left="369" width="18" top="471" height="22" taborder="15"/>
+        <Static id="Static01" text="*" style="color:red;font:arial,18;" position="absolute" left="39" width="18" top="543" height="22" taborder="14"/>
+        <Static id="Static03" text="*" style="color:red;font:arial,18;" position="absolute" left="694" width="18" top="471" height="22"/>
+        <!--
+        <Button id="btn_mody00" taborder="48" text="수정활성화" top="94" right="242" width="84" height="24" style="pusheddrawoffset:0 0;background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;border:0 none #808080ff ;color:#ffffffff;bordertype:normal 0 0 ;font:bold 9 Dotum;cursor:hand;shadow:outer 0,0 0 gray;" onclick="btn_mody00_onclick"/>
+        <Button id="btn_mody01" taborder="49" text="수정비활성화" top="94" right="242" width="84" height="24" style="pusheddrawoffset:0 0;background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;border:0 none #808080ff ;color:#ffffffff;bordertype:normal 0 0 ;font:bold 9 Dotum;cursor:hand;shadow:outer 0,0 0 gray;" onclick="btn_mody01_onclick" visible="false"/>
+        -->
+        <Div id="div_page" taborder="50" text="Div00" left="241" top="423" width="479" height="18">
+          <Layouts>
+            <Layout>
+              <Static id="stc_Prev" taborder="37" text="이전" onclick="div_page_stc_Prev_onclick" visible="false" left="74" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_Next" taborder="38" text="다음" onclick="div_page_stc_Next_onclick" visible="false" left="444" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_No0" taborder="39" text="1" onclick="div_page_stc_No_onclick" visible="false" left="114" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_No1" taborder="40" text="2" onclick="div_page_stc_No_onclick" visible="false" left="146" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_No2" taborder="41" text="3" onclick="div_page_stc_No_onclick" visible="false" left="178" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_No3" taborder="42" text="4" onclick="div_page_stc_No_onclick" visible="false" left="210" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_No4" taborder="43" text="5" onclick="div_page_stc_No_onclick" visible="false" left="242" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_No5" taborder="44" text="6" onclick="div_page_stc_No_onclick" visible="false" left="274" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_No6" taborder="45" text="7" onclick="div_page_stc_No_onclick" visible="false" left="306" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_No7" taborder="46" text="8" onclick="div_page_stc_No_onclick" visible="false" left="338" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_No8" taborder="47" text="9" onclick="div_page_stc_No_onclick" visible="false" left="370" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_No9" taborder="48" text="10" onclick="div_page_stc_No_onclick" visible="false" left="402" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static04" taborder="51" text="*" left="369" top="542" width="18" height="22" style="color:red;font:arial,18;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_code">
+        <ColumnInfo>
+          <Column id="classCode" type="STRING" size="256"/>
+          <Column id="className" type="STRING" size="256"/>
+          <Column id="codeFull" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_detailCodeList">
+        <ColumnInfo>
+          <Column id="rownum" type="INT" size="256"/>
+          <Column id="classCode" type="STRING" size="256"/>
+          <Column id="className" type="STRING" size="256"/>
+          <Column id="codeNo" type="STRING" size="256"/>
+          <Column id="codeName" type="STRING" size="256"/>
+          <Column id="codeName2" type="STRING" size="256"/>
+          <Column id="codeEngName" type="STRING" size="256"/>
+          <Column id="etcCode1" type="STRING" size="256"/>
+          <Column id="etcCode2" type="STRING" size="256"/>
+          <Column id="codeDesc" type="STRING" size="256"/>
+          <Column id="useYn" type="STRING" size="256"/>
+          <Column id="sortSeq" type="STRING" size="256"/>
+          <Column id="registTime" type="STRING" size="256"/>
+          <Column id="registId" type="STRING" size="256"/>
+          <Column id="updateTime" type="STRING" size="256"/>
+          <Column id="updateId" type="STRING" size="256"/>
+          <Column id="lastModyTime" type="STRING" size="256"/>
+          <Column id="higherClassCode" type="STRING" size="256"/>
+          <Column id="higherCodeNo" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_search">
+        <ColumnInfo>
+          <Column id="searchCondition" type="STRING" size="256"/>
+          <Column id="searchKeyword" type="STRING" size="256"/>
+          <Column id="searchUseYn" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_useYn">
+        <ColumnInfo>
+          <Column id="id" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="id">Y</Col>
+            <Col id="value">사용</Col>
+          </Row>
+          <Row>
+            <Col id="id">N</Col>
+            <Col id="value">미사용</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item3" compid="Combo02" propid="value" datasetid="ds_detailCodeList" columnid="classCode"/>
+      <BindItem id="item4" compid="Edit01" propid="value" datasetid="ds_detailCodeList" columnid="codeNo"/>
+      <BindItem id="item5" compid="Edit02" propid="value" datasetid="ds_detailCodeList" columnid="codeName"/>
+      <BindItem id="item6" compid="Edit03" propid="value" datasetid="ds_detailCodeList" columnid="codeName2"/>
+      <BindItem id="item7" compid="Edit04" propid="value" datasetid="ds_detailCodeList" columnid="codeEngName"/>
+      <BindItem id="item8" compid="Edit05" propid="value" datasetid="ds_detailCodeList" columnid="etcCode1"/>
+      <BindItem id="item9" compid="Edit07" propid="value" datasetid="ds_detailCodeList" columnid="etcCode2"/>
+      <BindItem id="item10" compid="Edit08" propid="value" datasetid="ds_detailCodeList" columnid="codeDesc"/>
+      <BindItem id="item12" compid="Edit11" propid="value" datasetid="ds_detailCodeList" columnid="sortSeq"/>
+      <BindItem id="item13" compid="grd_plaintiff" propid="binddataset" datasetid="ds_cmmdetail"/>
+      <BindItem id="item15" compid="grd_plaintiff" propid="visible" datasetid="ds_useryn" columnid="id"/>
+      <BindItem id="item2" compid="Edit12" propid="value" datasetid="ds_detailCodeList" columnid="registTime"/>
+      <BindItem id="item0" compid="MaskEdit00" propid="value" datasetid="ds_detailCodeList" columnid="updateTime"/>
+      <BindItem id="item1" compid="MaskEdit01" propid="value" datasetid="ds_detailCodeList" columnid="lastModyTime"/>
+      <BindItem id="item11" compid="Combo01" propid="value" datasetid="ds_detailCodeList" columnid="useYn"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[
+include "Lib::common.xjs";
+
+this.confirmStr = "";
+var pageNum = "";
+var rowNum = "";
+var strSwitch = "";
+
+// 폼 온로드
+this.PD_IN_COM_MM002_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+
+	this.ds_code.clearData();
+	this.ds_code.addRow();
+	this.enable_nonEdit();
+
+/* 기존
+this.gfn_transaction(this,
+						"selectDetailCode",
+						"common/selectDetailCode.do",
+						"",
+						"ds_code=ds_output",
+						"",
+						"transaction_callback"
+						);
+*/
+	this.gfn_transaction(this,
+						"selectDetailCode",
+						"common/selectDetailCode.do",
+						"",
+						"ds_code=ds_output",
+						"",
+						"transaction_callback"
+						);
+
+	this.gfn_transaction(this,
+						"selectDetailList",
+						"common/selectDetailList.do",
+						"",
+						"ds_detailCodeList=ds_output",
+						"",
+						""
+						);
+	
+	/* 이렇게 하면 화면 뜨면서 그리드에 데이터 뿌려줌 하지만 분류코드 안됨
+		this.gfn_transaction(this,
+						"selectDetailList",
+						"common/selectDetailList.do",
+						"",
+						"ds_detailCodeList=ds_output",
+						"",
+						"transaction_callback"
+						);
+
+	this.gfn_transaction(this,
+						"selectCode",
+						"common/selectCode.do",
+						"ds_search=ds_search",
+						"ds_masterCodeList=ds_output",
+						"",
+						"transaction_callback"
+						);
+	*/
+						
+						
+						
+
+}
+
+// 검색 버튼
+this.btn_lawsuit_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Combo00_onitemchanged();
+}
+
+
+// 전체 분류 선택 시 자동 조회
+this.Combo00_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+
+	
+	//소송관리번호조회 버튼 클릭시 페이징 초기화 
+	this.fv_iStartPageNo    = 0;   // 전체 페이지 순서
+	this.fv_iUnitSelRowNo   = 100; // 한번 Server호출시 가져올 row갯수
+	this.fv_iStartSelRowNo  = 1;   // Server호출시 시작할 row no
+	this.fv_iMaxPageNum     = 10;  // 화면에 보여줄 최대 Page번호 갯수
+	this.fv_iServerRowCount = 0;   // 서버에서 넘어온 Row갯수(100건이 안될 수 있음)
+	
+
+	this.ds_detailCodeList.clearData();
+	this.ds_detailCodeList.addRow();
+	
+	var masterCode;
+	
+	if(this.Combo00.value == ' '){
+		masterCode = null;
+	}else{
+		masterCode = this.Combo00.value;
+	}
+	
+	var detailCode = this.Edit00.value;
+	var detailCodeName = this.Edit06.value;
+	
+	this.ds_search.clearData();
+	var rowIdx = this.ds_search.addRow();
+	
+	//this.btn_mody00.set_visible("true");
+	//this.btn_mody01.set_visible("false");
+	this.enable_nonEdit();
+	
+	this.ds_search.setColumn(0, "searchCondition", masterCode);
+	this.ds_search.setColumn(0, "searchKeyword", detailCode);
+	this.ds_search.setColumn(0, "searchUseYn", detailCodeName);
+	
+	//this.PD_IN_COM_MM002_onload();
+	
+	this.gfn_transaction(this,
+						"detailList",
+						"common/selectDetailList.do",
+						"ds_search=ds_search",
+						"ds_detailCodeList=ds_output",
+						"",
+						"transaction_callback"
+						);
+}
+
+// 초기화 버튼
+this.btn_clear_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fv_iStartPageNo    = 0;   // 전체 페이지 순서
+	this.fv_iUnitSelRowNo   = 100; // 한번 Server호출시 가져올 row갯수
+	this.fv_iStartSelRowNo  = 1;   // Server호출시 시작할 row no
+	this.fv_iMaxPageNum     = 10;  // 화면에 보여줄 최대 Page번호 갯수
+	this.fv_iServerRowCount = 0;   // 서버에서 넘어온 Row갯수(100건이 안될 수 있음)
+	
+	this.reload();
+}
+
+// 편집창 활성화
+this.enable_edit = function()
+{
+	this.Edit02.set_enable("true");
+	this.Edit03.set_enable("true");
+	this.Edit04.set_enable("true");
+	this.Edit05.set_enable("true");
+	this.Edit07.set_enable("true");
+	this.Edit08.set_enable("true");
+	this.Combo01.set_enable("true");
+	this.Edit11.set_enable("true");
+	this.Edit02.setFocus();
+}
+
+// 편집창 비활성화
+this.enable_nonEdit = function()
+{
+	this.Combo02.set_enable("true");
+	this.Edit01.set_enable("false");
+	this.Edit02.set_enable("true");
+	this.Edit03.set_enable("true");
+	this.Edit04.set_enable("true");
+	this.Edit05.set_enable("true");
+	this.Edit07.set_enable("true");
+	this.Edit08.set_enable("true");
+	this.Combo01.set_enable("true");
+	this.Edit11.set_enable("true");
+}
+
+
+// 수정 활성화 버튼
+/*
+this.btn_mody00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.enable_edit();
+	obj.set_visible("false");
+	this.btn_mody01.set_visible("true");
+}
+
+// 수정 비활성화 버튼
+this.btn_mody01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.enable_nonEdit();
+	obj.set_visible("false");
+	this.btn_mody00.set_visible("true");
+}
+*/
+
+// 신규버튼
+this.btn_new_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var masterCodeValue = this.Combo00.value;
+	
+	this.ds_detailCodeList.addRow();
+
+	var id = application.gds_User.getColumn(application.gds_User.rowposition, "id");
+	if(id == null) {
+		id = "ID";
+	}
+	this.ds_detailCodeList.setColumn(this.ds_detailCodeList.rowposition, "registId", id);
+	this.ds_detailCodeList.setColumn(this.ds_detailCodeList.rowposition, "updateId", id);
+// 	this.alert(this.ds_detailCodeList.getColumn(this.ds_detailCodeList.rowposition, "registId"));
+// 	this.alert(this.ds_detailCodeList.getColumn(this.ds_detailCodeList.rowposition, "updateId"));
+	
+	this.enable_edit();
+	this.Edit01.set_enable("true");
+	//this.Combo02.set_enable("true");
+	this.Combo02.set_value(masterCodeValue);
+	this.Edit01.setFocus();
+	
+}
+
+// 저장 버튼
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.Combo02.index == -1){
+		this.alert("분류코드를 확인해주세요");
+		this.Combo02.setFocus();
+		return;
+	}else if(this.Edit01.value == null || this.Edit01.getLength() != 3){
+		this.alert("상세코드를 확인해주세요");
+		this.Edit01.setFocus();
+		return;
+	}else if(this.Edit02.value == null){
+		this.alert("상세코드명을 입력해주세요");
+		this.Edit02.setFocus();
+		return;
+	}else if(this.Combo01.index == -1){
+		this.alert("사용여부를 확인해주세요");
+		this.Combo01.setFocus();
+		return;
+	}else if(this.Edit08.value == null){
+		this.alert("상세코드설명을 입력해주세요");
+		this.Edit08.setFocus();
+		return;
+	}
+	
+	var confirmStr = this.confirm("저장하시겠습니까?");
+	
+	if(confirmStr){
+		this.code_transaction("saveCode");
+	}
+	
+}
+
+
+// 코드 정보 저장/수정/삭제 시 트랜잭션
+this.code_transaction = function(sSvcid)
+{
+	//var updateId = application.gds_User.getColumn(application.gds_User.rowposition, "id"); 
+	//var strParam = "updateId=" + updateId;
+	
+	rowNum = this.ds_detailCodeList.rowposition;
+	
+	var strSvcid = sSvcid;
+	var strController = "common/editDetailCode.do";
+	
+	this.gfn_transaction(this,
+						strSvcid,
+						strController,
+						"ds_input=ds_detailCodeList:U",
+						"",
+						"",
+						"transaction_callback"
+						);
+	
+}
+
+
+// 트랜잭션 콜백
+this.transaction_callback = function(sSvcId, nErrorCode, sErrorMsg)
+{
+	if(nErrorCode < 0)
+	{
+		this.alert(sSvcId + " : " + sErrorMsg);
+		return;
+	}
+	
+	switch(sSvcId){
+		
+		case "detailList":
+			var iLastRow = this.fv_iStartPageNo * this.fv_iUnitSelRowNo;
+			this.ds_detailCodeList.filter("rownum >= "+(iLastRow + this.fv_iStartSelRowNo)+" && rownum <= "+(iLastRow + this.fv_iUnitSelRowNo));
+			
+				if (this.ds_detailCodeList.getRowCount() == 0)
+				{
+					this.ds_detailCodeList.filter("");
+					this.div_page.set_visible("false");
+					this.alert("조회할 자료가 없습니다.");
+					
+					return;
+				}
+				else
+				{
+					this.div_page.set_visible("true");
+					this.fv_iServerRowCount = this.ds_detailCodeList.getRowCount();
+					this.fn_SetStyle();
+					this.fn_SetPageNo();
+					this.div_page.stc_No0.style.set_color("gray");
+				} 
+				
+			if(strSwitch != "수정"){
+				pageNum = 1;
+				rowNum = 0;
+			}else{
+				strSwitch = "조회";
+			}
+			
+			this.enable_nonEdit();
+			//this.btn_mody00.set_visible("true");
+			//this.btn_mody01.set_visible("false");
+			this.pageSelect(pageNum);
+			this.grd_plaintiff.selectCell(rowNum);
+			//this.alert("조회완료");
+			break;
+	
+		case "saveCode":
+			if(this.confirmStr == "저장"){
+				this.Combo00_onitemchanged();
+				console.log(this.Combo00_onitemchanged());
+				this.alert("저장완료");
+			}else if(this.confirmStr == "수정"){
+				strSwitch = "수정";
+				this.Combo00_onitemchanged();
+				this.alert("수정완료");
+			}
+			
+			break;
+			
+		case "deleteCode":
+			this.alert("삭제완료");
+			break;
+	}
+	
+}
+
+// 삭제 버튼
+this.btn_delete_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var confirmStr = this.confirm("삭제하시겠습니까?");
+	
+	if(confirmStr){
+		this.ds_detailCodeList.deleteRow(this.ds_detailCodeList.rowposition);
+		this.code_transaction("deleteCode");
+	}
+}
+
+
+
+
+
+
+///////////////////// 페이징 처리
+
+//-------------------------------------------------------------------------------------------------
+// 인덱스 클릭
+//-------------------------------------------------------------------------------------------------
+this.div_page_stc_No_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	var iNo = new Number(obj.text);
+	
+	pageNum = iNo;
+	
+	this.pageSelect(iNo);
+	
+}
+
+// 페이지 액션
+this.pageSelect = function(page)
+{
+	var iFirstNum = (page-1) * this.fv_iMaxPageNum + 1;
+
+	var iLastNum = iFirstNum + this.fv_iMaxPageNum;
+
+	this.fn_SetStyle();
+	this.div_page.components["stc_No"+(page-1)].style.set_color("gray");
+	this.ds_detailCodeList.filter("");
+	
+	this.ds_detailCodeList.filter("rownum >= " + iFirstNum+" && rownum < " + iLastNum);
+}
+
+//-------------------------------------------------------------------------------------------------
+// 이전 버튼
+//-------------------------------------------------------------------------------------------------
+this.div_page_stc_Prev_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+
+	this.fv_iStartPageNo = this.fv_iStartPageNo - 1;
+	// Transaction()코딩 할 부분
+	this.transaction_callback("detailList", 0, "succ");
+}
+
+//-------------------------------------------------------------------------------------------------
+// 다음버튼
+//-------------------------------------------------------------------------------------------------
+this.div_page_stc_Next_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+
+	this.fv_iStartPageNo = this.fv_iStartPageNo + 1;
+	// Transaction()코딩 할 부분
+	this.transaction_callback("detailList", 0, "succ");
+}
+
+//-------------------------------------------------------------------------------------------------
+// Page번호 Setting
+//-------------------------------------------------------------------------------------------------
+this.fn_SetPageNo = function()
+{
+	var sPage = this.fv_iStartPageNo * this.fv_iMaxPageNum;
+	
+	// 이전버튼 처리
+	if (this.fv_iStartPageNo < 1)
+	{
+		this.div_page.stc_Prev.set_visible(false);
+	} 
+	else 
+	{
+		this.div_page.stc_Prev.set_visible(true);
+	}
+
+	// 마지막 버튼 처리
+	if (this.fv_iServerRowCount < this.fv_iUnitSelRowNo)
+	{
+		this.div_page.stc_Next.set_visible(false);
+	}
+	else
+	{
+		this.div_page.stc_Next.set_visible(true);
+	}
+
+	// 인덱스 번호 처리
+	for (var i = 0; i < this.fv_iMaxPageNum; i++)
+	{
+		this.div_page.components["stc_No"+i].set_visible(true);
+		this.div_page.components["stc_No"+i].set_text(sPage+i+1);
+
+		if (this.fv_iServerRowCount < (i * this.fv_iMaxPageNum))
+		{
+			this.div_page.components["stc_No"+i].set_visible(false);			
+		} 
+		else 
+		{
+			this.div_page.components["stc_No"+i].set_visible(true);			
+		}
+	}	
+}
+//-------------------------------------------------------------------------------------------------
+// Style조정
+//-------------------------------------------------------------------------------------------------
+this.fn_SetStyle = function()
+{
+	for (var i = 0; i < this.fv_iMaxPageNum; i++)
+	{
+		this.div_page.components["stc_No"+i].style.set_color("black");			
+	}	
+}
+
+]]></Script>
+  </Form>
+</FDL>

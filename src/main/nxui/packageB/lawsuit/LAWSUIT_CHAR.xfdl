@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="LAWSUIT_CHAR" classname="LAWSUIT_CHAR" inheritanceid="" position="absolute" titletext="New Form" onload="LAWSUIT_CHAR_onload" left="0" top="0" width="480" height="385">
+    <Layouts>
+      <Layout>
+        <Static id="Static01" taborder="7" left="14" top="63" width="456" height="37" style="background:lavenderblush;border:1 solid #c8c8c8ff ;"/>
+        <Static id="sta_01" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;" position="absolute" left="20" top="69" height="25" width="444"/>
+        <Static id="sta_12" text="소송담당자 목록" style="color:black;align:left top;font:굴림,9,bold;" position="absolute" left="14" width="100" top="109" height="13"/>
+        <Grid id="grd_person" taborder="4" useinputpanel="false" binddataset="ds_mgr" formats="&lt;Formats&gt;&#10;  &lt;Format id=&quot;default&quot;&gt;&#10;    &lt;Columns&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;    &lt;/Columns&gt;&#10;    &lt;Rows&gt;&#10;      &lt;Row band=&quot;head&quot; size=&quot;24&quot;/&gt;&#10;      &lt;Row band=&quot;body&quot; size=&quot;24&quot;/&gt;&#10;    &lt;/Rows&gt;&#10;    &lt;Band id=&quot;head&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;insaSabun&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;insaName&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;insaEmail&quot;/&gt;&#10;    &lt;/Band&gt;&#10;    &lt;Band id=&quot;body&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;bind:insaSabun&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;bind:insaName&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;bind:insaEmail&quot;/&gt;&#10;    &lt;/Band&gt;&#10;  &lt;/Format&gt;&#10;&lt;/Formats&gt;&#10;" oncelldblclick="grd_person_oncelldblclick" autofittype="col" position="absolute" left="14" top="126px" width="456" height="220">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="121"/>
+                <Column size="123"/>
+                <Column size="180"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="No."/>
+                <Cell col="1" text="사번"/>
+                <Cell col="2" text="이름"/>
+                <Cell col="3" text="이메일"/>
+              </Band>
+              <Band id="body">
+                <Cell expr="currow+1"/>
+                <Cell col="1" text="bind:insaSabun"/>
+                <Cell col="2" text="bind:insaName"/>
+                <Cell col="3" text="bind:insaEmail"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Combo id="cmb_mgr_com" taborder="1" innerdataset="@ds_mgrno" codecolumn="id" datacolumn="value" style="border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;font:굴림,9;" index="0" text="전체" onitemchanged="cmb_mgr_com_onitemchanged" position="absolute" left="81" width="86" top="72" height="19"/>
+        <Edit id="edt_mgr_tx" taborder="2" maxlength="100" style=":disabled {border:1 solid #a8a8a8ff ;color:#505050ff;}" onkeydown="edt_mgr_tx_onkeydown" enable="true" position="absolute" left="172" width="171" top="72" height="19"/>
+        <Button id="btn_mgr_search" taborder="3" onclick="btn_mgr_search_onclick" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;border:1 solid #999999ff ;color:white;align:center middle;font:bold 9 Dotum;" text="검색" class="btn_WFSA_Search" position="absolute" left="348" width="55" top="70" height="23"/>
+        <Button id="btn_close" taborder="1" onclick="btn_close_onclick" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;border:1 solid #999999ff ;color:white;align:center middle;font:bold 9 Dotum;" text="닫기" class="btn_WFSA_Search" position="absolute" width="55" height="23" left="414" top="352"/>
+        <Button id="btn_check" taborder="5" text="확인" onclick="btn_check_onclick" class="btn_WFSA_Search" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;align:center middle;font:bold 9 Dotum;gradation:linear 0,0 #fefefeff 0,100 #ecece5ff;" position="absolute" width="55" height="23" left="354" top="352"/>
+        <Static id="Static00" taborder="6" text="  소제기 의뢰자 조회" left="14" top="7" height="50" style="background:#3366ffff;color:#ffffffff;align:left;font:bold 12 Dotum;" width="456"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_mgr" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="insaSabun" type="STRING" size="256"/>
+          <Column id="insaName" type="STRING" size="256"/>
+          <Column id="insaEmail" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_dept" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codeName" type="STRING" size="256"/>
+          <Column id="codeNo" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_mgrno" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="id" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="value">전체</Col>
+            <Col id="id">-1</Col>
+          </Row>
+          <Row>
+            <Col id="value">사번</Col>
+            <Col id="id">0</Col>
+          </Row>
+          <Row>
+            <Col id="value">이름</Col>
+            <Col id="id">1</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item9" compid="cmb_mgr_com" propid="value" datasetid="ds_instance" columnid="instAdmCortCode"/>
+    </Bind>
+    <Script type="xscript4.0"><![CDATA[include "Lib::common.xjs";
+
+
+var raiscode="";
+
+this.LAWSUIT_CHAR_onload=function(obj:Form, e:LoadEventInfo)
+{
+    this.edt_mgr_tx.setFocus();
+    trace("부모 : "+this.parent.id);
+    if(this.parent.id =='stats_SearchModal'){
+		if(typeof(this.parent.data)=="undefined"|| this.parent.data=="전체"  ){
+			this.edt_mgr_tx.set_value("")
+		}else this.edt_mgr_tx.set_value(this.parent.data);
+	}else  this.edt_mgr_tx.set_value("")
+    this.getList();
+}
+
+// 셀 더블클릭
+this.grd_person_oncelldblclick=function(obj:Grid, e:GridClickEventInfo)
+{
+    // close(grd_person.getCellValue(e.row,0)+grd_person.getCellValue(e.row,1));
+	this.btn_check_onclick();
+}
+
+this.getList=function(){
+   
+    var strSvcid="getMgrList";
+    var strController="lawsuit/getMgrList.do";
+    var strParam="";
+    //var strParam = "insaSabun='" + gfn_Trim(cmb_mgr_com.value) + "'";
+    //    strParam += " insaName='" + gfn_Trim(edt_mgr_tx.value) + "'";
+	trace("값값 : "+this.cmb_mgr_com.value);
+    if(this.cmb_mgr_com.value == -1){      
+        strParam = "insaName=" + "\""+this.edt_mgr_tx.value+"\"";
+    }else if(this.cmb_mgr_com.value == 0){
+        strParam = "insaSabun=" + "\""+this.edt_mgr_tx.value+"\"";
+    }else if(this.cmb_mgr_com.value == 1){
+        strParam = "insaName=" + "\""+this.edt_mgr_tx.value+"\"";
+    }   
+   if(typeof(this.edt_mgr_tx.value)=='undefined') strParam = "insaName=" + "\""+""+"\"";
+    trace("char : "+strParam);       
+   
+    this.gfn_transaction(this,
+                    strSvcid,
+                    strController,
+                    "",
+                    "ds_mgr=ds_output",
+                    strParam,
+                    "fnCallBack");
+}
+
+this.fnCallBack=function(svcid, errcd, errmsg)
+{
+    switch(svcid)
+    {
+        case "getMgrList":
+            //trace(ds_mgr.saveXML());
+            //데이터 조회 에러 발생시
+            if(errcd != "0"){   
+            alert("데이터가 정상적으로 조회되지 않았습니다.\n"
+                + "소송관리조회 에러내용: "+ errmsg);
+            return false;
+            }
+            else{
+               
+            }
+            break;
+    }
+}
+
+this.btn_mgr_search_onclick=function(obj:Button,  e:ClickEventInfo)
+{
+    this.getList();
+}
+
+this.btn_close_onclick=function(obj:Button,  e:ClickEventInfo)
+{
+    this.close();
+}
+
+/*function edt_mgr_tx_onkeydown(obj:Edit, e:KeyEventInfo)
+{
+    if(e.keycode == 13){
+        btn_mgr_search_onclick();
+    }
+}*/
+
+this.cmb_mgr_com_onitemchanged=function(obj:Combo, e:ItemChangeEventInfo)
+{
+    if(this.cmb_mgr_com.value == -1){
+        this.edt_mgr_tx.set_value("");
+        this.edt_mgr_tx.set_enable(false);
+    }else{
+        this.edt_mgr_tx.set_enable(true);
+    }
+}
+
+/*    function grd_person_onheadclick(obj:Grid, e:GridClickEventInfo)
+{
+    gfn_GridSort(grd_person,grd_lawsuit_no,nCell,10);
+}    */
+
+// Grid Row Select
+this.btn_check_onclick=function(obj:Button,  e:ClickEventInfo)
+{
+    /*	var id = ds_mgr.getColumn(ds_mgr.rowposition, "insaSabun");
+    var name = ds_mgr.getColumn(ds_mgr.rowposition, "insaName");
+  
+    parent.mgrId.text = id;
+    ds_mgr.addRow();
+
+    close(id+"&"+name);	*/
+   
+    /*var v_RtnVal = new Array();	//배열생성
+
+	v_RtnVal[0] = this.ds_mgr.getColumn(this.ds_mgr.rowposition,  "insaSabun");
+	v_RtnVal[1] = this.ds_mgr.getColumn(this.ds_mgr.rowposition,  "insaName");	*/
+	var v_RtnVal = this.ds_mgr.getColumn(this.ds_mgr.rowposition,  "insaSabun");
+	v_RtnVal +="&"+this.ds_mgr.getColumn(this.ds_mgr.rowposition,  "insaName");
+	trace("팡ㅂ엄 이름: "+this.ds_mgr.getColumn(this.ds_mgr.rowposition,  "insaName"));
+	this.close(v_RtnVal);
+}
+]]></Script>
+  </Form>
+</FDL>

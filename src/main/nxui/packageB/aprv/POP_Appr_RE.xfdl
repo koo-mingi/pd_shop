@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="POP_Appr_RE" left="0" top="0" width="600" height="459" titletext="New Form" onload="POP_Appr_RE_onload" cssclass="btn_WF_Search" style="font:bold 9 Dotum;">
+    <Layouts>
+      <Layout>
+        <Static id="Static02" taborder="9" left="14" top="136" width="572" height="251" style="background:lavenderblush;border:1 solid #c8c8c8ff ;"/>
+        <Static id="Static01" taborder="8" left="14" top="67" width="572" height="35" style="background:lavenderblush;border:1 solid #c8c8c8ff ;"/>
+        <Div id="Div00" taborder="0" text="  사원조회" left="14" top="7" width="572" height="50" style="align:left;background:#3366ffff;color:#ffffffff;font:bold 12 Dotum;">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Static id="Static00" taborder="1" left="22" top="72" width="557" height="25" style="background:#eaeaeaff;border:1 solid #c8c8c8ff ;"/>
+        <Combo id="insa_combo" taborder="2" innerdataset="@ds_dept" codecolumn="codeno" datacolumn="cdoenm" index="0" onitemchanged="cmb_search_onitemchanged" left="28" top="75" width="130" height="19" text="전체" style="font:9 Dotum;"/>
+        <Static id="Static20" taborder="4" text="작성정보" left="14" top="106" width="100" height="25" style="font:bold 9 Dotum,굴림;"/>
+        <Grid id="grd_Search" taborder="5" binddataset="ds_insa" useinputpanel="false" autofittype="col" nodatatext="조회된 자료가 없습니다." oncelldblclick="grd_Search_oncelldbclick" left="20" top="143" bottom="79" width="559">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="75"/>
+                <Column size="85"/>
+                <Column size="86"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="부서"/>
+                <Cell col="1" text="직급"/>
+                <Cell col="2" text="사번"/>
+                <Cell col="3" text="성명"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="combo" text="bind:insaDeptCode" combodataset="ds_dept" combocodecol="codeno" combodatacol="cdoenm"/>
+                <Cell col="1" displaytype="combo" text="bind:insaPosGbnCode" combodataset="ds_PosGbn" combocodecol="code" combodatacol="value"/>
+                <Cell col="2" text="bind:insaSabun"/>
+                <Cell col="3" text="bind:insaName"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_search00" taborder="6" text="닫기" onclick="btn_search_onclick" left="531" top="399" width="55" height="25" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;"/>
+        <Button id="btn_search" taborder="7" text="검색" onclick="btn_search_OnClick" left="169" top="73" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_PosGbn">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">001</Col>
+            <Col id="value">사원</Col>
+          </Row>
+          <Row>
+            <Col id="value">주임</Col>
+            <Col id="code">002</Col>
+          </Row>
+          <Row>
+            <Col id="value">대리</Col>
+            <Col id="code">003</Col>
+          </Row>
+          <Row>
+            <Col id="value">과장</Col>
+            <Col id="code">004</Col>
+          </Row>
+          <Row>
+            <Col id="value">차장</Col>
+            <Col id="code">005</Col>
+          </Row>
+          <Row>
+            <Col id="value">상무</Col>
+            <Col id="code">006</Col>
+          </Row>
+          <Row>
+            <Col id="value">사장</Col>
+            <Col id="code">007</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_insa">
+        <ColumnInfo>
+          <Column id="insaDeptCode" type="STRING" size="256"/>
+          <Column id="insaPosGbnCode" type="STRING" size="256"/>
+          <Column id="insaSabun" type="STRING" size="256"/>
+          <Column id="insaName" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_search">
+        <ColumnInfo>
+          <Column id="insaDeptCode" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_dept">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="cdoenm" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="cdoenm">전체</Col>
+          </Row>
+          <Row>
+            <Col id="codeno">001</Col>
+            <Col id="cdoenm">총무부</Col>
+          </Row>
+          <Row>
+            <Col id="codeno">002</Col>
+            <Col id="cdoenm">SI사업부</Col>
+          </Row>
+          <Row>
+            <Col id="codeno">003</Col>
+            <Col id="cdoenm">관리부</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item13" compid="insa_combo" propid="value" datasetid="ds_lawsuitNoti" columnid="lawsuitNotiInstSepcode"/>
+      <BindItem id="item4" compid="Static01" propid="text" datasetid="ds_mgr" columnid="insaName"/>
+      <BindItem id="item0" compid="Static02" propid="text" datasetid="ds_mgr" columnid="insaName"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "Lib::common.xjs";
+
+//로딩시
+this.POP_Appr_RE_onload=function(obj:Form, e:LoadEventInfo){
+	this.btn_search_form("");
+	//this.gf_codeComListLoad("ds_dept",  "ds_dept",   "Y", "", "", "fn_Callback", "S01");
+}
+
+this.btn_search_form=function(insaDeptCode){
+//this.ds_search.addRow();
+//insaDeptCode=="" ? this.ds_search.setColumn(0,"insaDeptCode",insaDeptCode) : this.ds_search.setColumn(0,"insaDeptCode",this.insa_combo.value) ;
+var paramdept='';
+insaDeptCode=="" ? paramdept+="deptI=" +"\""+insaDeptCode+"\"":  paramdept+="deptI=" +"\""+this.insa_combo.value+"\"";
+paramdept+="sabun="+"\""+""+"\"";
+this.gfn_transaction(this,"approvalList","/apprline/ApprovalList.do","","ds_insa=ds_output",paramdept,"fnCallback");
+
+}
+
+// 그리드 더블클릭시
+this.grd_Search_oncelldbclick=function(obj:Grid, e:GridClickEventInfo){
+var mDept="";
+if(this.grd_Search.getCellValue(this.ds_insa.rowposition,0)=="001"){
+mDept="총무부(001)";
+	}else if(this.grd_Search.getCellValue(this.ds_insa.rowposition,0)=="002"){
+mDept="SI사업부(002)";
+	}else{
+	mDept="관리부(003)";
+	}
+this.close(this.grd_Search.getCellValue(e.row,3)+"("+this.grd_Search.getCellValue(e.row,2)+")"+mDept);
+}
+
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+//검색버튼 클릭시
+this.btn_search_OnClick=function(obj:Button, e:nexacro.ClickEventInfo){
+var dept;
+		if(this.insa_combo.value=="총무부"){
+			dept="001";
+		}
+		if(this.insa_combo.value=="SI사업부"){
+			dept="002";
+		}
+		if(this.insa_combo.value=="관리부"){
+			dept="003";
+		}
+		this.btn_search_form(dept);
+}
+
+]]></Script>
+  </Form>
+</FDL>

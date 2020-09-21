@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="legalAdv" classname="legal_ad_list" left="0" top="0" width="1024" height="768" titletext="New Form" style="border:1 none #808080ff ;" onload="legalAdv_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static09" taborder="84" left="14" top="161" width="996" height="419" style="background:lavenderblush;border:1 solid #c8c8c8ff ;"/>
+        <Static id="sta_title" taborder="30" text="소송접수관리" left="23" top="14" width="168" height="29" style="color:whitesmoke;align:left middle;font:굴림,12,bold;"/>
+        <Static id="sta_title00" taborder="32" text="법률 자문건 현황" left="23" top="14" width="168" height="29" style="color:whitesmoke;align:left middle;font:굴림,12,bold;" onclick="sta_title00_onclick"/>
+        <Div id="Div02" taborder="62" text="  법률 자문건 현황" left="14" top="7" width="996" height="50" style="align:left;background:#3366ffff;color:#ffffffff;font:bold 12 Dotum;"/>
+        <Static id="Static00" taborder="63" left="14" top="65" width="996" height="59" style="background:lavenderblush;border:1 solid #c8c8c8ff ;"/>
+        <Static id="Static01" taborder="64" left="20" top="70" width="984" height="25" style="background:#eaeaeaff;border:1 solid #c8c8c8ff ;"/>
+        <Static id="Static02" taborder="65" text="의뢰부서" left="20" top="70" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;bordertype:normal 0 0 ;align:center middle;font:bold 9 dotum;"/>
+        <Edit id="edt_reqmgr" taborder="66" enable="true" left="471" top="73" width="140" height="19" style=":disabled {background:#f7f7f7ff;color:#999999ff;}" onkeydown="edt_ID_OnKeyDown"/>
+        <Static id="Static03" taborder="68" text="의뢰자" left="351" top="70" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;bordertype:normal 0 0 ;align:center middle;font:bold 9 dotum;"/>
+        <Static id="Static05" taborder="69" left="20" top="94" width="984" height="25" style="background:#eaeaeaff;border:1 solid #c8c8c8ff ;align:right;"/>
+        <Static id="Static04" taborder="70" text="공개여부" left="20" top="94" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;bordertype:normal 0 0 ;align:center middle;font:bold 9 dotum;"/>
+        <Static id="Static06" taborder="72" text="의뢰일자" left="351" top="94" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;bordertype:normal 0 0 ;align:center middle;font:bold 9 dotum;"/>
+        <Calendar id="cal_reqdate1" taborder="73" left="471" top="97" width="140" height="19" style="background:#f7f7f7ff;"/>
+        <Static id="Static07" taborder="74" text="~" left="624" top="98" width="16" height="21"/>
+        <Calendar id="cal_reqdate2" taborder="75" left="642" top="97" width="140" height="19" style="background:#f7f7f7ff;"/>
+        <Button id="btn_list_search00" taborder="76" text="검색" onclick="btn_search_onclick" left="880" top="95" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;border:1 solid #999999ff ;color:white;font:bold 9 Gulim;"/>
+        <Button id="btn_clean" taborder="77" text="초기화" onclick="btn_reset_onclick" left="941" top="95" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Gulim;"/>
+        <Combo id="cmb_dept" taborder="79" innerdataset="@ds_dept" codecolumn="codeno" datacolumn="codenm" onitemchanged="combo_Clas_Code_onitemchanged" left="140" top="73" width="140" height="19" style="background:#ffffffff;color:#333333ff;" index="-1"/>
+        <Combo id="cmb_open" taborder="80" onitemchanged="combo_Clas_Code_onitemchanged" left="140" top="97" width="140" height="19" style="background:#ffffffff;color:#333333ff;" innerdataset="@ds_open" datacolumn="codenm" codecolumn="codeno" index="0" value="Y" text="공개"/>
+        <Static id="Static08" taborder="82" text="법률 자문건 현황" left="14" top="134" width="996" height="19" style="font:bold 9 굴림;"/>
+        <Grid id="Grid0" taborder="58" binddataset="ds_legal" useinputpanel="false" extendsizetype="row" autofittype="col" nodatatext="조회가 되지 않았습니다" enableevent="false" left="20" top="167" height="407" width="984">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="122"/>
+                <Column size="114"/>
+                <Column size="114"/>
+                <Column size="104"/>
+                <Column size="105"/>
+                <Column size="103"/>
+                <Column size="104"/>
+                <Column size="92"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+                <Row size="24" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="구분"/>
+                <Cell col="1" colspan="3" displaytype="text" edittype="none" text="상태"/>
+                <Cell col="4" colspan="4">
+                  <Cell colspan="2" displaytype="text" edittype="none" text="법률자문유형"/>
+                  <Cell col="2"/>
+                  <Cell col="3"/>
+                </Cell>
+                <Cell row="1" text="의뢰자"/>
+                <Cell row="1" col="1" text="미회신"/>
+                <Cell row="1" col="2" text="회신"/>
+                <Cell row="1" col="3" text="계"/>
+                <Cell row="1" col="4" text="보상손사자문"/>
+                <Cell row="1" col="5" text="계약관련자"/>
+                <Cell row="1" col="6" text="일반자문"/>
+                <Cell row="1" col="7" text="계"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="text" expr="insaName +&quot; (&quot;+legaladvReqMgrCode+&quot;)&quot;"/>
+                <Cell col="1" edittype="text" style="align:right;" expr="expr:legaladvRepWtrY+&quot; &quot;" suppress="0"/>
+                <Cell col="2" edittype="text" style="align:right;" expr="expr:legaladvRepWtrN+&quot; &quot;"/>
+                <Cell col="3" edittype="text" style="align:right;" expr="expr:legaladvRepWtrY+legaladvRepWtrN"/>
+                <Cell col="4" edittype="text" style="align:right;" expr="expr:legaladvLawAdvCode1+&quot; &quot;"/>
+                <Cell col="5" edittype="text" style="align:right;" expr="expr:legaladvLawAdvCode2+&quot; &quot;"/>
+                <Cell col="6" edittype="text" style="align:right;" expr="expr:legaladvLawAdvCode3+&quot; &quot;"/>
+                <Cell col="7" edittype="text" style="align:right;" expr="expr:legaladvLawAdvCode1+legaladvLawAdvCode2+legaladvLawAdvCode3"/>
+              </Band>
+              <Band id="summary">
+                <Cell text="통계"/>
+                <Cell col="1" displaytype="number" style="align:right;" expr="expr:dataset.getSum(&quot;parseInt(legaladvRepWtrY)&quot;)+&quot; 건 &quot;"/>
+                <Cell col="2" style="align:right;" expr="expr:dataset.getSum(&quot;parseInt(legaladvRepWtrN)&quot;)+&quot; 건 &quot;"/>
+                <Cell col="3" style="align:right;" expr="expr:dataset.getSum(&quot;parseInt(legaladvRepWtrY)+parseInt(legaladvRepWtrN)&quot; )+&quot; 건 &quot;"/>
+                <Cell col="4" style="align:right;" expr="expr:dataset.getSum(&quot;parseInt(legaladvLawAdvCode1)&quot;)+&quot; 건 &quot;"/>
+                <Cell col="5" style="align:right;" expr="expr:dataset.getSum(&quot;parseInt(legaladvLawAdvCode2)&quot;)+&quot; 건 &quot;"/>
+                <Cell col="6" style="align:right;" expr="expr:dataset.getSum(&quot;parseInt(legaladvLawAdvCode3)&quot;)+&quot; 건 &quot;"/>
+                <Cell col="7" style="align:right;" expr="expr:dataset.getSum(&quot;parseInt(legaladvLawAdvCode1)+parseInt(legaladvLawAdvCode2)+parseInt(legaladvLawAdvCode3)&quot; )+&quot; 건 &quot;  "/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_close" taborder="83" text="닫기" onclick="btn_zip_onclick" left="955" top="585" width="55" height="25" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="Grid0" propid="" datasetid="ds_legal" columnid=""/>
+      <BindItem id="item3" compid="Static00" propid="text" datasetid="ds_mgr" columnid="insaName"/>
+      <BindItem id="item4" compid="edt_reqmgr" propid="value" datasetid="ds_mgr" columnid="insaName"/>
+      <BindItem id="item1" compid="cal_reqdate1" propid="value" datasetid="ds_lawsuitNoti" columnid="lawsuitNotiDate"/>
+      <BindItem id="item2" compid="cal_reqdate2" propid="value" datasetid="ds_lawsuitNoti" columnid="lawsuitNotiDate"/>
+      <BindItem id="item5" compid="Static09" propid="text" datasetid="ds_mgr" columnid="insaName"/>
+    </Bind>
+    <Objects>
+      <Dataset id="ds_legal">
+        <ColumnInfo>
+          <Column id="insaName" type="STRING" size="256"/>
+          <Column id="legaladvRepWtrY" type="STRING" size="256"/>
+          <Column id="legaladvRepWtrN" type="STRING" size="256"/>
+          <Column id="legaladvRepWtrA" type="STRING" size="256"/>
+          <Column id="legaladvLawAdvCode1" type="STRING" size="256"/>
+          <Column id="legaladvLawAdvCode2" type="STRING" size="256"/>
+          <Column id="legaladvLawAdvCode3" type="STRING" size="256"/>
+          <Column id="legaladvLawAdvCode4" type="STRING" size="256"/>
+          <Column id="legaladvReqMgrCode" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_dept" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_open" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="codeno">Y</Col>
+            <Col id="codenm">공개</Col>
+          </Row>
+          <Row>
+            <Col id="codeno">N</Col>
+            <Col id="codenm">비공개</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_dept_t" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <InitValue/>
+    <Script type="xscript5.0"><![CDATA[include "Lib::common.xjs"; 
+
+
+var check=-1;
+this.clearSearchData = function()
+{
+	this.edt_reqmgr.set_value("");
+	this.cmb_dept.set_value("");
+	this.cal_reqdate1.set_value("");
+	this.cal_reqdate2.set_value("");
+	this.cmb_open.set_value("Y");
+	this.ds_legal.clearData();
+
+}
+
+this.legalAdv_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+// 	var strController = "svcurl::code/selectCodeList.do";
+// 	var strParam = "AllYn=Y, AllCode='', AllName='', ";
+// 	
+// 	this.clearSearchData();	
+// 	this.transaction("trDept", strController, "", "ds_dept_t=ds_output", strParam+"CLASS_CODE=B01", "fnCallback");
+this.cmb_dept.index="0";
+//this.cmb_open.set_value("");
+this.gf_codeComListLoad("ds_dept",  "ds_dept",   "Y", "", "", "fnCallback", "S01");
+check=0;
+this.btn_search_onclick();
+}
+
+
+this.fnCallback=function(strSvcId, nErrCode, strErrMessage)
+{
+	
+	switch(strSvcId)
+	{	
+		case "legal_advSelect":
+			if(nErrCode != "0"){	
+				alert("데이터가 정상적으로 조회되지 않았습니다.\n" + strErrMessage);
+				return false;
+			}
+			//trace(this.ds_legal.saveXML());
+			break;
+									
+		case "ds_dept": 
+			this.ds_dept.setColumn(0, "codeno", "");
+ 			this.ds_dept.setColumn(0, "codenm", "전체");
+			trace("tran val : "+this.cmb_dept.value+" 2"+this.edt_reqmgr.value+" 3" +this.cmb_open.value+" 4"+this.cal_reqdate1.value);
+			var nRowCnt = this.ds_dept_t.getRowCount();
+			
+			for (var i=0; i < nRowCnt; i++) {
+				nCurRow = this.ds_dept.addRow(); 
+				this.ds_dept.copyRow(nCurRow, this.ds_dept_t, i);
+			}
+			break;	
+	}
+}
+
+this.btn_reset_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.clearSearchData();
+	this.legalAdv_onload();
+	
+}
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	   
+	if(this.cal_reqdate1.value > this.cal_reqdate2.value)
+	{
+		alert("뒤의 일자가 더 작습니다..");
+		this.cal_reqdate1.value="";
+		this.cal_reqdate2.value="";
+		this.cal_reqdate2.setFocus();
+		return;	
+	}
+	else
+	{
+		var strController= "";
+		var strOutputDs = "ds_legal=ds_output";
+		var strParam = "";
+		trace("tran");
+		//expr:legaladvRepWtrN> '0' ? '###건': '0건'
+		//expr:legaladvRepWtrA > '0' ? '###건': '0건'
+		(typeof this.cmb_dept.value== 'undefined') ? strParam += "" : strParam += "deptcode=" +"\"" +this.cmb_dept.value +"\""; 	
+		(typeof this.edt_reqmgr.value== 'undefined') ? strParam += "": (strParam += "reqmgr=" +"\""+this.edt_reqmgr.value+"\""); 
+		strParam += " openyn=" +"\""+this.cmb_open.value+"\"";
+		
+		this.gfn_IsNull(this.cal_reqdate1.value) ? "" : strParam += "date1=" +"\""+this.cal_reqdate1.value+"\"";
+		this.gfn_IsNull(this.cal_reqdate2.value) ? "" : strParam += "date2=" +"\""+this.cal_reqdate2.value+"\"";
+		if(check ==0 ){
+			check=1;
+			strParam="";
+		}
+		trace("인자 : "+strParam);
+		this.gfn_transaction(this,"legal_advSelect","/legal_ad/legal_advSelect.do", "", strOutputDs, strParam, "fnCallback");
+	}
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+		var winId = Iject.$["workFrame"].getActiveFrame().name;
+	trace("winId : "+winId);
+    Iject.$["workFrame"].frames[winId].destroy();
+}
+
+this.edt_ID_OnKeyDown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+    if( e.keycode == 13 ){
+       this.btn_search_onclick();
+    }
+}
+this.btn_zip_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var winId = Iject.$["workFrame"].getActiveFrame().name;
+	trace("winId : "+winId);
+    Iject.$["workFrame"].frames[winId].destroy();
+}
+]]></Script>
+  </Form>
+</FDL>

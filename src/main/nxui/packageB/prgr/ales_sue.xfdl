@@ -1,0 +1,1005 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="ales_sue" classname="ales_sue" inheritanceid="" position="absolute" titletext="응소(제소)보고관리" onload="lawsuit_onload" left="0" top="0" width="1024" height="768">
+    <Layouts>
+      <Layout>
+        <Static id="sta_08" taborder="97" left="14" top="320" width="996" height="267" style="background:lavenderblush;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_22" taborder="115" left="28" top="556" width="976" height="25" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_21" taborder="114" left="28" top="396" width="976" height="161" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_12" taborder="113" left="24" top="326" width="980" height="71" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_07" taborder="80" left="14" top="136" width="996" height="150" style="background:lavenderblush;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_11" taborder="112" left="28" top="188" width="976" height="92" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_09" taborder="109" left="14" top="65" width="996" height="35" style="background:lavenderblush;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_01" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;" position="absolute" left="60" width="942" top="70" height="25"/>
+        <Static id="sta_no" text="소송관리번호" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;" position="absolute" left="20" width="115" top="70" height="25"/>
+        <Edit id="lawsuitAdmNo" taborder="14" maxlength="10" enable="false" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;color:#505050ff;}" position="absolute" left="140" width="140" top="73" height="19"/>
+        <Button id="btn_sc" taborder="15" text="검색" onclick="btn_sc_onclick" position="absolute" left="285" width="55" top="71" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Dotum;"/>
+        <Button id="btn_reset" taborder="18" text="초기화" onclick="btn_reset_onclick" position="absolute" left="940" width="55" top="71" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Dotum;"/>
+        <Static id="sta_34" text="결재 진행 상태" style="color:black;align:center middle;font:bold 9 굴림;" visible="true" position="absolute" left="17" width="93" top="601" height="24"/>
+        <Button id="btn_aprv" taborder="39" text="결재" position="absolute" left="831" width="55" top="609" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Dotum;" visible="true" onclick="btn_aprv_onclick"/>
+        <Button id="btn_save" taborder="40" text="저장" position="absolute" left="889" width="55" top="609" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Dotum;" onclick="btn_save_onclick"/>
+        <Static id="sta_00" taborder="46" text="의견 등록" left="17" top="301" width="100" height="25" style="background:transparent;border:0 none white ;color:black;align:left top;font:bold 9 굴림;"/>
+        <Static id="sta_aprv01" taborder="72" visible="true" left="11" top="622" width="105" height="20" style="background:#f4f4f4ff;border:1 solid #c8c8c8ff ;color:#46463dff;align:center middle;" usedecorate="true"/>
+        <Static id="sta_aprv02" taborder="73" visible="true" left="115" top="622" width="105" height="20" style="background:#f4f4f4ff;border:1 solid #c8c8c8ff ;color:#46463dff;align:center middle;"/>
+        <Static id="sta_aprv03" taborder="74" visible="true" left="219" top="622" width="105" height="20" style="background:#f4f4f4ff;border:1 solid #c8c8c8ff ;color:#46463dff;align:center middle;"/>
+        <Static id="sta_aprv11" taborder="75" visible="true" left="11" top="641" width="105" height="20" style="background:white;border:1 solid #c8c8c8ff ;color:#46463dff;align:center middle;"/>
+        <Static id="sta_aprv12" taborder="76" visible="true" left="115" top="641" width="105" height="20" style="background:white;border:1 solid #c8c8c8ff ;color:#46463dff;align:center middle;"/>
+        <Static id="sta_13" taborder="81" left="28" top="142" width="976" height="25" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_14" taborder="82" left="28" top="166" width="976" height="25" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_15" taborder="83" text="소제기의뢰번호" left="20" top="142" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="sta_16" taborder="84" text="신청법원" left="20" top="166" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="sta_17" taborder="85" text="신청사건번호" left="349" top="142" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="sta_18" taborder="86" text="당사원피고구분" left="349" top="166" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="sta_19" taborder="87" text="사건유형" left="678" top="142" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="sta_20" taborder="88" text="피고" left="678" top="166" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="sta_27" taborder="89" text="소송제기사유" left="20" top="190" width="115" height="90" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;" usedecorate="false" enableevent="true"/>
+        <Combo id="cmb_case" taborder="90" innerdataset="@ds_case" codecolumn="codeno" datacolumn="codenm" enable="false" left="798" top="144" width="140" height="19" style="border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;font:9 굴림; :disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;font:9 dotum;}" index="-1"/>
+        <Combo id="cmb_court" taborder="91" innerdataset="@ds_court" codecolumn="codeno" datacolumn="codenm" enable="false" left="140" top="169" width="140" height="19" style="border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;font:9 굴림; :disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;font:9 dotum;}"/>
+        <TextArea id="txt_comment" taborder="92" scrollbars="autoboth" enable="false" left="140" top="196" width="858" height="78" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <Edit id="edt_caseNo" taborder="93" maxlength="10" enable="false" left="469" top="145" width="140" height="19" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;color:#505050ff;}"/>
+        <Edit id="edt_raisreqNo" taborder="94" maxlength="10" oneditclick="edt_caseNo00_oneditclick" enable="false" left="140" top="145" width="140" height="19" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;color:#505050ff;}" onchanged="edt_raisreqNo_onchanged"/>
+        <Edit id="edt_plaintiff" taborder="95" maxlength="10" enable="false" left="798" top="169" width="140" height="19" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;color:#505050ff;}"/>
+        <Combo id="cmb_sep" taborder="96" innerdataset="@ds_accusee" codecolumn="codeno" datacolumn="codenm" enable="false" left="469" top="169" width="140" height="19" style="border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;font:9 굴림; :disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;font:9 dotum;}" onitemchanged="cmb_sep_onitemchanged"/>
+        <Static id="sta_02" taborder="98" text="쟁점사항" left="20" top="326" width="115" height="71" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="sta_03" taborder="99" text="의뢰내용" left="20" top="396" width="115" height="161" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="sta_04" taborder="100" text="보고일자" left="20" top="556" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <TextArea id="txt_issuPoin" taborder="101" scrollbars="autoboth" left="140" top="330" width="858" height="63" wordwrap="char" maxlength="1000" lengthunit="utf16" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <TextArea id="txt_reqCont" taborder="102" scrollbars="autoboth" left="140" top="399" width="859" height="155" wordwrap="char" lengthunit="utf16" maxlength="1500" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <Calendar id="cld_repoDate" taborder="106" dateformat="yyyy-MM-dd" oneditclick="cld_repoDate_oneditclick" left="140" top="559" width="140" height="19" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <Button id="btn_close" taborder="107" text="닫기" left="946" top="609" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Dotum;" onclick="btn_close_onclick"/>
+        <Static id="sta_aprv13" taborder="108" left="219" top="641" width="105" height="20" style="background:white;border:1 solid #c8c8c8ff ;color:#46463dff;align:center middle;"/>
+        <Div id="Div00" taborder="110" text="  응소(제소) 보고관리" left="14" top="7" width="996" height="50" style="align:left;background:#3366ffff;color:#ffffffff;font:bold 12 Dotum;"/>
+        <Static id="Static02" taborder="111" text="소송 기본사항" left="17" top="115" width="100" height="25" style="font:bold 9 굴림;"/>
+        <Static id="Static26" taborder="116" text="*" left="36" top="350" width="37" height="23" style="color:#ff0000ff;font:dotum,14,bold;"/>
+        <Static id="Static00" taborder="117" text="*" left="36" top="465" width="37" height="23" style="color:#ff0000ff;font:dotum,14,bold;"/>
+        <Static id="Static01" taborder="118" text="*" left="36" top="558" width="37" height="23" style="color:#ff0000ff;font:dotum,14,bold;"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item1" compid="lawsuitAdmNo" propid="value" datasetid="ds_lawsuit" columnid="lawsuitAdmNo"/>
+      <BindItem id="item8" compid="cmb_case" propid="value" datasetid="ds_lawsuit" columnid="lawsuitCaseTyCode"/>
+      <BindItem id="item7" compid="cmb_case" propid="text" datasetid="ds_case" columnid="codenm"/>
+      <BindItem id="item9" compid="cmb_court" propid="value" datasetid="ds_lawsuit" columnid="lawsuitAplCortCode"/>
+      <BindItem id="item11" compid="cmb_court" propid="text" datasetid="ds_court" columnid="codenm"/>
+      <BindItem id="item15" compid="txt_comment" propid="value" datasetid="ds_lawsuit" columnid="lawsuitRaisRea"/>
+      <BindItem id="item10" compid="edt_caseNo" propid="value" datasetid="ds_lawsuit" columnid="lawsuitAplCaseCode"/>
+      <BindItem id="item0" compid="edt_raisreqNo" propid="value" datasetid="ds_lawsuit" columnid="lawRaisreqNo"/>
+      <BindItem id="item2" compid="edt_plaintiff" propid="value" datasetid="ds_pladef" columnid="pladefName"/>
+      <BindItem id="item3" compid="cmb_sep" propid="value" datasetid="ds_lawsuit" columnid="lawsuitCpPladefSepcode"/>
+      <BindItem id="item12" compid="cmb_sep" propid="text" datasetid="ds_accusee" columnid="codenm"/>
+      <BindItem id="item4" compid="txt_issuPoin" propid="value" datasetid="ds_alessue" columnid="alesSueIssuPoin"/>
+      <BindItem id="item5" compid="txt_reqCont" propid="value" datasetid="ds_alessue" columnid="alesSueReqCont"/>
+      <BindItem id="item6" compid="cld_repoDate" propid="value" datasetid="ds_alessue" columnid="alesSueRepoDate"/>
+      <BindItem id="item13" compid="lawsuitAdmNo" propid="tooltiptext" datasetid="ds_alessue" columnid="lawsuitAdmNo"/>
+    </Bind>
+    <Objects>
+      <Dataset id="ds_case">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+          <Column id="codeFull" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_court">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+          <Column id="codeFull" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_accusee">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+          <Column id="codeFull" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_lawsuit">
+        <ColumnInfo>
+          <Column id="lawsuitAdmNo" type="STRING" size="256"/>
+          <Column id="lawRaisreqNo" type="STRING" size="256"/>
+          <Column id="lawsuitAplCortCode" type="STRING" size="256"/>
+          <Column id="lawsuitAplCaseCode" type="STRING" size="256"/>
+          <Column id="lawsuitCaseTyCode" type="STRING" size="256"/>
+          <Column id="lawsuitCpPladefSepcode" type="STRING" size="256"/>
+          <Column id="lawsuitRaisRea" type="STRING" size="256"/>
+          <Column id="instAdmCode" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pladef">
+        <ColumnInfo>
+          <Column id="pladefName" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_alessue">
+        <ColumnInfo>
+          <Column id="lawsuitAdmNo" type="STRING" size="256"/>
+          <Column id="alesSueIssuPoin" type="STRING" size="256"/>
+          <Column id="alesSueReqCont" type="STRING" size="256"/>
+          <Column id="alesSueRepoDate" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_position" firefirstcount="0" firenextcount="0" useclientlayout="true" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="aprvprgrInfoStepCode" type="STRING" size="256"/>
+          <Column id="aprvprgrInfoBookNo" type="STRING" size="256"/>
+          <Column id="aprvprgrInfoSeq" type="STRING" size="256"/>
+          <Column id="aprvprgrInfoUpSeq" type="STRING" size="256"/>
+          <Column id="aprvprgrInfoWritSabun" type="STRING" size="256"/>
+          <Column id="aprvprgrInfoWrit" type="STRING" size="256"/>
+          <Column id="aprvprgrInfoWritDeptCode" type="STRING" size="256"/>
+          <Column id="aprvprgrInfoWritDeptName" type="STRING" size="256"/>
+          <Column id="aprvprgrInfoWritDate" type="STRING" size="256"/>
+          <Column id="aprvprgrInfoWritCont" type="STRING" size="256"/>
+          <Column id="aprvprgrInfoWritTit" type="STRING" size="256"/>
+          <Column id="aprvInfoSeq" type="STRING" size="256"/>
+          <Column id="aprvInfoSabun" type="STRING" size="256"/>
+          <Column id="aprvInfoName" type="STRING" size="256"/>
+          <Column id="aprvInfoDeptCode" type="STRING" size="256"/>
+          <Column id="aprvInfoDeptName" type="STRING" size="256"/>
+          <Column id="aprvInfoCondCode" type="STRING" size="256"/>
+          <Column id="aprvInfoProcDate" type="STRING" size="256"/>
+          <Column id="aprvInfoReqDate" type="STRING" size="256"/>
+          <Column id="aprvInfoFinWtr" type="STRING" size="256"/>
+          <Column id="aprvInfoCont" type="STRING" size="256"/>
+          <Column id="aprvlineAdmAdWtr" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows/>
+      </Dataset>
+      <Dataset id="ds_position_code" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codeName" type="STRING" size="256"/>
+          <Column id="codeNo" type="STRING" size="256"/>
+          <Column id="useYn" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "Lib::common.xjs"; 
+
+
+var strConfirm = "";
+var g_nLawsuitNo = 0;
+
+var saveYN = "N";
+var bookNo = "";
+var infoStepCode = "003";
+
+this.lawsuit_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+// 	var strController = "svcurl::code/selectCodeList.do";
+// 	var strParam = "AllYn=Y, AllCode='', AllName='', ";
+// 	
+// 	this.transaction("trCase", strController, "", "ds_case=ds_output", strParam+"CLASS_CODE=A02", "fnCallback");
+// 	this.transaction("trCourt", strController, "", "ds_court=ds_output", strParam+"CLASS_CODE=A01", "fnCallback");
+// 	this.transaction("trAccusee", strController, "", "ds_accusee=ds_output", strParam+"CLASS_CODE=H02", "fnCallback");
+	
+			
+
+// 		// JKIM_2020.01.02 : 상신진행리스트에서 메뉴이동
+// 	if(typeof (application.gds_Params.lookup("PARAM_ID", "aprv_list_empl", "PARAM_VAL"))!='undefined'){
+// 		g_nLawsuitNo = application.gds_Params.lookup("PARAM_ID", "aprv_list_empl", "PARAM_VAL").substr(0,10);
+// 
+// 		if(g_nLawsuitNo) {
+// 			this.LawsuitSearch();
+// 		}
+// 	}
+// 
+// 	if(typeof (application.gds_Params.lookup("PARAM_ID", "APRV_LIST_ALL", "PARAM_VAL"))!='undefined'){
+// 		//전체결제
+// 		g_nLawsuitNo = application.gds_Params.lookup("PARAM_ID", "APRV_LIST_ALL", "PARAM_VAL").substr(0,10);
+// 		if(g_nLawsuitNo) {
+// 			this.LawsuitSearch();
+// 		}
+// 	}
+
+	//결제진행리스트에서 응소제기접수 등록
+	var rtnObj = this.gfnGetArgument();
+	
+	if(!this.gfn_IsNull(rtnObj.legaladvLawAdvReqNo))
+	{
+	g_nLawsuitNo=rtnObj.legaladvLawAdvReqNo.substr(0,10);
+		if(g_nLawsuitNo) {
+		this.LawsuitSearch();
+		}
+	}
+	
+	//상시결제리스트
+	if(!this.gfn_IsNull(rtnObj.aprvListEmpl))
+	{
+	g_nLawsuitNo=rtnObj.aprvListEmpl.substr(0,10);
+		if(g_nLawsuitNo)this.LawsuitSearch();
+	}
+	
+		//전체결재리스트
+	if(!this.gfn_IsNull(rtnObj.aprvListAll))
+	{
+		g_nLawsuitNo=rtnObj.aprvListAll.substr(0,10);
+		if(g_nLawsuitNo) this.LawsuitSearch();
+	}
+}
+
+this.fnCallback=function(strSvcId, nErrCode, strErrMessage)
+{
+	var strParam="lawsuitAdmNo="+"\""+g_nLawsuitNo+"\"";
+	
+	switch(strSvcId)
+	{	
+		case "law_suitSelect":
+			if(nErrCode != "0"){	
+				alert("데이터가 정상적으로 조회되지 않았습니다.\n" + strErrMessage);
+				return false;
+			}
+			else{
+				this.transaction("pla_defSelect", "svcurl::ales_sue/pla_defSelect.do", "", "ds_pladef=ds_output", strParam, "fnCallback"); 
+			}
+			break;
+			
+		case "pla_defSelect":
+			if(nErrCode == "0"){
+				this.transaction("ales_sueSelect", "svcurl::ales_sue/ales_sueSelect.do", "", "ds_alessue=ds_output", strParam, "fnCallback"); 
+			}
+			break;
+		
+		case "ales_sueSelect":
+			bookNo = this.ds_alessue.getColumn(0, "lawsuitAdmNo") + "003" + "000";
+			//this.txt_comment.set_value(this.ds_alessue.getColumn(0, "lawsuitRaisRea"));
+				
+			if (this.ds_alessue.getRowCount()==0) {
+				var nAddRow = this.ds_alessue.addRow();
+				this.ds_alessue.setColumn(nAddRow, "lawsuitAdmNo", this.g_nLawsuitNo);
+			}	
+			
+			var strInstAdmCode = this.ds_lawsuit.getColumn(0, "instAdmCode");
+			var strPladefCode = this.ds_lawsuit.getColCount(0, "lawsuitCpPladefSepcode");
+		
+			var sepCode = this.ds_lawsuit.getColumn(0,"lawsuitCpPladefSepcode");
+			this.setTitle(sepCode);
+
+			var aprvSearchNo='002' + this.g_nLawsuitNo + strInstAdmCode + strPladefCode;		
+			
+					
+// 		trace("소송관리번호 조회 :: " + this.ds_lawsuit.saveXML());
+// 		trace("소송관리번호 조회 :: " + this.ds_alessue.saveXML());
+		
+			
+			this.aprv_search(bookNo);		//결재조회		
+
+			break;
+						
+		case "trCase":
+			this.cmb_case.set_index(-1);
+			break;
+		case "trCourt": 
+			break;
+		case "trAccusee": 
+			break;	
+			
+		case "ales_sueSave":					
+// 			var tmpType = this.ds_alessue.getRowType();
+// 			if(tmpType == 2) {
+// 				alert("저장 되었습니다");
+// 			} else if(tmpType == 4) {
+// 				alert("수정 되었습니다");
+// 			}
+			
+			alert("저장 되었습니다");
+			break;
+			
+		case "AprvSearch":
+// 			if(nErrCode != "0"){	
+// 				alert("데이터가 정상적으로 조회되지 않았습니다.\n" + "결재목록 에러내용: " + errmsg);
+// 				return false;
+// 			}
+// 			else{
+// 				
+// 				var cnt = 0;
+// 			
+// 				for( i=0 ; i<=this.ds_position.getRowCount() ; i++){	//결제라인box (ds_position_code) 생성	
+// 					this.ds_position_code.addRow();
+// 					if(this.ds_position.getColumn(i,"aprvInfoCondCode")=="Y"){				//결재완료
+// 						this.ds_position_code.setColumn(cnt, "codeNo","Y");
+// 						this.ds_position_code.setColumn(cnt, "codeName","결제완료");
+// 					}else if(this.ds_position.getColumn(i,"aprvInfoCondCode")=="N"){		//결재대기
+// 						this.ds_position_code.setColumn(cnt, "codeNo","N");
+// 						this.ds_position_code.setColumn(cnt, "codeName","결제대기");
+// 					}else if(this.ds_position.getColumn(i,"aprvInfoCondCode")=="Z"){
+// 						this.ds_position_code.setColumn(cnt, "codeNo","Z");
+// 						this.ds_position_code.setColumn(cnt, "codeName","반려");			//반려
+// 					}else if(this.ds_position.getColumn(i,"aprvInfoCondCode")=="A"){
+// 						this.ds_position_code.setColumn(cnt, "codeNo","A");
+// 						this.ds_position_code.setColumn(cnt, "codeName","전결");			//전결
+// 					}else{
+// 					
+// 					}
+// 					cnt++;
+// 				}	
+// 				
+// 			}
+// 						
+// //			this.aprv_lock();	//결재화면(비)활성화 여부 처리
+// 			break;
+		
+		
+		case "outList":
+			if (nErrCode < 0) {
+				alert("데이터를 불러오기에 실패하였습니다." + strErrMessage);
+			} else {
+			
+				// 결재라인 박스 생성.
+				var cnt = 0;
+			//	var cc = "y";
+				var loginSabun = application.gds_User.getColumn(application.gds_User.rowposition, "sabun");
+				
+				//trace("광훈 ::: " + this.ds_position.saveXML());
+				
+				for(var i=0 ; i < this.ds_position.getRowCount() ; i++) {
+					//alert(this.ds_position.getColumn(i,"aprvInfoCondCode"));
+					this.ds_position_code.addRow();
+					
+// 					if(this.ds_position_code.rowcount == 0) {
+// 						this.ds_position_code.addRow();
+// 					}
+					
+					if(this.ds_position.getColumn(i,"aprvInfoCondCode")=="Y"){				// 결재완료
+						this.ds_position_code.setColumn(cnt, "codeNo","Y");
+						this.ds_position_code.setColumn(cnt, "codeName","결재완료");
+					}else if(this.ds_position.getColumn(i,"aprvInfoCondCode")=="N"){		//결재대기
+						this.ds_position_code.setColumn(cnt, "codeNo","N");
+						this.ds_position_code.setColumn(cnt, "codeName","결재대기");
+					}else if(this.ds_position.getColumn(i,"aprvInfoCondCode")=="Z"){		//반려
+						this.ds_position_code.setColumn(cnt, "codeNo","Z");
+						this.ds_position_code.setColumn(cnt, "codeName","반려");			
+			//			cc="n";
+					}else if(this.ds_position.getColumn(i,"aprvInfoCondCode")=="A"){		//전결
+						this.ds_position_code.setColumn(cnt, "codeNo","A");
+						this.ds_position_code.setColumn(cnt, "codeName","전결");			
+					}else{
+					
+					}
+					cnt++;
+
+				}
+				
+// 				// 반려시 상신자만 결재라인 초기화
+// 				if(cc == "n" && this.ds_position.getColumn(0, "aprvprgrInfoWritSabun") == loginSabun){
+// 					this.ds_position.clearData();
+// 					this.ds_position_code.clearData();
+// 					return false;
+// 				}
+				
+				
+				if(this.ds_position.rowcount > 0) {
+				//	this.aprv_lock();
+				}
+				
+			}
+		
+		trace("result ::: " + this.ds_position.saveXML());
+		
+		this.aprv_lock();
+		this.fn_staSet("sta_aprv01","sta_aprv02","sta_aprv03","sta_aprv11","sta_aprv12","sta_aprv13");
+		break;
+			
+	}
+}
+
+this.fn_staSet = function(sta1, sta2, sta3, val1, val2, val3) {
+// 	this.ds_position.clearData();
+// 	this.ds_position_code.clearData();
+// 	var deptName = this.ds_position.getColumn(0,"aprvInfoDeptName");
+// 	var name = this.ds_position.getColumn(0,"aprvInfoName");
+// 	var codeName = this.ds_position_code.getColumn(0, "codeName");
+// alert("아오 " + this.ds_position_code.saveXML());
+//alert(this.ds_position_code.rowcount);
+
+	if(this.ds_position_code.rowcount == 0)
+	{	
+		this[sta1].set_text("");
+		this[sta2].set_text("");
+		this[sta3].set_text("");
+		this[val1].set_text("");
+		this[val2].set_text("");
+		this[val3].set_text("");
+	}
+	else
+	{
+		
+		this[sta1].set_text("");
+		this[sta2].set_text("");
+		this[sta3].set_text("");
+		this[val1].set_text("");
+		this[val2].set_text("");
+		this[val3].set_text("");
+
+		
+		for(var i = 0 ; i < this.ds_position_code.rowcount ; i++) {
+			
+			if(i == 0) 
+			{
+				this[sta1].set_text(this.ds_position.getColumn(i,"aprvInfoDeptName") + " " + this.ds_position.getColumn(i,"aprvInfoName"));
+				this[val1].set_text(this.ds_position_code.getColumn(i, "codeName"));
+				//this.sta_aprv01.set_text(this.ds_position.getColumn(i,"aprvInfoDeptName") + " " + this.ds_position.getColumn(i,"aprvInfoName"));
+				//this.sta_aprv11.set_text(this.ds_position_code.getColumn(i, "codeName"));
+			}
+			else if (i == 1)
+			{		
+				this[sta2].set_text(this.ds_position.getColumn(i,"aprvInfoDeptName") + " " + this.ds_position.getColumn(i,"aprvInfoName"));
+				this[val2].set_text(this.ds_position_code.getColumn(i, "codeName"));
+			} 
+			else if (i == 2) 
+			{
+				this[sta3].set_text(this.ds_position.getColumn(i,"aprvInfoDeptName") + " " + this.ds_position.getColumn(i,"aprvInfoName"));
+				this[val3].set_text(this.ds_position_code.getColumn(i, "codeName"));
+			}
+		
+		}
+	}
+	
+	
+// 	if(this.ds_position.getColumn(2, "aprvInfoCondCode") == "Y"){
+// 		this.btn_aprv.set_enable(false);
+// 	}
+	
+application.gds_Params.deleteAll();
+	
+// 	this.sta_aprv01.set_text(this.ds_position.getColumn(0,"aprvInfoDeptName") + " " + this.ds_position.getColumn(0,"aprvInfoName"));
+// 	this.sta_aprv11.set_text(this.ds_position_code.getColumn(0, "codeName"));
+// 	this.sta_aprv02.set_text(this.ds_position.getColumn(1,"aprvInfoDeptName") + " " + this.ds_position.getColumn(1,"aprvInfoName"));
+// 	this.sta_aprv12.set_text(this.ds_position_code.getColumn(1, "codeName"));
+// 	this.sta_aprv03.set_text(this.ds_position.getColumn(2,"aprvInfoDeptName") + " " + this.ds_position.getColumn(2,"aprvInfoName"));
+// 	this.sta_aprv13.set_text(this.ds_position_code.getColumn(2, "codeName"));
+}
+
+//초기화 
+this.btn_reset_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.reload();
+}
+
+//소송관리번호 검색
+this.btn_sc_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	 var nLeft = system.clientToScreenX(this, 10);
+	 var nTop = system.clientToScreenY(this, 10);
+	 
+	 var newChild = new ChildFrame;
+	 newChild.init("SearchNo"
+					, "absolute", nLeft, nTop, 300, 250, null, null
+					, "lawsuit::LAWSUIT_ADM_NO.xfdl");
+	newChild.set_openalign("center middle");
+	newChild.set_dragmovetype("all");
+	newChild.showModal(this.getOwnerFrame()
+						, ""
+						, this
+						, "modal_callback");
+																	
+}
+
+//모달콜백
+this.modal_callback = function(sSvcId, variant)
+{
+	var strParam="lawsuitAdmNo="+"\""+g_nLawsuitNo+"\"";
+	
+	if(sSvcId == "SearchNo")
+	{
+		if(this.gfn_IsNull(variant)==false){
+// 			this.ds_position.clearData();
+// 			this.ds_position_code.clearData();
+
+			var strController = "svcurl::code/selectCodeList.do";
+			var strParam = "AllYn=Y, AllCode='', AllName='', ";
+			
+			this.transaction("trCase", strController, "", "ds_case=ds_output", strParam+"CLASS_CODE=A02", "fnCallback");
+			this.transaction("trCourt", strController, "", "ds_court=ds_output", strParam+"CLASS_CODE=A01", "fnCallback");
+			this.transaction("trAccusee", strController, "", "ds_accusee=ds_output", strParam+"CLASS_CODE=H02", "fnCallback");
+
+
+		
+			g_nLawsuitNo = variant.substr(0,10);	// 소송관리번호
+			this.LawsuitSearch();//소송
+			
+			//this.fn_staSet();
+		}else{
+			return false;
+		}
+	}
+	
+	if(sSvcId == "ApprovalReq"){
+//		this.aprv_search(bookNo);
+		this.LawsuitSearch();
+//		this.fn_staSet();
+	}
+	
+	this.txt_issuPoin.setFocus();
+}
+
+// 소송관리번호 조회
+this.LawsuitSearch=function()
+{
+	var strParam="lawsuitAdmNo="+"\""+g_nLawsuitNo+"\"";
+
+	this.ds_lawsuit.clearData();
+	this.transaction("law_suitSelect", "svcurl::ales_sue/law_suitSelect.do", "", "ds_lawsuit=ds_output", strParam, "fnCallback"); 
+	
+}
+
+// 의견등록 저장
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+		if(this.gfn_IsNull(this.txt_issuPoin.value)){
+			alert("쟁점사항을 입력해 주십시오!");
+			this.txt_issuPoin.setFocus();
+		}
+		else if(this.gfn_IsNull(this.txt_reqCont.value)){
+			alert("의뢰내용을 입력해주십시오!");
+			this.txt_reqCont.setFocus();
+		}
+		else if(this.gfn_IsNull(this.cld_repoDate.value)){
+			alert("보고날짜를 입력해 주십시오!");
+			this.cld_repoDate.setFocus();
+		}
+		else{
+		
+			var sSvcId = "ales_sueSave";
+			var strController = "svcurl::ales_sue/ales_sueSave.do";			
+		
+			var tmpNo = this.ds_lawsuit.getColumn(0,"lawsuitAdmNo");
+
+			this.transaction(sSvcId, strController, "ds_alessue=ds_alessue:U", "", "", "fnCallback");
+			saveYN = "Y";		
+
+			
+			// 하던중..
+			//this.updateAlesSue();
+
+
+
+
+		}
+
+}
+
+// 닫기 버튼
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo){
+	var winId = Iject.$["workFrame"].getActiveFrame().name;
+	trace("winId : "+winId);
+    Iject.$["workFrame"].frames[winId].destroy();
+}
+
+this.aprv_view_true=function()
+{
+	this.txt_issuPoin.set_enable(true);
+	this.txt_reqCont.set_enable(true);
+	this.cld_repoDate.set_enable(true);
+	
+	this.btn_aprv.set_visible(true);
+	
+	this.sta_aprv01.set_visible(true);
+	this.sta_aprv02.set_visible(true);
+	this.sta_aprv03.set_visible(true);
+	this.sta_aprv11.set_visible(true);
+	this.sta_aprv12.set_visible(true);
+	this.sta_aprv13.set_visible(true);
+	
+}
+
+this.aprv_view_false=function()
+{
+	this.txt_issuPoin.set_enable(false);
+	this.txt_reqCont.set_enable(false);
+	this.cld_repoDate.set_enable(false);
+	
+	this.btn_aprv.set_visible(false);
+	
+	this.sta_aprv01.set_visible(false);
+	this.sta_aprv02.set_visible(false);
+	this.sta_aprv03.set_visible(false);
+	this.sta_aprv11.set_visible(false);
+	this.sta_aprv12.set_visible(false);
+	this.sta_aprv13.set_visible(false);
+	
+}
+
+/********************************************************************************
+ * Desc		: 결재조회
+ * Param	: 없음
+ * Return	: 없음
+ *******************************************************************************/
+// this.aprv_search=function(aprvprgrInfoBookNo)
+// {
+// 	var strSvcid="AprvSearch";
+// 	var strController="lawsuit/getApprovalLineList.do";
+// 	var strParam="aprvprgrInfoStepCode=" + "\"" + infoStepCode + "\"";//결재 진행 코드
+// 	strParam += " aprvprgrInfoBookNo=" +"\""+aprvprgrInfoBookNo+"\""; 	//결재 대장 번호
+// 	
+// 	//trace(strParam);		
+// 	this.gfn_transaction(this,strSvcid,strController,"","ds_position=ds_output",strParam,"fnCallback");
+// }
+
+/********************************************************************************
+ * Desc		: 결재(비)활성화 기능
+ * Param	: 없음
+ * Return	: 없음
+ *******************************************************************************/
+// this.aprv_lock=function()
+// {
+// 	var strSabun = application.gds_User.getColumn(application.gds_User.rowposition, "sabun");
+// 	
+// 	if(this.gfn_IsNull(strSabun)) {
+// 		strSabun = "0";
+// 	}
+// 	
+// 	
+// 	//결재 미 시행시
+// 	if(this.ds_position.rowcount < 1){
+// 		//alert("aprvTest0: "+id);
+// 		//this.btn_aprv.set_enable(true);			//결재버튼 활성화
+// 		this.btn_save.set_enable(true);			//저장버튼 활성화
+// 		//this.aprv_view_true();					//화면기능 활성화
+// 	}
+// 	//1차 결재시
+// 	else if(this.ds_position.getColumn(0,"aprvInfoCont") == ""){		
+// 		if(this.ds_position.getColumn(0,"aprvprgrInfoWritSabun") == strSabun){		//작성자와 접속자가 같은경우
+// // 			this.btn_aprv.set_enable(true);
+// // 			this.btn_save.set_enable(true);
+// //			this.aprv_view_true();
+// 		}
+// 		else if(this.ds_position.getColumn(0,"aprvInfoSabun") == strSabun){		//결재자와 접속자가 같은경우
+// // 			this.btn_aprv.set_enable(true);
+// // 			this.btn_save.set_enable(false);
+// //			this.aprv_view_false();
+// 		}
+// 		else if(this.ds_position.getColumn(1,"aprvInfoSabun") == strSabun){		//2차결재자와 접속자가 같은경우
+// // 			this.btn_aprv.set_enable(true);
+// // 			this.btn_save.set_enable(false);
+// //			this.aprv_view_false();
+// 		}
+// 		else{	//그외 경우
+// // 			this.btn_aprv.set_enable(false);
+// // 			this.btn_save.set_enable(false);
+// // 			this.aprv_view_false();
+// 		}
+// 	}
+// 	//2차 결재시
+// 	else if(this.ds_position.getColumn(1,"aprvInfoCont") == ""){		
+// 		
+// 		if(this.ds_position.getColumn(0,"aprvInfoSabun") == strSabun){		//결재자와 접속자가 같은경우
+// // 			this.btn_aprv.set_enable(true);
+// // 			this.btn_save.set_enable(false);
+// //			this.aprv_view_false();
+// 		}
+// 		else if(this.ds_position.getColumn(1,"aprvInfoSabun") == strSabun){		
+// // 			this.btn_aprv.set_enable(true);
+// // 			this.btn_save.set_enable(false);
+// //			this.aprv_view_false();
+// 		}
+// 		else if(this.ds_position.getColumn(2,"aprvInfoSabun") == strSabun){		
+// // 			this.btn_aprv.set_enable(true);
+// // 			this.btn_save.set_enable(false);
+// //			this.aprv_view_false();
+// 		}		
+// 		else{	//그외 경우
+// // 			this.btn_aprv.set_enable(false);
+// // 			this.btn_save.set_enable(false);
+// //			this.aprv_view_false();
+// 		}
+// 	}
+// 	//3차 결재시
+// 	else if(this.ds_position.getColumn(2,"aprvInfoCont") == ""){		
+// 		
+// 		if(this.ds_position.getColumn(1,"aprvInfoSabun") == strSabun){		//결재자와 접속자가 같은경우
+// // 			this.btn_aprv.set_enable(true);
+// // 			this.btn_save.set_enable(false);
+// //			this.aprv_view_false();
+// 		}
+// 		else if(this.ds_position.getColumn(2,"aprvInfoSabun") == strSabun){		
+// // 			this.btn_aprv.set_enable(true);
+// // 			this.btn_save.set_enable(false);
+// //			this.aprv_view_false();
+// 		}
+// 		else{	//그외 경우
+// // 			this.btn_aprv.set_enable(false);
+// // 			this.btn_save.set_enable(false);
+// //			this.aprv_view_false();
+// 		}
+// 	}
+// 	//3차 결재완료시
+// 	else if(this.ds_position.getColumn(2,"aprvInfoCont") != ""){		
+// // 		this.btn_aprv.set_enable(false);
+// // 		this.btn_save.set_enable(false);
+// //		this.aprv_view_false();	
+// 	}
+// 	
+// }
+
+// 2020.01.08 최광훈
+// 결재버튼 동작
+this.btn_aprv_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+	var validation = true;
+	var writSabun = this.ds_position.getColumn(0, "aprvprgrInfoWritSabun");
+	var infoSabun_01 = this.ds_position.getColumn(0, "aprvInfoSabun");
+	var infoSabun_02 = this.ds_position.getColumn(1, "aprvInfoSabun");
+	var infoSabun_03 = this.ds_position.getColumn(2, "aprvInfoSabun");
+	var loginSabun = application.gds_User.getColumn(application.gds_User.rowposition, "sabun");
+		
+//	var BookNo="";
+	// 소송정보 등록 시 유효성 체크
+	if(this.lawsuitAdmNo.text==''){
+		alert("소송관리번호를 조회해 주십시오.");
+		validation=false;
+	}else if(this.txt_issuPoin.text==''){
+		alert("쟁점사항을 저장해 주십시오.");
+		this.txt_issuPoin.setFocus();
+		validation=false;
+	}else if(this.txt_reqCont.text==""){
+		alert("의뢰내용을 저장해 주십시오.");
+		this.txt_reqCont.setFocus();
+		validation=false;
+	}else if(this.cld_repoDate.text==""){
+		alert("보고일자를 저장해 주십시오.");
+		this.cld_repoDate.dropdown();
+		validation=false;
+	}
+
+	if(validation == true) {
+
+		if(this.ds_alessue.getRowType(this.ds_alessue.rowposition) == 4){
+			alert("먼저 작성 내용을 저장해주세요.");
+			return false;
+		}
+		
+		
+		var strParam="aprvprgrInfoStepCode="+"\""+infoStepCode+"\"";//결재 진행 코드
+		var nLeft = system.clientToScreenX(this, 10);
+		var nTop = system.clientToScreenY(this, 10);
+		 
+		var newChild = new ChildFrame();
+		
+//		alert("설마............ " + this.ds_position.saveXML());
+		
+		var aprvprgrInfoSeq = this.ds_position.getColumn(0, "aprvprgrInfoSeq" );
+		if(infoSabun_01 == loginSabun || infoSabun_02 == loginSabun || infoSabun_03 == loginSabun) {
+			newChild.init("ApprovalReq"
+						, "absolute", nLeft, nTop, 300, 250, null, null
+						, "aprv::APRV_COMMENT.xfdl");
+			newChild.set_openalign("center middle");
+			newChild.set_dragmovetype("all");
+			newChild.showModal(this.getOwnerFrame()
+								, {stepCode:"003", bookNo:bookNo, dataset:this.ds_position.saveXML() , aprvprgrInfoSeq:aprvprgrInfoSeq}
+								, this
+								, "modal_callback");
+		} else if(writSabun == loginSabun || writSabun == null) {
+			
+			newChild.init("ApprovalReq"
+						, "absolute", nLeft, nTop, 300, 250, null, null
+						, "aprv::APRV_PROG_COMMENT.xfdl");
+			newChild.set_openalign("center middle");
+			newChild.set_dragmovetype("all");
+			newChild.showModal(this.getOwnerFrame()
+								, {stepCode:"003", bookNo:bookNo , aprvprgrInfoSeq:aprvprgrInfoSeq }
+								, this
+								, "modal_callback");
+		}  else {
+		
+		}
+		
+		
+		
+					
+// 		var strParam="aprvprgrInfoStepCode="+"\""+infoStepCode+"\"";//결재 진행 코드
+// 		
+// 		var nLeft = system.clientToScreenX(this, 10);
+// 		var nTop = system.clientToScreenY(this, 10);
+// 		 
+// 		var newChild = new ChildFrame;
+// 		newChild.init("ApprovalReq"
+// 					, "absolute", nLeft, nTop, 300, 250, null, null
+// 					, "aprv::APRV_PROG_COMMENT.xfdl");
+// 		newChild.set_openalign("center middle");
+// 		newChild.set_dragmovetype("all");
+// 		newChild.showModal(this.getOwnerFrame()
+// 							, {stepCode:"003", bookNo:bookNo}
+// 							, this
+// 							, "modal_callback");
+		
+		
+		if(bookNo == "" || bookNo == null) {
+		} else {
+			this.aprv_search(bookNo);
+		}
+							
+	}
+}
+
+this.aprv_search = function(bookNo) {
+
+	this.ds_position.clearData();
+	this.ds_position_code.clearData();
+	
+	var strSvcid = "outList";
+	var strUrl = "svcurl::approval/approvalLineList.do";
+	var strInputDs = ""; 
+	var strOutputDs = "ds_position=ds_output";
+	var strParam = "";
+	var strFnCallback = "fnCallback";
+	
+	strParam += "APRVPRGR_INFO_STEP_CODE=" + "\"" + infoStepCode + "\""; 
+	strParam += " APRVPRGR_INFO_BOOK_NO=" + "\"" + bookNo + "\""; 
+
+	this.transaction(strSvcid
+				, strUrl
+				, strInputDs
+				, strOutputDs
+				, strParam
+				, strFnCallback);
+
+
+}
+
+
+// 2020.01.08 최광훈
+// 소송관리번호로 응소 또는 제소 데이터로 스위칭.
+this.setTitle = function(sepCode){
+	if(sepCode == "001") { // 피고일때
+		this.Div00.set_text("  제소보고");
+		this.sta_20.set_text("피고");
+		this.sta_15.set_text("소송의뢰번호");
+		this.sta_27.set_text("소송제기사유");
+	} else { // 원고일때
+		this.Div00.set_text("  응소보고");
+		this.sta_20.set_text("원고");
+		this.sta_15.set_text("소송고지번호");
+		this.sta_27.set_text("고지내용");
+	};
+}
+
+// 2020.01.20 최광훈
+// 저장 버튼 동작.
+this.updateAlesSue = function() {
+	var strSvcID = "updateAlesSue";
+	var strURL = "svcurl::progress/updateAlesSue.do";
+	var strInDatasets = "ds_input=ds_ales_sue";
+	var strOutDatasets = "";
+	var strArgument = "voClass='nexacro.sample.vo.prgr.Ales_sueVO'";
+	var strCallbackFunc = "fnCallback";
+   
+    this.transaction(strSvcID,
+				strURL,
+				strInDatasets,
+				strOutDatasets,
+				strArgument,
+				strCallbackFunc);	
+
+}
+
+
+
+/* 2020.01.08 최광훈
+ 기존 소스가 작동하지 않아 주석처리
+*/
+// this.btn_aprv_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+// {
+// 	var strValid=true;
+// 		
+// 	var writSabun = this.ds_position.getColumn(0, "aprvprgrInfoWritSabun");
+// 	
+// 	var infoSabun_01 = this.ds_position.getColumn(0, "aprvInfoSabun");
+// 	var infoSabun_02 = this.ds_position.getColumn(1, "aprvInfoSabun");
+// 	var infoSabun_03 = this.ds_position.getColumn(2, "aprvInfoSabun");
+// 	var loginSabun = this.gb_Param.substr("4","10");
+// 	var BookNo="";
+// 	
+// 	if(this.g_nLawsuitNo.value=""){
+// 		alert("소송정보가 등록되어 있어야 합니다.");
+// 		strValid=false;
+// 	}else if(this.txt_issuPoin.value == ""){
+// 		alert("쟁점사항을 저장해 주십시오.");
+// 		this.txt_issuPoin.setFocus();
+// 		strValid=false;
+// 	}else if(this.txt_reqCont.value == ""){
+// 		alert("의뢰내용을 저장해 주십시오.");
+// 		this.txt_reqCont.SetFocus();
+// 		strValid=false;
+// 	}else if(this.cld_repoDate.value == ""){
+// 		alert("보고일자를 저장해 주십시오.");
+// 		this.cld_repoDate.DropDown();
+// 		strValid=false;
+// 	}
+// 	
+// 	if(validation){
+// 	
+// 	    var aprvprgrInfoBookNo = '002'
+// 							+ this.g_nLawsuitNo
+// 							+ this.ds_lawsuit.getColumn(0, "instAdmCode");
+//                             + this.ds_lawsuit.getColumn(0, "lawsuitCpPladefSepcode");
+//                            
+// 		dialog("Report","sample::SAMPLE0007.xfdl","LAWSUIT_LIST","","showtitlebar=true",0,0);
+// 		return;                    
+//     }                    
+//                               
+// }
+
+
+
+
+
+this.aprv_lock = function() {
+	var id = application.gds_User.getColumn(application.gds_User.rowposition, "sabun");
+	
+    // 임시저장 여부 체크
+    if(this.ds_position.getRowCount() < 1){
+		this.btn_aprv.set_enable(true);
+		this.btn_save.set_enable(true);
+		this.enable_true();
+		
+	}else if(this.ds_position.getRowCount() == 1){	//1차 결재진행중
+		if(this.ds_position.getColumn(0, "aprvprgrInfoWritSabun") == id){
+			this.btn_aprv.set_enable(true);
+			this.btn_save.set_enable(true);
+			this.enable_true();
+	
+		}else if(this.ds_position.getColumn(0, "aprvInfoSabun") == id){
+			this.btn_aprv.set_enable(true);
+			this.btn_save.set_enable(false);
+			this.enable_false();
+	
+		}
+		
+	}else if(this.ds_position.getRowCount() == 2){	//2차 결재진행중
+		if(this.ds_position.getColumn(0, "aprvInfoSabun") == id){
+			this.btn_aprv.set_enable(true);
+			this.btn_save.set_enable(false);
+			this.enable_false();
+		
+		}else if(this.ds_position.getColumn(1, "aprvInfoSabun") == id){
+			this.btn_aprv.set_enable(true);
+			this.btn_save.set_enable(false);
+			this.enable_false();
+		
+		}
+	}else if(this.ds_position.getRowCount() == 3 && this.ds_position.getColumn(2, "aprvInfoCondCode") != "Y"){	// 3차 결재진행중
+		if(this.ds_position.getColumn(1, "aprvInfoSabun") == id){
+			this.btn_aprv.set_enable(true);
+			this.btn_save.set_enable(false);
+			this.enable_false();
+			
+		}else if(this.ds_position.getColumn(2, "aprvInfoSabun") == id){
+			this.btn_aprv.set_enable(true);
+			this.btn_save.set_enable(false);
+			this.enable_false();
+			
+		}
+	}else if(this.ds_position.getColumn(2, "aprvInfoCondCode") == "Y"){
+		if(this.ds_position.getColumn(2, "aprvInfoSabun") == id){
+			this.btn_aprv.set_enable(true);
+			this.btn_save.set_enable(false);
+			this.enable_false();
+					
+		}else {
+			this.btn_aprv.set_enable(false);
+			this.btn_save.set_enable(false);
+			this.enable_false();
+		}
+	}
+}
+
+
+
+//enable_true 이벤트
+this.enable_true = function(){
+	this.txt_issuPoin.set_enable(true);
+	this.txt_reqCont.set_enable(true);
+	this.cld_repoDate.set_enable(true);
+}
+
+//enable_false 이벤트
+this.enable_false = function(){
+	this.txt_issuPoin.set_enable(false);
+	this.txt_reqCont.set_enable(false);
+	this.cld_repoDate.set_enable(false);
+}]]></Script>
+  </Form>
+</FDL>

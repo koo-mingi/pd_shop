@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="LEGAL_OFFICIAL_CHECK" classname="LEGAL_OFFICIAL_CHECK" inheritanceid="" position="absolute" titletext="법률관계자 정보 조회" onload="LEGAL_OFFICIAL_CHECK_onload" left="0" top="0" width="551" height="470">
+    <Layouts>
+      <Layout>
+        <Static id="sta_02" taborder="8" left="14" top="125" width="522" height="339" style="background:lavenderblush;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_01" taborder="6" left="14" top="65" height="35" style="background:lavenderblush;border:1 solid #a8a8a8ff ;" width="522"/>
+        <Static id="sta_00" taborder="7" left="21" top="70" height="25" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;" width="509"/>
+        <ImageViewer id="img_titlebg" taborder="0" text="   법률관계자 정보 조회" style="background:#3366ffff;color:white;align:left middle;font:bold 12 dotum;" position="absolute" left="14" top="7" height="50" width="523"/>
+        <Combo id="cmb_search1" taborder="1" style="border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;font:굴림,9;" innerdataset="@ds_official00" datacolumn="select" codecolumn="value" index="0" value="000" text="전체" onitemchanged="cmb_search1_onitemchanged" position="absolute" left="51" width="130" top="73" height="19"/>
+        <Edit id="edt_legal_input" taborder="2" maxlength="100" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;color:#505050ff;}" onkeydown="edt_legal_input_onkeydown" enable="false" position="absolute" left="186" width="230" top="73" height="19"/>
+        <Button id="btn_search" taborder="3" onclick="btn_search_onclick" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;border:0 none #999999ff ;color:#ffffffff;align:center middle;font:bold 9 Dotum;" class="btn_WFSA_Search" text="검색" position="absolute" left="422" width="55" top="71" height="23"/>
+        <Static id="sta_12" text="법률관계자 목록" style="color:black;align:left top;font:bold 9 dotum;" position="absolute" left="8" width="100" top="108" height="13"/>
+        <Grid id="grd_person" taborder="5" useinputpanel="false" binddataset="ds_official" formats="&lt;Formats&gt;&#10;  &lt;Format id=&quot;default&quot;&gt;&#10;    &lt;Columns&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;    &lt;/Columns&gt;&#10;    &lt;Rows&gt;&#10;      &lt;Row band=&quot;head&quot; size=&quot;24&quot;/&gt;&#10;      &lt;Row band=&quot;body&quot; size=&quot;24&quot;/&gt;&#10;    &lt;/Rows&gt;&#10;    &lt;Band id=&quot;head&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;legalOfficialinfoRelaNo&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;legalOfficialinfoLyrPsw&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;legalOfficialinfoRelaSep&quot;/&gt;&#10;      &lt;Cell col=&quot;3&quot; disptype=&quot;normal&quot; text=&quot;legalOfficialinfoTeamname&quot;/&gt;&#10;      &lt;Cell col=&quot;4&quot; disptype=&quot;normal&quot; text=&quot;legalOfficialinfoLyrName&quot;/&gt;&#10;      &lt;Cell col=&quot;5&quot; disptype=&quot;normal&quot; text=&quot;legalOfficialinfoMail&quot;/&gt;&#10;      &lt;Cell col=&quot;6&quot; disptype=&quot;normal&quot; text=&quot;legalOfficialinfoPhone&quot;/&gt;&#10;      &lt;Cell col=&quot;7&quot; disptype=&quot;normal&quot; text=&quot;legalOfficialinfoHdpn&quot;/&gt;&#10;      &lt;Cell col=&quot;8&quot; disptype=&quot;normal&quot; text=&quot;legalOfficialinfoCityCode&quot;/&gt;&#10;    &lt;/Band&gt;&#10;    &lt;Band id=&quot;body&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;bind:legalOfficialinfoRelaNo&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;bind:legalOfficialinfoLyrPsw&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;bind:legalOfficialinfoRelaSep&quot;/&gt;&#10;      &lt;Cell col=&quot;3&quot; disptype=&quot;normal&quot; text=&quot;bind:legalOfficialinfoTeamname&quot;/&gt;&#10;      &lt;Cell col=&quot;4&quot; disptype=&quot;normal&quot; text=&quot;bind:legalOfficialinfoLyrName&quot;/&gt;&#10;      &lt;Cell col=&quot;5&quot; disptype=&quot;normal&quot; text=&quot;bind:legalOfficialinfoMail&quot;/&gt;&#10;      &lt;Cell col=&quot;6&quot; disptype=&quot;normal&quot; text=&quot;bind:legalOfficialinfoPhone&quot;/&gt;&#10;      &lt;Cell col=&quot;7&quot; disptype=&quot;normal&quot; text=&quot;bind:legalOfficialinfoHdpn&quot;/&gt;&#10;      &lt;Cell col=&quot;8&quot; disptype=&quot;normal&quot; text=&quot;bind:legalOfficialinfoCityCode&quot;/&gt;&#10;    &lt;/Band&gt;&#10;  &lt;/Format&gt;&#10;&lt;/Formats&gt;&#10;" oncelldblclick="grd_person_oncelldblclick" style="font:Dotum,9;" autofittype="col" position="absolute" left="21" top="132" bottom="13" width="508">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="92"/>
+                <Column size="114"/>
+                <Column size="65"/>
+                <Column size="110"/>
+                <Column size="82"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="법률관계자번호"/>
+                <Cell col="1" text="소속명"/>
+                <Cell col="2" text="이름"/>
+                <Cell col="3" text="이메일"/>
+                <Cell col="4" text="연락처"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:legalOfficialinfoRelaNo"/>
+                <Cell col="1" text="bind:legalOfficialinfoTeamname"/>
+                <Cell col="2" text="bind:legalOfficialinfoLyrName"/>
+                <Cell col="3" text="bind:legalOfficialinfoMail"/>
+                <Cell col="4" displaytype="normal" text="bind:legalOfficialinfoPhone" mask="expr:legalOfficialinfoPhone.length == &quot;9&quot;? &quot;##-###-####&quot; : legalOfficialinfoPhone.length == &quot;11&quot;? &quot;###-####-####&quot; : (legalOfficialinfoPhone.substr(0,2) == &quot;02&quot; &amp;&amp; legalOfficialinfoPhone.length == &quot;10&quot;)? &quot;##-####-####&quot; : &quot;###-###-####&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_legal" taborder="4" text="신규" visible="true" position="absolute" left="480" width="55" top="101" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;" onclick="btn_Legal_OnClick"/>
+      </Layout>
+    </Layouts>
+    <Bind/>
+    <Objects>
+      <Dataset id="ds_officialType" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codeName" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_official" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="legalOfficialinfoRelaNo" type="STRING" size="256"/>
+          <Column id="legalOfficialinfoLyrPsw" type="STRING" size="256"/>
+          <Column id="legalOfficialinfoRelaSep" type="STRING" size="256"/>
+          <Column id="legalOfficialinfoTeamname" type="STRING" size="256"/>
+          <Column id="legalOfficialinfoLyrName" type="STRING" size="256"/>
+          <Column id="legalOfficialinfoMail" type="STRING" size="256"/>
+          <Column id="legalOfficialinfoPhone" type="STRING" size="256"/>
+          <Column id="legalOfficialinfoHdpn" type="STRING" size="256"/>
+          <Column id="legalOfficialinfoCityCode" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_official00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="select" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="select">전체</Col>
+            <Col id="value">000</Col>
+          </Row>
+          <Row>
+            <Col id="value">001</Col>
+            <Col id="select">판사</Col>
+          </Row>
+          <Row>
+            <Col id="value">002</Col>
+            <Col id="select">검사</Col>
+          </Row>
+          <Row>
+            <Col id="select">변호사</Col>
+            <Col id="value">003</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "Lib::common.xjs";
+
+var job = this.getOwnerFrame().job;
+
+this.LEGAL_OFFICIAL_CHECK_onload=function(obj:Form, e:LoadEventInfo)
+{
+	this.ds_officialType.clearData();
+	//this.gf_classCodeListLoad("ds_officialType",  "ds_officialType",  "Y", "fnCallback", "Z01"); //상단 캠퍼스구분 공통코드조회
+	this.gf_classCodeListLoad("ds_officialType",  "ds_officialType",  "Y", "fnCallback", "O02"); //상단 캠퍼스구분 공통코드조회
+	this.cmb_search1.set_value('000');
+}
+
+this.btn_search_onclick=function(obj:Button,  e:ClickEventInfo)
+{
+	var search = this.cmb_search1.value;
+    var search1= this.edt_legal_input.text;
+    
+	var strSvcid="getLegalOfficials";
+	var strController="/lawsuit/getLegalOfficials.do";
+	if(search == "000"){
+		search = "";
+	}
+	var strParam="selectedId="+"\""+search+"\"";	//검색구분
+	strParam +="selectedId1="+"\""+search1+"\"";
+	trace(strParam);		
+	this.gfn_transaction(this,strSvcid,strController,"","ds_official=ds_output",strParam,"fnCallback");
+}
+
+this.grd_person_oncelldblclick=function(obj:Grid, e:GridClickEventInfo)
+{
+	var no = this.ds_official.getColumn(this.ds_official.rowposition, "legalOfficialinfoRelaNo");
+	var name = this.ds_official.getColumn(this.ds_official.rowposition, "legalOfficialinfoLyrName");
+	var psw = this.ds_official.getColumn(this.ds_official.rowposition, "legalOfficialinfoLyrPsw");
+	var team = this.ds_official.getColumn(this.ds_official.rowposition, "legalOfficialinfoTeamname");
+	var mail = this.ds_official.getColumn(this.ds_official.rowposition, "legalOfficialinfoMail");
+	var phn = this.ds_official.getColumn(this.ds_official.rowposition, "legalOfficialinfoPhone");
+	var hdpn = this.ds_official.getColumn(this.ds_official.rowposition, "legalOfficialinfoHdpn");
+	var city = this.ds_official.getColumn(this.ds_official.rowposition, "legalOfficialinfoCityCode");
+	var sep = this.ds_official.getColumn(this.ds_official.rowposition, "legalOfficialinfoRelaSep");
+	
+	this.close("no="+no+"&name="+name+"&psw="+psw+"&team="+team+"&mail="+mail+"&phn="+phn+"&hdpn="+hdpn+"&city="+city+"&sep="+sep);
+}
+
+this.edt_legal_input_onkeydown=function(obj:Edit, e:KeyEventInfo)
+{
+	if(e.keycode=="13"){
+		this.btn_search_onclick();
+	}
+}
+
+this.fn_masktel=function(row)	//추후 재코딩 필요(간소화)
+{
+
+	var telcode = this.ds_official.getColumn(row, "legalOfficialinfoPhone"); //연락처
+	var telsize = telcode.length; //연락번호 길이
+	telcode = telcode.substr(0,2); //지역코드 추출
+
+	if(telcode = "02"){ //지역코드가 서울일 경우
+		
+		if(telsize == "9"){
+			return '##-###-####';
+		}else{
+			return '##-####-####';
+		}
+		
+	}else{
+		
+		var areacode = telcode.subStr(0,3); //시외코드 , 휴대폰코드 추출
+		
+		//시외 , 휴대폰 코드 
+		switch(areacode){
+			
+			case "031": //경기
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "032": //인천,부천
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "041": //충남
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "042": //대전	
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "043": //충북
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "044": //세종
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "051": //부산
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "052": // 울산
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "053": // 대구 , 경산
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "054": // 경북
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "055": // 경남
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "061": // 전남
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "062": // 광주
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "062": // 전북
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "064": // 제주
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "011": //SK
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "017": //SK
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "016": //KT
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "018": //KT
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "019": //LG
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "010": //통합
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+
+			case "070": //인터넷전화
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;
+			
+			default :
+				if(telsize == "10"){
+					return '###-###-####';
+				}else{
+					return '###-####-####';
+				}
+				break;		
+		}
+	}
+}
+
+this.fnCallback=function(svcid, errcd, errmsg)
+{
+	switch(svcid)
+	{
+		case "ds_officialType" :
+			trace(job);
+			trace(this.ds_officialType.saveXML());
+			this.cmb_search1.index = 0;
+			this.btn_search_onclick();
+		break;
+		case "getLegalOfficials" :
+			if(this.gfn_IsNull(job)==false){
+			//trace(this.ds_official.saveXML())
+				this.ds_official.filter("legalOfficialinfoRelaSep=="+job);
+			}
+			//trace(ds_official.saveXML());
+		break;
+	}
+}
+this.cmb_search1_onitemchanged=function(obj:Combo, e:ItemChangeEventInfo)
+{
+	if(e.postvalue==""){
+		this.edt_legal_input.value = "";
+		this.edt_legal_input.set_enable(false);
+	}else{
+		this.edt_legal_input.set_enable(true);
+	}
+}
+
+// 전화번호, 휴대폰 번호에 '-'을 추가해주는 함수
+this.phoneFomatter = function(num,type){
+
+    var formatNum = '';
+
+    if(num.length==11){
+
+        if(type==0){
+
+            formatNum = num.replace(/(\d{3})(\d{4})(\d{4})/, '$1-****-$3');
+
+        }else{
+
+            formatNum = num.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+
+        }
+
+    }else if(num.length==8){
+
+        formatNum = num.replace(/(\d{4})(\d{4})/, '$1-$2');
+
+    }else{
+
+        if(num.indexOf('02')==0){
+
+            if(type==0){
+
+                formatNum = num.replace(/(\d{2})(\d{4})(\d{4})/, '$1-****-$3');
+
+            }else{
+
+                formatNum = num.replace(/(\d{2})(\d{4})(\d{4})/, '$1-$2-$3');
+
+            }
+
+        }else{
+
+            if(type==0){
+
+                formatNum = num.replace(/(\d{3})(\d{3})(\d{4})/, '$1-***-$3');
+
+            }else{
+
+                formatNum = num.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+
+            }
+        }
+    }
+    return formatNum;
+}
+
+this.btn_Legal_OnClick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//	팝업화면 
+	//var v_rtnArr =  this.gf_dialog("RAISREQ_REG", "rais::POP_RAISREQ_SCH.xfdl", 0, 0, 700, 600, "", "Middle center",{objArguments:v_argParm});
+	
+	var nLeft = system.clientToScreenX(this, 10);
+	var nTop = system.clientToScreenY(this, 10);
+	
+	// 차일드 프레임 생성 및 모달 창 출력
+	var newChild = new ChildFrame;
+	newChild.init("LEGAL_OFFICIAL_REGISTER"
+					, "absolute", nLeft, nTop, 300, 250, null, null
+					, "com::LEGAL_OFFICIAL_REGISTER.xfdl");
+					
+	newChild.set_openalign("center middle");
+	newChild.set_dragmovetype("all");
+	
+	newChild.showModal(this.getOwnerFrame()
+						, ""
+						, this
+						, "modal_callback");
+}
+]]></Script>
+  </Form>
+</FDL>

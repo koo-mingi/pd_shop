@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="POP_COURT_SEARCH" classname="POP_COURT_SEARCH" inheritanceid="" position="absolute" titletext="법원 조회" onload="POP_COURT_SEARCH_onload" left="0" top="0" width="284" height="96">
+    <Layouts>
+      <Layout>
+        <ImageViewer id="img_titlebg" taborder="0" text="법원조회" style="background:cornflowerblue;color:white;align:center middle;font:굴림,12,bold;" stretch="fit" position="absolute" left="8" width="268" top="8" height="50"/>
+        <Combo id="cmb_search_court" taborder="1" innerdataset="ds_court" codecolumn="codenm" datacolumn="codenm" style="border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;font:굴림,9;" position="absolute" left="8" width="214" top="63" height="21" onitemchanged="cmb_search_court_onitemchanged" index="-1"/>
+        <Button id="btn_court_input" taborder="1" text="조회" onclick="btn_court_input_onclick" position="absolute" left="224" width="52" top="63" height="21"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item9" compid="cmb_search_court" propid="value" datasetid="ds_instance" columnid="instAdmCortCode"/>
+    </Bind>
+    <Objects>
+      <Dataset id="ds_court" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codenm" type="STRING" size="256"/>
+          <Column id="codeno" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "Lib::common.xjs";
+
+this.POP_COURT_SEARCH_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.ds_court.clearData();
+
+	this.gf_codeComListLoad("searchCourt",  "ds_court",  "Y", "000", "선택", "transaction_callback", "A01"); //법원공통코드
+}
+
+this.transaction_callback = function(sSvcId, nErrorCode, sErrorMsg)
+{
+	
+	if(nErrorCode < 0)
+	{
+		this.alert(sSvcId + " : " + sErrorMsg);
+		return false;
+	}
+	switch(sSvcId){
+		case "searchCourt":
+			this.cmb_search_court.set_index(0);
+			break;
+		default:
+			break;
+	}
+}
+
+this.btn_court_input_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.cmb_search_court.value==null || this.cmb_search_court.value==""){
+		flag="false";
+		alert("해당 법원을 선택하세요!!!");
+	}else{
+	var v_RtnVal = this.cmb_search_court.value;
+	}
+	this.close(v_RtnVal);
+}
+]]></Script>
+  </Form>
+</FDL>

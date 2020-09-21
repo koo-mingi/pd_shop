@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="c1" classname="c1" left="0" top="0" width="1024" height="768" titletext="New Form" onload="c1_onload">
+    <Layouts>
+      <Layout>
+        <Edit id="Edit00" taborder="0" left="9.38%" top="83" right="63.77%" height="37"/>
+        <Edit id="Edit01" taborder="1" left="9.77%" top="276" right="63.28%" height="51"/>
+        <Button id="Button00" taborder="2" text="Button00" left="19.53%" top="164" right="61.52%" height="46" onclick="Button00_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[]]></Script>
+  </Form>
+</FDL>

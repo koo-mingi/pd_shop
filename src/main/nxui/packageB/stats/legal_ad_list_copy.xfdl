@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="legalAdv" classname="legal_ad_list" left="0" top="0" width="1024" height="768" titletext="New Form" style="border:1 none #808080ff ;" onload="legalAdv_onload">
+    <Layouts>
+      <Layout>
+        <Static id="sta_title" taborder="30" text="소송접수관리" left="23" top="14" width="168" height="29" style="color:whitesmoke;align:left middle;font:굴림,12,bold;"/>
+        <Static id="sta_title00" taborder="32" text="법률 자문건 현황" left="23" top="14" width="168" height="29" style="color:whitesmoke;align:left middle;font:굴림,12,bold;" onclick="sta_title00_onclick"/>
+        <Div id="Div00" taborder="39" left="13" top="69" right="1.31%" height="66" visible="false" style="border:1 solid #808080ff ;shadow:outer 0,0 0 gray;">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Static id="sta_00" taborder="40" left="19" top="73" right="19" height="29" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_04" taborder="41" left="19" top="101" right="19" height="29" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_05" taborder="42" text="의뢰부서" left="19" top="73" width="10.44%" height="29" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;"/>
+        <Static id="sta_06" taborder="43" text="공개여부" left="19" top="101" width="10.44%" height="29" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;"/>
+        <Static id="sta_07" taborder="44" text="의뢰자" left="34.94%" top="73" width="10.44%" height="29" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;"/>
+        <Static id="sta_08" taborder="45" text="의뢰일자" left="34.94%" top="101" width="10.44%" height="29" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;"/>
+        <Edit id="edt_reqmgr" taborder="49" left="45.78%" top="77" right="21.59%" height="21"/>
+        <Button id="btn_reset" taborder="52" text="초기화" left="91.67%" top="104" height="23" width="55" onclick="btn_reset_onclick"/>
+        <Button id="btn_search" taborder="53" text="검색" left="85.94%" top="104" right="8.53%" height="23" onclick="btn_search_onclick"/>
+        <Static id="Static00" taborder="54" text="~" left="61.65%" top="106" right="37.15%" height="19" style="font:bold 9 Dotum;"/>
+        <Calendar id="cal_reqdate1" taborder="55" left="45.78%" top="105" right="39.16%" height="21" dateformat="yyyy-MM-dd" value="null"/>
+        <Calendar id="cal_reqdate2" taborder="56" left="63.65%" top="105" right="21.29%" height="21" dateformat="yyyy-MM-dd" value="null"/>
+        <Static id="Static01" taborder="57" left="1.1%" top="136" right="86.65%" height="34" style="font:bold 10 굴림;" text="법률 자문건 현황"/>
+        <Grid id="Grid0" taborder="58" binddataset="ds_legal" useinputpanel="false" extendsizetype="row" autofittype="col" nodatatext="조회가 되지 않았습니다" enableevent="false" left="1.31%" top="168" right="13" height="332">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="122"/>
+                <Column size="114"/>
+                <Column size="114"/>
+                <Column size="104"/>
+                <Column size="105"/>
+                <Column size="103"/>
+                <Column size="104"/>
+                <Column size="92"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+                <Row size="24" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="구분"/>
+                <Cell col="1" colspan="3" displaytype="text" edittype="none" text="상태"/>
+                <Cell col="4" colspan="4">
+                  <Cell colspan="2" displaytype="text" edittype="none" text="법률자문유형"/>
+                  <Cell col="2"/>
+                  <Cell col="3"/>
+                </Cell>
+                <Cell row="1" text="의뢰자"/>
+                <Cell row="1" col="1" text="미회신"/>
+                <Cell row="1" col="2" text="회신"/>
+                <Cell row="1" col="3" text="계"/>
+                <Cell row="1" col="4" text="내부"/>
+                <Cell row="1" col="5" text="외부"/>
+                <Cell row="1" col="6" text="기타"/>
+                <Cell row="1" col="7" text="계"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="text" text="bind:insaName"/>
+                <Cell col="1" edittype="mask" text="bind:legaladvRepWtrN" mask="expr:legaladvRepWtrN&gt; '0' ? '###건': '0건'" suppress="0"/>
+                <Cell col="2" edittype="mask" text="bind:legaladvRepWtrY" mask="expr:legaladvRepWtrY &gt; '0' ? '###건': '0건'"/>
+                <Cell col="3" edittype="mask" text="bind:legaladvRepWtrA" mask="expr:legaladvRepWtrA &gt; '0' ? '###건': '0건'"/>
+                <Cell col="4" edittype="mask" text="bind:legaladvLawAdvCode1" mask="expr:legaladvLawAdvCode1 &gt; '0' ? '###건': '0건'"/>
+                <Cell col="5" edittype="mask" text="bind:legaladvLawAdvCode2" mask="expr:legaladvLawAdvCode2 &gt; '0' ? '###건': '0건'"/>
+                <Cell col="6" edittype="mask" text="bind:legaladvLawAdvCode3" mask="expr:legaladvLawAdvCode3 &gt; '0' ? '###건': '0건'"/>
+                <Cell col="7" edittype="mask" text="bind:legaladvLawAdvCode4" mask="expr:legaladvLawAdvCode4 &gt; '0' ? '###건': '0건'"/>
+              </Band>
+              <Band id="summary">
+                <Cell text="통계"/>
+                <Cell col="1" displaytype="number" expr="expr:dataset.getSum(&quot;parseInt(legaladvRepWtrN)&quot;)+&quot; 건&quot;"/>
+                <Cell col="2" expr="expr:dataset.getSum(&quot;parseInt(legaladvRepWtrY)&quot;)+&quot; 건&quot;"/>
+                <Cell col="3" expr="expr:dataset.getSum(&quot;parseInt(legaladvRepWtrY)+parseInt(legaladvRepWtrN)&quot; )+&quot; 건&quot;"/>
+                <Cell col="4" expr="expr:dataset.getSum(&quot;parseInt(legaladvLawAdvCode1)&quot;)+&quot; 건&quot;"/>
+                <Cell col="5" expr="expr:dataset.getSum(&quot;parseInt(legaladvLawAdvCode2)&quot;)+&quot; 건&quot;"/>
+                <Cell col="6" expr="expr:dataset.getSum(&quot;parseInt(legaladvLawAdvCode2)&quot;)+&quot; 건&quot;"/>
+                <Cell col="7" expr="expr:dataset.getSum(&quot;parseInt(legaladvLawAdvCode1)+parseInt(legaladvLawAdvCode2)+parseInt(legaladvLawAdvCode3)&quot; )+&quot; 건&quot; "/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_close" taborder="59" text="닫기" left="92.77%" top="513" right="1.71%" height="23" onclick="btn_close_onclick"/>
+        <Combo id="cmb_dept" taborder="60" codecolumn="codeno" datacolumn="codenm" index="-1" onitemchanged="combo_Clas_Code_onitemchanged" left="12.85%" top="77" width="21.29%" height="21" innerdataset="@ds_dept" displaynulltext="전체"/>
+        <Combo id="cmb_open" taborder="61" text="전체" innerdataset="@ds_open" codecolumn="codeno" datacolumn="codenm" index="0" onitemchanged="combo_Clas_Code_onitemchanged" left="12.85%" top="105" width="21.29%" height="21"/>
+        <Div id="Div02" taborder="62" text="  법률 자문건 현황" left="14" top="7" width="996" height="50" style="align:left;background:#3366ffff;color:#ffffffff;font:bold 12 굴림체;"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="Grid0" propid="" datasetid="ds_legal" columnid=""/>
+    </Bind>
+    <Objects>
+      <Dataset id="ds_legal">
+        <ColumnInfo>
+          <Column id="insaName" type="STRING" size="256"/>
+          <Column id="legaladvRepWtrY" type="STRING" size="256"/>
+          <Column id="legaladvRepWtrN" type="STRING" size="256"/>
+          <Column id="legaladvRepWtrA" type="STRING" size="256"/>
+          <Column id="legaladvLawAdvCode1" type="STRING" size="256"/>
+          <Column id="legaladvLawAdvCode2" type="STRING" size="256"/>
+          <Column id="legaladvLawAdvCode3" type="STRING" size="256"/>
+          <Column id="legaladvLawAdvCode4" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_dept" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_open" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="codeno">Y</Col>
+            <Col id="codenm">공개</Col>
+          </Row>
+          <Row>
+            <Col id="codeno">N</Col>
+            <Col id="codenm">비공개</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_dept_t" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <InitValue/>
+    <Script type="xscript5.0"><![CDATA[include "Lib::common.xjs"; 
+
+
+
+this.clearSearchData = function()
+{
+	this.edt_reqmgr.value = "";
+	this.cal_reqdate1.value = "";
+	this.cal_reqdate2.value = "";
+	this.cmb_dept.value = "";
+	
+	this.ds_legal.clearData();
+
+}
+
+this.legalAdv_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	var strController = "svcurl::code/selectCodeList.do";
+	var strParam = "AllYn=Y, AllCode='', AllName='', ";
+	
+	this.clearSearchData();	
+	this.transaction("trDept", strController, "", "ds_dept_t=ds_output", strParam+"CLASS_CODE=B01", "fnCallback");
+
+}
+
+
+this.fnCallback=function(strSvcId, nErrCode, strErrMessage)
+{
+	
+	switch(strSvcId)
+	{	
+		case "legal_advSelect":
+			if(nErrCode != "0"){	
+				alert("데이터가 정상적으로 조회되지 않았습니다.\n" + strErrMessage);
+				return false;
+			}
+			break;
+									
+		case "trDept": 
+			var nCurRow = this.ds_dept.addRow();
+			this.ds_dept.setColumn(nCurRow, "codeno", "");
+			this.ds_dept.setColumn(nCurRow, "codenm", "전체");
+			
+			var nRowCnt = this.ds_dept_t.getRowCount();
+			
+			for (var i=0; i < nRowCnt; i++) {
+				nCurRow = this.ds_dept.addRow(); 
+				this.ds_dept.copyRow(nCurRow, this.ds_dept_t, i);
+			}
+			break;	
+	}
+}
+
+this.btn_reset_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.clearSearchData();
+	
+}
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	   
+	if(this.cal_reqdate1.value > this.cal_reqdate2.value)
+	{
+		alert("뒤의 일자가 더 작습니다..");
+		this.cal_reqdate1.value="";
+		this.cal_reqdate2.value="";
+		this.cal_reqdate2.setFocus();
+		return;	
+	}
+	else
+	{
+		var strController= "svcurl::legal_ad/legal_advSelect.do";
+		var strOutputDs = "ds_legal=ds_output";
+		var strParam = "";
+		
+		strParam += "deptcode=" + this.cmb_dept.value; 	
+		strParam += " reqmgr=" + this.edt_reqmgr.value;
+		strParam += " openyn=" + this.cmb_open.value;
+		strParam += " date1=" + this.cal_reqdate1.value;
+		strParam += " date2=" + this.cal_reqdate2.value;
+
+		this.transaction("legal_advSelect",	strController, "", strOutputDs, strParam, "fnCallback");
+	}
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+]]></Script>
+  </Form>
+</FDL>

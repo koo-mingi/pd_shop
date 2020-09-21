@@ -1,0 +1,741 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="LAW_FIXINFO" classname="OUT_fixinfo_skw" left="0" top="0" width="1024" height="768" onload="OUT_FIXINFO_onload" style="font:9 굴림체;">
+    <Layouts>
+      <Layout>
+        <ImageViewer id="img_view02" taborder="77" left="14" top="256" width="996" height="137" style="background:lavenderblush;border:1 solid #a8a8a8ff ;"/>
+        <Static id="subTitle_09" taborder="46" text="기일정보" onclick="sta_03_onclick" left="17" top="234" width="197" height="19" style="color:black;align:left top;font:굴림,9,bold;"/>
+        <ImageViewer id="img_view00" taborder="13" left="14" top="65" width="996" height="35" style="background:lavenderblush;border:1 solid #a8a8a8ff ;"/>
+        <Div id="DivTitle" taborder="0" text="  기일정보관리" height="50" style="align:left;background:#3366ffff;color:#ffffffff;font:bold 12 Dotum;" top="7" position="absolute" left="14" width="996">
+          <Layouts>
+            <Layout width="1011" height="49"/>
+          </Layouts>
+        </Div>
+        <Grid id="grd_0" taborder="8" useinputpanel="false" binddataset="ds_fixinfo" autofittype="col" scrollbars="autoboth" width="982" top="263" height="123" left="21">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="20"/>
+                <Column size="80"/>
+                <Column size="221"/>
+                <Column size="100"/>
+                <Column size="75"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell style="font:9 arial;" text="No"/>
+                <Cell col="1" style="font:9 arial;" text="구분"/>
+                <Cell col="2" style="font:9 arial;" text="일시"/>
+                <Cell col="3" style="font:9 arial;" text="장소"/>
+                <Cell col="4" style="font:9 arial;" text="마감일시"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:center;" text="expr:currow + 1"/>
+                <Cell col="1" displaytype="combo" edittype="combo" text="bind:lawFixinfoSepcode" combodataset="ds_fixinfo_sepcode" combocodecol="codeno" combodatacol="codenm"/>
+                <Cell col="2" text="bind:lawFixinfoDate" expr="expr:comp.parent.gfn_IsNull(lawFixinfoDate) ? &quot;&quot; : (lawFixinfoDate.substr(0,4)+&quot;-&quot;+lawFixinfoDate.substr(4,2)+&quot;-&quot;+lawFixinfoDate.substr(6,2)+&quot; &quot;+lawFixinfoDate.substr(8,2)+&quot;:&quot;+lawFixinfoDate.substr(10,2))" editdisplay="edit" calendardisplay="edit" calendardisplaynulltext=" "/>
+                <Cell col="3" text="bind:lawFixinfoPlc"/>
+                <Cell col="4" text="bind:lawFixinfoDlinDate" expr="expr:comp.parent.gfn_IsNull(lawFixinfoDlinDate) ? &quot;&quot; : (lawFixinfoDlinDate.substr(0,4)+&quot;-&quot;+lawFixinfoDlinDate.substr(4,2)+&quot;-&quot;+lawFixinfoDlinDate.substr(6,2)+&quot; &quot;+lawFixinfoDlinDate.substr(8,2)+&quot;:&quot;+lawFixinfoDlinDate.substr(10,2))"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Div id="Div01" taborder="14" left="23" top="70" width="982" height="25" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Static id="sta_no" taborder="19" text="소송관리번호" left="20" top="70" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Button id="btn_depo_search" taborder="20" text="검색" left="287" top="71" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;" class="btn_WFSA_Search" onclick="Div01_Button0_onclick"/>
+        <Button id="btn_reset" taborder="21" text="초기화" onclick="Div01_btn_clear_onclick" left="943" top="71" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;" class="btn_WFSA_Search"/>
+        <Static id="notice" taborder="22" text="아직 승인되지 않은 소송입니다." left="713" top="74" width="197" height="17" style="color:red;font:dotum,9,bold;"/>
+        <Edit id="edt_No" taborder="15" enable="false" width="140" height="19" top="73" left="139" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;font:9 dotum;}"/>
+        <Static id="sta_no00" taborder="23" text="심급" left="346" top="70" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Combo id="cb_instance" taborder="16" innerdataset="@ds_inst_adm_code" codecolumn="codeno" datacolumn="codenm" onitemchanged="combo_Instance_onitemchanged" width="140" height="19" top="73" left="465" index="-1"/>
+        <Static id="subTitle_03" taborder="31" text="심급기본사항" onclick="sta_03_onclick" left="14" top="115" width="197" height="19" style="color:black;align:left top;font:굴림,9,bold;"/>
+        <Static id="sta_00" taborder="32" left="54" top="137" width="950" height="25" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+        <ImageViewer id="img_view01" taborder="33" left="14" top="132" width="996" height="84" style="background:lavenderblush;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_04" taborder="34" left="54" top="161" width="950" height="25" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_18" taborder="35" left="54" top="185" width="950" height="25" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_01" taborder="44" left="54" top="137" width="950" height="25" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_05" taborder="36" text="사건번호" left="20" top="137" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="sta_06" taborder="37" text="당사원피고구분" left="20" top="161" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="sta_19" taborder="38" text="수행법원" left="20" top="185" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="sta_07" taborder="39" text="사건유형" left="343" top="137" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="sta_08" taborder="40" text="피고" left="343" top="161" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="sta_02" taborder="42" text="진행상태" left="674" top="137" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="sta_25" taborder="43" text="청구소가" left="674" top="161" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Combo id="cb_1" taborder="26" innerdataset="@ds_cort_code" codecolumn="codeno" datacolumn="codenm" onitemchanged="Div02_Combo01_onitemchanged" enable="false" width="140" height="19" left="140" top="188" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <Combo id="cb_2" taborder="27" innerdataset="@ds_case_ty_code" codecolumn="codeno" datacolumn="codenm" onitemchanged="Div02_Combo02_onitemchanged" enable="false" width="140" height="19" left="463" top="140" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <Edit id="edt_02" taborder="28" enable="false" width="140" height="19" left="463" top="164" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <Combo id="cb_03" taborder="29" innerdataset="@ds_prgr_code" codecolumn="codeno" datacolumn="codenm" enable="false" width="140" height="19" left="793" top="140" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <MaskEdit id="edt_MaskEdit00" taborder="30" mask="#,###" enable="false" width="140" height="19" top="164" left="793" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <Edit id="edt_01" taborder="24" enable="false" width="140" height="19" left="140" top="140" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <Combo id="cb_0" taborder="25" innerdataset="@ds_def_code" codecolumn="codeno" datacolumn="codenm" enable="false" width="140" height="19" left="140" top="164" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <Button id="btn_new" taborder="47" text="신규" onclick="btn_new_onclick" cssclass="btn_WFSA_Search" left="889" top="230" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Dotum;" class="btn_WFSA_Search"/>
+        <Button id="btn_del" taborder="48" text="삭제" onclick="btn_del_onclick" cssclass="btn_WFSA_Search" left="949" top="230" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Dotum;" class="btn_WFSA_Search"/>
+        <Button id="btn_close" taborder="73" text="닫기" left="950" top="614" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;" class="btn_WFSA_Search" onclick="Button00_onclick"/>
+        <Button id="btn_save" taborder="74" text="저장" onclick="btn_save_onclick" left="890" top="614" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;" class="btn_WFSA_Search"/>
+        <Div id="Div02" taborder="75" left="0" top="403" right="0" height="200">
+          <Layouts>
+            <Layout width="1024" height="200">
+              <ImageViewer id="img_view02" taborder="0" left="14" top="13" width="996" height="179" style="background:lavenderblush;border:1 solid #a8a8a8ff ;"/>
+              <Static id="sta_12" taborder="1" left="54" top="127" width="950" height="60" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+              <Static id="sta_13" taborder="2" text="재판부의견" left="20" top="127" width="115" height="60" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+              <Static id="sta_10" taborder="3" left="54" top="20" width="567" height="25" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+              <Static id="sta_11" taborder="4" text="기일일시" left="20" top="20" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+              <Static id="sta_14" taborder="5" text="기일장소" left="287" top="20" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+              <Static id="sta_16" taborder="6" left="54" top="44" width="567" height="25" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+              <Static id="sta_15" taborder="7" text="기일구분" left="20" top="44" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+              <Static id="sta_20" taborder="8" left="54" top="68" width="950" height="60" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+              <Static id="sta_17" taborder="9" text="상대방주장" left="20" top="68" width="115" height="60" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+              <Combo id="Combo04" taborder="10" innerdataset="@ds_fixinfo_sepcode" codecolumn="codeno" datacolumn="codenm" left="141" top="47" width="140" height="19" index="-1"/>
+              <Static id="sta_21" taborder="11" text="기일마감일시" left="287" top="44" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+              <Static id="sta_22" taborder="12" left="616" top="20" width="388" height="50" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+              <Edit id="Edit5" taborder="14" left="407" top="23" width="140" height="19"/>
+              <Static id="sta_24" taborder="15" text="주요쟁점" left="553" top="20" width="115" height="50" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+              <Calendar id="Calendar00" taborder="17" type="normal" left="141" top="23" width="140" height="19" editformat="yyyy-MM-dd HH:mm" dateformat="yyyy-MM-dd HH:mm" value="null"/>
+              <Calendar id="Calendar01" taborder="18" type="normal" left="407" top="47" width="140" height="19" editformat="yyyy-MM-dd HH:mm" dateformat="yyyy-MM-dd HH:mm" value="null"/>
+              <TextArea id="ta_Oth_Insi" taborder="19" enable="false" left="140" top="71" width="407" height="53" style="align:left middle; :disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+              <TextArea id="ta_Cort_Opin" taborder="20" enable="false" left="140" top="130" width="407" height="53" style="align:left middle; :disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+              <TextArea id="ta_Lyr_Opin" taborder="21" left="674" top="130" width="323" height="52" style="border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;align:left middle;" maxlength="500"/>
+              <TextArea id="ta_Main_Issu" taborder="22" enable="false" left="673" top="23" width="324" height="44" style="align:left middle; :disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+              <TextArea id="ta_Cp_Insi" taborder="23" oneditclick="div_detail_ta_Cp_Insi_oneditclick" enable="false" left="674" top="72" width="323" height="52" style="align:left middle; :disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+              <Static id="sta_23" taborder="13" text="당사자주장" left="553" top="69" width="115" height="60" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+              <Static id="sta_26" taborder="16" text="변호사의견" left="553" top="127" width="115" height="60" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div03" taborder="76" left="1032" top="395" height="200" visible="false" width="1024">
+          <Layouts>
+            <Layout width="1024" height="200">
+              <ImageViewer id="img_view02" taborder="24" left="14" top="38" width="996" height="149" style="background:lavenderblush;border:1 solid #a8a8a8ff ;"/>
+              <Static id="sta_10" taborder="27" left="54" top="43" width="685" height="25" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+              <Static id="sta_11" taborder="28" text="기일장소" left="20" top="43" width="105" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;"/>
+              <Static id="sta_22" taborder="36" left="736" top="43" width="268" height="137" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+              <Static id="sta_20" taborder="32" left="54" top="67" width="950" height="113" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+              <Static id="sta_17" taborder="33" text="상대방주장" left="20" top="67" width="105" height="113" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;"/>
+              <Edit id="Edit5" taborder="38" left="134" top="45" width="582" height="19" maxlength="100"/>
+              <Static id="sta_24" taborder="39" text="기일일시" left="720" top="43" width="105" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;"/>
+              <Combo id="Combo04" taborder="34" innerdataset="@ds_time_type" codecolumn="codeno" datacolumn="codenm" left="839" top="71" width="130" height="19" visible="false"/>
+              <Calendar id="Calendar00" taborder="44" left="830" top="46" height="19" width="168" editformat="yyyy-MM-dd HH:mm" dateformat="yyyy-MM-dd HH:mm" value="null"/>
+              <Edit id="Edit00" taborder="45" left="838" top="98" height="19" width="130" inputtype="number" maxlength="2" style="align:right middle;" visible="false"/>
+              <Edit id="Edit01" taborder="46" left="838" top="125" height="19" width="130" inputtype="number" maxlength="2" style="align:right middle;" visible="false"/>
+              <Button id="btn_reg" taborder="47" text="등록" left="885" top="5" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;" class="btn_WFSA_Search" onclick="Div03_btn_reg_onclick"/>
+              <Button id="btn_cancel" taborder="48" text="취소" left="949" top="5" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;" class="btn_WFSA_Search" onclick="Div03_btn_cancel_onclick"/>
+              <Static id="sta_00" taborder="49" text="시" left="965" top="96" width="27" height="25" style="color:#133678ff;align:center middle;font:bold 9 굴림;" visible="false"/>
+              <Static id="sta_01" taborder="50" text="분" left="965" top="123" width="27" height="25" style="color:#133678ff;align:center middle;font:bold 9 굴림;" visible="false"/>
+              <Grid id="Grid00" taborder="51" useinputpanel="false" left="134" top="71" height="106" binddataset="ds_fixinfo_sepcode" autofittype="col" scrollbars="none" width="865">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell text="bind:codenm"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_lawsuit">
+        <ColumnInfo>
+          <Column id="lawsuitAdmNo" type="STRING" size="256"/>
+          <Column id="instAdmCode" type="STRING" size="256"/>
+          <Column id="instAdmCaseNo" type="STRING" size="256"/>
+          <Column id="lawsuitCaseTyCode" type="STRING" size="256"/>
+          <Column id="instAdmPrgrCode" type="STRING" size="256"/>
+          <Column id="lawsuitCpPladefSepcode" type="STRING" size="256"/>
+          <Column id="pladefName" type="STRING" size="256"/>
+          <Column id="pladefClamVol" type="STRING" size="256"/>
+          <Column id="instAdmCortCode" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_fixinfo" useclientlayout="true">
+        <ColumnInfo>
+          <Column id="lawsuitAdmNo" type="STRING" size="256"/>
+          <Column id="instAdmCode" type="STRING" size="256"/>
+          <Column id="lawFixinfoNum" type="STRING" size="256"/>
+          <Column id="lawFixinfoSepcode" type="STRING" size="256"/>
+          <Column id="lawFixinfoDate" type="STRING" size="256"/>
+          <Column id="lawFixinfoPlc" type="STRING" size="256"/>
+          <Column id="lawFixinfoMainIssu" type="STRING" size="256"/>
+          <Column id="lawFixinfoCpInsi" type="STRING" size="256"/>
+          <Column id="lawFixinfoOthInsi" type="STRING" size="256"/>
+          <Column id="lawFixinfoCortOpin" type="STRING" size="256"/>
+          <Column id="lawFixinfoLyrOpin" type="STRING" size="256"/>
+          <Column id="lawFixinfoDlinDate" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_search">
+        <ColumnInfo>
+          <Column id="lawsuitAdmNo" type="STRING" size="256"/>
+          <Column id="instAdmCode" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_def_code" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+          <Column id="codeFull" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_case_ty_code" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+          <Column id="codeFull" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_fixinfo_sepcode" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+          <Column id="codeFull" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_cort_code" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+          <Column id="codeFull" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_inst_adm_code" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+          <Column id="codeFull" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_time_type" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+          <Column id="codeFull" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="codeno">1</Col>
+            <Col id="codenm">오전</Col>
+          </Row>
+          <Row>
+            <Col id="codeno">2</Col>
+            <Col id="codenm">오후</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_prgr_code" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+          <Column id="codeFull" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_instance">
+        <ColumnInfo>
+          <Column id="lawsuitAdmNo" type="STRING" size="256"/>
+          <Column id="instAdmCode" type="STRING" size="256"/>
+          <Column id="instAdmPrgrCode" type="STRING" size="256"/>
+          <Column id="instAdmCaseNo" type="STRING" size="256"/>
+          <Column id="instAdmName" type="STRING" size="256"/>
+          <Column id="instAdmCortCode" type="STRING" size="256"/>
+          <Column id="instAdmPetiSenddate" type="STRING" size="256"/>
+          <Column id="instAdmCortReqidate" type="STRING" size="256"/>
+          <Column id="instAdmAsitParcdate" type="STRING" size="256"/>
+          <Column id="instAdmAsitParcopin" type="STRING" size="256"/>
+          <Column id="instAdmIssuPoin" type="STRING" size="256"/>
+          <Column id="instAdmCpOpin" type="STRING" size="256"/>
+          <Column id="instAdmClamVopcode" type="STRING" size="256"/>
+          <Column id="instAdmClamVop" type="STRING" size="256"/>
+          <Column id="instAdmDivRate" type="STRING" size="256"/>
+          <Column id="instAdmJudId" type="STRING" size="256"/>
+          <Column id="instAdmIssuChg" type="STRING" size="256"/>
+          <Column id="instAdmCtpmgrName" type="STRING" size="256"/>
+          <Column id="instAdmCtrmgrDepuname" type="STRING" size="256"/>
+          <Column id="instAdmRaisreqDate" type="STRING" size="256"/>
+          <Column id="instAdmVodSepcode" type="STRING" size="256"/>
+          <Column id="instAdmJudgDate" type="STRING" size="256"/>
+          <Column id="instAdmJudgCfmDate" type="STRING" size="256"/>
+          <Column id="instAdmJudgDelidate" type="STRING" size="256"/>
+          <Column id="instAdmVodChg" type="STRING" size="256"/>
+          <Column id="instAdmRegnChg" type="STRING" size="256"/>
+          <Column id="instAdmPayDlindate" type="STRING" size="256"/>
+          <Column id="instAdmWincRate" type="STRING" size="256"/>
+          <Column id="instAdmJudgCont" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_inst_adm_code00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+          <Column id="codeFull" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="edt_No" propid="value" datasetid="ds_lawsuit" columnid="lawsuitAdmNo"/>
+      <BindItem id="item2" compid="edt_01" propid="value" datasetid="ds_instance" columnid="instAdmCaseNo"/>
+      <BindItem id="item5" compid="cb_0" propid="value" datasetid="ds_lawsuit" columnid="lawsuitCpPladefSepcode"/>
+      <BindItem id="item8" compid="cb_1" propid="value" datasetid="ds_instance" columnid="instAdmCortCode"/>
+      <BindItem id="item3" compid="cb_2" propid="value" datasetid="ds_lawsuit" columnid="lawsuitCaseTyCode"/>
+      <BindItem id="item6" compid="edt_02" propid="value" datasetid="ds_lawsuit" columnid="pladefName"/>
+      <BindItem id="item4" compid="cb_03" propid="value" datasetid="ds_instance" columnid="instAdmPrgrCode"/>
+      <BindItem id="item7" compid="edt_MaskEdit00" propid="value" datasetid="ds_instance" columnid="instAdmClamVop"/>
+      <BindItem id="item9" compid="Div02.Combo04" propid="value" datasetid="ds_fixinfo" columnid="lawFixinfoSepcode"/>
+      <BindItem id="item11" compid="Div02.Edit5" propid="value" datasetid="ds_fixinfo" columnid="lawFixinfoPlc"/>
+      <BindItem id="item10" compid="Div02.Calendar00" propid="value" datasetid="ds_fixinfo" columnid="lawFixinfoDate"/>
+      <BindItem id="item13" compid="Div02.ta_Oth_Insi" propid="value" datasetid="ds_fixinfo" columnid="lawFixinfoOthInsi"/>
+      <BindItem id="item14" compid="Div02.ta_Cort_Opin" propid="value" datasetid="ds_fixinfo" columnid="lawFixinfoCortOpin"/>
+      <BindItem id="item17" compid="Div02.ta_Lyr_Opin" propid="value" datasetid="ds_fixinfo" columnid="lawFixinfoLyrOpin"/>
+      <BindItem id="item15" compid="Div02.ta_Main_Issu" propid="value" datasetid="ds_fixinfo" columnid="lawFixinfoMainIssu"/>
+      <BindItem id="item16" compid="Div02.ta_Cp_Insi" propid="value" datasetid="ds_fixinfo" columnid="lawFixinfoCpInsi"/>
+      <BindItem id="item1" compid="Div02.Calendar01" propid="value" datasetid="ds_fixinfo" columnid="lawFixinfoDlinDate"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "Lib::common.xjs";
+
+var gbcode = ""; //insert, delete, update 저장메시지 호출용
+var	lawsrcrlt = "";		//소송관리번호
+var instcdrlt = "";		//심급코드
+
+//OnLoadComplete
+this.OUT_FIXINFO_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	//this.gfnOnload(this);
+	this.gf_codeComListLoad("dsComCode1", "ds_case_ty_code", "N", "", "", "fn_callback", "A02");
+	this.gf_codeComListLoad("dsComCode2", "ds_def_code", "N", "", "", "fn_callback", "H02");
+	this.gf_codeComListLoad("dsComCode3", "ds_cort_code", "N", "", "", "fn_callback", "A01");
+	this.gf_codeComListLoad("dsComCode4", "ds_fixinfo_sepcode", "N", "", "", "fn_callback", "K01");
+	this.gf_codeComListLoad("dsComCode5", "ds_inst_adm_code", "N", "", "", "fn_callback", "G01");
+	this.gf_codeComListLoad("dsComCode6", "ds_prgr_code", "N", "", "", "fn_callback", "G02");
+	
+	//this.gf_codeComListLoad(strSvcId, strDataSet, strAllYn, strAllCode, strAllName, strCallbackFunc, strVParam,isSync)
+}
+
+//소송관리번호검색버튼
+this.Div01_Button0_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var nLeft = system.clientToScreenX(this, 10);
+	var nTop = system.clientToScreenY(this, 10);
+	var newChild = new ChildFrame;
+	
+	//모달팝업창 불러옴
+	newChild.init("Popup1", "absolute", nLeft, nTop, 300, 250, null, null,
+					"out::OUT_lawsuit_adm_no.xfdl");
+	newChild.set_openalign("center middle");
+	newChild.set_dragmovetype("all");
+	newChild.showModal(this.getOwnerFrame(),"",this,"modal_callback");
+}
+
+//modal_callback 함수
+this.modal_callback = function(strID, variant)
+{
+	if(strID == "Popup1")
+	{
+		var lawSearchNo = variant; //variant : modal창 닫힐때의 반환값
+		
+		if(this.gfn_IsNull(lawSearchNo) || lawSearchNo==0) //소송관리번호가 빈값인 경우
+		{
+			lawsrcrlt='';
+			instcdrlt = '';
+			return false;
+		}
+		else
+		{
+			lawsrcrlt = lawSearchNo.substr(0,10);
+			
+			if(lawSearchNo.length == 13)	instcdrlt = lawSearchNo.substr(10,3);
+			else							instcdrlt = '';
+			
+			this.ds_lawsuit.filter('');
+			this.ds_instance.filter('');
+			this.ds_fixinfo.filter('');
+			
+			this.ds_lawsuit.clearData();
+			this.ds_instance.clearData();
+			this.ds_fixinfo.clearData();
+			
+			this.ds_lawsuit.addRow();
+			this.ds_instance.addRow();
+			this.ds_fixinfo.addRow();
+			
+			this.fnSetLawsuitAdmNo(lawsrcrlt, instcdrlt);
+		}
+		
+	}//end Popup1
+}
+
+this.fnSetLawsuitAdmNo = function (lawsrcrlt, instcdrlt)
+{
+	if(lawsrcrlt.length>0){
+		this.ds_search.setColumn(0, "lawsuitAdmNo", lawsrcrlt);
+		this.ds_search.setColumn(0, "instAdmCode", instcdrlt);
+		
+		this.fnGetLawsuitInfo();
+	}
+};
+
+this.fnGetLawsuitInfo = function ()
+{	
+	var strSvcid = "getLawsuitRecSelect";
+	var strController = "/out/fixinfo_getLawsuitRecSelect.do";
+	
+	this.gfn_transaction(this, 						//호출한 Frame
+						strSvcid, strController, 
+						"ds_search=ds_search", 		//input : transaction을 요청할 때 입력값으로 보낼 Dataset의 ID 리스트
+						"ds_lawsuit=ds_output", 	//ouput: transaction을 처리 결과를 받을 Dataset의 ID 리스트
+						"",							//transaction을 요청할 때 입력값으로 보낼 변수
+						"fn_callback");
+};
+
+this.fnGetInstanceList = function ()
+{
+	var strSvcid = "getInstanceList";
+	var strController = "/out/getInstanceList.do";
+	
+	this.gfn_transaction(this, 						//호출한 Frame
+						strSvcid, strController, 
+						"ds_search=ds_search", 		//input : transaction을 요청할 때 입력값으로 보낼 Dataset의 ID 리스트
+						"ds_instance=ds_output", 	//ouput: transaction을 처리 결과를 받을 Dataset의 ID 리스트
+						"",							//transaction을 요청할 때 입력값으로 보낼 변수
+						"fn_callback");
+};
+
+this.fnGetLawFixinfoList = function (lawsrcrlt)
+{
+	var strSvcid = "getLawFixinfoSelect";
+	var strController = "/out/fixinfo_getLawFixinfoSelect.do";
+	
+	this.gfn_transaction(this,
+						strSvcid, strController,
+						"ds_search=ds_search",
+						"ds_fixinfo=ds_output",
+						"",
+						"fn_callback");
+};
+
+//심급변경에 따른 기일정보 변경
+this.combo_Instance_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	this.ds_fixinfo.filter("instAdmCode=='"+obj.value+"'");
+	this.ds_instance.filter("instAdmCode=='"+obj.value+"'");
+	
+	this.ds_fixinfo.set_rowposition(0);
+	this.ds_instance.set_rowposition(0);
+	
+}
+
+//callback 함수
+this.fn_callback = function(sSvcId, nErrorCode, sErrorMsg)
+{
+	if(nErrorCode < 0)
+	{
+		if(sSvcId=="insertFixinfo")	return alert("저장에 실패하였습니다." + sErrorMsg);
+		else						return alert("데이터 불러오기에 실패하였습니다." + sErrorMsg);
+	}
+	switch(sSvcId)
+	{		
+		case "dsComCode5":
+				this.ds_inst_adm_code00.copyData(this.ds_inst_adm_code);
+			break;
+		case "getLawFixinfoSelect":
+				this.cb_instance.set_value(instcdrlt);
+				this.combo_Instance_onitemchanged(this.cb_instance,{});		
+			break;
+			
+		case "getInstanceList":
+				this.ds_inst_adm_code.copyData(this.ds_inst_adm_code00);
+				this.notice.set_visible(false);
+				
+				if(this.ds_instance.getRowCount() ==0)
+				{						
+					
+					for(var i=10; i>0 ; i--){
+						this.ds_inst_adm_code.deleteRow(i);
+					}		
+										
+					this.cb_instance.set_index(0);
+					this.btn_new.set_visible(false);
+					this.btn_del.set_visible(false);					
+					this.notice.set_visible(true);				
+				}
+				else
+				{
+					
+					var instanceLevel = this.ds_instance.getRowCount() - 1;
+					for(var i=10; i>instanceLevel ; i--){
+						this.ds_inst_adm_code.deleteRow(i);
+					}					
+					this.btn_new.set_visible(true);
+					this.btn_del.set_visible(true);	
+				}	
+				
+				this.fnGetLawFixinfoList();		
+			break;
+			
+		case "getLawsuitRecSelect": //기본사항조회
+				if(this.ds_lawsuit.getColumn(this.ds_lawsuit.rowposition, "lawsuitCpPladefSepcode") != "001")
+				{
+					this.sta_08.set_text("원고");
+				}
+				else
+				{
+					this.sta_08.set_text("피고");
+				}
+				//trace(this.ds_lawsuit.saveXML());
+				this.fnGetInstanceList();
+			break;
+		
+		case "deleteFixinfo":
+			if(this.ds_instance2.rowcount !=0)
+			{
+				this.alert("삭제완료");
+				this.ds_instance2.rowposition = 0;
+			}
+			else
+			{
+				this.ds_instance2.rowposition = 0;
+			}
+			break;
+			
+		case "insertFixinfo":
+			alert("처리되었습니다.");
+			this.fnGetLawFixinfoList();		
+			/*
+			if(this.ds_instance2.rowcount != 0)
+			{
+				alert("처리되었습니다.");
+				this.ds_instance2.rowposition = 0;
+			}
+			else
+			{
+				this.ds_instance2.rowposition = 0;
+			}
+			*/
+			break;
+	}
+}
+
+
+//초기화 버튼 event
+this.Div01_btn_clear_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.btn_new.set_visible(false);
+	this.btn_del.set_visible(false);
+	
+	this.Div02.set_visible(true);
+	this.Div03.set_visible(false);
+	
+	this.btn_save.set_visible(true);
+	
+	this.ds_inst_adm_code.clearData();
+	this.ds_lawsuit.clearData();
+	this.ds_instance.clearData();
+	this.ds_fixinfo.clearData();
+
+}
+
+
+
+//기일정보 신규 버튼 event
+this.btn_new_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.gfn_IsNull(lawsrcrlt))	return;
+	
+	obj.set_visible(false);
+	this.btn_del.set_visible(false);
+	this.Div02.set_visible(false);
+	this.Div03.set_left(0);
+	this.Div03.set_visible(true);
+	this.btn_save.set_visible(false);
+}
+
+
+//기일정보 삭제 버튼 event
+this.btn_del_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var cRow = this.ds_fixinfo.rowposition;
+	
+	if(this.ds_fixinfo.rowcount == 0)	return;
+	this.ds_fixinfo.deleteRow(cRow);
+	
+	/*
+    if(this.ds_fixinfo.getRowType(cRow) == Dataset.ROWTYPE_INSERT){
+		this.ds_fixinfo.deleteRow(cRow);
+    }else{
+		this.ds_fixinfo.deleteRow(cRow);
+		
+    } 
+	*/
+}
+
+
+//기일정보 저장 버튼 event
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.edt_No.value == "")						return	alert("소송관리번호를 검색해주세요.");		
+	else if(!this.gfnDsChangeCheck(this.ds_fixinfo))return	alert("저장할 데이터가 없습니다.");
+	
+	
+	for(var i=0; i<this.ds_fixinfo.rowcount; i++){
+		
+		if(this.gfn_IsNull(this.ds_fixinfo.getColumn(i,"lawFixinfoDate")))	return alert("기일일시가 없습니다.");
+		if(this.gfn_IsNull(this.ds_fixinfo.getColumn(i,"lawFixinfoPlc")))	return alert("기일장소가 없습니다.");
+		if(this.gfn_IsNull(this.ds_fixinfo.getColumn(i,"lawFixinfoDlinDate")))	return alert("기일마감일시가 없습니다.");
+		if(this.gfn_IsNull(this.ds_fixinfo.getColumn(i,"lawFixinfoSepcode")))	return alert("기일구분코드가 없습니다.");		
+	}
+	trace(this.ds_fixinfo.saveXML());
+	this.sav_transaction("insertFixinfo");
+	
+	/*
+	var rec = this.confirm("저장 하시겠습니까?");
+	
+	if(rec == "1")
+	{
+		this.sav_transaction("insertFixinfo");
+	}
+	else
+	{
+		if(this.ds_instance2.getRowCount() < 1) //기일정보 없을때
+		{
+			this.alert("처리할 기일정보가 없습니다.");
+		}
+		else if(this.ds_instance2.rowposition == -1) //getRowCount < 1 ; rowposition == -1 의 차이
+		{
+			this.alert("기일정보를 입력해야 합니다.");
+			return false;
+		}
+	}
+	*/
+}
+
+
+//기일정보 저장,수정,삭제 시 공통 transaction method
+this.sav_transaction = function(sSvcid)
+{
+	var strSvcid = sSvcid;
+	var strController = "/out/fixinfo_getLawFixinfoCud.do";
+	
+	this.gfn_transaction(this,
+						strSvcid, strController,
+						"ds_search=ds_fixinfo:U", //input dataset : nexacro(요청값) -> controller
+						"",
+						//"ds_instans2=ds_output", //output dataset : controller(결과값) -> nexacro 
+						"",
+						"fn_callback");
+}
+
+//닫기 버튼
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfnClose();
+}
+
+
+this.Div03_btn_reg_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var ds 		= this.Div03.Grid00.getBindDataset();
+	
+	/*
+	var hour	= this.Div03.Edit00.value;
+	var min		= this.Div03.Edit01.value;
+	var cal		= this.Div03.Calendar00.value;	
+	var ds 		= this.Div03.Grid00.getBindDataset();
+	var sepcode	= ds.getColumn(ds.rowposition, "codeno");
+	var plc		= this.Div03.Edit5.value;
+	var date;	
+	
+	if(cal==""){
+		cal=this.gfn_Today();
+	}
+	
+	if(min.length=="1"){
+		min = "0"+min;
+	}
+	if(hour.length=="1"){
+		hour = "0"+hour;					
+	}
+	
+	//24시 변환
+	if(hour<"0" || hour>"23" || min<"0" || min>"59"){
+		alert("시간을 확인해 주세요.");
+		alert("hour"+hour);
+		alert("min"+min);
+	}else{
+		
+		if(hour>0 && hour<12){
+			if(this.Div03.Combo04.index == "1"){
+				hour = hour+12;			
+			}
+		}			
+		date=cal + hour + min;
+		//trace("date : "+date);
+		*/
+		this.ds_fixinfo.insertRow(0);
+		this.ds_fixinfo.setColumn(0, "lawsuitAdmNo", this.ds_instance.getColumn(this.ds_instance.rowposition,"lawsuitAdmNo"));
+		this.ds_fixinfo.setColumn(0, "instAdmCode", this.ds_instance.getColumn(this.ds_instance.rowposition,"instAdmCode"));
+		this.ds_fixinfo.setColumn(0, "lawFixinfoSepcode", ds.getColumn(ds.rowposition, "codeno"));	
+		this.ds_fixinfo.setColumn(0, "lawFixinfoPlc", this.Div03.Edit5.value);
+		//this.ds_fixinfo.setColumn(0, "lawFixinfoDate", date);		
+		this.ds_fixinfo.setColumn(0, "lawFixinfoDate", this.Div03.Calendar00.value);			
+		this.ds_fixinfo.setColumn(0, "lawFixinfoMainIssu", "");
+		this.ds_fixinfo.setColumn(0, "lawFixinfoCpInsi", "");
+		this.ds_fixinfo.setColumn(0, "lawFixinfoOthInsi", "");
+		this.ds_fixinfo.setColumn(0, "lawFixinfoCortOpin", "");
+		this.ds_fixinfo.setColumn(0, "lawFixinfoLyrOpin", "");
+		this.ds_fixinfo.setColumn(0, "lawFixinfoDlinDate", "");		
+		trace("ghkrdls :: "+this.Div03.Calendar00.value);
+		this.btn_new.set_visible(true);
+		this.btn_del.set_visible(true);
+		this.Div02.set_visible(true);
+		this.Div03.set_visible(false);
+		this.btn_save.set_visible(true);
+		
+		this.Div03.Combo04.set_index(0);
+		this.Div03.Edit00.set_value('');
+		this.Div03.Edit01.set_value('');
+		this.Div03.Calendar00.set_value('');	
+		//this.Div03.ta_Oth_Insi.set_value('');
+		this.Div03.Edit5.set_value('');
+	//}
+}
+
+this.Div03_btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+		this.btn_new.set_visible(true);
+		this.btn_del.set_visible(true);
+		this.Div02.set_visible(true);
+		this.Div03.set_visible(false);
+		this.btn_save.set_visible(true);
+		
+		this.Div03.Combo04.set_index(0);
+		this.Div03.Edit00.set_value('');
+		this.Div03.Edit01.set_value('');
+		this.Div03.Calendar00.set_value('');	
+		//this.Div03.ta_Oth_Insi.set_value('');
+		this.Div03.Edit5.set_value('');
+}
+]]></Script>
+  </Form>
+</FDL>

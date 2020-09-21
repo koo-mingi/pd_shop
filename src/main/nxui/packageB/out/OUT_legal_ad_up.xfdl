@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="OUT_legal_ad_up" classname="OUT_legal_ad_up_skw" left="0" top="0" width="1024" height="768" titletext="New Form" onload="out_legal_ad_up_onload">
+    <Layouts>
+      <Layout>
+        <ImageViewer id="img_view01" taborder="47" left="14" top="144" width="996" height="236" style="background:lavenderblush;border:1 solid #a8a8a8ff ;"/>
+        <ImageViewer id="img_view02" taborder="42" left="14" top="415" width="1002" height="211" style="background:lavenderblush;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_011" taborder="44" left="84" top="468" width="924" height="52" style="background:#eaeaeaff;border:1 solid #c8c8c8ff ;color:#444444ff;"/>
+        <Static id="sta_021" taborder="45" left="84" top="519" width="924" height="51" style="background:#eaeaeaff;border:1 solid #c8c8c8ff ;color:#444444ff;"/>
+        <Static id="sta_031" taborder="46" left="84" top="569" width="924" height="51" style="background:#eaeaeaff;border:1 solid #c8c8c8ff ;color:#444444ff;"/>
+        <Static id="sta_012" taborder="43" left="84" top="444" width="924" height="25" style="background:#eaeaeaff;border:1 solid #c8c8c8ff ;color:#444444ff;"/>
+        <ImageViewer id="img_view00" taborder="40" left="14" top="65" width="998" height="60" style="background:lavenderblush;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_05" taborder="39" left="56" top="94" width="950" height="25" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+        <Div id="DivTitle" taborder="0" text="  외부법률자문조회" left="14" top="7" width="996" height="50" style="align:left;background:#3366ffff;color:#ffffffff;font:bold 12 dotum;"/>
+        <Static id="sta_00" taborder="38" left="22" top="70" width="984" height="25" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="sta_01" taborder="2" text="의뢰번호" left="21" top="70" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;" width="115"/>
+        <Static id="sta_02" taborder="3" text="법률자문구분" left="21" top="94" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="sta_03" taborder="4" text="의뢰일자" left="331" top="70" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="sta_04" taborder="5" text="회신여부" left="331" top="94" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Combo id="cb_00" taborder="6" left="141" top="97" height="19" innerdataset="@ds_combo_sep" codecolumn="codeno" datacolumn="codenm" width="140"/>
+        <Edit id="edt_00" taborder="7" left="141" top="73" height="19" width="140"/>
+        <Grid id="out_legal_ad_grd_" taborder="8" useinputpanel="false" left="21" top="151" height="222" width="982" autofittype="col" binddataset="ds_legal_ad" nodatatext="데이터가 없습니다." oncellclick="grid_cellclick" onheadclick="out_legal_ad_grid_onheadclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="101"/>
+                <Column size="102"/>
+                <Column size="283"/>
+                <Column size="76"/>
+                <Column size="99"/>
+                <Column size="88"/>
+                <Column size="98"/>
+                <Column size="55"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="의뢰번호"/>
+                <Cell col="1" text="자문구분"/>
+                <Cell col="2" text="의뢰제목"/>
+                <Cell col="3" text="회신여부"/>
+                <Cell col="4" text="의뢰일자"/>
+                <Cell col="5" text="의뢰담당자"/>
+                <Cell col="6" text="회신일자"/>
+                <Cell col="7" text="회신"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:legaladvLawAdvReqNo"/>
+                <Cell col="1" displaytype="combo" text="bind:legaladvLawAdvCode" combodataset="ds_combo_sep" combocodecol="codeno" combodatacol="codenm"/>
+                <Cell col="2" text="bind:legaladvOutReqTit"/>
+                <Cell col="3" displaytype="combo" text="bind:legaladvRepWtr" combodataset="ds_combo_wtr" combocodecol="codeno" combodatacol="codenm"/>
+                <Cell col="4" displaytype="expr:comp.parent.gfn_IsNull(legaladvOutReqDate) ?' normal' : 'date'" text="bind:legaladvOutReqDate"/>
+                <Cell col="5" text="bind:repMgrName"/>
+                <Cell col="6" displaytype="expr:comp.parent.gfn_IsNull(legaladvRepDate) ?' normal' : 'date'" text="bind:legaladvRepDate"/>
+                <Cell col="7" celltype="none" displaytype="button" edittype="button" style="background:transparent;color:black;color2:black;controlcolor:black;" text="회신"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="sta_051" taborder="9" left="84" top="420" width="924" height="25" style="background:#eaeaeaff;border:1 solid #c8c8c8ff ;color:#444444ff;"/>
+        <Static id="subTitle__06" taborder="10" text="  법률자문 의뢰사항" left="1.37%" top="395" right="79.69%" height="15" style="font:bold 9 굴림;"/>
+        <Button id="btn_01" taborder="12" text="검색" left="876" top="95" width="55" height="23" onclick="Button01_onclick" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;"/>
+        <Button id="btn_02" taborder="13" text="초기화" left="936" top="95" width="55" height="23" onclick="Button02_onclick" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;"/>
+        <Static id="Static07" taborder="16" text="~" left="585" top="74" height="21" width="30" style="align:center middle;"/>
+        <Static id="sta_08" taborder="18" text="법률자문구분" left="20" top="420" width="105" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="sta_10" taborder="20" text="의뢰담당자" left="264" top="420" width="105" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="sta_11" taborder="21" text="의뢰일자" left="512" top="420" width="105" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="sta_12" taborder="22" text="회신요청일자" left="761" top="420" width="105" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="wSta_14" taborder="24" text="질의사항" left="20" top="519" width="105" height="51" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="wSta_15" taborder="25" text="요청사항" left="20" top="569" width="105" height="51" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Combo id="cb_02" taborder="26" left="130" top="423" height="19" width="130" innerdataset="@ds_combo_sep" codecolumn="codeno" datacolumn="codenm" enable="false" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <Edit id="edt_01" taborder="27" left="374" top="423" height="19" enable="false" width="130" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <Calendar id="cal_02" taborder="28" left="622" top="423" height="19" type="normal" enable="false" width="130" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <Calendar id="cal_03" taborder="29" left="871" top="423" height="19" type="normal" enable="false" width="130" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <Edit id="edt_02_nosize" taborder="30" left="130" top="447" height="19" width="873" enable="false" style=":disabled {border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <TextArea id="TextArea00" taborder="31" left="130" top="472" height="46" width="873" enable="false" style=":disabled {padding:0 3 0 3;border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <TextArea id="TextArea01" taborder="32" left="130" top="522" width="873" height="46" enable="false" style=":disabled {padding:0 3 0 3;border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <TextArea id="TextArea02" taborder="33" left="130" top="572" width="873" height="46" enable="false" style=":disabled {padding:0 3 0 3;border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;}"/>
+        <Button id="btn_00" taborder="34" text="닫기" left="947" top="650" height="23" onclick="Button00_onclick" width="55" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;"/>
+        <Radio id="Radio00" taborder="35" left="457" top="98" height="19" innerdataset="@ds_combo_wtr" codecolumn="codeno" datacolumn="codenm" direction="vertical" width="167"/>
+        <Calendar id="cal_00" taborder="36" left="451" top="73" height="19" onchanged="Calendar00_onchanged" width="140"/>
+        <Calendar id="cal_01" taborder="37" left="607" top="73" height="19" enable="false" width="140"/>
+        <Static id="sta_09" taborder="19" text="의뢰제목" left="20" top="444" width="105" height="27" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Static id="wSta_13" taborder="23" text="사실관계" left="20" top="468" width="105" height="52" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_search">
+        <ColumnInfo>
+          <Column id="legaladvOutReqLyrid" type="STRING" size="256"/>
+          <Column id="legaladvReqDate1" type="STRING" size="256"/>
+          <Column id="legaladvReqDate2" type="STRING" size="256"/>
+          <Column id="legaladvLawAdvReqNo" type="STRING" size="256"/>
+          <Column id="legaladvRepWtr" type="STRING" size="256"/>
+          <Column id="legaladvLawAdvCode" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_combo_sep">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+          <Column id="codeFull" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_legal_ad">
+        <ColumnInfo>
+          <Column id="legaladvLawAdvReqNo" type="STRING" size="256"/>
+          <Column id="legaladvOpenWtr" type="STRING" size="256"/>
+          <Column id="legaladvReqDeptCode" type="STRING" size="256"/>
+          <Column id="legaladvReqMgrCode" type="STRING" size="256"/>
+          <Column id="legaladvReqDate" type="STRING" size="256"/>
+          <Column id="legaladvAdvTit" type="STRING" size="256"/>
+          <Column id="legaladvFactRela" type="STRING" size="256"/>
+          <Column id="legaladvQuesIssu" type="STRING" size="256"/>
+          <Column id="legaladvEtc" type="STRING" size="256"/>
+          <Column id="legaladvLawAdvCode" type="STRING" size="256"/>
+          <Column id="legaladvOutReqWtr" type="STRING" size="256"/>
+          <Column id="legaladvReviDay" type="STRING" size="256"/>
+          <Column id="legaladvRepDeptCode" type="STRING" size="256"/>
+          <Column id="legaladvRepMgrCode" type="STRING" size="256"/>
+          <Column id="legaladvRepDate" type="STRING" size="256"/>
+          <Column id="legaladvRepCont" type="STRING" size="256"/>
+          <Column id="legaladvRepTit" type="STRING" size="256"/>
+          <Column id="legaladvRepWtr" type="STRING" size="256"/>
+          <Column id="legaladvEtcRepPoin" type="STRING" size="256"/>
+          <Column id="legaladvOutReqTit" type="STRING" size="256"/>
+          <Column id="legaladvOutReqLyrid" type="STRING" size="256"/>
+          <Column id="legaladvOutReqRepdate" type="STRING" size="256"/>
+          <Column id="legaladvOutReqDate" type="STRING" size="256"/>
+          <Column id="legaladvOutReqFact" type="STRING" size="256"/>
+          <Column id="legaladvOutReqQues" type="STRING" size="256"/>
+          <Column id="legaladvOutReqReq" type="STRING" size="256"/>
+          <Column id="reqMgrName" type="STRING" size="256"/>
+          <Column id="repMgrName" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_combo_wtr">
+        <ColumnInfo>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="codenm" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="codenm">전체</Col>
+          </Row>
+          <Row>
+            <Col id="codenm">회신</Col>
+            <Col id="codeno">Y</Col>
+          </Row>
+          <Row>
+            <Col id="codenm">미회신</Col>
+            <Col id="codeno">N</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_menu" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MENU_NAME" type="string" size="32" prop=""/>
+          <Column id="MENU_SEQ" type="int" size="4" prop=""/>
+          <Column id="MENU_OPTP" type="string" size="32" prop=""/>
+          <Column id="PAGE_URL" type="string" size="32" prop=""/>
+          <Column id="MENU_TOP" type="string" size="32" prop=""/>
+          <Column id="MENU_ID" type="string" size="32" prop=""/>
+          <Column id="MENU_GRP" type="string" size="32" prop=""/>
+          <Column id="CREATE_DT" type="string" size="32" prop=""/>
+          <Column id="MENU_LEVEL" type="int" size="4" prop=""/>
+          <Column id="PAGE_ID" type="string" size="32" prop=""/>
+          <Column id="PAGE_NAME" type="string" size="32" prop=""/>
+          <Column id="MENU_ARGS" type="string" size="32" prop=""/>
+          <Column id="MENU_STAT" type="string" size="32" prop=""/>
+          <Column id="CREATE_USER" type="string" size="32" prop=""/>
+          <Column id="UPDATE_DT" type="string" size="32" prop=""/>
+          <Column id="UPDATE_USER" type="string" size="32" prop=""/>
+          <Column id="MENU_DESC" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="edt_01" propid="value" datasetid="ds_legal_ad" columnid="repMgrName"/>
+      <BindItem id="item1" compid="cb_02" propid="value" datasetid="ds_legal_ad" columnid="legaladvLawAdvCode"/>
+      <BindItem id="item2" compid="cal_02" propid="value" datasetid="ds_legal_ad" columnid="legaladvOutReqDate"/>
+      <BindItem id="item3" compid="cal_03" propid="value" datasetid="ds_legal_ad" columnid="legaladvOutReqRepdate"/>
+      <BindItem id="item4" compid="edt_02_nosize" propid="value" datasetid="ds_legal_ad" columnid="legaladvOutReqTit"/>
+      <BindItem id="item5" compid="TextArea00" propid="value" datasetid="ds_legal_ad" columnid="legaladvOutReqFact"/>
+      <BindItem id="item6" compid="TextArea01" propid="value" datasetid="ds_legal_ad" columnid="legaladvOutReqQues"/>
+      <BindItem id="item7" compid="TextArea02" propid="value" datasetid="ds_legal_ad" columnid="legaladvOutReqReq"/>
+      <BindItem id="item8" compid="edt_00" propid="value" datasetid="ds_search" columnid="legaladvLawAdvReqNo"/>
+      <BindItem id="item9" compid="cb_00" propid="value" datasetid="ds_search" columnid="legaladvLawAdvCode"/>
+      <BindItem id="item10" compid="cal_00" propid="value" datasetid="ds_search" columnid="legaladvReqDate1"/>
+      <BindItem id="item11" compid="cal_01" propid="value" datasetid="ds_search" columnid="legaladvReqDate2"/>
+      <BindItem id="item12" compid="Radio00" propid="value" datasetid="ds_search" columnid="legaladvRepWtr"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "Lib::common.xjs";
+var legaladvOutReqLyrid='';
+
+//form onload
+this.out_legal_ad_up_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	//this.gfnOnload(this);
+	legaladvOutReqLyrid = application.gds_User.getColumn(application.gds_User.rowposition, "sabun");
+	//legaladvOutReqLyrid = "2013081903";
+	
+	this.gf_codeComListLoad("ds_combo_sep", "ds_combo_sep", "Y", "", "전체", "fnCallback", "O01"); //법률자문 구분코드
+	this.cal_01.set_value(this.gfn_Today());
+	this.legal_ad_list();
+}
+
+//법률자문 list 불러오기
+this.legal_ad_list = function()
+{		
+	this.ds_search.setColumn(0, "legaladvOutReqLyrid", legaladvOutReqLyrid	);
+	var legaladvLawAdvReqNo = this.edt_00.value;
+	var legaladvReqDate1 = this.cal_00.value;
+	var legaladvReqDate2 = this.cal_01.value;
+	var legaladvRepWtr = this.Radio00.value;
+	var legaladvLawAdvCode = this.cb_00.value;
+	
+	
+    //기간 유효성체크
+    if(!this.gfn_IsNull(legaladvReqDate1) && (legaladvReqDate1 > legaladvReqDate2)){
+		alert("날짜를 확인해 주세요.");
+		this.cal_01.set_value = '';
+		this.cal_01.dropdown();
+		return;
+    }
+	
+	/*
+	this.ds_search.clearData();
+	var nRow = this.ds_search.addRow();
+	this.ds_search.setColumn(nRow, "legaladvOutReqLyrid", legaladvOutReqLyrid	);
+	this.ds_search.setColumn(nRow, "legaladvLawAdvReqNo", legaladvLawAdvReqNo	);
+	this.ds_search.setColumn(nRow, "legaladvReqDate1"	, legaladvReqDate1		);
+	this.ds_search.setColumn(nRow, "legaladvReqDate2"	, legaladvReqDate2		);
+	this.ds_search.setColumn(nRow, "legaladvRepWtr"		, legaladvRepWtr		);
+	this.ds_search.setColumn(nRow, "legaladvLawAdvCode"	, legaladvLawAdvCode	);
+	*/
+	
+	var strSvcid = "outLegalAdList";
+	var strController = "/out/outLegalAdUpList.do";
+	
+	this.gfn_transaction(this,
+						strSvcid, strController,
+						"ds_search=ds_search",
+						"ds_legal_ad=ds_output",
+						"",
+						"fnCallback");
+	
+}
+
+//callback 함수
+this.fnCallback = function(sSvcId, nErrorCode, sErrorMsg)
+{
+	if(nErrorCode <0)
+	{
+		this.alert(sSvcId+" : "+sErrorMsg)
+		return;
+	}
+	
+	if(sSvcId == "ds_combo_sep")
+	{
+		//trace("법률구분코드 불러오기 완료");
+	}
+	
+	if(sSvcId == "outLegalAdList")
+	{
+		//trace("법률자문 조회성공");
+	}
+}
+
+//초기화 버튼 클릭
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//this.reload();
+	this.edt_00.set_value();
+	this.cal_00.set_value();
+	this.cal_01.set_value();
+	this.Radio00.set_index(0);
+	this.cb_00.set_index(0);
+}
+
+//검색 버튼 클릭
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.legal_ad_list();
+}
+
+//회신버튼 클릭
+this.grid_cellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var name	= this.gfnGridGetClickedBindingText(obj, e.cell);
+	var dsObj	= obj.getBindDataset();
+	
+	if(name == '회신')
+	{
+		var legaladvLawAdvReqNo = dsObj.getColumn(e.row, "legaladvLawAdvReqNo");
+		
+		var param = {	
+						"legaladvLawAdvReqNo":legaladvLawAdvReqNo
+					,	"legaladvOutReqLyrid":legaladvOutReqLyrid
+					};
+		trace("JSON :: "+JSON.stringify(param));
+		this.gfnOpenMenu("out::OUT_legal_ad_re", param);
+	}
+	
+	/*
+	if(this.out_legal_ad_grd_.getCellPos() == 7)
+	{
+		var text = this.ds_legal_ad.getColumn(this.ds_legal_ad.rowposition, "legaladvLawAdvReqNo");
+		var lyrid = application.gds_User.getColumn(application.gds_User.rowposition,"sabun");
+		//var lyrid = "2013082601";
+		trace("법률자문 no : "+text);
+		trace("cell pos : "+this.out_legal_ad_grd_.getCellPos());
+		//정보저장
+		application.gds_legalad.addRow();
+		application.gds_legalad.setColumn(application.gds_legalad.rowposition, "legaladvLawAdvReqNo", text);
+		application.gds_legalad.setColumn(application.gds_legalad.rowposition, "legaladvOutReqLyrid", lyrid);
+		
+		trace("~~~~~~~~~~~~~~~~"+application.gds_legalad.getColumn(application.gds_legalad.rowposition, "legaladvLawAdvReqNo"));
+		trace("~~~~~~~~~~~~~~~~"+application.gds_legalad.getColumn(application.gds_legalad.rowposition, "legaladvOutReqLyrid"));
+		
+		//페이지 이동
+		//project 실행시 go로 이동하면 창 꺼진다.
+		//this.go("out::OUT_legal_ad_re_skw.xfdl");
+		this.ds_menu.assign(application.gds_menu);
+		
+		var oObj = {
+          ds    : this.ds_menu,   // 메뉴 dataset 
+          nRow  : 25,          // 선택된
+          oArgs : []              //넘길 argument
+		};
+    
+		Iject.Mdi.call(this,oObj);
+		
+	}
+	*/
+}
+
+//닫기 버튼
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfnClose();
+}
+
+this.out_legal_ad_grid_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.gfnGridHeadSort(obj.getBindDataset(), e.cell);
+}
+
+this.Calendar00_onchanged = function(obj:Calendar, e:nexacro.ChangeEventInfo)
+{
+	if(!this.gfn_IsNull(obj.value))		this.cal_01.set_enable(true);
+	else								this.cal_01.set_enable(false);
+}
+]]></Script>
+  </Form>
+</FDL>

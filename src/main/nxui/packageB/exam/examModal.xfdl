@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="examModal" left="0" top="0" width="757" height="435" titletext="New Form" onload="examModal">
+    <Layouts>
+      <Layout>
+        <Static id="sta_01" taborder="4" left="14" top="65" width="730" height="321" style="background:lavenderblush;border:1 solid #a8a8a8ff ;"/>
+        <Div id="Div00" taborder="0" text="  장해부위 찾기" left="14" top="7" width="730" height="50" style="align:left middle;background:#3366ffff;color:#ffffffff;font:bold 12 Dotum;"/>
+        <Grid id="Grid00" taborder="1" useinputpanel="false" left="2.77%" top="72" height="307" width="716" binddataset="ds_injuryDetail" autofittype="col" oncelldblclick="Grid00_oncelldblclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="110"/>
+                <Column size="527"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="장해부위"/>
+                <Cell col="1" text="장해분류내용"/>
+                <Cell col="2" text="지급률"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:codename"/>
+                <Cell col="1" text="bind:codename1"/>
+                <Cell col="2" text="bind:etcCode1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button_close" taborder="2" text="닫기" onclick="Div05_Button_close_onclick" left="687" top="394" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Dotum;"/>
+        <Button id="Button_ok" taborder="3" text="확인" left="626" top="394" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Dotum;" onclick="Button_ok_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_injuryDetail">
+        <ColumnInfo>
+          <Column id="codename" type="STRING" size="256"/>
+          <Column id="codename1" type="STRING" size="256"/>
+          <Column id="higherCodeNo" type="STRING" size="256"/>
+          <Column id="etcCode1" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "Lib::common.xjs"; //공통함수 호출
+
+	var injuryCode = "";
+	var injuryDetail = "";
+	var paymentRate = "";
+
+this.examModal = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+		//장해부위 내용 트랜잭션
+		this.gfn_transaction(this,
+			  "getInjuryList",
+			  "exam/getPopExamList.do",
+			  "",
+			  "ds_injuryDetail=ds_injuryDetail",
+			  "",
+			  "");
+
+}
+
+this.Div05_Button_close_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	//trace(this.ds_injuryDetail.saveXML());
+	this.close();
+}
+
+this.Button_ok_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.dataPass();
+}
+
+
+this.dataPass = function(){
+
+	var thisRow = this.ds_injuryDetail.rowposition;
+	injuryCode = this.ds_injuryDetail.getColumn(thisRow, "higherCodeNo");
+	injuryDetail = this.ds_injuryDetail.getColumn(thisRow, "codename1");
+	paymentRate = this.ds_injuryDetail.getColumn(thisRow, "etcCode1");
+	
+	this.close(injuryCode + "," + injuryDetail + "," + paymentRate);
+}
+
+
+this.Grid00_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.dataPass();
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+body {
+	font-family: "돋움";
+	font-size: 12px;
+	color: #666666;
+	background-position: center top;
+	margin: 0px;
+	padding: 0px;
+	text-align: center
+}
+
+a:hover {
+	font-family: "돋움";
+	color: #FF9900;
+	text-decoration: underline;
+}
+
+a:active {
+	font-family: "돋움";
+	color: #FF9900;
+	text-decoration: underline;
+}
+
+.top_menu_back {
+	background-image: url(../images/top_menu_back.jpg);
+	background-repeat: no-repeat;
+}
+
+.notic_bar_back {
+	background-image: url(../images/notics_title_back_01.jpg);
+	background-repeat: repeat-x;
+}
+
+a:visited {
+	font-family: "돋움";
+	color: #0099CC;
+}
+
+.photo_back {
+	background-image: url(../images/photo_back.jpg);
+	background-repeat: no-repeat;
+}
+
+.bottom_back {
+	background-image: url(../images/bottom_back.jpg);
+	background-repeat: repeat-x;
+}
+
+a:link {
+	font-family: "돋움";
+	color: #666666;
+	text-decoration: none;
+}
+a:VISITED {
+	font-family: "돋움";
+	color: #666666;
+	text-decoration: none;
+}
+
+
+

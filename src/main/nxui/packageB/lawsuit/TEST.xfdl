@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="TEST" classname="TEST" left="0" top="0" width="1024" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <ImageViewer id="ImageViewer01" taborder="0" text="ImageViewer01" onclick="ImageViewer01_onclick" left="10" top="68" width="454" height="52" style="background:#f0f0f0ff;border:1 solid #808080ff ;color:#000000ff;"/>
+        <ImageViewer id="ImageViewer04" taborder="1" left="131" top="75" width="309" height="37" style="background:#f0f0f0ff;border:1 solid #808080ff ;"/>
+        <ImageViewer id="ImageViewer02" taborder="2" text="법원 검색" onclick="ImageViewer02_onclick" left="16" top="75" width="139" height="37" style="background:#f4edfaff;border:1 solid #969696ff ;color:#133678ff;font:굴림,9, bold;"/>
+        <ImageViewer id="img_titlebg" taborder="3" text="       연결화면" left="6" top="8" width="984" height="50" style="background:cornflowerblue;color:white;align:left middle;font:굴림,12,bold;" onclick="img_titlebg_onclick"/>
+        <Button id="btn_search" taborder="4" text="검색" onclick="btn_search_onclick" left="369" top="83" width="52" height="21" style="border:1 solid #999999ff ;"/>
+        <ImageViewer id="ImageViewer00" taborder="5" onclick="ImageViewer01_onclick" left="10" top="153" width="945" height="72" style="background:#f0f0f0ff;border:1 solid #808080ff ;color:#000000ff;"/>
+        <Edit id="Edit00" taborder="10" left="15.82%" top="82" right="64.65%" height="22"/>
+        <Static id="Static00" taborder="11" left="16.7%" top="83" right="65.63%" height="22" wordwrap="char" style="color:darkgray;"/>
+        <ImageViewer id="ImageViewer06" taborder="13" left="129" top="171" width="309" height="37" style="background:#f0f0f0ff;border:1 solid #808080ff ;"/>
+        <ImageViewer id="ImageViewer07" taborder="14" text="소송관리번호" onclick="ImageViewer02_onclick" left="16" top="171" width="139" height="37" style="background:#f4edfaff;border:1 solid #969696ff ;color:#133678ff;font:굴림,9, bold;"/>
+        <Edit id="edt_no01" taborder="15" maxlength="10" enable="false" left="16.02%" top="177" width="19.34%" height="24" style=":disabled {border:1 solid #a8a8a8ff ;color:#505050ff;}"/>
+        <Button id="btn_lawsuit_search00" taborder="17" text="검색" onclick="btn_lawsuit_search_onclick" left="36.43%" top="179" width="55" height="21" style="border:0 none #999999ff ;align:center middle;" class="btn_WFSA_Search"/>
+        <Grid id="grd_plaintiff" taborder="18" binddataset="ds_pladef" scrollbars="fixedvert" autoenter="select" useinputpanel="false" autofittype="col" nodatatext="데이터가 없습니다." onkeydown="grd_plaintiff_onkeydown" oncelldblclick="grd_plaintiff_oncelldblclick" left="13" top="232" right="69" height="194">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="27"/>
+                <Column size="80"/>
+                <Column size="116"/>
+                <Column size="96"/>
+                <Column size="99"/>
+                <Column size="84"/>
+                <Column size="180"/>
+                <Column size="98"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+                <Cell col="1" text="성명"/>
+                <Cell col="2" text="주민등록번호"/>
+                <Cell col="3" text="청구소가"/>
+                <Cell col="4" text="주요연락처"/>
+                <Cell col="5" text="추가연락처"/>
+                <Cell col="6" text="주소"/>
+                <Cell col="7" text="우편번호"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="normal" edittype="readonly" style="align:center;" text="bind:pladefSeq" expr="currow+1"/>
+                <Cell col="1" edittype="readonly" editfilter="lower,char" style="align:center;" text="bind:pladefName" editlimit="30" editimemode="none" editdisplay="edit"/>
+                <Cell col="2" edittype="readonly" style="align:center;" text="bind:pladefRegNo" mask="######-#######"/>
+                <Cell col="3" displaytype="number" edittype="readonly" style="align:right;" text="bind:pladefClamVol" mask="#,###" editlimit="15"/>
+                <Cell col="4" displaytype="normal" edittype="readonly" editfilter="number" style="align:center;" text="bind:pladefMainTel" mask="###-####-####" editlimit="11"/>
+                <Cell col="5" displaytype="normal" edittype="readonly" editfilter="number" style="align:center;" text="bind:pladefAddTel" mask="###-###-####" editlimit="11"/>
+                <Cell col="6" edittype="readonly" text="bind:pladefAddr1"/>
+                <Cell col="7" edittype="readonly" style="align:center;" text="bind:pladefPos"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Btn_mod" taborder="19" text="수정" left="84.08%" top="197" right="9.67%" height="22" onclick="Btn_mod_onclick" enable="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_court" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codenm" type="STRING" size="256"/>
+          <Column id="codeno" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pladef" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="lawsuitAdmNo" type="STRING" size="256"/>
+          <Column id="pladefSepCode" type="STRING" size="256"/>
+          <Column id="pladefSeq" type="STRING" size="256"/>
+          <Column id="pladefName" type="STRING" size="256"/>
+          <Column id="pladefRegNo" type="STRING" size="256"/>
+          <Column id="pladefMainTel" type="STRING" size="256"/>
+          <Column id="pladefAddTel" type="STRING" size="256"/>
+          <Column id="pladefPos" type="STRING" size="256"/>
+          <Column id="pladefAddr1" type="STRING" size="256"/>
+          <Column id="pladefAddr2" type="STRING" size="256"/>
+          <Column id="pladefClamVol" type="STRING" size="256"/>
+          <Column id="pladefRegInst" type="STRING" size="256"/>
+          <Column id="pladefEndInst" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pladef1" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="lawsuitAdmNo" type="STRING" size="256"/>
+          <Column id="pladefSepCode" type="STRING" size="256"/>
+          <Column id="pladefSeq" type="STRING" size="256"/>
+          <Column id="pladefName" type="STRING" size="256"/>
+          <Column id="pladefRegNo" type="STRING" size="256"/>
+          <Column id="pladefMainTel" type="STRING" size="256"/>
+          <Column id="pladefAddTel" type="STRING" size="256"/>
+          <Column id="pladefPos" type="STRING" size="256"/>
+          <Column id="pladefAddr1" type="STRING" size="256"/>
+          <Column id="pladefAddr2" type="STRING" size="256"/>
+          <Column id="pladefClamVol" type="STRING" size="256"/>
+          <Column id="pladefRegInst" type="STRING" size="256"/>
+          <Column id="pladefEndInst" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item2" compid="edt_no01" propid="value" datasetid="ds_lawsuit" columnid="lawsuitAdmNo"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "Lib::common.xjs"; //공통함수 호출
+
+var	lawsrcrlt = "";		//소송관리번호
+var instcdrlt = "";		//심급코드
+
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var nLeft = system.clientToScreenX(this, 10);
+	var nTop = system.clientToScreenY(this, 10);
+
+	var newChild = new ChildFrame;
+	newChild.init("PopCourt"
+		, "absolute", nLeft, nTop, 300, 100, null, null
+		, "lawsuit::POP_COURT_SEARCH.xfdl");
+
+	newChild.set_openalign("center middle");
+	newChild.set_dragmovetype("all");
+
+	newChild.showModal(this.getOwnerFrame()
+		, ""
+		, this
+		, "modal_callback");
+}
+
+this.btn_lawsuit_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var lawSearchNo = "";	//소송관리번호 검색값
+	 
+	var nLeft = system.clientToScreenX(this, 10);
+	var nTop = system.clientToScreenY(this, 10);
+	 
+	var newChild = new ChildFrame;
+	newChild.init("SearchNo"
+					, "absolute", nLeft, nTop, 300, 250, null, null
+					, "lawsuit::LAWSUIT_ADM_NO.xfdl");
+	newChild.set_openalign("center middle");
+	newChild.set_dragmovetype("all");
+
+	newChild.showModal(this.getOwnerFrame()
+						, ""
+						, this
+						, "modal_callback");
+}
+
+this.Btn_mod_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var nLeft = system.clientToScreenX(this, 10);
+	var nTop = system.clientToScreenY(this, 10);
+
+	var newChild = new ChildFrame;
+	newChild.init("PopMod"
+		, "absolute", nLeft, nTop, 550, 250, null, null
+		, "lawsuit::LITIGANT_REGISTER.xfdl");
+
+	newChild.set_openalign("center middle");
+	newChild.set_dragmovetype("all");
+	this.ds_pladef1.clearData();
+	var nTrow = this.ds_pladef1.addRow();
+	var bSucc= this.ds_pladef1.copyRow(nTrow,this.ds_pladef,this.grd_plaintiff.currentrow);
+	newChild.showModal(this.getOwnerFrame()
+		, {ds:this.ds_pladef1}
+		, this
+		, "modal_callback");
+}
+
+// 모달창 콜백
+this.modal_callback = function(strID, variant)
+{
+	if(strID == "PopCourt")	{
+		if(this.gfn_IsNull(variant))
+		{
+			return;
+		}
+		this.ds_court.clearData();
+		this.gf_classCodeListLoad("searchCourt",  "ds_court",  "Y", "fnCallback", "A01"); //코드조회
+		this.Static00.set_text(variant);
+	}else if(strID == "SearchNo"){
+		if(this.gfn_IsNull(variant)==false){
+			lawsrcrlt = variant.substr(0,10);	// 소송관리번호
+			if(variant.length == "13"){
+				instcdrlt = variant.substr(10,3);	//심급코드
+			}
+			this.edt_no01.set_value(lawsrcrlt);
+			this.getPladefSearch(lawsrcrlt,instcdrlt);	//원피고 조회
+			this.Btn_mod.set_enable(true);
+		}else{
+			return false;
+		}
+	}else if(strID == "PopMod")	{
+		this.getPladefSearch(lawsrcrlt,instcdrlt);
+//		if(this.gfn_IsNull(variant))
+//		{
+//			this.edt_no01.set_value(lawsrcrlt);
+//			this.getPladefSearch(lawsrcrlt,instcdrlt);
+//			this.Btn_mod.set_enable(true);
+			return;
+//		}
+	}
+}
+
+/********************************************************************************
+ * Desc		: 원피고 조회
+ * Param	: 없음
+ * Return	: 없음
+ *******************************************************************************/
+this.getPladefSearch=function(sColumn1,sColumn2)
+{
+	
+	//원피고조회
+	var strSvcid="PladefSearch";
+	var strController="lawsuit/getPlaDefList.do";
+	var strParam="lawsuitAdmNo="+"\""+sColumn1+"\"";//소송관리번호
+		strParam+=" instAdmCode="+"\""+sColumn2+"\"";	//심급코드
+	trace(strParam);		
+	this.gfn_transaction(this,strSvcid,strController,"","ds_pladef=ds_output",strParam,"fnCallback");
+}
+
+this.fnCallback=function(svcid, errcd, errmsg)
+{	
+	switch(svcid)
+	{
+		case "PladefSearch":
+		//데이터 조회 에러 발생시
+			if(errcd != "0"){	
+				alert("데이터가 정상적으로 조회되지 않았습니다.\n"
+					+ "원피고목록 에러내용: "+ errmsg);
+				return false;
+			}
+			else{ //여기
+				break;
+			}
+		default:
+			break;
+	}	
+}
+]]></Script>
+  </Form>
+</FDL>

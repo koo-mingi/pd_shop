@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="unde_curr" left="0" top="0" width="1024" height="768" titletext="New Form" onload="comp_lawsuit_curr_onload">
+    <Layouts>
+      <Layout>
+        <ImageViewer id="img_view01" taborder="36" left="14" top="161" width="996" height="419" style="background:lavenderblush;border:1 solid #c8c8c8ff ;"/>
+        <ImageViewer id="img_view00" taborder="33" left="14" top="65" width="996" height="59" style="background:lavenderblush;border:1 solid #c8c8c8ff ;"/>
+        <Static id="Static01" taborder="34" left="20" top="94" width="984" height="25" style="background:#eaeaeaff;border:1 solid #a8a8a8ff ;align:center;"/>
+        <Static id="Static00" taborder="13" left="20" top="70" width="984" height="25" style="background:#eaeaeaff;border:1 solid #a8a8a8ff ;align:center;"/>
+        <Button id="btn_reset" taborder="14" text="초기화" onclick="btn_reset_onclick" left="943" top="95" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Dotum;"/>
+        <Button id="btn_search" taborder="15" text="검색" onclick="btn_search_onclick" left="883" top="95" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Dotum;"/>
+        <Combo id="cmb_ty_code" taborder="19" innerdataset="@ds_ty_code" codecolumn="codeno" datacolumn="codenm" index="-1" onitemchanged="cmb_ty_code_onitemchanged" left="140" top="73" width="140" height="19"/>
+        <Static id="Static02" taborder="20" text="소송유형" left="20" top="70" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 Dotum;"/>
+        <Div id="Div00" taborder="11" text="  소송 종결 현황" left="14" top="7" width="996" height="50" style="align:left;background:#3366ffff;color:#ffffffff;font:bold 12 Dotum;"/>
+        <Button id="btn_close" taborder="28" text="닫기" onclick="btn_zip_onclick" left="955" top="588" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Dotum;"/>
+        <Calendar id="cal_comdate1" taborder="31" left="140" top="97" width="140" height="19" style="background:#f7f7f7ff;"/>
+        <Calendar id="cal_comdate2" taborder="32" left="310" top="97" width="140" height="19" style="background:#f7f7f7ff;"/>
+        <Static id="Static05" taborder="17" text="~" left="290" top="97" width="10" height="21"/>
+        <Static id="Static04" taborder="21" text="기준일자" left="20" top="94" width="115" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static03" taborder="35" text="소송 종결 현황" left="14" top="134" width="996" height="19" style="font:bold 9 굴림;"/>
+        <Grid id="Grid00" taborder="27" useinputpanel="false" left="20" top="167" height="407" binddataset="ds_stats" width="983" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="156"/>
+                <Column size="102"/>
+                <Column size="104"/>
+                <Column size="102"/>
+                <Column size="104"/>
+                <Column size="102"/>
+                <Column size="104"/>
+                <Column size="104"/>
+                <Column size="105"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="구분"/>
+                <Cell col="1" colspan="2" text="판결"/>
+                <Cell col="3" colspan="2" text="재판외화해"/>
+                <Cell col="5" colspan="2" text="조정안"/>
+                <Cell col="7" colspan="2" text="합계"/>
+                <Cell row="1" text="소송유형"/>
+                <Cell row="1" col="1" text="건수"/>
+                <Cell row="1" col="2" text="금액"/>
+                <Cell row="1" col="3" text="건수"/>
+                <Cell row="1" col="4" text="금액"/>
+                <Cell row="1" col="5" text="건수"/>
+                <Cell row="1" col="6" text="금액"/>
+                <Cell row="1" col="7" text="건수"/>
+                <Cell row="1" col="8" text="결정금액"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="combo" text="bind:lawsuitty" combodataset="ds_ty_code" combocodecol="codeno" combodatacol="codenm"/>
+                <Cell col="1" text="bind:judgcnt"/>
+                <Cell col="2" displaytype="number" edittype="none" style="align:right;" text="bind:judgsum" maskchar=" "/>
+                <Cell col="3" text="bind:reconcilcnt"/>
+                <Cell col="4" displaytype="number" style="align:right;" text="bind:reconcilsum"/>
+                <Cell col="5" text="bind:mediationcnt"/>
+                <Cell col="6" displaytype="number" style="align:right;" text="bind:mediationsum"/>
+                <Cell col="7" expr="expr:parseInt(judgcnt)+parseInt(reconcilcnt)+parseInt(mediationcnt)"/>
+                <Cell col="8" displaytype="number" style="align:right;" expr="expr:parseInt(judgsum)+parseInt(reconcilsum)+parseInt(mediationsum)"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item2" compid="cal_comdate1" propid="value" datasetid="ds_lawsuitNoti" columnid="lawsuitNotiDate"/>
+      <BindItem id="item0" compid="cal_comdate2" propid="value" datasetid="ds_lawsuitNoti" columnid="lawsuitNotiDate"/>
+    </Bind>
+    <Objects>
+      <Dataset id="ds_ty_code">
+        <ColumnInfo>
+          <Column id="codenm" type="STRING" size="256"/>
+          <Column id="codeno" type="STRING" size="256"/>
+          <Column id="useYn" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_search_key">
+        <ColumnInfo>
+          <Column id="searchkey" type="STRING" size="256"/>
+          <Column id="searchdatemin" type="STRING" size="256"/>
+          <Column id="searchdatemax" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_stats">
+        <ColumnInfo>
+          <Column id="lawsuitty" type="STRING" size="256"/>
+          <Column id="judgcnt" type="STRING" size="256"/>
+          <Column id="judgsum" type="STRING" size="256"/>
+          <Column id="reconcilcnt" type="STRING" size="256"/>
+          <Column id="reconcilsum" type="STRING" size="256"/>
+          <Column id="mediationcnt" type="STRING" size="256"/>
+          <Column id="mediationsum" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+include "Lib::common.xjs";
+
+this.btn_reset_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.cmb_ty_code.set_value("");
+	this.cal_comdate1.set_value("");
+	this.cal_comdate2.set_value("");
+	this.comp_lawsuit_curr_onload();
+}
+
+this.comp_lawsuit_curr_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+
+	this.gf_codeComListLoad("lawsuit_ty_code", "ds_ty_code", "Y", "", "", "fnCallback", "A02");
+	
+	this.cmb_ty_code.index="0";
+	trace("index : "+this.cmb_ty_code.index);
+	this.btn_search_onclick();
+}
+
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+//  	if(this.Calendar00.value == ""|| this.Calendar01.value == "")
+//  	{
+//  		alert("입력되지않은 값이 있습니다.");
+//  		return;
+//  	}
+	if(this.cal_comdate1.value > this.cal_comdate2.value)
+	{
+		alert("뒤의 일자가 더 작습니다..");
+		this.cal_comdate1.value="";
+		this.cal_comdate2.value="";
+		this.cal_comdate2.setFocus();
+		return;	
+	}
+	else{
+this.ds_search_key.addRow();
+trace("검색 : "+this.cmb_ty_code.value);
+trace("검색 달력 :"+this.cal_comdate1.value);
+this.ds_search_key.setColumn(0,"searchkey",this.cmb_ty_code.value);
+this.ds_search_key.setColumn(0,"searchdatemin",this.cal_comdate1.value);
+this.ds_search_key.setColumn(0,"searchdatemax",this.cal_comdate2.value);
+	this.gfn_transaction(
+		this,
+		"getStatsDoneListSelect",
+		"/stats/getStatsDoneListSelect.do",
+		"ds_search_key=ds_search_key",
+		"ds_stats=ds_stats",
+		"",
+		"fnCallback"
+	);
+	}
+}
+
+this.fnCallback = function(id, errcode, errmsg)
+{
+	if(id == "lawsuit_ty_code"){
+	this.ds_ty_code.setColumn(0, "codenm", "전체");
+		this.ds_ty_code.setColumn(0, "codeno", "");
+// 		this.ds_ty_code.setColumn(this.ds_ty_code.rowcount-1, "codenm", "기타");
+// 		this.ds_ty_code.setColumn(this.ds_ty_code.rowcount-1, "codeno", "099");
+	}
+	
+	if(id == "getStatsDoneListSelect"){
+	if(errcode < 0){			
+			alert("데이터 불러오기에 실패하였습니다." + errmsg);
+		}
+	}
+}
+
+this.btn_zip_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var winId = Iject.$["workFrame"].getActiveFrame().name;
+	trace("winId : "+winId);
+    Iject.$["workFrame"].frames[winId].destroy();
+}
+
+// this.cmb_ty_code_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+// {
+// 	this.ds_search_key.setColumn(0, 0, this.cmb_ty_code.value);
+// 	trace(this.ds_search_key.getColumn(0, 0));
+// }
+
+// this.cal_date01_onchanged = function()
+// {
+// 	var date01 = this.cal_date01.value;
+// 	this.ds_search_key.set_value(0, "searchdatemin", date01);
+// }
+// 
+// this.cal_date02_onchanged = function()
+// {
+// 	var date02 = this.cal_date02.value;
+// 	this.ds_search_key.set_value(0, "searchdatemax", date02);
+// }
+this.Static02_onclick = function(obj:Static, e:nexacro.ClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

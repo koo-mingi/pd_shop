@@ -1,0 +1,94 @@
+﻿//XJS=commDate.xjs
+(function()
+{
+    return function(path)
+    {
+        var obj;
+    
+        // User Script
+        this.registerScript(path, function() {
+
+        /******************************************************************************************
+         * 함  수  명	:	gfn_Today() / PC 버전
+         * 입      력	:	
+         * 반      환	:	
+         * 기      능	:	오늘 날짜를 리턴
+         *****************************************************************************************/
+        this.gfn_Today=function()
+        {
+            var strYear;
+            var strMonth;
+            var strDay;
+            var strToday = "";
+            var objDate = new Date();
+        	
+        	strYear = objDate.getFullYear();
+        	strMonth = objDate.getMonth() + 1;
+        	strDay = objDate.getDate()
+        	
+        	if(strMonth.toString().length%2 == 1){
+        		strMonth = "0"+strMonth;
+        	}
+        	if(strDay.toString().length%2 == 1){
+        		strDay = "0"+strDay;
+        	}
+        	
+        	strToday += strYear;
+            strToday += strMonth;
+            strToday += strDay;
+
+            return strToday;
+        }
+
+        
+        /******************************************************************************************
+         * 함  수  명	:	gfn_Today() / DB 버전
+         * 입      력	:	
+         * 반      환	:	
+         * 기      능	:	DB 에서 조회하여 오늘 날짜를 리턴
+         *****************************************************************************************/
+
+         var ds_SYSDATE;
+         
+        this.gfn_DBToday=function()
+        {
+        	if (this.gfn_IsNull(ds_SYSDATE))
+        	{
+        		ds_SYSDATE = new Dataset();
+        		this.addChild("ds_SYSDATE1", ds_SYSDATE);
+        	}
+        	
+        	var strSvcid 		= "selectTodayDate";
+        	var strController 	= "sample/Yeonguso/selectTodayDate.do";
+        	var strParam = "";
+        	
+        	// 트랜젝션 공통함수 호출
+        	this.gfn_transaction(this,
+        					strSvcid,
+        					strController, 
+        					"", 
+        					"ds_SYSDATE1=ds_output",
+        					strParam, 
+        					""
+        					);
+
+        	
+        	var sysdate = this.ds_SYSDATE1.getColumn(0, "sysdate");
+        	
+        	trace(sysdate);
+        	var strToday  = sysdate.getFullYear() + "";
+        	strToday += String((sysdate.getMonth() + 1)).padLeft(2,"0");
+        	strToday += String(sysdate.getDate()).padLeft(2,"0");
+        	
+        	return strToday;
+        }
+        });
+
+
+    
+        this.loadIncludeScript(path);
+        
+        obj = null;
+    };
+}
+)();

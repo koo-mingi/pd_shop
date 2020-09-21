@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="LITIGANT_REGISTER" classname="LITIGANT_REGISTER" inheritanceid="" position="absolute" titletext="원피고" onclose="LITIGANT_REGISTER_onclose" left="0" top="0" width="549" height="249" onload="LITIGANT_REGISTER_onload">
+    <Layouts>
+      <Layout>
+        <ImageViewer id="img_titlebg" taborder="0" text="   원피고 수정" style="background:cornflowerblue;color:white;align:left middle;font:굴림,12,bold;" position="absolute" left="8" width="536" top="8" height="50" onclick="img_titlebg_onclick"/>
+        <Static id="sta_01" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;" position="absolute" left="14" width="525" top="65" height="25"/>
+        <Static id="sta_00" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;" position="absolute" left="14" width="525" top="89" height="25"/>
+        <Static id="sta_02" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;" position="absolute" left="14" width="525" top="113" height="25"/>
+        <Static id="sta_03" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;" position="absolute" left="14" width="525" top="137" height="25"/>
+        <Static id="sta_04" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;" position="absolute" left="14" width="525" top="161" height="25"/>
+        <Static id="sta_05" style="background:#f0f0f0ff;border:1 solid #a8a8a8ff ;" position="absolute" left="14" width="525" top="185" height="25"/>
+        <Static id="sta_06" text="원피고구분" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="14" width="102" top="65" height="25"/>
+        <Static id="sta_07" text="등록번호" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="14" width="102" top="89" height="25"/>
+        <Static id="sta_08" text="주요연락처" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="14" width="102" top="113" height="25"/>
+        <Static id="sta_09" text="우편번호" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="14" width="102" top="137" height="25"/>
+        <Static id="sta_10" text="주      소" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="14" width="102" top="161" height="25"/>
+        <Static id="sta_11" text="상세 주소" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="14" width="102" top="185" height="25"/>
+        <Combo id="cmb_pladef_type" taborder="1" innerdataset="@ds_def" codecolumn="codeNo" datacolumn="codenm" style="border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;font:굴림,9;" position="absolute" left="119" width="154" top="68" height="19" onitemchanged="cmb_pladef_type_onitemchanged" enable="false"/>
+        <MaskEdit id="msk_regNo" taborder="1" mask="######-#######" canchange="msk_regNo_canchange" ontextchanged="msk_regNo_ontextchanged" position="absolute" left="119" width="154" top="92" height="19" oneditclick="msk_regNo_oneditclick" type="string" limitbymask="integer"/>
+        <MaskEdit id="msk_main_tel" taborder="1" mask="###-###-####" canchange="msk_main_tel_canchange" ontextchanged="msk_main_tel_ontextchanged" position="absolute" left="119" width="154" top="116" height="19" oneditclick="msk_main_tel_oneditclick" type="string" limitbymask="integer"/>
+        <Static id="sta_12" text="성명" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="276" width="102" top="65" height="25"/>
+        <Static id="sta_13" text="청구소가" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="276" width="102" top="89" height="25"/>
+        <Static id="sta_14" text="추가연락처" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="276" width="102" top="113" height="25"/>
+        <Edit id="edt_name" taborder="1" maxlength="10" style=":disabled {border:1 solid #a8a8a8ff ;color:#505050ff;}" position="absolute" left="381" width="154" top="68" height="19"/>
+        <MaskEdit id="MaskEdit0" taborder="1" position="absolute" left="381" width="132" top="92" height="19" oneditclick="MaskEdit0_oneditclick" type="number" mask="#,###" limitbymask="none"/>
+        <Static id="sta_15" text="원" style="border:1 none #c8c8c8ff ;color:#133678ff;align:center middle;font:굴림,9,bold;" position="absolute" left="514" width="20" top="92" height="19"/>
+        <MaskEdit id="msk_sub_tel" taborder="1" mask="###-###-####" canchange="msk_sub_tel_canchange" ontextchanged="msk_sub_tel_ontextchanged" position="absolute" left="381" width="154" top="116" height="19" type="string" limitbymask="integer"/>
+        <Edit id="edt_zip" taborder="1" maxlength="10" enable="false" style=":disabled {border:1 solid #a8a8a8ff ;color:#505050ff;}" position="absolute" left="119" width="154" top="140" height="19"/>
+        <Edit id="edt_addr1" taborder="1" imemode="alpha" maxlength="100" autoselect="true" autoskip="true" onkeydown="edt_app_case_no_onkeydown" enable="false" style=":disabled {border:1 solid #a8a8a8ff ;color:black;}" readonly="true" position="absolute" left="119" width="416" top="164" height="19"/>
+        <Edit id="edt_addr2" taborder="1" imemode="alpha" maxlength="100" autoselect="true" autoskip="true" onkeydown="edt_app_case_no_onkeydown" enable="false" style=":disabled {border:1 solid #a8a8a8ff ;color:black;}" position="absolute" left="119" width="416" top="188" height="19"/>
+        <Button id="btn_insert" taborder="1" text="저장" onclick="btn_insert_onclick" position="absolute" left="437" width="52" top="222" height="21"/>
+        <Button id="btn_close" taborder="1" text="닫기" onclick="btn_close_onclick" position="absolute" left="492" width="52" top="222" height="21"/>
+        <Static id="sta_16" text="*" style="color:red;align:right top;font:돋움,9,bold;" position="absolute" left="18" width="16" top="95" height="12"/>
+        <Static id="sta_17" text="*" style="color:red;align:right top;font:돋움,9,bold;" position="absolute" left="13" width="16" top="119" height="12"/>
+        <Static id="sta_18" text="*" style="color:red;align:right top;font:돋움,9,bold;" position="absolute" left="16" width="16" top="143" height="12"/>
+        <Static id="sta_19" text="*" style="color:red;align:right top;font:돋움,9,bold;" position="absolute" left="16" width="16" top="168" height="12"/>
+        <Static id="sta_20" text="*" style="color:red;align:right top;font:돋움,9,bold;" position="absolute" left="288" width="16" top="72" height="12"/>
+        <Static id="sta_21" text="*" style="color:red;align:right top;font:돋움,9,bold;" position="absolute" left="279" width="16" top="95" height="12"/>
+        <Static id="sta_22" text="*" style="color:red;align:right top;font:돋움,9,bold;" position="absolute" left="272" width="16" top="120" height="12"/>
+        <Edit id="edt_charge" taborder="1" maxlength="10" style=":disabled {border:1 solid #a8a8a8ff ;color:#505050ff;}" visible="false" position="absolute" left="478" width="154" top="317" height="19"/>
+        <Button id="btn_execute" taborder="2" text="검색" onclick="btn_execute_onclick" left="276" top="139" width="52" height="21"/>
+        <Plugin id="Plugin00" left="0.18%" top="261" right="83.97%" height="35" visible="false" classid="{8856F961-340A-11D0-A96B-00C04FD705A2}" popupstyle="true" windowed="true" taborder="3" TitleChange="Plugin00_TitleChange"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item9" compid="cmb_pladef_type" propid="value" datasetid="ds_pladef" columnid="pladefSepCode"/>
+      <BindItem id="item1" compid="edt_zip" propid="value" datasetid="ds_pladef" columnid="pladefPos"/>
+      <BindItem id="item5" compid="edt_addr1" propid="value" datasetid="ds_pladef" columnid="pladefAddr1"/>
+      <BindItem id="item0" compid="edt_addr2" propid="value" datasetid="ds_pladef" columnid="pladefAddr2"/>
+      <BindItem id="item2" compid="edt_charge" propid="value" datasetid="ds_pladef" columnid="pladefClamVol"/>
+      <BindItem id="item3" compid="msk_main_tel" propid="visible" datasetid="ds_pladef" columnid="pladefMainTel"/>
+      <BindItem id="item4" compid="msk_sub_tel" propid="visible" datasetid="ds_pladef" columnid="pladefAddTel"/>
+      <BindItem id="item6" compid="MaskEdit0" propid="visible" datasetid="ds_pladef" columnid="pladefClamVol"/>
+      <BindItem id="item7" compid="msk_regNo" propid="visible" datasetid="ds_pladef" columnid="pladefRegNo"/>
+      <BindItem id="item8" compid="edt_name" propid="value" datasetid="ds_pladef" columnid="pladefName"/>
+      <BindItem id="item10" compid="msk_regNo" propid="value" datasetid="ds_pladef" columnid="pladefRegNo"/>
+      <BindItem id="item11" compid="MaskEdit0" propid="value" datasetid="ds_pladef" columnid="pladefClamVol"/>
+      <BindItem id="item12" compid="msk_main_tel" propid="value" datasetid="ds_pladef" columnid="pladefMainTel"/>
+      <BindItem id="item13" compid="msk_sub_tel" propid="value" datasetid="ds_pladef" columnid="pladefAddTel"/>
+    </Bind>
+    <Objects>
+      <Dataset id="ds_def" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codenm" type="STRING" size="256"/>
+          <Column id="codeno" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pladef" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="lawsuitAdmNo" type="STRING" size="256"/>
+          <Column id="pladefSepCode" type="STRING" size="256"/>
+          <Column id="pladefSeq" type="STRING" size="256"/>
+          <Column id="pladefName" type="STRING" size="256"/>
+          <Column id="pladefRegNo" type="STRING" size="256"/>
+          <Column id="pladefMainTel" type="STRING" size="256"/>
+          <Column id="pladefAddTel" type="STRING" size="256"/>
+          <Column id="pladefPos" type="STRING" size="256"/>
+          <Column id="pladefAddr1" type="STRING" size="256"/>
+          <Column id="pladefAddr2" type="STRING" size="256"/>
+          <Column id="pladefClamVol" type="STRING" size="256"/>
+          <Column id="pladefRegInst" type="STRING" size="256"/>
+          <Column id="pladefEndInst" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "Lib::common.xjs";
+var temp = null;
+this.LITIGANT_REGISTER_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.ds_pladef.clearData();
+	var bSucc= this.ds_pladef.copyData(this.parent.ds);
+	this.ds_def.clearData();
+	this.gf_classCodeListLoad("getcodeAtReg",  "ds_def",  "Y", "fnCallback", "H02"); //코드조회
+	temp = this.ds_pladef.getColumn(0,"pladefSepCode");
+//	alert(this.ds_pladef.getColumn(0,"pladefAddTel")+" "+temp);
+//	this.fn_getPladef();	//원피고 조회 및 생성
+}
+
+
+/********************************************************************************
+ * Desc		: 원피고 조회 및 생성
+ * Param	: 없음
+ * Return	: 없음
+ this.fn_getPladef = function()
+{
+	var S_defregvalue = 1; 
+	//Parent.ds_ComInfo.getColumn(0,"defregvalue");	//원피고 신규입력 화면 구분값[신규:1, 수정:2]
+	
+	if(S_defregvalue==1){
+		this.ds_pladef.addRow(); //원피고 생성
+		
+		var strCheck="";
+		
+		if(sendPladefSepCode == "001"){	//당사가 피고라면
+			this.cmb_pladef_type.value = "002";
+			this.cmb_pladef_type.enable = false;
+			strCheck="001";
+		}else if(sendPladefSepCode== "002"){	//당사가 원고라면
+			this.cmb_pladef_type.value="001";
+			this.cmb_pladef_type.enable = false;
+			strCheck="002";
+		}
+		else{
+			this.cmb_pladef_type.enable = true;
+		}
+		this.ds_pladef.setColumn(this.ds_pladef.row,"lawsuitAdmNo", sendLawsuitAdmNo);//소송관리번호
+		this.ds_pladef.SetColumn(this.ds_pladef.row,"pladefSepCode",sendPladefSepCode);//원피고 구분
+		this.ds_pladef.SetColumn(this.ds_pladef.row,"pladefSeq",sendCountNo);	//ds 로우값
+	}
+	else if(S_defregvalue ==2){
+	
+		var V_lawsuitNo = Parent.ds_ComInfo.getColumn(0,"lawsuitAdmNo");
+		var V_pladefcode = Parent.ds_ComInfo.getColumn(0,"pladefSepCode");
+		var V_pladefseq =Parent.ds_ComInfo.getColumn(0,"pladefSeq");
+	
+		var pladefchk="";	//당사원피고에 따른 원피고 구분
+	
+		if(V_pladefcode == "001"){
+			this.cmb_pladef_type.Index = 2;
+			pladefchk = "002";
+		}
+		else if(V_pladefcode =="002"){
+			this.cmb_pladef_type.Index = 1;
+			pladefchk = "001";
+		}
+		fn_getPladefdetail(V_lawsuitNo,pladefchk,V_pladefseq);	//원피고 조회
+	}		
+}
+*******************************************************************************/
+
+this.btn_zip_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	divCommonData="2";
+	var rtn = Dialog("main::zipcode","");
+	
+	if (isCmmNull(rtn) == 0) {
+		var obj = split2(rtn, "&", "=");
+		for (var i=0; i<obj.length; i++)
+		{
+			AddVariable(obj[i][0], obj[i][1]);
+		}
+		this.ds_pladef.setColumn(this.ds_pladef.row,"pladefPos",replace(obj[0][1],"-"));
+		this.ds_pladef.SetColumn(this.ds_pladef.row,"pladefAddr1",obj[1][1]);	
+		this.ds_pladef.SetColumn(this.ds_pladef.row,"pladefAddr2",obj[2][1]);
+	} else {
+		
+	}
+}
+
+/********************************************************************************
+ * Desc		: 원피고 초기화
+ * Param	: 없음
+ * Return	: 없음
+
+this.btn_reset_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_pladef.ClearData();
+	this.ds_pladef.AddRow();
+}
+ *******************************************************************************/
+this.btn_insert_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if (!this.fn_validation()){	//유효성검사
+	return;
+	}
+//	this.insertPladef();			//원피고 저장
+
+	this.updatePladef();			//원피고 수정
+}
+
+/********************************************************************************
+ * Desc		: 원피고
+ * Param	: 없음
+ * Return	: 없음
+ *******************************************************************************/
+this.updatePladef = function()
+{
+	this.ds_pladef.setColumn(0,"pladefSepCode",temp);
+	var strSvcID="update";
+	var strURL="lawsuit/updatePlaDefAll.do";
+	var strInputDs="ds_input=ds_pladef";
+	var strOutputDs="";
+	var strArgument="";
+	var strFnCallback="fnCallback";
+	
+	this.gfn_transaction(this,
+				strSvcID,
+				strURL,
+				strInputDs,
+				strOutputDs,
+				strArgument,
+				strFnCallback);
+}
+/********************************************************************************
+ * Desc		: 심급관리 필수 값 체크
+ * Param	: 없음
+ * Return	: true - 필수 값이 다 입력되었음
+              false - 입력안된 필수 값이 있음
+ *******************************************************************************/
+this.fn_validation = function()
+{
+	if(this.cmb_pladef_type.value=''){
+		alert("소제기의뢰번호를 입력하세요");
+		return false;
+	}else if(this.edt_name.value=''){
+		alert("이름을 입력하세요");
+		return false;
+	}else if(this.msk_regNo.value=''){
+		alert("등록번호를 입력하세요");
+		return false;
+	}else if(this.edt_charge.value=''){
+		alert("청구소가를 입력하세요");
+		return false;
+	}else if(this.msk_main_tel.value=''){
+		alert("주요연락처를 입력하세요");
+		return false;
+	}else if(this.msk_sub_tel.value=''){
+		alert("추가연락처를 입력하세요");
+		return false;
+	}else if(this.edt_zip.value=''){
+		alert("우편번호를 입력하세요");
+		return false;
+	}else if(this.edt_addr2.value=''){
+		alert("상세주소를 입력하세요");
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+
+/********************************************************************************
+ * Desc		: 원피고 생성
+ * Param	: 없음
+ * Return	: 없음
+ *******************************************************************************/
+ this.insertPladef = function()
+ {
+ 
+	var strSvcID="insert";
+	var strURL="svc::pladef/plaDefMgr.do";
+	var strInputDs="ds_input=ds_pladef:u";
+	var strOutputDs="";
+	var strArgument="voClass='pdsystem.pladef.model.PlaDefVO'";
+	var strFnCallback="fnCallback";
+	
+	Transaction(strSvcID,
+				strURL,
+				strInputDs,
+				strOutputDs,
+				strArgument,
+				strFnCallback);
+ }
+ 
+ /********************************************************************************
+ * Event	: btn_close onclick
+ * Desc		:닫기 버튼을 클릭했을 때 발생되는 Event
+ *******************************************************************************/
+
+this.msk_regNo_oneditclick = function(obj:MaskEdit,  e:nexacro.EditClickEventInfo)
+{
+	var text=msk_regNo.Value;
+	if(text.length<13){
+		alert("등록번호를 정확히 입력해주세요");
+		this.msk_regNo.setFocus();
+		return false;
+	}
+}
+ /********************************************************************************
+ * Event	: btn_execute_onclick
+ * Desc		: 우편번호 검색 버튼을 클릭했을 때 발생되는 Event
+ *******************************************************************************/
+
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Plugin00.callMethod("Navigate2", "http://localhost:8080/pd_law_nexa/jsp/zipcodeSearch.jsp"); // JKIM_2020.02.17 : jsp 디렉토리로 변경
+}
+
+// 우편 번호 검색 후 값 받기
+this.Plugin00_TitleChange = function()
+{
+	if(arguments[0] != "TITLE"){
+		var postArr = arguments[0].split("_");
+		this.edt_zip.set_value(postArr[0]);
+		this.edt_addr1.set_value(postArr[1]);
+		this.edt_addr2.set_enable(true);
+	}
+	
+}
+
+
+
+this.msk_regNo_ontextchanged = function(obj:MaskEdit,  e:nexacro.TextChangedEventInfo)
+{
+	this.mask_sort("registerNo");
+}
+
+this.mask_sort = function(section){
+	if(section == "phone1"){              
+		var in_phone1=this.msk_main_tel.value;
+		if(SubStr(in_phone1,0,2) == '02') {
+			if(in_phone1.length <= 9) {
+				this.msk_main_tel.mask = '##-###-#####';
+			} else {
+				this.msk_main_tel.mask = '##-####-####';
+			}
+		} else {
+			if(in_phone1.length <= 10) {
+				this.msk_main_tel.mask = '###-###-#####';
+			} else {
+				this.msk_main_tel.mask = '###-####-####';
+			}
+		}
+	}else if(section == "phone2"){
+		var in_phone2=msk_sub_tel.Value;
+		if(SubStr(in_phone2,0,2) == '02') {
+			if(in_phone2.length <= 9) {
+				this.msk_sub_tel.mask = '##-###-#####';
+			} else {
+				this.msk_sub_tel.mask = '##-####-####';
+			}
+		} else {
+			if(in_phone2.length <= 10) {
+				this.msk_sub_tel.mask = '###-###-#####';
+			} else {
+				this.msk_sub_tel.mask = '###-####-####';
+			}
+		}
+    }
+}
+
+this.msk_main_tel_canchange = function(obj:MaskEdit,  e:nexacro.ChangeEventInfo)
+{
+	var text=msk_main_tel.Value;
+	if(text.length<9){
+		alert("연락처를 정확히 입력해주세요");
+		this.msk_main_tel.setFocus();
+		return false;
+	}
+}
+
+this.msk_main_tel_ontextchanged = function(obj:MaskEdit,  e:nexacro.TextChangedEventInfo)
+{
+	this.mask_sort("phone1");
+}
+
+this.msk_sub_tel_canchange = function(obj:MaskEdit,  e:nexacro.ChangeEventInfo)
+{
+	var text=msk_sub_tel.Value;
+	if(text.length<9){
+		alert("추가연락처를 정확히 입력해주세요");
+		this.msk_sub_tel.setFocus();
+		return false;
+	}
+}
+
+this.msk_sub_tel_ontextchanged = function(obj:MaskEdit,  e:nexacro.TextChangedEventInfo)
+{
+	this.mask_sort("phone2");
+}
+
+/*===============================================================================
+ * 5. User Function 관련 Script
+ *=============================================================================*
+/********************************************************************************
+ * Desc		: transaction 후 호출되는 콜백함수
+              소송관리 조회,신규,수정,삭제,결재
+ * Param	: 1.errcd  - Error Code
+			  2.errmsg - Error Msg
+			  3.svcid  - transaction id
+ * Return	: 없음
+ *******************************************************************************/ 
+this.fnCallback = function(svcid, errcd, errmsg)
+{
+	switch(svcid)
+	{
+		case "getcodeAtReg":
+			if(errcd < "0"){
+				alert("데이터가 정상적으로 조회되지 않았습니다.\n"
+					+ "코드조회 에러내용: "+ errmsg);
+				return false;
+			}else{
+//				this.cmb_pladef_type.set_enable(true);
+//				alert("002"+this.ds_pladef.getColumn(0,"pladefSepCode"));
+				if(this.ds_pladef.getColumn(0,"pladefSepCode") == "002"){
+					this.cmb_pladef_type.set_index(2);
+				}else if(this.ds_pladef.getColumn(0,"pladefSepCode") == "001"){
+					this.cmb_pladef_type.set_index(1);
+				}else{
+					this.cmb_pladef_type.set_index(3);
+				}
+			}
+			break;
+		case "getPlaDefDetail":
+
+			//데이터 조회 에러 발생시
+			if(errcd != "0"){	
+				alert("데이터가 정상적으로 조회되지 않았습니다.\n"
+					+ "원피고조회 에러내용: "+ errmsg);
+				return false;
+			}
+			else{
+				this.cmb_pladef_type.enable = false;
+			}
+			break;
+		case "update":
+
+			//데이터 조회 에러 발생시
+			if(errcd != "0"){	
+			alert("데이터가 정상적으로 생성되지 않았습니다.\n"
+				+ "원피고생성 에러내용: "+ errmsg);
+			return false;
+			}
+			else{
+				getLawsuitNo=this.ds_pladef.getColumn(this.ds_pladef.row,"lawsuitAdmNo");
+				this.close(getLawsuitNo);
+			}
+			break;
+	}
+}
+
+/********************************************************************************
+ * Desc		: 원피고 조회
+ * Param	: 없음
+ * Return	: 없음
+ *******************************************************************************/
+this.fn_getPladefdetail = function(scolumn1,scolumn2,scolumn3)
+ {
+	var strParam="";
+	strParam="lawsuit_adm_no="+wrapQuote(scolumn1);
+	strParam+=" pladefSepCode="+wrapQuote(scolumn2);
+	strParam+=" pladef_seq="+wrapQuote(scolumn3);
+	
+	var strSvcID3="getPlaDefDetail";
+	var strURL3="svc::pladef/getPlaDefDetail.do";
+	var strInputDs3="";
+	var strOutputDs3="ds_pladef=ds_output3";
+	var strFnCallback="fnCallback";
+				
+	Transaction(strSvcID3
+				,strURL3
+				,strInputDs3
+				,strOutputDs3
+				,strParam
+				,strFnCallback);
+}
+
+ /********************************************************************************
+ * Desc		: 화면닫기시 처리
+ * Param	: 없음
+ * Return	: 없음
+ *******************************************************************************/
+this.LITIGANT_REGISTER_onclose = function(obj:Form, e:nexacro.CloseEventInfo)
+{
+	var getLawsuitNo=this.ds_pladef.getColumn(this.ds_pladef.row,"lawsuitAdmNo");
+	this.close(getLawsuitNo);
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var getLawsuitNo = this.ds_pladef.getColumn(this.ds_pladef.row,"lawsuitAdmNo");
+	
+	if(getLawsuitNo != ""){
+		this.close(getLawsuitNo);
+	}else{
+		this.close();
+	}
+}
+]]></Script>
+  </Form>
+</FDL>
