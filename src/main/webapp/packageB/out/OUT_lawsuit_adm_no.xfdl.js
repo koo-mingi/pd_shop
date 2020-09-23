@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("out_lawsuit_adm_no");
-                this.set_classname("out_lawsuit_adm_no001");
                 this.set_titletext("소송관리번호조회");
                 this._setFormPosition(0,0,600,431);
             }

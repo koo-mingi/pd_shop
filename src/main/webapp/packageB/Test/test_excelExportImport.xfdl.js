@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("sample009");
-                this.set_classname("excelExportImport");
                 this.set_titletext("엑셀 Import / Export");
                 this._setFormPosition(0,0,800,400);
             }

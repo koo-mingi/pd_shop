@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("OUT_legal_ad_re");
-                this.set_classname("OUT_legal_ad_re_skw");
                 this.set_titletext("New Form");
                 this._setFormPosition(0,0,1024,768);
             }

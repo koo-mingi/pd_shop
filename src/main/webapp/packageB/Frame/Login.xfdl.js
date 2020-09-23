@@ -12,25 +12,24 @@
             
             if (Form == this.constructor) {
                 this.set_name("Login");
-                this.set_classname("Login");
                 this.set_titletext("Login");
                 this.set_scrollbars("none");
-                this._setFormPosition(0,0,450,290);
+                this._setFormPosition(0,0,450,463);
             }
             this.style.set_background("transparent");
 
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("ds_idpw", this);
-            obj._setContents("<ColumnInfo><Column id=\"msg\" type=\"STRING\" size=\"256\"/><Column id=\"insaId\" type=\"STRING\" size=\"256\"/><Column id=\"insaName\" type=\"STRING\" size=\"256\"/><Column id=\"insaPwd\" type=\"STRING\" size=\"256\"/><Column id=\"insaSabun\" type=\"STRING\" size=\"256\"/><Column id=\"insaStat\" type=\"STRING\" size=\"256\"/><Column id=\"insaPutWtr\" type=\"STRING\" size=\"256\"/><Column id=\"insaDeptCode\" type=\"STRING\" size=\"256\"/><Column id=\"insaDeptName\" type=\"STRING\" size=\"256\"/><Column id=\"insaAdmYn\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"msg\" type=\"STRING\" size=\"256\"/><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"password\" type=\"STRING\" size=\"256\"/><Column id=\"sabun\" type=\"STRING\" size=\"256\"/><Column id=\"pos_gbn_code\" type=\"STRING\" size=\"256\"/><Column id=\"put_yn\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
             
             // UI Components Initialize
-            obj = new Div("div_login", "absolute", "0", "0", "450", "310", null, null, this);
+            obj = new Div("div_login", "absolute", "0", "0", "450", "463", null, null, this);
             obj.set_taborder("0");
-            obj.style.set_background("transparent URL('img::LOGINBG.png')");
+            obj.style.set_background("transparent URL('img::Login_custom.png')");
             obj.set_scrollbars("none");
             this.addChild(obj.name, obj);
             obj = new Edit("txt_userId", "absolute", "103", "136", "150", "25", null, null, this.div_login);
@@ -58,10 +57,6 @@
             obj.style.set_color("#ffffffff");
             obj.style.set_font("bold 9 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new CheckBox("legal_checkbox", "absolute", "106", "194", null, "22", "197", null, this.div_login);
-            obj.set_taborder("31");
-            obj.set_text("법률관계자 로그인");
-            this.div_login.addChild(obj.name, obj);
             obj = new Button("btn_join", "absolute", "332", "136", "60", "50", null, null, this.div_login);
             obj.set_taborder("32");
             obj.set_text("회원가입");
@@ -71,108 +66,102 @@
             obj.style.set_opacity("100");
             obj.style.set_shadow("outer 0,0 0 gray");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("programmar", "absolute", "784", "104", "115", "22", null, null, this.div_login);
+            obj = new Button("programmar", "absolute", "517", "72", "115", "22", null, null, this.div_login);
             obj.set_taborder("33");
             obj.set_text("개발전용로그인");
             obj.style.set_color("#333333ff");
             obj.style.set_font("bold 9 Dotum");
             obj.style.set_opacity("100");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button01", "absolute", "4", "223", "70", "27", null, null, this.div_login);
+            obj = new Button("Button01", "absolute", "101", "232", "70", "27", null, null, this.div_login);
             obj.set_taborder("34");
-            obj.set_text("    관리자    2013102001");
+            obj.set_text("    관리자    2020102001");
             obj.set_wordwrap("char");
             obj.style.set_background("@gradation");
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button02", "absolute", "78", "223", "70", "27", null, null, this.div_login);
+            obj = new Button("Button02", "absolute", "73", "397", "70", "27", null, null, this.div_login);
             obj.set_taborder("35");
-            obj.set_text("    민성운    2013102002");
             obj.set_wordwrap("char");
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button03", "absolute", "152", "223", "70", "27", null, null, this.div_login);
+            obj = new Button("Button03", "absolute", "147", "397", "70", "27", null, null, this.div_login);
             obj.set_taborder("36");
-            obj.set_text("    박연주    2013102012");
             obj.set_wordwrap("char");
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button04", "absolute", "227", "223", "70", "27", null, null, this.div_login);
+            obj = new Button("Button04", "absolute", "222", "397", "70", "27", null, null, this.div_login);
             obj.set_taborder("37");
-            obj.set_text("    신윤권    2013102011");
             obj.set_wordwrap("char");
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button05", "absolute", "301", "223", "70", "27", null, null, this.div_login);
+            obj = new Button("Button05", "absolute", "296", "397", "70", "27", null, null, this.div_login);
             obj.set_taborder("38");
-            obj.set_text("    이하늘    2013102008");
             obj.set_wordwrap("char");
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button06", "absolute", "375", "223", "70", "27", null, null, this.div_login);
+            obj = new Button("Button06", "absolute", "370", "397", "70", "27", null, null, this.div_login);
             obj.set_taborder("39");
-            obj.set_text("    전지희    2001030402");
             obj.set_wordwrap("char");
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button07", "absolute", "4", "253", "70", "27", null, null, this.div_login);
+            obj = new Button("Button07", "absolute", "-1", "427", "70", "27", null, null, this.div_login);
             obj.set_taborder("40");
-            obj.set_text("    한현진    2013102009");
             obj.set_wordwrap("char");
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button08", "absolute", "78", "253", "70", "27", null, null, this.div_login);
-            obj.set_taborder("41");
-            obj.set_text("    신미향    2014021201");
-            obj.set_wordwrap("char");
-            obj.style.set_align("center middle");
-            obj.style.set_font("8 Dotum");
-            this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button09", "absolute", "152", "253", "70", "27", null, null, this.div_login);
+            obj = new Button("Button09", "absolute", "147", "427", "70", "27", null, null, this.div_login);
             obj.set_taborder("42");
-            obj.set_text("    김유나    2013032901");
             obj.set_wordwrap("char");
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button10", "absolute", "227", "253", "70", "27", null, null, this.div_login);
+            obj = new Button("Button10", "absolute", "222", "427", "70", "27", null, null, this.div_login);
             obj.set_taborder("43");
-            obj.set_text("    이세형    2013102003");
             obj.set_wordwrap("char");
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button11", "absolute", "301", "253", "70", "27", null, null, this.div_login);
+            obj = new Button("Button11", "absolute", "296", "427", "70", "27", null, null, this.div_login);
             obj.set_taborder("44");
-            obj.set_text("    허성렬    2013102007");
             obj.set_wordwrap("char");
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button12", "absolute", "375", "253", "70", "27", null, null, this.div_login);
+            obj = new Button("Button12", "absolute", "370", "427", "70", "27", null, null, this.div_login);
             obj.set_taborder("45");
-            obj.set_text(" 외부변호사   2013082601");
             obj.set_wordwrap("char");
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
+            this.div_login.addChild(obj.name, obj);
+            obj = new Button("Button08", "absolute", "73", "427", "70", "27", null, null, this.div_login);
+            obj.set_taborder("46");
+            obj.set_text("    ");
+            obj.set_wordwrap("char");
+            obj.style.set_align("center middle");
+            obj.style.set_font("8 Dotum");
+            this.div_login.addChild(obj.name, obj);
+            obj = new CheckBox("legal_checkbox", "absolute", "101", "197", null, "22", "202", null, this.div_login);
+            obj.set_taborder("47");
+            obj.set_text("법률관계자 로그인");
             this.div_login.addChild(obj.name, obj);
 
 
             
             // Layout Functions
             //-- Default Layout
-            obj = new Layout("default", "", 553, 321, this.div_login,
+            obj = new Layout("default", "", 553, 465, this.div_login,
             	//-- Layout function
             	function(p) {
             		p.set_taborder("0");
-            		p.style.set_background("transparent URL('img::LOGINBG.png')");
+            		p.style.set_background("transparent URL('img::Login_custom.png')");
             		p.set_scrollbars("none");
 
             	}
@@ -180,7 +169,7 @@
             this.div_login.addLayout(obj.name, obj);
 
             //-- Default Layout
-            obj = new Layout("default", "", 450, 290, this,
+            obj = new Layout("default", "", 450, 463, this,
             	//-- Layout function
             	function(p) {
             		p.set_classname("Login");
@@ -294,7 +283,7 @@
             }
         }
 
-        //법률관계자 로그인
+        //쇼핑몰계자 로그인
         this.fn_outLogin = function()
         {
         	this.ds_idpw.clearData();
@@ -375,22 +364,18 @@
         	
         		if(msg == "ok"){
 
-        			var insaSabun = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaSabun");
-        			var insaId = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaId");
-        			var insaDeptCode = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaDeptCode");
-        			var insaDeptName = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaDeptName");
-        			var insaName = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaName");
-        			var insaAdmYn = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaAdmYn");
+        			var insaSabun = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "sabun");
+        			var insaId = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "id");
+        			var insaName = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "name");
+        			var insaAdmYn = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "pos_gbn_code");
         			
-        			if(this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaStat") == "002"){
+        			if(insaAdmYn == "003"){
         				
-        				if(this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaPutWtr") !== 'N'){
+        				if(this.ds_idpw.getColumn(this.ds_idpw.rowposition, "put_yn") !== 'N'){
         					application.gds_User.addRow();
         					application.gds_User.setColumn(application.gds_User.rowposition, "name", insaName);
         					application.gds_User.setColumn(application.gds_User.rowposition, "id", insaId);
         					application.gds_User.setColumn(application.gds_User.rowposition, "sabun", insaSabun);
-        					application.gds_User.setColumn(application.gds_User.rowposition, "insaDeptCode", insaDeptCode);
-        					application.gds_User.setColumn(application.gds_User.rowposition, "insaDeptName", insaDeptName);
         					
         					trace("gds_User : "+application.gds_User.getColumn(application.gds_User.rowposition, "name"));
         					
@@ -408,9 +393,9 @@
         					this.null_text("로그인 권한이 없습니다.");
         				}
         				
-        			}else if(this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaStat") == "003"){
-        				this.null_text("승인거부입니다. 관리자에게 문의해주세요.");
         			}else if(this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaStat") == "004"){
+        				this.null_text("승인거부입니다. 관리자에게 문의해주세요.");
+        			}else if(this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaStat") == "005"){
         				this.null_text("로그인 보류입니다. 관리자에게 문의해주세요.");
         			}else{
         				this.null_text("로그인 권한이 없습니다.");
@@ -422,40 +407,36 @@
         		}
         	}//end login_callback
         	
-        	//법률관계자 login_callback
+        	//쇼핑몰관계자 login_callback
         	if(sSvcId == "outLoginCheck"){
         		
         		var msg = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "msg");
         		
         		if(msg == "ok"){
         			
-        			var insaSabun = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaSabun");
-        			var insaId = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaId");
-        			var insaDeptCode = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaDeptCode");
-        			var insaDeptName = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaDeptName");
-        			var insaName = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaName");
+        			var insaSabun = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "sabun");
+        			var insaId = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "id");
+        			var insaName = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "name");
         			
-        			if(this.ds_idpw.getColumn(this.ds_idpw.rowposition, "insaSabun") != null)
-        			{
-        				application.gds_User.addRow();
-        				application.gds_User.setColumn(application.gds_User.rowposition, "name", insaName);
-        				application.gds_User.setColumn(application.gds_User.rowposition, "id", insaId);
-        				application.gds_User.setColumn(application.gds_User.rowposition, "sabun", insaSabun);
-        				application.gds_User.setColumn(application.gds_User.rowposition, "insaDeptCode", insaDeptCode);
-        				application.gds_User.setColumn(application.gds_User.rowposition, "insaDeptName", insaDeptName);
+        			if(insaAdmYn == "001" || insaAdmYn == "002"){
         				
-        				trace("gds_User : "+application.gds_User.getColumn(application.gds_User.rowposition, "name"));
-        				
-        				//권한 추가 -> 외부 변호사 로그인 시 메뉴 필터링
-        				application.gds_User.setColumn(application.gds_User.rowposition, "menuAuth", 'O');
-        				Iject.$["leftFrame"].form.fnMenuFilterByAuth('O');
-        				
-        				var oArgs = "close";
-        				Iject.popClose(this,oArgs);
-        			}
-        			else
-        			{
-        				this.null_text("로그인 권한이 없습니다.");
+        				if(this.ds_idpw.getColumn(this.ds_idpw.rowposition, "sabun") != null)
+        				{
+        					application.gds_User.addRow();
+        					application.gds_User.setColumn(application.gds_User.rowposition, "name", insaName);
+        					application.gds_User.setColumn(application.gds_User.rowposition, "id", insaId);
+        					application.gds_User.setColumn(application.gds_User.rowposition, "sabun", insaSabun);
+        					
+        					trace("gds_User : "+application.gds_User.getColumn(application.gds_User.rowposition, "name"));
+        					
+        					var oArgs = "close";
+        					trace("확인 :: "+ typeof Iject.popClose);
+        					Iject.popClose(this,oArgs);
+        				}
+        				else
+        				{
+        					this.null_text("로그인 권한이 없습니다.");
+        				}
         			}
         			
         		}
@@ -568,94 +549,15 @@
         	this.fn_login();
         }
 
-        this.Button03_onclick = function(obj,e)
-        {
-        	// 박연주
-        	this.div_login.txt_userId.set_value("parkyj");
-        	this.div_login.txt_userPwd.set_value("1111");
-        	sSvcId = "loginCheck";
-        	this.fn_login();
-        }
+        
 
-        this.Button04_onclick = function(obj,e)
-        {
-        	// 신윤권
-        	this.div_login.txt_userId.set_value("3333");
-        	this.div_login.txt_userPwd.set_value("1111");
-        	sSvcId = "loginCheck";
-        	this.fn_login();
-        }
-
-        this.Button05_onclick = function(obj,e)
-        {
-        	// 이하늘
-        	this.div_login.txt_userId.set_value("1111");
-        	this.div_login.txt_userPwd.set_value("1111");
-        	sSvcId = "loginCheck";
-        	this.fn_login();
-        }
-
-        this.Button06_onclick = function(obj,e)
-        {
-        	// 전지희
-        	this.div_login.txt_userId.set_value("003");
-        	this.div_login.txt_userPwd.set_value("1111");
-        	sSvcId = "loginCheck";
-        	this.fn_login();
-        }
-
-        this.Button07_onclick = function(obj,e)
-        {
-        	// 한현진
-        	this.div_login.txt_userId.set_value("hanhj");
-        	this.div_login.txt_userPwd.set_value("1111");
-        	sSvcId = "loginCheck";
-        	this.fn_login();
-        }
-
-        this.Button08_onclick = function(obj,e)
-        {
-        	// 신미향
-        	this.div_login.txt_userId.set_value("shinmh");
-        	this.div_login.txt_userPwd.set_value("1111");
-        	sSvcId = "loginCheck";
-        	this.fn_login();
-        }
-
-        this.Button09_onclick = function(obj,e)
-        {
-        	// 김유나
-        	this.div_login.txt_userId.set_value("002");
-        	this.div_login.txt_userPwd.set_value("1111");
-        	sSvcId = "loginCheck";
-        	this.fn_login();
-        }
-
-        this.Button10_onclick = function(obj,e)
-        {
-        	// 이세형
-        	this.div_login.txt_userId.set_value("leesh");
-        	this.div_login.txt_userPwd.set_value("1111");
-        	sSvcId = "loginCheck";
-        	this.fn_login();
-        }
-
-        this.Button11_onclick = function(obj,e)
-        {
-        	// 허성렬
-        	this.div_login.txt_userId.set_value("huhsr");
-        	this.div_login.txt_userPwd.set_value("1111");
-        	sSvcId = "loginCheck";
-        	this.fn_login();
-        }
-
-        // 법률관계자 로그인 프리셋
+        //쇼핌몰관계자 로그인 프리셋
         this.Button12_onclick = function(obj,e)
         {
-        	this.div_login.txt_userId.set_value("2013082601");
-        	this.div_login.txt_userPwd.set_value("1234");
+        	this.div_login.txt_userId.set_value("2020092101");
+        	this.div_login.txt_userPwd.set_value("1111");
         	sSvcId = "outLoginCheck";
-        	this.alert("법률관계자로 로그인합니다.");
+        	this.alert("쇼핑몰관계자로 로그인합니다.");
         	/*this.alert("value" + txt_userId.value);*/
         	this.fn_outLogin();
         }
@@ -675,7 +577,6 @@
             this.div_login.btn_login.addEventHandler("onclick", this.btn_login_onclick, this);
             this.div_login.btn_login.addEventHandler("onkeyup", this.div_login_btn_login_onkeyup, this);
             this.div_login.btn_close.addEventHandler("onclick", this.fn_close, this);
-            this.div_login.legal_checkbox.addEventHandler("onclick", this.legal_checkbox_onclick, this);
             this.div_login.btn_join.addEventHandler("onclick", this.btn_join_onclick, this);
             this.div_login.programmar.addEventHandler("onclick", this.programmar_onclick, this);
             this.div_login.Button01.addEventHandler("onclick", this.Button01_onclick, this);
@@ -685,11 +586,12 @@
             this.div_login.Button05.addEventHandler("onclick", this.Button05_onclick, this);
             this.div_login.Button06.addEventHandler("onclick", this.Button06_onclick, this);
             this.div_login.Button07.addEventHandler("onclick", this.Button07_onclick, this);
-            this.div_login.Button08.addEventHandler("onclick", this.Button08_onclick, this);
             this.div_login.Button09.addEventHandler("onclick", this.Button09_onclick, this);
             this.div_login.Button10.addEventHandler("onclick", this.Button10_onclick, this);
             this.div_login.Button11.addEventHandler("onclick", this.Button11_onclick, this);
             this.div_login.Button12.addEventHandler("onclick", this.Button12_onclick, this);
+            this.div_login.Button08.addEventHandler("onclick", this.Button08_onclick, this);
+            this.div_login.legal_checkbox.addEventHandler("onclick", this.legal_checkbox_onclick, this);
 
         };
 

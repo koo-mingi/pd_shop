@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("LAWSUIT_NOTI");
-                this.set_classname("Work");
                 this.set_titletext("소송고지관리");
                 this._setFormPosition(0,0,1024,768);
             }

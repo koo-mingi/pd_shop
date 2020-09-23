@@ -12,7 +12,7 @@
             this._addService("default_typedef.xml", "nexacro14lib.component", "file", "./nexacro14lib/component", "session", null, "", "0", "0");
             this._addService("default_typedef.xml", "nexacro14lib.framework", "file", "./nexacro14lib/framework/", "session", null, "", "0", "0");
             this._addService("default_typedef.xml", "nexacro14lib.resources", "file", "./nexacro14lib/resources/", "session", null, "", "0", "0");
-            this._addService("default_typedef.xml", "svcurl", "JSP", "http://localhost:8080/pd_law_nexa/", "none", null, "", "0", "0");
+            this._addService("default_typedef.xml", "svcurl", "JSP", "http://localhost:8080/pd_shop/", "none", null, "", "0", "0");
             this._addService("default_typedef.xml", "img", "file", "./img/", "session", null, "", "0", "0");
             this._addService("default_typedef.xml", "Frame", "form", "./Frame/", "session", null, "", "0", "0");
             this._addService("default_typedef.xml", "Lib", "js", "./Lib/", "session", null, "", "0", "0");
@@ -73,10 +73,10 @@
         this.on_loadGlobalVariables = function()
         {
             // global variable
-            this._addVariable("gv_host", "http://localhost/", false);
-            this._addVariable("gv_userAuth", "admin", false);
-            this._addVariable("gv_openOnlyOne", "true", false);
-            this._addVariable("gv_loadCnt", "0", false);
+            this._addVariable("gv_host", "http://localhost/", "false", "false");
+            this._addVariable("gv_userAuth", "admin", "false", "false");
+            this._addVariable("gv_openOnlyOne", "true", "false", "false");
+            this._addVariable("gv_loadCnt", "0", "false", "false");
 
             // global image
             this._addImage("15N_btn", "img::15N_btn.bmp");
@@ -316,7 +316,6 @@
             this.addChild(frame0.name, frame0);
             this.frame = frame0;
             frame0.set_separatesize("0,*,42");
-            frame0.set_keepseparatesizewhenswap("true");
 
             
             var frame1 = new ChildFrame("LoginFrame", "absolute", null, null, null, null, null, null, "Frame::Login.xfdl", frame0);
@@ -331,7 +330,6 @@
             frame0.addChild(frame2.name, frame2);
             frame2.set_showtitleicon("false");
             frame2.set_separatesize("0,*");
-            frame2.set_keepseparatesizewhenswap("true");
 
             
             var frame3 = new ChildFrame("LeftFrame", "absolute", null, null, null, null, null, null, "Frame::LeftFrame.xfdl", frame2);
@@ -342,7 +340,6 @@
             var frame4 = new VFrameSet("VFrameSet1", "absolute", null, null, null, null, null, null, frame2);
             frame2.addChild(frame4.name, frame4);
             frame4.set_separatesize("30,*");
-            frame4.set_keepseparatesizewhenswap("true");
             frame4.set_topmost("false");
 
             

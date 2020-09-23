@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("deposit_re");
-                this.set_classname("deposit_re");
                 this.set_titletext("공탁관리");
                 this._setFormPosition(0,0,1024,600);
             }

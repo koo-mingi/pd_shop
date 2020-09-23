@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("LAW_FIXINFO");
-                this.set_classname("OUT_fixinfo_skw");
                 this._setFormPosition(0,0,1024,768);
             }
             this.style.set_font("9 굴림체");

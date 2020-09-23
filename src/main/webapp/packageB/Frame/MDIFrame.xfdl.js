@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("MDIFrame");
-                this.set_classname("MDIFrame");
                 this._setFormPosition(0,0,1280,42);
             }
 

@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("RAISREQ_LIST");
-                this.set_classname("RAISREQ_LIST");
                 this.set_titletext("소제기 의뢰 현황");
                 this._setFormPosition(0,0,1024,768);
             }

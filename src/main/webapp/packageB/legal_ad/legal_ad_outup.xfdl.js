@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("legal_ad_outup");
-                this.set_classname("legal_ad_outup");
                 this.set_titletext("외부법률자문회신조회");
                 this._setFormPosition(0,0,1024,768);
             }

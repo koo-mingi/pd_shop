@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("LAWSUIT_TAB_LIST_NO");
-                this.set_classname("LAWSUIT_TAB_LIST_NO");
                 this.set_titletext("소송담당자 등록");
                 this._setFormPosition(0,0,385,185);
             }

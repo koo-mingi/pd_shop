@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("Guide2");
-                this.set_classname("Guide2");
                 this.set_titletext("New Form");
                 this._setFormPosition(0,0,1024,768);
             }

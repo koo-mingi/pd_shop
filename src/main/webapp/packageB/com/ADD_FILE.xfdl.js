@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("ADD_FILE");
-                this.set_classname("LAWSUIT_ADM_NO");
                 this.set_titletext("서증 첨부파일");
                 this.set_scrollbars("none");
                 this._setFormPosition(0,0,619,377);

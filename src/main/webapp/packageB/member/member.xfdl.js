@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("member002");
-                this.set_classname("member002");
                 this.set_titletext("회원가입창");
                 this._setFormPosition(0,0,480,318);
             }
@@ -29,7 +28,7 @@
             obj.set_loadkeymode("keep");
             obj.set_loadfiltermode("keep");
             obj.set_reversesubsum("false");
-            obj._setContents("<ColumnInfo><Column id=\"insaId\" type=\"STRING\" size=\"256\"/><Column id=\"insaName\" type=\"STRING\" size=\"256\"/><Column id=\"engName\" type=\"STRING\" size=\"256\"/><Column id=\"insaPwd\" type=\"STRING\" size=\"256\"/><Column id=\"birth\" type=\"STRING\" size=\"256\"/><Column id=\"backBirth\" type=\"STRING\" size=\"256\"/><Column id=\"hp\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"address1\" type=\"STRING\" size=\"256\"/><Column id=\"address2\" type=\"STRING\" size=\"256\"/><Column id=\"sex\" type=\"STRING\" size=\"256\"/><Column id=\"zipCode\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row/></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"eng_name\" type=\"STRING\" size=\"256\"/><Column id=\"password\" type=\"STRING\" size=\"256\"/><Column id=\"reg_no\" type=\"STRING\" size=\"256\"/><Column id=\"hp\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"addr1\" type=\"STRING\" size=\"256\"/><Column id=\"addr2\" type=\"STRING\" size=\"256\"/><Column id=\"sex\" type=\"STRING\" size=\"256\"/><Column id=\"zip\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row/></Rows>");
             this.addChild(obj.name, obj);
 
             obj = new Dataset("ds_check", this);
@@ -40,54 +39,54 @@
             
             // UI Components Initialize
             obj = new ImageViewer("img_titlebg1", "absolute", "9", "64", "461", "250", null, null, this);
-            obj.set_taborder("29");
+            obj.set_taborder("14");
             obj.style.set_background("lavenderblush");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static02", "absolute", "70", "89", "395", "25", null, null, this);
-            obj.set_taborder("51");
+            obj.set_taborder("33");
             obj.style.set_background("#f0f0f0ff");
             obj.style.set_border("1 solid #a8a8a8ff");
             obj.style.set_color("black");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static03", "absolute", "70", "137", "395", "25", null, null, this);
-            obj.set_taborder("52");
+            obj.set_taborder("34");
             obj.style.set_background("#f0f0f0ff");
             obj.style.set_border("1 solid #a8a8a8ff");
             obj.style.set_color("black");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static05", "absolute", "70", "161", "395", "25", null, null, this);
-            obj.set_taborder("53");
+            obj.set_taborder("35");
             obj.style.set_background("#f0f0f0ff");
             obj.style.set_border("1 solid #a8a8a8ff");
             obj.style.set_color("black");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static06", "absolute", "70", "209", "395", "25", null, null, this);
-            obj.set_taborder("54");
+            obj.set_taborder("36");
             obj.style.set_background("#f0f0f0ff");
             obj.style.set_border("1 solid #a8a8a8ff");
             obj.style.set_color("black");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static07", "absolute", "70", "185", "395", "25", null, null, this);
-            obj.set_taborder("55");
+            obj.set_taborder("37");
             obj.style.set_background("#f0f0f0ff");
             obj.style.set_border("1 solid #a8a8a8ff");
             obj.style.set_color("black");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static08", "absolute", "70", "233", "395", "25", null, null, this);
-            obj.set_taborder("56");
+            obj.set_taborder("38");
             obj.style.set_background("#f0f0f0ff");
             obj.style.set_border("1 solid #a8a8a8ff");
             obj.style.set_color("black");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static28", "absolute", "70", "113", "395", "25", null, null, this);
-            obj.set_taborder("38");
+            obj.set_taborder("21");
             obj.style.set_background("#f0f0f0ff");
             obj.style.set_border("1 solid #a8a8a8ff");
             obj.style.set_color("black");
@@ -105,7 +104,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Button("Button01", "absolute", "251", "280", "55", "23", null, null, this);
-            obj.set_taborder("32");
+            obj.set_taborder("16");
             obj.set_text("취소");
             obj.style.set_background("URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top");
             obj.style.set_border("0 none #808080ff");
@@ -127,12 +126,12 @@
             this.addChild(obj.name, obj);
 
             obj = new Edit("Edit00", "absolute", "339", "188", "120", "19", null, null, this);
-            obj.set_taborder("30");
+            obj.set_taborder("15");
             obj.set_enable("false");
             this.addChild(obj.name, obj);
 
             obj = new Edit("Edit01", "absolute", "114", "212", "241", "19", null, null, this);
-            obj.set_taborder("31");
+            obj.set_taborder("10");
             obj.set_enable("false");
             this.addChild(obj.name, obj);
 
@@ -167,9 +166,9 @@
             obj = new Combo("Combo01", "absolute", "114", "187", "120", "19", null, null, this);
             this.addChild(obj.name, obj);
             var Combo01_innerdataset = new Dataset("Combo01_innerdataset", this.Combo01);
-            Combo01_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">m</Col><Col id=\"datacolumn\">남</Col></Row><Row><Col id=\"codecolumn\">g</Col><Col id=\"datacolumn\">여</Col></Row></Rows>");
+            Combo01_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">01</Col><Col id=\"datacolumn\">남</Col></Row><Row><Col id=\"codecolumn\">02</Col><Col id=\"datacolumn\">여</Col></Row><Row><Col id=\"codecolumn\">03</Col><Col id=\"datacolumn\">알수없음</Col></Row></Rows>");
             obj.set_innerdataset(Combo01_innerdataset);
-            obj.set_taborder("10");
+            obj.set_taborder("9");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             obj.set_displaynulltext("선택");
@@ -188,7 +187,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Plugin("Plugin00", "absolute", "80.58%", "267", null, "35", "2.92%", null, this);
-            obj.setProperty("taborder", "33");
+            obj.setProperty("taborder", "17");
             obj.setProperty("classid", "{8856F961-340A-11D0-A96B-00C04FD705A2}");
             obj.setProperty("windowed", "true");
             obj.setProperty("popupstyle", "true");
@@ -212,7 +211,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Div("joinTitle", "absolute", "9", "6", "463", "50", null, null, this);
-            obj.set_taborder("34");
+            obj.set_taborder("18");
             obj.set_text("  회원가입");
             obj.style.set_align("left");
             obj.style.set_background("#3366ffff");
@@ -221,13 +220,13 @@
             this.addChild(obj.name, obj);
 
             obj = new Static("Static29", "absolute", "14", "67", "178", "25", null, null, this);
-            obj.set_taborder("35");
+            obj.set_taborder("19");
             obj.set_text("개인 정보입력");
             obj.style.set_font("bold 9 Dotum,굴림");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static33", "absolute", "14", "89", "95", "25", null, null, this);
-            obj.set_taborder("36");
+            obj.set_taborder("20");
             obj.set_text("아이디");
             obj.style.set_background("#f4edfaff");
             obj.style.set_border("1 solid #c8c8c8ff");
@@ -238,7 +237,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00", "absolute", "14", "113", "95", "25", null, null, this);
-            obj.set_taborder("39");
+            obj.set_taborder("22");
             obj.set_text("이름");
             obj.style.set_background("#f4edfaff");
             obj.style.set_border("1 solid #c8c8c8ff");
@@ -249,7 +248,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Static("Static01", "absolute", "14", "209", "95", "25", null, null, this);
-            obj.set_taborder("40");
+            obj.set_taborder("23");
             obj.set_text("주소");
             obj.style.set_background("#f4edfaff");
             obj.style.set_border("1 solid #c8c8c8ff");
@@ -260,7 +259,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Static("Static04", "absolute", "239", "161", "95", "25", null, null, this);
-            obj.set_taborder("41");
+            obj.set_taborder("24");
             obj.set_text("휴대폰번호");
             obj.style.set_background("#f4edfaff");
             obj.style.set_border("1 solid #c8c8c8ff");
@@ -271,7 +270,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Static("Static14", "absolute", "14", "137", "95", "25", null, null, this);
-            obj.set_taborder("43");
+            obj.set_taborder("25");
             obj.set_text("주민등록번호");
             obj.style.set_background("#f4edfaff");
             obj.style.set_border("1 solid #c8c8c8ff");
@@ -282,7 +281,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Static("Static15", "absolute", "14", "161", "95", "25", null, null, this);
-            obj.set_taborder("44");
+            obj.set_taborder("26");
             obj.set_text("이메일");
             obj.style.set_background("#f4edfaff");
             obj.style.set_border("1 solid #c8c8c8ff");
@@ -293,7 +292,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Static("Static16", "absolute", "14", "185", "95", "25", null, null, this);
-            obj.set_taborder("45");
+            obj.set_taborder("27");
             obj.set_text("성별");
             obj.style.set_background("#f4edfaff");
             obj.style.set_border("1 solid #c8c8c8ff");
@@ -304,7 +303,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Static("Static17", "absolute", "239", "137", "95", "25", null, null, this);
-            obj.set_taborder("46");
+            obj.set_taborder("28");
             obj.set_text("영문이름");
             obj.style.set_background("#f4edfaff");
             obj.style.set_border("1 solid #c8c8c8ff");
@@ -315,7 +314,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Static("Static18", "absolute", "239", "113", "95", "25", null, null, this);
-            obj.set_taborder("47");
+            obj.set_taborder("29");
             obj.set_text("비밀번호확인");
             obj.style.set_background("#f4edfaff");
             obj.style.set_border("1 solid #c8c8c8ff");
@@ -326,7 +325,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Static("Static20", "absolute", "239", "89", "95", "25", null, null, this);
-            obj.set_taborder("48");
+            obj.set_taborder("30");
             obj.set_text("비밀번호");
             obj.style.set_background("#f4edfaff");
             obj.style.set_border("1 solid #c8c8c8ff");
@@ -337,7 +336,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Static("Static21", "absolute", "14", "233", "95", "25", null, null, this);
-            obj.set_taborder("49");
+            obj.set_taborder("31");
             obj.set_text("상세주소");
             obj.style.set_background("#f4edfaff");
             obj.style.set_border("1 solid #c8c8c8ff");
@@ -348,7 +347,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Static("Static10", "absolute", "239", "185", "95", "25", null, null, this);
-            obj.set_taborder("50");
+            obj.set_taborder("32");
             obj.set_text("우편번호");
             obj.style.set_background("#f4edfaff");
             obj.style.set_border("1 solid #c8c8c8ff");
@@ -359,7 +358,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Edit("Edit14", "absolute", "170", "140", "64", "19", null, null, this);
-            obj.set_taborder("66");
+            obj.set_taborder("5");
             obj.set_password("true");
             obj.set_maxlength("7");
             obj.set_autoskip("true");
@@ -383,43 +382,37 @@
 
             
             // BindItem Information
-            obj = new BindItem("item0","Edit7","value","ds_insa","address1");
+            obj = new BindItem("item2","Edit05","value","ds_insa","id");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item2","Edit05","value","ds_insa","insaId");
-            this.addChild(obj.name, obj);
-            obj.bind();
-            obj = new BindItem("item3","Edit04","value","ds_insa","insaName");
+            obj = new BindItem("item3","Edit04","value","ds_insa","name");
             this.addChild(obj.name, obj);
             obj.bind();
             obj = new BindItem("item4","Edit02","value","ds_insa","email");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item5","Edit00","value","ds_insa","zipCode");
+            obj = new BindItem("item5","Edit00","value","ds_insa","zip");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item6","Edit01","value","ds_insa","address1");
+            obj = new BindItem("item6","Edit01","value","ds_insa","addr1");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item9","Edit06","value","ds_insa","insaPwd");
+            obj = new BindItem("item9","Edit06","value","ds_insa","password");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item12","Edit07","value","ds_insa","engName");
+            obj = new BindItem("item12","Edit07","value","ds_insa","eng_name");
             this.addChild(obj.name, obj);
             obj.bind();
             obj = new BindItem("item7","Combo01","value","ds_insa","sex");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item8","Edit10","value","ds_insa","address2");
+            obj = new BindItem("item8","Edit10","value","ds_insa","addr2");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item10","Edit03","value","ds_insa","birth");
+            obj = new BindItem("item10","Edit03","value","ds_insa","reg_no");
             this.addChild(obj.name, obj);
             obj.bind();
             obj = new BindItem("item13","MaskEdit00","value","ds_insa","hp");
-            this.addChild(obj.name, obj);
-            obj.bind();
-            obj = new BindItem("item16","Edit14","value","ds_insa","backBirth");
             this.addChild(obj.name, obj);
             obj.bind();
 
@@ -470,7 +463,7 @@
         // 우편 번호 검색하기
         this.btn_execute_onclick = function(obj,e)
         {
-        	this.Plugin00.callMethod("Navigate2", "http://localhost:8080/pd_law_nexa/jsp/zipcodeSearch.jsp"); // JKIM_2020.02.17 : jsp 디렉토리로 이동
+        	this.Plugin00.callMethod("Navigate2", "http://localhost:8080/pd_shop/jsp/zipcodeSearch.jsp"); // JKIM_2020.02.17 : jsp 디렉토리로 이동
         }
 
         // 우편 번호 검색 후 값 받기
@@ -515,9 +508,9 @@
         		this.alert("생년월일을 입력해주세요.");
         		this.Edit03.setFocus();
         		return;
-        	}else if(this.Edit11.value == null){
+        	}else if(this.Edit14.value == null){
         		this.alert("주민번호 뒷자리를 입력해주세요.");
-        		this.Edit11.setFocus();
+        		this.Edit14.setFocus();
         		return;
         	}else if(this.Edit02.value == null){
         		this.alert("이메일을 입력해주세요.");
@@ -543,15 +536,18 @@
         		this.alert("생년월일을 확인해주세요.");
         		this.Edit03.setFocus();
         		return;
-        	}else if(this.Edit11.getLength() < 7 ){
+        	}else if(this.Edit14.getLength() < 7 ){
         		this.alert("주민번호 뒷자리를 확인해주세요.");
-        		this.Edit11.setFocus();
+        		this.Edit14.setFocus();
         		return;
         	}else if(this.Edit07.value == null){
         		this.alert("영문이름을 입력해주세요");
         		this.Edit07.setFocus();
         		return;
         	}
+        	
+        	var reg_no = this.Edit03.value + this.Edit14.value;
+        	this.ds_insa.setColumn(0,"reg_no",reg_no);
         	
         	this.gfn_transaction(this,
         						"insertAdm",
@@ -627,6 +623,11 @@
         }
 
         // 주민등록번호 유효성 검사
+        this.Edit14_oneditclick = function(obj,e)
+        {
+        	
+        }
+        
         });
 
 
@@ -648,6 +649,7 @@
             this.Edit09.addEventHandler("onchanged", this.Edit09_onchanged, this);
             this.Plugin00.addEventHandler("TitleChange", this.Plugin00_TitleChange, this);
             this.Edit03.addEventHandler("oneditclick", this.Edit03_oneditclick, this);
+            this.Edit14.addEventHandler("oneditclick", this.Edit14_oneditclick, this);
 
         };
 

@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("WorkFrame");
-                this.set_classname("WorkFrame");
                 this._setFormPosition(0,0,1050,818);
             }
             this.style.set_background("white");

@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("edoc_adm");
-                this.set_classname("edoc_adm");
                 this.set_titletext("New Form");
                 this.set_enable("true");
                 this._setFormPosition(0,0,1024,768);

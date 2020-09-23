@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("legalAdv");
-                this.set_classname("legal_ad_list");
                 this.set_titletext("New Form");
                 this._setFormPosition(0,0,1024,768);
             }

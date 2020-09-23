@@ -41,7 +41,7 @@
     <Service prefixid="nexacro14lib.component" type="file" url="./nexacro14lib/component" cachelevel="session" version="0" communicationversion="0"/>
     <Service prefixid="nexacro14lib.framework" type="file" url="./nexacro14lib/framework/" cachelevel="session" version="0" communicationversion="0"/>
     <Service prefixid="nexacro14lib.resources" type="file" url="./nexacro14lib/resources/" cachelevel="session" version="0" communicationversion="0"/>
-    <Service prefixid="svcurl" type="JSP" url="http://localhost:8080/pd_law_nexa/" cachelevel="none" version="0" communicationversion="0"/>
+    <Service prefixid="svcurl" type="JSP" url="http://localhost:8080/pd_shop/" cachelevel="none" version="0" communicationversion="0"/>
     <Service prefixid="img" type="file" url="./img/" cachelevel="session" version="0" communicationversion="0"/>
     <Service prefixid="Frame" type="form" url="./Frame/" cachelevel="session" version="0" communicationversion="0"/>
     <Service prefixid="Lib" type="js" url="./Lib/" cachelevel="session" version="0" communicationversion="0"/>

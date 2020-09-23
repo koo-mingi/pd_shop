@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("legal_ad_mandate");
-                this.set_classname("legal_ad_mandate");
                 this.set_titletext("법률자문위임");
                 this._setFormPosition(0,0,1024,768);
             }

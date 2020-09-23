@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("TopFrame");
-                this.set_classname("TopFrame");
                 this._setFormPosition(0,0,1050,30);
             }
 

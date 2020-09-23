@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("PRE_IWR001");
-                this.set_classname("PRE_IWR001");
                 this.set_titletext("준비서면관리");
                 this._setFormPosition(0,0,1024,768);
             }

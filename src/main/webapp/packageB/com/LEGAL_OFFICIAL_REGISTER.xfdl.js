@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("LEGAL_OFFICIAL_REGISTER");
-                this.set_classname("LEGAL_OFFICIAL_REGISTER");
                 this._setFormPosition(0,0,590,248);
             }
             this.style.set_font("bold 9 Dotum");

@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("LAWSUIT_ADD");
-                this.set_classname("LAWSUIT_ADD");
                 this.set_titletext("반소사항");
                 this._setFormPosition(0,0,532,156);
             }

@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("LEGAL_OFFICIAL_CHECK");
-                this.set_classname("LEGAL_OFFICIAL_CHECK");
                 this.set_titletext("법률관계자 정보 조회");
                 this._setFormPosition(0,0,551,470);
             }

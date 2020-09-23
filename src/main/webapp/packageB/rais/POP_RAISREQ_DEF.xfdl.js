@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("POP_RAISREQ_DEF");
-                this.set_classname("LAWSUIT_CHAR");
                 this.set_titletext("New Form");
                 this._setFormPosition(0,0,866,460);
             }

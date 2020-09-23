@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("LeftFrame");
-                this.set_classname("LeftFrame");
                 this._setFormPosition(0,0,230,958);
             }
 

@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("paging_samplr");
-                this.set_classname("paging_samplr");
                 this.set_titletext("New Form");
                 this._setFormPosition(0,0,1024,768);
             }

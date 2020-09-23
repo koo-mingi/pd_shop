@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("LAWSUIT_LIST");
-                this.set_classname("LAWSUIT_LIST");
                 this.set_titletext("소송접수관리");
                 this._setFormPosition(0,0,1024,768);
             }

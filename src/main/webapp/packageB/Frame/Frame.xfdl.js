@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("WorkFrame");
-                this.set_classname("WorkFrame");
                 this.set_titletext("New Form");
                 this._setFormPosition(0,0,1280,1000);
             }

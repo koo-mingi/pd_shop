@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("LAWSUIT_NOTI_NO");
-                this.set_classname("LAWSUIT_NOTI_NO");
                 this.set_titletext("소송고지번호조회");
                 this._setFormPosition(0,0,600,400);
             }

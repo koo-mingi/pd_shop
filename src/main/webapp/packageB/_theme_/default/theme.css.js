@@ -727,7 +727,7 @@
     this._addCss("Spin>#spinedit", "border", obj, ["normal"]);
     this._addCss("SpinControl>#spinedit", "border", obj, ["normal"]);
     this._addCss("Combo>#comboedit", "border", obj, ["normal", "mouseover", "focused", "disabled", "readonly"]);
-    this._addCss("ComboControl>#comboedit", "border", obj, ["normal", "mouseover", "disabled", "readonly"]);
+    this._addCss("ComboControl>#comboedit", "border", obj, ["normal", "mouseover", "focused", "disabled", "readonly"]);
     this._addCss("Radio", "border", obj, ["normal"]);
     this._addCss("RadioControl", "border", obj, ["normal"]);
     this._addCss("CheckBox", "border", obj, ["normal", "mouseover", "focused", "pushed"]);
@@ -823,6 +823,7 @@
     this._addCss("Button", "color", obj, ["normal"]);
     this._addCss("ButtonControl", "color", obj, ["normal"]);
     this._addCss("Spin", "color", obj, ["normal"]);
+    this._addCss("Spin>#spinedit", "color", obj, ["normal"]);
     this._addCss("Spin>#spinupbutton", "color", obj, ["normal"]);
     this._addCss("Spin>#spindownbutton", "color", obj, ["normal"]);
     this._addCss("SpinControl", "color", obj, ["normal"]);
@@ -832,8 +833,6 @@
     this._addCss("ListBoxControl", "color", obj, ["normal"]);
     this._addCss("Combo>#dropbutton", "color", obj, ["normal"]);
     this._addCss("ComboControl>#dropbutton", "color", obj, ["normal"]);
-    this._addCss("Radio", "color", obj, ["normal"]);
-    this._addCss("RadioControl", "color", obj, ["normal"]);
     this._addCss("CheckBox", "color", obj, ["normal"]);
     this._addCss("CheckBoxControl", "color", obj, ["normal"]);
     this._addCss("ImageViewer", "color", obj, ["normal"]);
@@ -1645,6 +1644,7 @@
     this._addCss("Combo>#comboedit", "color", obj, ["normal"]);
     this._addCss("ComboControl", "color", obj, ["normal", "mouseover", "readonly"]);
     this._addCss("ComboControl>#comboedit", "color", obj, ["normal"]);
+    this._addCss("Radio", "color", obj, ["normal"]);
     this._addCss("Grid>#controlcombo", "color", obj, ["normal", "mouseover", "readonly"]);
     this._addCss("Grid>#controlcombo>#comboedit", "color", obj, ["normal"]);
     this._addCss("GridControl>#controlcombo", "color", obj, ["normal", "mouseover", "readonly"]);
@@ -2048,8 +2048,10 @@
 
     obj = new nexacro.Style_align("center middle");
     this._addCss("StatusBarControl>#zoomcombo>#dropbutton", "imagealign", obj, ["normal"]);
+    this._addCss("VScrollBar>#incbutton", "imagealign", obj, ["normal"]);
     this._addCss("VScrollBar>#decbutton", "imagealign", obj, ["normal"]);
     this._addCss("VScrollBar>#trackbar", "imagealign", obj, ["normal"]);
+    this._addCss("VScrollBarControl>#incbutton", "imagealign", obj, ["normal"]);
     this._addCss("VScrollBarControl>#decbutton", "imagealign", obj, ["normal"]);
     this._addCss("VScrollBarControl>#trackbar", "imagealign", obj, ["normal"]);
     this._addCss("HScrollBar>#incbutton", "imagealign", obj, ["normal"]);
@@ -2084,6 +2086,14 @@
     this._addCss("TabControl>#spinupbutton", "imagealign", obj, ["normal", "disabled"]);
     this._addCss("TabControl>#spindownbutton", "imagealign", obj, ["normal", "disabled"]);
     this._addCss("TabControl>#extrabutton", "imagealign", obj, ["normal", "mouseover", "focused", "selected", "pushed", "disabled"]);
+    this._addCss("PopupMenu>#spindownbutton", "imagealign", obj, ["normal"]);
+    this._addCss("PopupMenu>#spinupbutton", "imagealign", obj, ["normal"]);
+    this._addCss("PopupMenuControl>#spindownbutton", "imagealign", obj, ["normal"]);
+    this._addCss("PopupMenuControl>#spinupbutton", "imagealign", obj, ["normal"]);
+    this._addCss("Menu>#spindownbutton", "imagealign", obj, ["normal"]);
+    this._addCss("Menu>#spinupbutton", "imagealign", obj, ["normal"]);
+    this._addCss("MenuControl>#spindownbutton", "imagealign", obj, ["normal"]);
+    this._addCss("MenuControl>#spinupbutton", "imagealign", obj, ["normal"]);
 
     obj = new nexacro.Style_background("@gradation","theme://images/img_drop_O.png","stretch","6","6","0","0","true");
     this._addCss("StatusBarControl>#zoomcombo>#dropbutton", "background", obj, ["mouseover"]);
@@ -2274,18 +2284,6 @@
     this._addCss("VScrollBarControl>#incbutton", "image", obj, ["normal"]);
     this._addCss("PopupMenu>#spindownbutton", "image", obj, ["normal"]);
     this._addCss("PopupMenuControl>#spindownbutton", "image", obj, ["normal"]);
-
-    obj = new nexacro.Style_align("cetner middle");
-    this._addCss("VScrollBar>#incbutton", "imagealign", obj, ["normal"]);
-    this._addCss("VScrollBarControl>#incbutton", "imagealign", obj, ["normal"]);
-    this._addCss("PopupMenu>#spindownbutton", "imagealign", obj, ["normal"]);
-    this._addCss("PopupMenu>#spinupbutton", "imagealign", obj, ["normal"]);
-    this._addCss("PopupMenuControl>#spindownbutton", "imagealign", obj, ["normal"]);
-    this._addCss("PopupMenuControl>#spinupbutton", "imagealign", obj, ["normal"]);
-    this._addCss("Menu>#spindownbutton", "imagealign", obj, ["normal"]);
-    this._addCss("Menu>#spinupbutton", "imagealign", obj, ["normal"]);
-    this._addCss("MenuControl>#spindownbutton", "imagealign", obj, ["normal"]);
-    this._addCss("MenuControl>#spinupbutton", "imagealign", obj, ["normal"]);
 
     obj = new nexacro.Style_padding("0 0 0 0");
     this._addCss("VScrollBar>#incbutton", "padding", obj, ["normal"]);
@@ -2549,7 +2547,7 @@
     this._addCss("Spin>#spinedit", "padding", obj, ["normal"]);
     this._addCss("SpinControl>#spinedit", "padding", obj, ["normal"]);
     this._addCss("Combo>#comboedit", "padding", obj, ["normal", "mouseover", "focused", "disabled", "readonly"]);
-    this._addCss("ComboControl>#comboedit", "padding", obj, ["normal", "mouseover", "disabled", "readonly"]);
+    this._addCss("ComboControl>#comboedit", "padding", obj, ["normal", "mouseover", "focused", "disabled", "readonly"]);
     this._addCss("Grid>#controledit", "padding", obj, ["normal"]);
     this._addCss("Grid>#controlmaskedit", "padding", obj, ["normal"]);
     this._addCss("GridControl>#controledit", "padding", obj, ["normal"]);
@@ -2572,7 +2570,7 @@
     this._addCss("Combo", "background", obj, ["mouseover"]);
     this._addCss("Combo>#comboedit", "background", obj, ["mouseover", "focused", "readonly"]);
     this._addCss("ComboControl", "background", obj, ["mouseover"]);
-    this._addCss("ComboControl>#comboedit", "background", obj, ["mouseover", "readonly"]);
+    this._addCss("ComboControl>#comboedit", "background", obj, ["mouseover", "focused", "readonly"]);
     this._addCss("Calendar", "background", obj, ["mouseover", "selected"]);
     this._addCss("Calendar>#popupcalendar>#yearspin>#spinedit", "background", obj, ["mouseover", "focused"]);
     this._addCss("Calendar>#popupcalendar>#monthspin>#spinedit", "background", obj, ["mouseover", "focused"]);
@@ -2611,7 +2609,7 @@
     this._addCss("TextArea", "color", obj, ["mouseover"]);
     this._addCss("TextAreaControl", "color", obj, ["mouseover"]);
     this._addCss("Combo>#comboedit", "color", obj, ["mouseover", "focused"]);
-    this._addCss("ComboControl>#comboedit", "color", obj, ["mouseover"]);
+    this._addCss("ComboControl>#comboedit", "color", obj, ["mouseover", "focused"]);
     this._addCss("Grid>#controledit", "color", obj, ["mouseover", "focused"]);
     this._addCss("Grid>#controltextarea", "color", obj, ["mouseover"]);
     this._addCss("Grid>#controlcombo>#comboedit", "color", obj, ["mouseover"]);
@@ -2808,10 +2806,6 @@
     this._addCss("Grid>#controlcombo", "buttonsize", obj, ["readonly"]);
     this._addCss("GridControl>#controlcombo", "buttonsize", obj, ["readonly"]);
 
-    obj = new nexacro.Style_color("#46463dff");
-    this._addCss("Spin>#spinedit", "color", obj, ["normal"]);
-    this._addCss("SpinControl>#spinedit", "color", obj, ["normal"]);
-
     obj = new nexacro.Style_gradation("linear 0,0 #ffffff 0,100 #e7e7e2");
     this._addCss("Spin>#spinupbutton", "gradation", obj, ["normal"]);
     this._addCss("Spin>#spindownbutton", "gradation", obj, ["normal"]);
@@ -2916,6 +2910,9 @@
     this._addCss("Grid>#controlcalendar>#spindownbutton", "image", obj, ["disabled"]);
     this._addCss("GridControl>#controlcalendar>#spindownbutton", "image", obj, ["disabled"]);
 
+    obj = new nexacro.Style_color("#46463dff");
+    this._addCss("SpinControl>#spinedit", "color", obj, ["normal"]);
+
     obj = new nexacro.Style_border("1","solid","#ffffffff","");
     this._addCss("ListBox", "itemborder", obj, ["normal"]);
     this._addCss("ListBoxControl", "itemborder", obj, ["normal"]);
@@ -2956,7 +2953,7 @@
     this._addCss("Grid>#controlcombo", "color", obj, ["selected"]);
     this._addCss("GridControl>#controlcombo", "color", obj, ["selected"]);
     this._addCss("Tab", "color", obj, ["selected", "focused"]);
-    this._addCss("TabControl", "color", obj, ["selected", "focused"]);
+    this._addCss("TabControl", "color", obj, ["selected"]);
     this._addCss("PopupMenu", "color", obj, ["mouseover"]);
     this._addCss("PopupMenuControl", "color", obj, ["mouseover"]);
 
@@ -3125,6 +3122,9 @@
     this._addCss("Grid>#controlcheckbox", "buttonborder", obj, ["normal"]);
     this._addCss("GridControl>#controlcheckbox", "buttonborder", obj, ["normal"]);
     this._addCss("FileUploadControl", "buttonborder", obj, ["normal"]);
+
+    obj = new nexacro.Style_color("red");
+    this._addCss("RadioControl", "color", obj, ["normal"]);
 
     obj = new nexacro.Style_value("1 solid #1e7cc4");
     this._addCss("RadioControl", "buttonborder", obj, ["mouseover"]);
@@ -4104,7 +4104,7 @@
 
     obj = new nexacro.Style_padding("5 10 4 10");
     this._addCss("Tab", "buttonpadding", obj, ["normal", "selected", "focused"]);
-    this._addCss("TabControl", "buttonpadding", obj, ["normal", "selected", "focused"]);
+    this._addCss("TabControl", "buttonpadding", obj, ["normal", "selected"]);
 
     obj = new nexacro.Style_value("true");
     this._addCss("Tab", "showextrabutton", obj, ["normal"]);
@@ -4123,7 +4123,7 @@
 
     obj = new nexacro.Style_color("#0065b2");
     this._addCss("Tab", "color", obj, ["mouseover"]);
-    this._addCss("TabControl", "color", obj, ["mouseover"]);
+    this._addCss("TabControl", "color", obj, ["mouseover", "focused"]);
     this._addCss("Menu", "color", obj, ["mouseover", "pushed", "selected", "focused"]);
     this._addCss("MenuControl", "color", obj, ["mouseover", "pushed", "selected", "focused"]);
 
@@ -4137,7 +4137,7 @@
 
     obj = new nexacro.Style_background("#9f8f71ff","","","0","0","0","0","true");
     this._addCss("Tab", "buttonbackground", obj, ["selected", "focused"]);
-    this._addCss("TabControl", "buttonbackground", obj, ["selected", "focused"]);
+    this._addCss("TabControl", "buttonbackground", obj, ["selected"]);
 
     obj = new nexacro.Style_value("1 solid #ffffff00");
     this._addCss("Tab", "buttonborder", obj, ["selected", "focused"]);
@@ -4177,10 +4177,10 @@
     this._addCss("TabControl", "shadow", obj, ["normal"]);
 
     obj = new nexacro.Style_value("1 solid #9f8f71");
-    this._addCss("TabControl", "buttonborder", obj, ["mouseover"]);
+    this._addCss("TabControl", "buttonborder", obj, ["mouseover", "focused"]);
 
     obj = new nexacro.Style_value("1 solid #ffffff00");
-    this._addCss("TabControl", "buttonborder", obj, ["selected", "focused"]);
+    this._addCss("TabControl", "buttonborder", obj, ["selected"]);
 
     obj = new nexacro.Style_background("#ffffffff","","","0","0","0","0","true");
     this._addCss("Tabpage", "background", obj, ["normal"]);

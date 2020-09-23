@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("Pattern_04");
-                this.set_classname("FileUpDownload");
                 this.set_titletext("Eco File Up&Down");
                 this._setFormPosition(0,0,800,400);
             }

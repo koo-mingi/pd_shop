@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("WorkTitle");
-                this.set_classname("WorkTitle");
                 this._setFormPosition(0,0,1164,36);
             }
 

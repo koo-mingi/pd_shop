@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("pop_depo_no");
-                this.set_classname("pop_depo_no");
                 this.set_titletext("담당자 조회");
                 this._setFormPosition(0,0,710,459);
             }

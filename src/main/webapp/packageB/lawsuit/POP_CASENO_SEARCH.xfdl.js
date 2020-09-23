@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("POP_CASENO_SEARCH");
-                this.set_classname("POP_CASENO_SEARCH");
                 this.set_titletext("사건번호입력");
                 this._setFormPosition(0,0,412,112);
             }

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- **mapper.java의 경로 -->
+<mapper namespace="nexacro.shop.service.dao.mybatis.AdmMapper"> 
+	
+    <resultMap id="login" type="nexacro.shop.vo.administrator.AdmVO">
+		<result property="sabun" column="sabun" />
+		<result property="name" column="name" />
+		<result property="id" column="id" />
+		<result property="password" column="password" />
+		<result property="pos_gbn_code" column="pos_gbn_code" />
+		<result property="put_yn" column="put_yn" />
+	</resultMap>
+    
+    <resultMap id="id" type="nexacro.shop.vo.administrator.AdmVO">
+		<result property="id" column="id" />
+	</resultMap>
+	 
+	<!-- 로그인 조회 -->
+	<select id="admlogin" resultMap="login"
+		parameterType="java.util.HashMap">
+			select
+				sabun, name, id, password, pos_gbn_code, put_yn
+			from
+				tb_insa
+			where
+				id = #{id}
+	</select>
+	
+	<!-- 존재하는 아이디인지 조회 [id가 없으면 max(id) = null. NVL함수로 null값일 때 'none'을 넣어주도록 함] -->
+	<select id="selectId" resultMap="id"
+	parameterType="java.lang.String">
+		SELECT
+			NVL(MAX(ID), 'NONE') AS id
+		FROM
+			TB_INSA
+		WHERE
+			id = #{id}
+	</select>
+	
+	<!-- 회원가입 -->
+ 	<insert id="admInsert" parameterType="nexacro.shop.vo.administrator.AdmVO">
+		<selectKey keyProperty="sabun" resultType="string" order="BEFORE">
+			<![CDATA[
+			SELECT 
+                DECODE(
+               		SUBSTR(MAX(sabun),1,8)  
+               		,TO_CHAR(SYSDATE ,'YYYYMMDD')
+                	,MAX(sabun) + 1
+                	,TO_CHAR(SYSDATE,'YYYYMMDD') || '01'
+                ) sabun            
+            FROM 
+            	tb_insa
+            WHERE 
+            	sabun < TO_CHAR(SYSDATE,'YYYYMMDD') || '99'
+            	AND ROWNUM = 1
+		    ]]>
+		</selectKey>
+	
+		<![CDATA[
+	
+		INSERT INTO TB_INSA
+		(sabun, id, name, eng_name, password, reg_no, hp, email, addr1, addr2, sex, zip, 
+		pos_gbn_code,join_day)
+		values
+		(#{sabun}, #{id}, #{name}, #{eng_name}, #{password}, #{reg_no}, #{hp}, #{email}, #{addr1}, #{addr2}, #{sex}, #{zip},
+			'003',to_char(sysdate,'YYYYMMDD'))
+	
+		]]>
+	</insert>
+	
+</mapper>

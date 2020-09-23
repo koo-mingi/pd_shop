@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("PD_IN_COM_MM001");
-                this.set_classname("PD_IN_COM_MM001");
                 this.set_titletext("  공통코드마스터관리");
                 this._setFormPosition(0,0,1024,768);
             }

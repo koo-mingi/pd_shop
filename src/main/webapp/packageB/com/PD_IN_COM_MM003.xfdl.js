@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("PD_IN_COM_MM003");
-                this.set_classname("PD_IN_COM_MM003");
                 this.set_titletext("New Form");
                 this._setFormPosition(0,0,1024,768);
             }

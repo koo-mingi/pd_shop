@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("mainFrameNew");
-                this.set_classname("mainFrameNew");
                 this.set_titletext("New Form");
                 this.set_tooltiptype("hover");
                 this._setFormPosition(0,0,1280,819);

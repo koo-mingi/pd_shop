@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("RAISREQ_REP");
-                this.set_classname("RAISREQ_REP");
                 this.set_titletext("New Form");
                 this._setFormPosition(0,0,1024,768);
             }

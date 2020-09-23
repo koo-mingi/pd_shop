@@ -12,7 +12,7 @@
             this._addService("default_typedef.xml", "nexacro14lib.component", "file", "./nexacro14lib/component", "session", null, "", "0", "0");
             this._addService("default_typedef.xml", "nexacro14lib.framework", "file", "./nexacro14lib/framework/", "session", null, "", "0", "0");
             this._addService("default_typedef.xml", "nexacro14lib.resources", "file", "./nexacro14lib/resources/", "session", null, "", "0", "0");
-            this._addService("default_typedef.xml", "svcurl", "JSP", "http://localhost:8080/pd_law_nexa/", "none", null, "", "0", "0");
+            this._addService("default_typedef.xml", "svcurl", "JSP", "http://localhost:8080/pd_shop/", "none", null, "", "0", "0");
             this._addService("default_typedef.xml", "img", "file", "./img/", "session", null, "", "0", "0");
             this._addService("default_typedef.xml", "Frame", "form", "./Frame/", "session", null, "", "0", "0");
             this._addService("default_typedef.xml", "Lib", "js", "./Lib/", "session", null, "", "0", "0");
@@ -73,10 +73,10 @@
         this.on_loadGlobalVariables = function()
         {
             // global variable
-            this._addVariable("gv_host", "http://localhost/", false);
-            this._addVariable("gv_userAuth", "admin", false);
-            this._addVariable("gv_openOnlyOne", "true", false);
-            this._addVariable("gv_loadCnt", "0", false);
+            this._addVariable("gv_host", "http://localhost/", "false", "false");
+            this._addVariable("gv_userAuth", "admin", "false", "false");
+            this._addVariable("gv_openOnlyOne", "true", "false", "false");
+            this._addVariable("gv_loadCnt", "0", "false", "false");
 
             // global image
             this._addImage("15N_btn", "img::15N_btn.bmp");
@@ -380,6 +380,7 @@ this.loadCss("Css::TopFrame.css");
 this.loadCss("Css::WorkFrame.css");
 this.loadCss("Css::Login.css");
 
+        this.loadIncludeScript("packageB.xadl");
     };
 }
 )();

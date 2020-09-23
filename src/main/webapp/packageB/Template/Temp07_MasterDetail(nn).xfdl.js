@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("Temp01_SingleDetail");
-                this.set_classname("Temp01_SingleDetail");
                 this.set_titletext("New Form");
                 this._setFormPosition(0,0,1030,876);
             }

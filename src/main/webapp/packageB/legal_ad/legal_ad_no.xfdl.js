@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("legal_ad_no");
-                this.set_classname("legal_ad_no");
                 this.set_titletext("법률자문의뢰조회");
                 this._setFormPosition(0,0,826,495);
             }

@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("Pattern_07p");
-                this.set_classname("Test035_pop");
                 this.set_cssclass("from_POP");
                 this.set_titletext("팝업대상/파라미터 반환 샘플 팝업");
                 this._setFormPosition(0,0,800,400);

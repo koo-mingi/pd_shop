@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("LITIGANT_REGISTER");
-                this.set_classname("LITIGANT_REGISTER");
                 this.set_titletext("원피고");
                 this._setFormPosition(0,0,549,249);
             }

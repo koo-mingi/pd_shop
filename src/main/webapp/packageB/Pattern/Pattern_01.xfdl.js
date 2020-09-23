@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("Pattern_01");
-                this.set_classname("Work");
                 this.set_titletext("SingleDetail");
                 this._setFormPosition(0,0,800,369);
             }

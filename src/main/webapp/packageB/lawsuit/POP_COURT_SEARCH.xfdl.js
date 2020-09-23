@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("POP_COURT_SEARCH");
-                this.set_classname("POP_COURT_SEARCH");
                 this.set_titletext("법원 조회");
                 this._setFormPosition(0,0,284,96);
             }

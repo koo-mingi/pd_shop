@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("zipcode");
-                this.set_classname("zipcode");
                 this.set_titletext("New Form");
                 this._setFormPosition(0,0,465,193);
             }

@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("comp_lawsuit001");
-                this.set_classname("comp_lawsuit001");
                 this.set_titletext("소송종결");
                 this._setFormPosition(0,0,1024,768);
             }

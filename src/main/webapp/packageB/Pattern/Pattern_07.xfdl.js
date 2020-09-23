@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("Pattern_07");
-                this.set_classname("Test035");
                 this.set_titletext("팝업샘플");
                 this._setFormPosition(0,0,800,400);
             }

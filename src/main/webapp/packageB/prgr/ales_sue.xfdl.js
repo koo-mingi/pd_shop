@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("ales_sue");
-                this.set_classname("ales_sue");
                 this.set_titletext("응소(제소)보고관리");
                 this._setFormPosition(0,0,1024,768);
             }

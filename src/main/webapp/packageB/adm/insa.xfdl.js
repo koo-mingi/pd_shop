@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("insa");
-                this.set_classname("insa");
                 this.set_titletext("  인사관리");
                 this._setFormPosition(0,0,1024,768);
             }

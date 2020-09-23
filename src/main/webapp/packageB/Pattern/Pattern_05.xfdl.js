@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("Pattern_05");
-                this.set_classname("CodeMgmt");
                 this.set_titletext("CRUD샘플");
                 this._setFormPosition(0,0,800,422);
             }

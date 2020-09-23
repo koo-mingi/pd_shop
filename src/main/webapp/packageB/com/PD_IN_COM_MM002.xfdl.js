@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("PD_IN_COM_MM002");
-                this.set_classname("PD_IN_COM_MM002");
                 this.set_titletext("공통코드상세관리");
                 this._setFormPosition(0,0,1024,768);
             }

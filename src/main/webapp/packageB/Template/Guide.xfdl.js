@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("Guide01");
-                this.set_classname("Guide01");
                 this.set_titletext("New Form");
                 this.set_cssclass("tab_bottom");
                 this._setFormPosition(0,0,1024,3789);

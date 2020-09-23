@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("LAWSUIT_CHAR");
-                this.set_classname("LAWSUIT_CHAR");
                 this.set_titletext("New Form");
                 this._setFormPosition(0,0,480,455);
             }

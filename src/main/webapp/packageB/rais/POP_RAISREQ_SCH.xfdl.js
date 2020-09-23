@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("POP_RAISREQ_SCH");
-                this.set_classname("POP_RAISREQ_SCH");
                 this.set_titletext("New Form");
                 this._setFormPosition(0,0,668,486);
             }

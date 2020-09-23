@@ -12,7 +12,6 @@
             
             if (Form == this.constructor) {
                 this.set_name("COM_INSA_ACPT");
-                this.set_classname("COM_INSA_ACPT");
                 this.set_titletext("사원승인내역관리");
                 this._setFormPosition(0,0,1024,768);
             }
