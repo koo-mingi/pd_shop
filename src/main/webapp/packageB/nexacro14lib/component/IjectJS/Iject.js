@@ -42,8 +42,8 @@ if (!JsNamespace.exist("Iject"))
 			Iject.$["mdiFrame"]       = o.mainframe.VFrameSet.MDIFrame;                       			//mdi frame
 			Iject.$["httpurl"]        = o.services["svcurl"].url;							  	//trnasaction service url
 			Iject.$["framesize"]      = "0,*,42";  		         							  //defualt seperatesize
-			Iject.$["loginSize"]      = {width:450,height:290};
-			Iject.$["mainframeSize"]  = {width: o.mainframe.width,height: o.mainframe.height};
+			Iject.$["loginSize"]      = {width:450,height:500};
+			Iject.$["mainframeSize"]  = {width: o.mainframe.width,height: 970};
 			Iject.$["gds_menu"]       = o.gds_menu;
 			Iject.$["gds_openmenu"]   = o.gds_openMenu;
 			Iject.$["ExtCommonPath"]  = (nexacro.Browser =="Runtime" ? system.convertRealPath("%USERAPP%"+"Component/ExtCommonV13.dll") :"");

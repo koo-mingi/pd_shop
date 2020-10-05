@@ -357,26 +357,21 @@
         // CallBack
         this.fnCallback = function(strId,errcode,errmsg){
 
-        if(strId == "getRaisreqDetailList"){
+        	if(strId == "getRaisreqDetailList"){
 
-        	for(var i=0;i<this.ds_raisreq.getRowCount();i++){
-
-        	if(typeof (this.ds_raisreq.getColumn(i,"insaName"))=='undefined') this.ds_raisreq.setColumn(i,"insaName"," ");
-        	if(typeof (this.ds_raisreq.getColumn(i,"raisreqReqId"))=='undefined') this.ds_raisreq.setColumn(i,"raisreqReqId","");
-        	}
-
+        		for(var i=0;i<this.ds_raisreq.getRowCount();i++){
+        			if(typeof (this.ds_raisreq.getColumn(i,"insaName"))=='undefined') this.ds_raisreq.setColumn(i,"insaName"," ");
+        			if(typeof (this.ds_raisreq.getColumn(i,"raisreqReqId"))=='undefined') this.ds_raisreq.setColumn(i,"raisreqReqId","");
+        		}
         		if(errcode == 0){	
         		    if( this.ds_raisreq.getRowCount() < 1 ){
-        		    
         		       alert( "조회 내용이 없습니다.");
         		       this.btn_clean_onclick();
-        		   
-        		    }
-        			
+        		    }	
         		}else{
-        		
         		    alert("데이터 불러오기에 실패하였습니다." + errmsg);
         		}
+        		
         	}
         	if(strId=="ds_clas_code"){
         		this.ds_clas_code.setColumn(0,"codenm","전체");
@@ -616,7 +611,7 @@
         }
 
         // 모달창 콜백
-        this.modal_callback = function(strID,variant)
+        this.modal_callback = function(strID,variant) // variant : 모달창 종료 시 넘겨받은 값.
         {
         	trace(variant);
         	if(strID == "Popup1")

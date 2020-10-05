@@ -382,7 +382,7 @@ this.FileUpload00_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUpload
 
 	
 	sFilePath = obj.value; //e.newvalue;
-
+	
 	var dirExpt = sFilePath.lastIndexOf("\\")+1;
 	sFullName = sFilePath.substr(dirExpt);
 	sFileDir = sFilePath.substr(0, dirExpt); 

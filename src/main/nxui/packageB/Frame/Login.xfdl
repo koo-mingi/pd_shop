@@ -1,31 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="Login" classname="Login" left="0" top="0" width="450" height="463" onload="form_onload" style="background:transparent;" onsize="Login_onsize" titletext="Login" scrollbars="none">
+  <Form id="Login" classname="Login" left="0" top="0" width="450" height="501" onload="form_onload" style="background:transparent;" onsize="Login_onsize" titletext="Login" scrollbars="none">
     <Layouts>
       <Layout>
-        <Div id="div_login" taborder="0" left="0" top="0" width="450" height="463" style="background:transparent URL('img::Login_custom.png');" scrollbars="none">
+        <Div id="div_login" taborder="0" left="0" top="0" width="450" height="501" style="background:transparent URL('img::Login_custom.png');" scrollbars="none">
           <Layouts>
             <Layout width="553" height="465">
-              <Edit id="txt_userId" taborder="27" displaynulltext="User ID" oneditclick="div_login_txt_userId_oneditclick" left="103" top="136" width="150" height="25"/>
-              <Edit id="txt_userPwd" taborder="28" password="true" displaynulltext="Password" onkeydown="login_onkeydown" left="103" top="165" width="150" height="25"/>
-              <Button id="btn_login" taborder="29" text="로그인" wordwrap="char" onclick="btn_login_onclick" onkeyup="div_login_btn_login_onkeyup" top="136" right="127" width="60" height="50" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;"/>
+              <Edit id="txt_userId" taborder="27" displaynulltext="User ID" oneditclick="div_login_txt_userId_oneditclick" left="125" top="194" width="150" height="25"/>
+              <Edit id="txt_userPwd" taborder="28" password="true" displaynulltext="Password" onkeydown="login_onkeydown" left="125" top="280" width="150" height="25"/>
+              <Button id="btn_login" taborder="29" text="로그인" wordwrap="char" onclick="btn_login_onclick" onkeyup="div_login_btn_login_onkeyup" top="181" right="94" width="60" height="50" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;"/>
               <Button id="btn_close" taborder="30" text="X" onclick="fn_close" visible="false" top="8" right="15" width="29" height="19" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;"/>
-              <Button id="btn_join" taborder="32" text="회원가입" onclick="btn_join_onclick" left="332" top="136" width="60" height="50" style="background:URL('img::btn_WF_crud_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;opacity:100;shadow:outer 0,0 0 gray;"/>
+              <Button id="btn_join" taborder="32" text="회원가입" onclick="btn_join_onclick" left="296" top="262" width="60" height="50" style="background:URL('img::btn_WF_crud_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 Dotum;opacity:100;shadow:outer 0,0 0 gray;"/>
               <Button id="programmar" taborder="33" text="개발전용로그인" onclick="programmar_onclick" left="517" top="72" width="115" height="22" style="color:#333333ff;font:bold 9 Dotum;opacity:100;"/>
-              <Button id="Button01" taborder="34" text="    관리자    2020102001" wordwrap="char" onclick="Button01_onclick" left="101" top="232" width="70" height="27" style="background:@gradation;align:center middle;font:8 Dotum;"/>
-              <Button id="Button02" taborder="35" wordwrap="char" onclick="Button02_onclick" left="73" top="397" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
-              <Button id="Button03" taborder="36" wordwrap="char" onclick="Button03_onclick" left="147" top="397" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
-              <Button id="Button04" taborder="37" wordwrap="char" onclick="Button04_onclick" left="222" top="397" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
-              <Button id="Button05" taborder="38" wordwrap="char" onclick="Button05_onclick" left="296" top="397" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
-              <Button id="Button06" taborder="39" wordwrap="char" onclick="Button06_onclick" left="370" top="397" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
-              <Button id="Button07" taborder="40" wordwrap="char" onclick="Button07_onclick" left="-1" top="427" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
-              <Button id="Button09" taborder="42" wordwrap="char" onclick="Button09_onclick" left="147" top="427" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
-              <Button id="Button10" taborder="43" wordwrap="char" onclick="Button10_onclick" left="222" top="427" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
-              <Button id="Button11" taborder="44" wordwrap="char" onclick="Button11_onclick" left="296" top="427" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
-              <Button id="Button12" taborder="45" wordwrap="char" onclick="Button12_onclick" left="370" top="427" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
-              <Button id="Button08" taborder="46" text="    " wordwrap="char" onclick="Button08_onclick" left="73" top="427" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
-              <CheckBox id="legal_checkbox" taborder="47" text="법률관계자 로그인" onclick="legal_checkbox_onclick" left="101" top="197" right="202" height="22"/>
+              <Button id="Button01" taborder="34" text="    관리자    2020102001" wordwrap="char" onclick="Button01_onclick" left="52" top="368" width="70" height="27" style="background:@gradation;align:center middle;font:8 Dotum;"/>
+              <Button id="Button02" taborder="35" wordwrap="char" onclick="Button02_onclick" left="125" top="368" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
+              <Button id="Button03" taborder="36" wordwrap="char" onclick="Button03_onclick" left="199" top="368" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
+              <Button id="Button04" taborder="37" wordwrap="char" onclick="Button04_onclick" left="274" top="368" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
+              <Button id="Button05" taborder="38" wordwrap="char" onclick="Button05_onclick" left="348" top="368" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
+              <Button id="Button07" taborder="40" wordwrap="char" onclick="Button07_onclick" left="51" top="398" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
+              <Button id="Button09" taborder="42" wordwrap="char" onclick="Button09_onclick" left="199" top="398" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
+              <Button id="Button10" taborder="43" wordwrap="char" onclick="Button10_onclick" left="274" top="398" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
+              <Button id="Button11" taborder="44" wordwrap="char" onclick="Button11_onclick" left="348" top="398" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
+              <Button id="Button08" taborder="46" text="    " wordwrap="char" onclick="Button08_onclick" left="125" top="398" width="70" height="27" style="align:center middle;font:8 Dotum;"/>
+              <CheckBox id="legal_checkbox" taborder="47" text="법률관계자 로그인" onclick="legal_checkbox_onclick" left="125" top="336" right="178" height="22"/>
             </Layout>
           </Layouts>
         </Div>
@@ -132,7 +130,7 @@ this.btn_login_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
     }
 }
 
-//쇼핑몰계자 로그인
+//쇼핑몰관계자 로그인
 this.fn_outLogin = function()
 {
 	this.ds_idpw.clearData();
@@ -156,7 +154,7 @@ this.fn_outLogin = function()
 	
 	this.gfn_transaction(this,
 						"outLoginCheck",
-						"administrator/outLogin.do",
+						"administrator/Login.do",
 						"",
 						"ds_idpw=ds_output",
 						strParam,
@@ -218,7 +216,7 @@ this.transaction_callback = function(sSvcId, nErrorCode, sErrorMsg)
 			var insaName = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "name");
 			var insaAdmYn = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "pos_gbn_code");
 			
-			if(insaAdmYn == "003"){
+			if(insaAdmYn == "001" || insaAdmYn == "002" || insaAdmYn == "003"){
 				
 				if(this.ds_idpw.getColumn(this.ds_idpw.rowposition, "put_yn") !== 'N'){
 					application.gds_User.addRow();
@@ -266,8 +264,9 @@ this.transaction_callback = function(sSvcId, nErrorCode, sErrorMsg)
 			var insaSabun = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "sabun");
 			var insaId = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "id");
 			var insaName = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "name");
+			var insaAdmYn = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "pos_gbn_code");
 			
-			if(insaAdmYn == "001" || insaAdmYn == "002"){
+			if(insaAdmYn == "003"){
 				
 				if(this.ds_idpw.getColumn(this.ds_idpw.rowposition, "sabun") != null)
 				{

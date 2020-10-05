@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="PRODUCT_ADD" left="0" top="0" width="1024" height="768" titletext="New Form" dragscrolltype="none" style="cursor:text;">
+    <Layouts>
+      <Layout>
+        <Div id="Div01" taborder="0" text="   상품 등록" left="14" top="7" width="996" height="50" style="align:left;background:coral;color:#ffffffff;font:bold 12 Dotum;">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Button id="btn_close00" taborder="1" text="닫기" onclick="btn_close_OnClick" left="949" top="17" width="55" height="31" style="background:URL('img::btn_WF_crudL2_N.png') stretch 9,9 left top;border:0 solid #999999ff ;color:white;font:bold 11 Dotum;"/>
+        <Static id="Static00" taborder="2" left="14" top="65" width="996" height="471" style="background:antiquewhite;border:1 solid #c8c8c8ff ;"/>
+        <Static id="Static04" taborder="3" left="20" top="70" width="984" height="25" style="background:#eaeaeaff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="Static01" taborder="4" text="상품분류" left="20" top="70" width="105" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;bordertype:normal 0 0 ;align:center middle;font:bold 9 dotum;" usedecorate="false"/>
+        <Combo id="list_com" taborder="5" text="대분류" innerdataset="ds_clas_code" codecolumn="codeno" datacolumn="codenm" onitemchanged="combo_Clas_Code_onitemchanged" left="133" top="73" width="130" height="19" style="background:#ffffffff;color:#333333ff;"/>
+        <Combo id="list_com00" taborder="6" text="중분류" innerdataset="ds_clas_code" codecolumn="codeno" datacolumn="codenm" onitemchanged="combo_Clas_Code_onitemchanged" left="269" top="73" width="130" height="19" style="background:#ffffffff;color:#333333ff;"/>
+        <Combo id="list_com01" taborder="7" text="소분류" innerdataset="ds_clas_code" codecolumn="codeno" datacolumn="codenm" onitemchanged="combo_Clas_Code_onitemchanged" left="405" top="73" width="130" height="19" style="background:#ffffffff;color:#333333ff;"/>
+        <Button id="btn_add_save" taborder="8" text="등록" onclick="btn_search_onclick" left="941" top="71" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;border:1 solid #999999ff ;color:white;font:bold 9 Dotum;"/>
+        <Static id="Static05" taborder="9" left="20" top="94" width="984" height="25" style="background:#eaeaeaff;border:1 solid #a8a8a8ff ;"/>
+        <Edit id="edt_No" taborder="10" left="132" top="97" width="866" height="19" style=":disabled {background:#f7f7f7ff;color:#999999ff;}"/>
+        <Static id="Static02" taborder="11" text="상품명" left="20" top="94" width="105" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;bordertype:normal 0 0 ;align:center middle;font:bold 9 dotum;"/>
+        <Static id="Static03" taborder="12" left="20" top="118" width="984" height="25" style="background:#eaeaeaff;border:1 solid #a8a8a8ff ;"/>
+        <Edit id="edt_No00" taborder="13" left="132" top="121" width="866" height="19" style=":disabled {background:#f7f7f7ff;color:#999999ff;}"/>
+        <Static id="Static06" taborder="14" text="상품설명요약" left="20" top="118" width="105" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;bordertype:normal 0 0 ;align:center middle;font:bold 9 dotum;"/>
+        <Static id="Static07" taborder="15" left="20" top="142" width="984" height="125" style="background:#eaeaeaff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="Static08" taborder="16" text="상세설명" left="20" top="142" width="105" height="125" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;bordertype:normal 0 0 ;align:center middle;font:bold 9 dotum;"/>
+        <TextArea id="TextArea_detail" taborder="17" left="133" top="146" height="116" ontextchanged="TextArea_detail_ontextchanged" wordwrap="char" width="865"/>
+        <Static id="star_Static01" taborder="18" text="*" left="32" top="71" width="37" height="23" style="color:#ff0000ff;font:dotum,14,bold;"/>
+        <Static id="star_Static00" taborder="19" text="*" left="32" top="95" width="37" height="23" style="color:#ff0000ff;font:dotum,14,bold;"/>
+        <Div id="detail_char_length" taborder="20" text="0 / 2000" left="91.31%" top="243" right="1.86%" height="21" visible="true"/>
+        <Static id="Static09" taborder="21" left="20" top="266" width="984" height="25" style="background:#eaeaeaff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="Static10" taborder="22" text="상품가격" left="20" top="266" width="105" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;bordertype:normal 0 0 ;align:center middle;font:bold 9 dotum;"/>
+        <Edit id="edt_price" taborder="23" left="132" top="269" width="866" height="19" style=":disabled {background:#f7f7f7ff;color:#999999ff;}" inputfilter="dot,comma,sign,symbol,alpha,space" displaynulltext="숫자만 입력하세요" inputtype="number,digit" imemode="none"/>
+        <Static id="Static11" taborder="24" left="20" top="290" width="984" height="25" style="background:#eaeaeaff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="Static12" taborder="25" text="메인 이미지" onclick="Static01_onclick" left="20" top="290" width="105" height="25" style="background:#f4edfaff;border:1 solid lightgrey ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Edit id="edt_No01" taborder="27" left="132" top="293" width="866" height="19" style=":disabled {background:#f7f7f7ff;color:#999999ff;}"/>
+        <Button id="btn_uploade" taborder="28" text="파일추가" onclick="btn_uploade_onclick" left="927" top="291" width="70" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 dotum;"/>
+        <Static id="Static13" taborder="29" left="20" top="314" width="984" height="194" style="background:#eaeaeaff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="Static14" taborder="30" text="상세보기 이미지" onclick="Static01_onclick" left="20" top="314" width="105" height="194" style="background:#f4edfaff;border:1 solid lightgrey ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Button id="btn_uploade00" taborder="31" text="파일추가" onclick="btn_uploade_onclick" left="927" top="316" width="70" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:#ffffffff;font:bold 9 dotum;"/>
+        <Grid id="Grid00" taborder="32" useinputpanel="false" left="133" top="341" height="163" autofittype="col" width="865" scrollbars="autoboth">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="56"/>
+                <Column size="811"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="번호"/>
+                <Cell col="1" text="파일명"/>
+              </Band>
+              <Band id="body">
+                <Cell/>
+                <Cell col="1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static15" taborder="33" left="20" top="506" width="984" height="25" style="background:#eaeaeaff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="Static16" taborder="34" text="판매 여부" onclick="Static01_onclick" left="20" top="506" width="105" height="25" style="background:#f4edfaff;border:1 solid lightgrey ;color:#133678ff;align:center middle;font:bold 9 dotum;"/>
+        <Radio id="radio_Wtr" taborder="35" columncount="3" codecolumn="codecolumn" datacolumn="datacolumn" value="0" onitemclick="Radio00_onitemclick" left="132" top="509" width="203" height="19" style="color:black;font:8 Dotum;">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">Y</Col>
+                <Col id="datacolumn">판매</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">N</Col>
+                <Col id="datacolumn">판매불가</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Static id="Static17" taborder="36" text="판매처" left="355" top="506" width="105" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;bordertype:normal 0 0 ;align:center middle;font:bold 9 dotum;"/>
+        <Edit id="edt_No02" taborder="37" readonly="true" enable="false" left="462" top="509" width="404" height="19" style=":disabled {background:#f7f7f7ff;color:#999999ff;}"/>
+        <Button id="btn_list_search01" taborder="38" text="검색" onclick="btn_search_onclick" left="868" top="507" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;border:1 solid #999999ff ;color:white;font:bold 9 Dotum;"/>
+        <Static id="Static18" taborder="39" left="14" top="541" width="996" height="203" style="background:antiquewhite;border:1 solid #c8c8c8ff ;"/>
+        <Static id="Static19" taborder="40" text="상품 옵션 등록" onclick="Static09_onclick" left="22" top="548" right="82.32%" height="19" style="font:bold 9 굴림체;"/>
+        <Grid id="Grid01" taborder="41" useinputpanel="false" autofittype="col" left="22" top="568" width="982" height="169">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="57"/>
+                <Column size="56"/>
+                <Column size="57"/>
+                <Column size="204"/>
+                <Column size="72"/>
+                <Column size="131"/>
+                <Column size="46"/>
+                <Column size="81"/>
+                <Column size="74"/>
+                <Column size="148"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell edittype="checkbox"/>
+                <Cell col="1" edittype="text" text="대분류"/>
+                <Cell col="2" text="중분류"/>
+                <Cell col="3" text="소분류"/>
+                <Cell col="4" text="상품명"/>
+                <Cell col="5" text="재고수량"/>
+                <Cell col="6" text="가격"/>
+                <Cell col="7" text="별점"/>
+                <Cell col="8" text="옵션여부"/>
+                <Cell col="9" text="판매여부"/>
+                <Cell col="10" text="판매처"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="checkbox"/>
+                <Cell col="1"/>
+                <Cell col="2"/>
+                <Cell col="3"/>
+                <Cell col="4"/>
+                <Cell col="5"/>
+                <Cell col="6"/>
+                <Cell col="7"/>
+                <Cell col="8"/>
+                <Cell col="9"/>
+                <Cell col="10"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_list_add" taborder="42" text="등록" onclick="btn_list_add_onclick" left="885" top="544" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;border:1 solid #999999ff ;color:white;font:bold 9 Dotum;"/>
+        <Button id="btn_list_search03" taborder="43" text="삭제" onclick="btn_search_onclick" left="941" top="544" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;border:1 solid #999999ff ;color:white;font:bold 9 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item4" compid="edt_No" propid="value" datasetid="ds_mgr" columnid="insaName"/>
+      <BindItem id="item0" compid="edt_No00" propid="value" datasetid="ds_mgr" columnid="insaName"/>
+      <BindItem id="item1" compid="edt_price" propid="value" datasetid="ds_mgr" columnid="insaName"/>
+      <BindItem id="item2" compid="edt_No01" propid="value" datasetid="ds_mgr" columnid="insaName"/>
+      <BindItem id="item3" compid="edt_No02" propid="value" datasetid="ds_mgr" columnid="insaName"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[
+/***********************************************************************************
+* Common Library
+***********************************************************************************/
+include "Lib::common.xjs";
+include "Lib::commonComp.xjs"; // 메뉴 생성 및 닫기 메소드를 활용하기 위한 라이브러리.
+
+/***********************************************************************************
+* Script Source
+***********************************************************************************/
+
+/***********************************************************************************
+* 글 작성 시 표시되는 쓰여진 글자 수 업데이트
+***********************************************************************************/
+this.TextArea_detail_ontextchanged = function(obj:Edit,  e:nexacro.TextChangedEventInfo)
+{
+	var strLength = this.TextArea_detail.getLength();
+	strLength += " / 2000 ";
+	this.detail_char_length.set_text(strLength);
+}
+
+/***********************************************************************************
+* 닫기
+***********************************************************************************/
+this.btn_close_OnClick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.gfnClose();
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -23,7 +23,7 @@
     </ColumnInfo>
     <Rows>
       <Row>
-        <Col id="MENU_NAME">법무관리시스템</Col>
+        <Col id="MENU_NAME">쇼핑몰시스템</Col>
         <Col id="MENU_SEQ">0</Col>
         <Col id="MENU_ID">1000</Col>
         <Col id="MENU_GRP">1000</Col>
@@ -38,12 +38,12 @@
         <Col id="MENU_AUTH">NORMAL</Col>
       </Row>
       <Row>
-        <Col id="MENU_NAME">소제기</Col>
+        <Col id="MENU_NAME">상품</Col>
         <Col id="MENU_SEQ">1</Col>
         <Col id="MENU_OPTP">MAIN</Col>
         <Col id="PAGE_URL"/>
         <Col id="MENU_TOP">1000</Col>
-        <Col id="MENU_ID">1001</Col>
+        <Col id="MENU_ID">1100</Col>
         <Col id="MENU_GRP">1000</Col>
         <Col id="CREATE_DT">20170721000000000</Col>
         <Col id="MENU_LEVEL">1</Col>
@@ -58,31 +58,49 @@
         <Col id="MENU_AUTH">NORMAL</Col>
       </Row>
       <Row>
-        <Col id="MENU_NAME">소제기의뢰등록</Col>
+        <Col id="MENU_NAME">상품목록</Col>
         <Col id="MENU_SEQ">2</Col>
-        <Col id="MENU_LEVEL">2</Col>
         <Col id="MENU_OPTP">MAIN</Col>
-        <Col id="PAGE_URL">rais::RAISREQ_REG.xfdl</Col>
+        <Col id="PAGE_URL">product::PRODUCT_LIST.xfdl</Col>
         <Col id="MENU_TOP">1001</Col>
-        <Col id="MENU_ID">1003</Col>
+        <Col id="MENU_ID">1101</Col>
         <Col id="MENU_GRP">1000</Col>
-        <Col id="CREATE_DT">20170721000000000</Col>
+        <Col id="CREATE_DT">20200923000000000</Col>
+        <Col id="MENU_LEVEL">2</Col>
         <Col id="PAGE_NAME">사용자 그룹관리</Col>
         <Col id="MENU_ARGS">admin</Col>
         <Col id="MENU_STAT">VIEW</Col>
         <Col id="CREATE_USER">admin</Col>
-        <Col id="UPDATE_DT">20170721000000000</Col>
         <Col id="UPDATE_USER">admin</Col>
         <Col id="MENU_DESC">II</Col>
         <Col id="MENU_AUTH">NORMAL</Col>
-        <Col id="PAGE_ID"/>
+        <Col id="UPDATE_DT">20200923000000000</Col>
       </Row>
       <Row>
-        <Col id="MENU_NAME">소제기의뢰회신</Col>
+        <Col id="MENU_NAME">상품등록</Col>
+        <Col id="MENU_SEQ">2</Col>
+        <Col id="MENU_OPTP">MAIN</Col>
+        <Col id="PAGE_URL">product::PRODUCT_ADD.xfdl</Col>
+        <Col id="MENU_TOP">1001</Col>
+        <Col id="MENU_ID">1102</Col>
+        <Col id="MENU_GRP">1000</Col>
+        <Col id="CREATE_DT">20200923000000000</Col>
+        <Col id="MENU_LEVEL">2</Col>
+        <Col id="PAGE_NAME">사용자 그룹관리</Col>
+        <Col id="MENU_ARGS">admin</Col>
+        <Col id="MENU_STAT">VIEW</Col>
+        <Col id="CREATE_USER">admin</Col>
+        <Col id="UPDATE_DT">20200923000000000</Col>
+        <Col id="UPDATE_USER">admin</Col>
+        <Col id="MENU_DESC">II</Col>
+        <Col id="MENU_AUTH">H</Col>
+      </Row>
+      <Row>
+        <Col id="MENU_NAME"/>
         <Col id="MENU_SEQ">2</Col>
         <Col id="MENU_LEVEL">2</Col>
         <Col id="MENU_OPTP">MAIN</Col>
-        <Col id="PAGE_URL">rais::RAISREQ_REP.xfdl</Col>
+        <Col id="PAGE_URL">rais::RAISREQ_REG.xfdl</Col>
         <Col id="MENU_TOP">1001</Col>
         <Col id="MENU_ID">1004</Col>
         <Col id="MENU_GRP">1000</Col>
@@ -98,7 +116,27 @@
         <Col id="PAGE_ID"/>
       </Row>
       <Row>
-        <Col id="MENU_NAME">소송고지관리</Col>
+        <Col id="MENU_NAME"/>
+        <Col id="MENU_SEQ">2</Col>
+        <Col id="MENU_LEVEL">2</Col>
+        <Col id="MENU_OPTP">MAIN</Col>
+        <Col id="PAGE_URL">rais::RAISREQ_REP.xfdl</Col>
+        <Col id="MENU_TOP">1001</Col>
+        <Col id="MENU_ID">1005</Col>
+        <Col id="MENU_GRP">1000</Col>
+        <Col id="CREATE_DT">20170721000000000</Col>
+        <Col id="PAGE_NAME">사용자 그룹관리</Col>
+        <Col id="MENU_ARGS">admin</Col>
+        <Col id="MENU_STAT">VIEW</Col>
+        <Col id="CREATE_USER">admin</Col>
+        <Col id="UPDATE_DT">20170721000000000</Col>
+        <Col id="UPDATE_USER">admin</Col>
+        <Col id="MENU_DESC">II</Col>
+        <Col id="MENU_AUTH">NORMAL</Col>
+        <Col id="PAGE_ID"/>
+      </Row>
+      <Row>
+        <Col id="MENU_NAME"/>
         <Col id="MENU_SEQ">2</Col>
         <Col id="MENU_OPTP">MAIN</Col>
         <Col id="MENU_TOP">1001</Col>

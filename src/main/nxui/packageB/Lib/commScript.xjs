@@ -163,6 +163,39 @@ this.gf_codeComListLoad=function(strSvcId, strDataSet, strAllYn, strAllCode, str
 }
 
 /******************************************************************************************
+ * 함  수  명	:	gf_shopCodeComListLoad
+ * 입      력	:	strSvcId, strDataSet, strAllYn, strAllCode, strAllName, strCallbackFunc, strVParam1,strVParam12			벨류값
+ * 반      환	:   code value
+ * 기      능	:	조건에 해당하는 공통코드 호출
+ ******************************************************************************************/
+this.gf_shopCodeComListLoad=function(strSvcId, strDataSet, strAllYn, strAllCode, strAllName, strCallbackFunc, strVParam1,strVParam2)
+{
+	var strTempDataSet = strDataSet+"=ds_output";
+	var strController 	= "code/selectShopCodeList.do";
+	
+	if(this.gfn_IsNull(strAllYn) || strAllYn == "")
+	{	
+		strAllYn   = "N";
+		strAllCode = "";
+		strAllName = "";
+	}  	
+	var strParam = "";
+	strParam += " AllYn=" + strAllYn + " AllCode=" + strAllCode + " AllName=" + strAllName + " CLASS_CODE=" + strVParam1 + " CODE_NO=" + strVParam2;
+	//trace(strParam);
+	//trace(strSvcId);
+	// 트랜젝션 공통함수 호출
+	this.gfn_transaction(this,
+					strSvcId,
+					strController, 
+					"", 
+					strTempDataSet,
+					strParam, 
+					strCallbackFunc
+					);
+	
+}
+
+/******************************************************************************************
  * 함  수  명	:	gf_sampleCodeComListLoad
  * 입      력	:	strSvcId, strDataSet, strAllYn, strAllCode, strAllName, strCallbackFunc, strVParam			벨류값
  * 반      환	:   code value

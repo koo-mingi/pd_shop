@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- **mapper.java의 경로 -->
+<mapper namespace="nexacro.shop.service.dao.mybatis.CodeMapper"> 
+	
+	<resultMap id="codevo" type="nexacro.shop.vo.code.CodeVO">
+		<result property="code_no" column="CODE_NO" />
+		<result property="code_name" column="CODE_NAME" />
+		<result property="class_code" column="CLASS_CODE" />
+		<result property="sort_seq" column="sort_seq" />
+		<result property="use_yn" column="use_yn" />		
+	</resultMap> 
+	
+	<!-- 대분류 코드 -->
+	<select id="getCodeMain" resultMap="codevo" parameterType="java.util.HashMap">
+		<![CDATA[
+			select CLASS_CODE, CODE_NO, CODE_NAME, use_yn,sort_seq
+			from cmm_code_detail
+			where class_code <> 'P02' and class_code <> 'P03' and use_yn = 'Y' 
+			connect by prior class_code = higher_class_code                   
+			start with class_code = #{class_code}
+		]]>
+	</select>
+	
+	<!-- 중분류 코드 -->
+	<select id="getCodeMiddle" resultMap="codevo" parameterType="java.util.HashMap">
+		<![CDATA[
+			select CLASS_CODE, CODE_NO, CODE_NAME, use_yn,sort_seq
+			from cmm_code_detail
+			where class_code <> 'P01' and class_code <> 'P03' and use_yn = 'Y'
+			connect by prior class_code = higher_class_code and prior code_no = higher_code_no                   
+			start with class_code = #{class_code} and code_no = #{code_no}
+		]]>
+	</select>
+	 
+		<!-- 소분류 코드 -->
+	<select id="getCodeSub" resultMap="codevo" parameterType="java.util.HashMap">
+		<![CDATA[
+			select CLASS_CODE, CODE_NO, CODE_NAME, use_yn,sort_seq
+			from cmm_code_detail
+			where class_code <> 'P01' and class_code <> 'P02' and use_yn = 'Y'
+			connect by prior class_code = higher_class_code and prior code_no = higher_code_no                   
+			start with class_code = #{class_code} and code_no = #{code_no}
+		]]>
+	</select>
+	
+</mapper>

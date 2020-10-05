@@ -4,12 +4,7 @@
   <Form id="mainFrameNew" classname="mainFrameNew" left="0" top="0" width="1280" height="819" titletext="New Form" style="color:transparent;" tooltiptype="hover">
     <Layouts>
       <Layout>
-        <ImageViewer id="ImageViewer00" taborder="0" left="80" top="200" height="559" image="URL('img::lawH.bmp')" stretch="fixaspectratio" width="1010" style="border:0 none white ;"/>
-        <Static id="Static00" taborder="1" text="P" left="102" top="51" right="804" height="117" style="color:yellowgreen;font:italic 92 @HY견고딕;"/>
-        <Static id="Static02" taborder="3" text="Law" left="266" top="90" right="556" height="62" style="color:#646464ff;font:italic 50 @HY견고딕;"/>
-        <Static id="Static03" taborder="4" left="184" top="164" height="5" style="background:yellowgreen;" width="265"/>
-        <Static id="Static04" taborder="5" text="Judicial Affairs Management System" left="146" top="169" right="507" height="22" style="color:#646464ff;font:bold 12 휴먼모음T;"/>
-        <Static id="Static01" taborder="6" text="D" left="174" top="49" right="742" height="117" style="color:yellowgreen;align:left;font:italic 82 @HY견고딕;"/>
+        <ImageViewer id="ImageViewer00" taborder="0" image="URL('img::IMG_main.png')" stretch="fixaspectratio" style="border:0 none white ;" width="98.98%" height="99.76%" left="2" top="1"/>
       </Layout>
     </Layouts>
     <Script type="xscript5.0"><![CDATA[/***********************************************************************************

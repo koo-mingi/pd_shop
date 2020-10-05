@@ -417,7 +417,7 @@
 
         	
         	sFilePath = obj.value; //e.newvalue;
-
+        	
         	var dirExpt = sFilePath.lastIndexOf("\\")+1;
         	sFullName = sFilePath.substr(dirExpt);
         	sFileDir = sFilePath.substr(0, dirExpt); 

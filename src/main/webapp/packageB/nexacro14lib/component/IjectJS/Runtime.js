@@ -39,10 +39,13 @@ if (!JsNamespace.exist("Iject.Runtime")) {
             Iject.$["vFrameSet"].set_separatesize("*,0,0");
 
             application.mainframe.set_showtitlebar(false);
-            application.mainframe.set_left(nScreenLeft+(nScreenWidth/2)-180);
-            application.mainframe.set_top(nScreenTop+(nScreenHeight/2)-180);
+            application.mainframe.set_left(nScreenWidth/2-Iject.$["loginSize"].width/2);
+            application.mainframe.set_top(nScreenHeight/2-Iject.$["loginSize"].height/2);
             application.mainframe.set_width(Iject.$["loginSize"].width);
             application.mainframe.set_height(Iject.$["loginSize"].height);
+
+
+
 
             var oData ={
                 sId            : "login",             //callback id
@@ -85,8 +88,8 @@ if (!JsNamespace.exist("Iject.Runtime")) {
            application.mainframe.set_visible(false);
            Iject.setSeprateFrame();
 
-           application.mainframe.set_left(0);
-           application.mainframe.set_top(0);
+           application.mainframe.set_left(50);
+           application.mainframe.set_top(50);
            application.mainframe.set_width(Iject.$["mainframeSize"].width);
            application.mainframe.set_height(Iject.$["mainframeSize"].height);
            application.mainframe.set_showtitlebar(true);

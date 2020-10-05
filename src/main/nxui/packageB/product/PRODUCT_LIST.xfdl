@@ -1,0 +1,647 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="PRODUCT_LIST" left="0" top="0" width="1024" height="768" titletext="New Form" onload="PRODUCT_LIST_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div01" taborder="0" text="   상품 목록" left="14" top="7" width="996" height="50" style="align:left;background:coral;color:#ffffffff;font:bold 12 Dotum;"/>
+        <Static id="Static00" taborder="1" left="14" top="65" width="996" height="82" style="background:antiquewhite;border:1 solid #c8c8c8ff ;"/>
+        <Static id="Static04" taborder="5" left="20" top="70" width="984" height="25" style="background:#eaeaeaff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="Static05" taborder="6" left="20" top="94" width="984" height="25" style="background:#eaeaeaff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="Static06" taborder="7" left="20" top="118" width="984" height="25" style="background:#eaeaeaff;border:1 solid #a8a8a8ff ;"/>
+        <Static id="Static01" taborder="8" text="상품분류" left="20" top="70" width="105" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;bordertype:normal 0 0 ;align:center middle;font:bold 9 dotum;"/>
+        <Static id="Static02" taborder="9" text="상품명" left="20" top="94" width="105" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;bordertype:normal 0 0 ;align:center middle;font:bold 9 dotum;"/>
+        <Static id="Static03" taborder="10" text="판매처" left="20" top="118" width="105" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;bordertype:normal 0 0 ;align:center middle;font:bold 9 dotum;"/>
+        <Combo id="list_com_main" taborder="11" innerdataset="@ds_code_main" codecolumn="code_no" datacolumn="code_name" left="133" top="73" width="130" height="19" style="background:#ffffffff;color:#333333ff;" onitemchanged="list_com_main_onitemchanged" displaynulltext="대분류 전체"/>
+        <Combo id="list_com_middle" taborder="12" innerdataset="@ds_code_middle" codecolumn="code_no" datacolumn="code_name" left="269" top="73" width="130" height="19" style="background:#ffffffff;color:#333333ff;" onitemchanged="list_com_middle_onitemchanged" displaynulltext="중분류 전체"/>
+        <Combo id="list_com_sub" taborder="13" innerdataset="@ds_code_sub" codecolumn="code_no" datacolumn="code_name" left="405" top="73" width="130" height="19" style="background:#ffffffff;color:#333333ff;" onitemchanged="list_com_sub_onitemchanged" displaynulltext="소분류 전체"/>
+        <Button id="btn_clean" taborder="14" text="전체초기화" onclick="btn_clean_onclick" left="912" top="71" width="84" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Gulim;"/>
+        <Button id="btn_list_search00" taborder="15" text="목록검색" onclick="btn_search_onclick" left="912" top="95" width="84" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;border:1 solid #999999ff ;color:white;font:bold 9 Dotum;"/>
+        <Edit id="edt_product_name" taborder="16" enable="true" left="132" top="97" width="404" height="19" style=":disabled {background:#f7f7f7ff;color:#999999ff;}" readonly="false" maxlength="50"/>
+        <Edit id="edt_partner" taborder="17" enable="false" left="132" top="121" width="404" height="19" style=":disabled {background:#f7f7f7ff;color:#999999ff;}" readonly="true"/>
+        <Button id="btn_list_search01" taborder="18" text="검색" left="541" top="119" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;border:1 solid #999999ff ;color:white;font:bold 9 Dotum;"/>
+        <Static id="Static07" taborder="19" text="판매유무" left="617" top="118" width="105" height="25" style="background:#f4edfaff;border:1 solid #c8c8c8ff ;color:#133678ff;bordertype:normal 0 0 ;align:center middle;font:bold 9 dotum;"/>
+        <Radio id="radio_Wtr" taborder="20" columncount="3" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="0" onitemclick="Radio00_onitemclick" left="730" top="121" width="203" height="19" style="color:black;font:8 Dotum;">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">Y</Col>
+                <Col id="datacolumn">판매</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">N</Col>
+                <Col id="datacolumn">판매중단</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Static id="Static08" taborder="22" left="14" top="156" width="996" height="419" style="background:antiquewhite;border:1 solid #c8c8c8ff ;"/>
+        <Static id="Static09" taborder="23" text="상품 목록 현황" onclick="Static09_onclick" left="22" top="163" right="82.32%" height="19" style="font:bold 9 굴림체;"/>
+        <Button id="btn_close00" taborder="24" left="949" top="17" width="55" height="31" style="background:URL('img::btn_WF_crudL2_N.png') stretch 9,9 left top;border:0 solid #999999ff ;color:white;font:bold 11 Dotum;" text="닫기" onclick="btn_close00_onclick"/>
+        <Grid id="Grid_list" taborder="25" useinputpanel="false" left="22" top="183" height="385" autofittype="col" width="982" binddataset="ds_product_list" oncelldblclick="Grid_list_oncelldblclick" oncellclick="Grid_list_oncellclick" onheadclick="Grid_list_onheadclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="76"/>
+                <Column size="77"/>
+                <Column size="76"/>
+                <Column size="204"/>
+                <Column size="61"/>
+                <Column size="113"/>
+                <Column size="46"/>
+                <Column size="70"/>
+                <Column size="67"/>
+                <Column size="148"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkbox" edittype="checkbox" text="0"/>
+                <Cell col="1" edittype="text" text="대분류"/>
+                <Cell col="2" text="중분류"/>
+                <Cell col="3" text="소분류"/>
+                <Cell col="4" text="상품명"/>
+                <Cell col="5" text="재고수량"/>
+                <Cell col="6" text="가격"/>
+                <Cell col="7" text="별점"/>
+                <Cell col="8" text="옵션여부"/>
+                <Cell col="9" text="판매여부"/>
+                <Cell col="10" text="판매처"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:chk" expr="expr:chk=='Y'?'1':'0'"/>
+                <Cell col="1" text="bind:code_main"/>
+                <Cell col="2" text="bind:code_middle"/>
+                <Cell col="3" text="bind:code_sub"/>
+                <Cell col="4" text="bind:product_name"/>
+                <Cell col="5" text="bind:product_stock"/>
+                <Cell col="6" text="bind:product_price"/>
+                <Cell col="7" text="bind:product_point"/>
+                <Cell col="8" text="bind:product_option_enable"/>
+                <Cell col="9" text="bind:product_sell_enable"/>
+                <Cell col="10" text="bind:partner_name"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_list_add" taborder="26" text="등록" left="885" top="159" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;border:1 solid #999999ff ;color:white;font:bold 9 Dotum;" onclick="btn_list_add_onclick"/>
+        <Button id="btn_list_delete" taborder="27" text="삭제" left="941" top="159" width="55" height="23" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;border:1 solid #999999ff ;color:white;font:bold 9 Dotum;" onclick="btn_list_delete_onclick"/>
+        <Div id="div_page" taborder="28" text="Div00" left="151" top="590" width="657" height="18">
+          <Layouts>
+            <Layout>
+              <Static id="stc_Prev" taborder="25" text="이전" onclick="div_page_stc_Prev_onclick" visible="false" left="146" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_Next" taborder="26" text="다음" onclick="div_page_stc_Next_onclick" visible="false" left="516" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_No0" taborder="27" text="1" onclick="div_page_stc_No_onclick" visible="false" left="186" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_No1" taborder="28" text="2" onclick="div_page_stc_No_onclick" visible="false" left="218" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_No2" taborder="29" text="3" onclick="div_page_stc_No_onclick" visible="false" left="250" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_No3" taborder="30" text="4" onclick="div_page_stc_No_onclick" visible="false" left="282" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_No4" taborder="31" text="5" onclick="div_page_stc_No_onclick" visible="false" left="314" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_No5" taborder="32" text="6" onclick="div_page_stc_No_onclick" visible="false" left="346" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_No6" taborder="33" text="7" onclick="div_page_stc_No_onclick" visible="false" left="378" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_No7" taborder="34" text="8" onclick="div_page_stc_No_onclick" visible="false" left="410" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_No8" taborder="35" text="9" onclick="div_page_stc_No_onclick" visible="false" left="442" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+              <Static id="stc_No9" taborder="36" text="10" onclick="div_page_stc_No_onclick" visible="false" left="474" top="-4" width="29" height="27" style="color:black;align:center;cursor:hand;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item4" compid="edt_product_name" propid="value" datasetid="ds_mgr" columnid="insaName"/>
+      <BindItem id="item0" compid="edt_partner" propid="value" datasetid="ds_mgr" columnid="insaName"/>
+    </Bind>
+    <Objects>
+      <Dataset id="ds_code_main" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="class_code" type="STRING" size="256"/>
+          <Column id="code_no" type="STRING" size="256"/>
+          <Column id="code_name" type="STRING" size="256"/>
+          <Column id="codeFull" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_product_list" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_product_list_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="code_main" type="STRING" size="256"/>
+          <Column id="code_middle" type="STRING" size="256"/>
+          <Column id="code_sub" type="STRING" size="256"/>
+          <Column id="product_name" type="STRING" size="256"/>
+          <Column id="product_stock" type="STRING" size="256"/>
+          <Column id="product_price" type="STRING" size="256"/>
+          <Column id="product_point" type="STRING" size="256"/>
+          <Column id="product_option_enable" type="STRING" size="256"/>
+          <Column id="product_sell_enable" type="STRING" size="256"/>
+          <Column id="partner_name" type="STRING" size="256"/>
+          <Column id="product_code" type="STRING" size="256"/>
+          <Column id="chk" type="STRING" size="256"/>
+          <Column id="rownum" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_code_middle" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="class_code" type="STRING" size="256"/>
+          <Column id="code_no" type="STRING" size="256"/>
+          <Column id="code_name" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_code_sub" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="class_code" type="STRING" size="256"/>
+          <Column id="code_no" type="STRING" size="256"/>
+          <Column id="code_name" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+/***********************************************************************************
+* Common Library
+***********************************************************************************/
+include "Lib::common.xjs";
+include "Lib::commonComp.xjs"; // 메뉴 생성 및 닫기 메소드를 활용하기 위한 라이브러리.
+
+//목록 검색 시 페이징 초기화 
+this.fv_iStartPageNo    = 0;   // 전체 페이지 순서
+this.fv_iUnitSelRowNo   = 150; // 한번 Server호출시 가져올 row갯수
+this.fv_iStartSelRowNo  = 1;   // Server호출시 시작할 row no
+this.fv_iMaxAmount      = 15;  // 1 페이지당 보여줄 최대 row 수
+this.fv_iMaxPageNum     = 10;  // 화면에 보여줄 최대 Page번호 갯수
+this.fv_iServerRowCount = 0;   // 서버에서 넘어온 Row갯수(100건이 안될 수 있음)
+
+/********************************************************************************
+ * Desc		: 상품목록 화면 시작 시 초기화
+ * Param	: 없음
+ * Return	: 없음
+ *******************************************************************************/
+
+this.PRODUCT_LIST_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{    
+	this.comboSetup();
+	this.list_com.index="0";
+    //this.getList();
+}
+
+/********************************************************************************
+ * Desc		: 상태코드 데이터셋 초기화
+ * Param	: 없음
+ * Return	: 없음
+ *******************************************************************************/
+this.comboSetup = function(){
+	this.gf_shopCodeComListLoad("ds_code_main",  "ds_code_main", "Y", "", "","fnCallback","P01",""); // 상품 대분류
+}
+
+/********************************************************************************
+ * Desc		: 상품 중분류 코드 초기화함수
+ * Param	: 없음
+ * Return	: 없음
+ *******************************************************************************/
+this.list_com_main_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	//this.alert(this.list_com_main.value);
+	
+	var mainValue = this.list_com_main.value;
+	if(mainValue != null)
+	{
+		this.gf_shopCodeComListLoad("ds_code_middle",  "ds_code_middle", "Y", "", "","fnCallback","P01",mainValue);
+	}
+}
+
+/********************************************************************************
+ * Desc		: 상품 소분류 코드 초기화함수
+ * Param	: 없음
+ * Return	: 없음
+ *******************************************************************************/
+this.list_com_middle_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	//this.alert(this.list_com_middle.value);
+	
+	var middleValue = this.list_com_middle.value;
+	if(middleValue != null)
+	{
+		this.gf_shopCodeComListLoad("ds_code_sub",  "ds_code_sub", "Y", "", "","fnCallback","P02",middleValue);
+	}
+}
+
+
+/********************************************************************************
+ * Desc		: 트랜잭션 콜백함수
+ * Param	: strId => 트랜잭션 id
+ * Return	: 없음
+ *******************************************************************************/
+this.fnCallback = function(strId, errcode, errmsg){
+
+	if(strId == "getProductDetailList"){
+		
+		/*
+		for(var i=0;i<this.ds_product_list.getRowCount();i++){
+			if(typeof (this.ds_product_list.getColumn(i,"insaName"))=='undefined') this.ds_raisreq.setColumn(i,"insaName"," ");
+			if(typeof (this.ds_product_list.getColumn(i,"raisreqReqId"))=='undefined') this.ds_raisreq.setColumn(i,"raisreqReqId","");
+		}
+		*/
+		if(errcode == 0){		
+			
+		    if(this.ds_product_list.getRowCount() < 1 ){
+		       alert( "조회 내용이 없습니다.");
+		       this.btn_clean_onclick();
+		    }else{
+				this.fn_pageSet();
+		    }
+		}else{
+		    alert("데이터 불러오기에 실패하였습니다." + errmsg);
+		}
+		
+	}
+	else if(strId=="ds_code_main"){
+		this.list_com_main.setColumn(0,"code_name","전체");
+		this.list_com_main.setColumn(0,"code_no","");
+	}
+	
+}
+
+/********************************************************************************
+ * Desc		: 등록화면 열기 함수
+ * Param	: strId => 트랜잭션 id
+ * Return	: 없음
+ *******************************************************************************/
+this.btn_list_add_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.gfnClose();
+	this.gfnOpenMenu("product::PRODUCT_ADD",""); // 글로벌 변수 gnf_menu의 PAGE_URL(.xfdl은 지워서)
+	
+	/* gfnOpenMenu() 함수의 구조.
+	url = "rais::RAISREQ_LIST" + ".xfdl";
+	var mRow = application.gds_menu.findRow('PAGE_URL',url);
+	var sMenuid = application.gds_menu.getColumn(mRow, "MENU_ID");
+	this.alert(mRow);
+	
+	Iject.Mdi.newMdi(sMenuid,  mRow, "");|
+	*/
+}
+
+/********************************************************************************
+ * Desc		: 화면 닫기 함수
+ * Param	: strId => 트랜잭션 id
+ * Return	: 없음
+ *******************************************************************************/
+this.btn_close00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.gfnClose();
+}
+
+/********************************************************************************
+ * Desc		: 목록 검색 버튼 함수
+ * Param	: 
+ * Return	: 없음
+ *******************************************************************************/
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	//데이터셋 필터 초기화
+	this.ds_product_list.filter(""); // 이거 안하면 페이징 처리 후 해당 페이지 내 데이터만 검색되는 오류발생...
+	// 상품목록요청
+	this.getList();								
+}
+
+/********************************************************************************
+ * Desc		: 목록 검색 함수
+ * Param	: 
+ * Return	: 없음
+ *******************************************************************************/
+this.getList = function(){
+	
+    var main_code = this.list_com_main.value;
+	var middle_code = this.list_com_middle.value;
+	var sub_code = this.list_com_sub.value;
+	var product_name = this.edt_product_name.value;
+	var partner_name = this.edt_partner.value;
+	var sale_yn = this.radio_Wtr.value;
+	
+	this.alert("대분류 코드 : " + main_code
+			  + "\n중분류 코드 : " + middle_code
+			  + "\n소분류 코드 : " + sub_code
+			  + "\n판매유무 : " + sale_yn
+			  + "\n상품명 : " + product_name);
+    
+    /* 널값 체크 */
+	if(main_code == null || main_code == 'undifined') main_code = "";
+	if(middle_code == null || middle_code == 'undifined') middle_code = "";
+	if(sub_code == null || sub_code == 'undifined') sub_code = "";
+	if(product_name == null || product_name == 'undifined') product_name = "";
+	if(partner_name == null || partner_name == 'undifined') partner_name = "";
+    
+    
+    var strSvcid        = "getProductDetailList"; // 상품목록
+    var strController    = "/product/getProductDetailList.do";
+    var strParam = "";
+		strParam += "product_code="+main_code + middle_code + sub_code;
+		strParam += " product_name="+product_name;  // 앞에 한 칸 띄워야 파라미터 구분 가능
+		strParam += " partner_name="+partner_name;
+		strParam += " product_sell_enable="+sale_yn;
+  
+    // alert(strParam);
+    // 트랜젝션 공통함수 호출 // eclipse로 인자값들을 전달하는 부분
+    this.gfn_transaction(this,
+                    strSvcid,
+                    strController,
+                    "",
+                    "ds_product_list=ds_output",
+                    strParam,
+                    "fnCallback"
+                    );
+   
+}
+
+
+/********************************************************************************
+ * Desc		: 검색조건 초기화
+ * Param	: 
+ * Return	: 없음
+ *******************************************************************************/
+this.btn_clean_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.list_com_main.set_value(null);
+	this.list_com_middle.set_value(null);
+	this.ds_code_middle.clearData();
+	this.list_com_sub.set_value(null);
+	this.ds_code_sub.clearData();
+	this.edt_product_name.set_value("");
+	this.radio_Wtr.set_value("Y");
+	this.ds_product_list.clearData();
+	this.fn_pageSet();
+}
+
+/********************************************************************************
+ * Desc		: 상품 목록 삭제
+ * Param	: 
+ * Return	: 없음
+ *******************************************************************************/
+this.btn_list_delete_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	// 삭제목록 담을 배열
+	var chkarr = new Array();
+	
+	// 전체 목록 개수
+	for(var nRow=0; nRow < this.ds_product_list.getRowCount(); nRow++) 
+	{ 
+		// 체크된 상품일 때, 배열에 상품코드를 담아줌
+		if(this.ds_product_list.getColumn(nRow,"chk") == 'Y')
+		{
+			chkarr[nRow] =  this.ds_product_list.getColumn(nRow,"product_code");
+		}		
+	}
+	// 배열에 담겼는지 확인
+	this.alert(chkarr);
+	
+	var strSvcid        = "deleteProduct"; // 상품목록삭제
+    var strController   = "/product/deleteProduct.do";
+    var strParam = chkarr;
+    
+    alert(strParam);
+    // 트랜젝션 공통함수 호출 // eclipse로 인자값들을 전달하는 부분
+    this.gfn_transaction(this,
+                    strSvcid,
+                    strController,
+                    "",
+                    "ds_product_list=ds_output",
+                    strParam,
+                    "fnCallback"
+                    );
+	
+}
+
+/********************************************************************************
+ * Desc		: 그리드 셀 더블 클릭
+ * Param	: 
+ * Return	: 없음
+ *******************************************************************************/
+this.Grid_list_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	
+}
+
+/********************************************************************************
+ * Desc		: 체크박스 클릭 시 선택 또는 해제
+ * Param	: 
+ * Return	: 없음
+ *******************************************************************************/
+this.ds_product_list_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo) 
+{ 
+	// chk 컬럼인 경우 
+	if(e.columnid == "chk") 
+	{ 
+		// 다른 이벤트가 동작하지 않도록 설정 
+		obj.enableevent = false; //false can stop event temporarily 
+		
+		// 변경된 값이 1(체크가 된 경우)인경우 
+		if(e.newvalue == '1') 
+		{ 
+			// 1인 경우 Dataset의 chk 값을 Y로 변경 
+			obj.setColumn(e.row,"chk",'Y'); 
+			
+			// 모든 체크박스가 선택되었을 경우 헤더 체크박스 체크
+			var totalCheck = 'Y';
+			for(var nRow=0; nRow < this.ds_product_list.getRowCount(); nRow++) 
+			{ 
+				if(this.ds_product_list.getColumn(nRow, "chk") == 'N')
+				{
+					totalCheck = 'N';
+					break;
+				}
+			}
+			if(totalCheck == 'Y') this.Grid_list.setCellProperty( "head", 0, "text", '1');
+			
+		} 
+		else if(e.newvalue == '0') 
+		{ 
+			// 변경된 값이 0인 경우 Dataset의 chk 값을 N로 변경 
+			obj.setColumn(e.row,"chk",'N'); 
+			this.Grid_list.setCellProperty( "head", 0, "text", '0');
+		} 
+		
+		// 다시 이벤트가 정상 동작하도록 설정 
+		obj.enableevent = true; 
+	}
+}
+
+
+
+/********************************************************************************
+ * Desc		: 그리드 셀  원클릭(선택)
+ * Param	: 
+ * Return	: 없음
+ *******************************************************************************/
+this.Grid_list_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	//this.alert(e.cell);
+}
+
+/********************************************************************************
+ * Desc		: 그리드 해드 원클릭(선택)
+ * Param	: 
+ * Return	: 없음
+ *******************************************************************************/
+this.Grid_list_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	// 첫 번째 컬럼인 경우(체크박스 전체 선택 또는 해제) 
+	if(e.cell == 0) 
+	{ 
+		var checkValue = this.Grid_list.getCellProperty("head",0,"text");
+		//this.alert(checkValue);
+		
+		if(checkValue == '1')
+		{	
+			this.Grid_list.setCellProperty( "head", 0, "text", '0');
+			// Dataset의 레코드 개수 만큼 반복 
+			for(var nRow=0; nRow < this.ds_product_list.getRowCount(); nRow++) 
+			{ 
+				// chk 컬럼의 값을 Y로 변경 
+				this.ds_product_list.setColumn(nRow, "chk", 'N'); 
+			}
+		}
+		else
+		{
+			this.Grid_list.setCellProperty( "head", 0, "text", '1');
+			// Dataset의 레코드 개수 만큼 반복 
+			for(var nRow=0; nRow < this.ds_product_list.getRowCount(); nRow++) 
+			{ 
+				// chk 컬럼의 값을 Y로 변경 
+				this.ds_product_list.setColumn(nRow, "chk", 'Y'); 
+			}
+		}
+	}
+
+}
+
+/************************************** 페이징 처리 관련 *******************************************/
+
+/********************************************************************************
+ * Desc		: 페이징 관련 초기화 세팅 함수
+ * Param	: 
+ * Return	: 없음
+ *******************************************************************************/
+this.fn_pageSet = function()
+{
+	this.div_page.set_visible("true");
+	this.fv_iServerRowCount = this.ds_product_list.getRowCount();
+	this.fn_SetStyle();
+	this.fn_SetPageNo();
+	this.div_page.stc_No0.style.set_color("gray");
+	this.div_page_stc_No_onclick(this.div_page.stc_No0,"");
+}
+
+
+//-------------------------------------------------------------------------------------------------
+// 인덱스 클릭
+//-------------------------------------------------------------------------------------------------
+this.div_page_stc_No_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	// 이전 페이지의 체크박스 해제
+	//this.alert(this.ds_product_list.getRowCount()); 필터링된 dataset의 현재 row 개수
+	//this.alert(this.ds_product_list.rowposition);   필터링된 dataset의 rowposition
+	this.Grid_list.setCellProperty( "head", 0, "text", '0');
+	for(var nRow=0; nRow < this.ds_product_list.getRowCount(); nRow++) 
+	{ 
+		// chk 컬럼의 값을 Y로 변경 
+		this.ds_product_list.setColumn(nRow, "chk", 'N'); 
+	}
+	
+	// 클릭한 인덱스 번호 값 변수에 저장
+	var iNo = new Number(obj.text);
+	// 해당 페이지의 첫 rownum값
+	var iFirstNum = (iNo-1) * this.fv_iMaxAmount + 1;
+	// 해당 페이지의 마지막 rownum값
+	var iLastNum = iFirstNum + this.fv_iMaxAmount;
+	//스타일 세팅
+	this.fn_SetStyle();
+	obj.style.set_color("red");
+	obj.style.set_font("bold 10 Dotum");
+
+	// 데이터셋의 범위를 rownum 범위 안으로 제한
+	this.ds_product_list.filter("");
+	this.ds_product_list.filter("rownum >= " + iFirstNum+" && rownum < " + iLastNum);
+}
+
+//-------------------------------------------------------------------------------------------------
+// 이전 버튼
+//-------------------------------------------------------------------------------------------------
+this.div_page_stc_Prev_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+
+	this.fv_iStartPageNo = this.fv_iStartPageNo - 1;
+	// Transaction()코딩 할 부분
+	this.fnCallback("getProductDetailList", 0, "succ");
+}
+
+//-------------------------------------------------------------------------------------------------
+// 다음버튼
+//-------------------------------------------------------------------------------------------------
+this.div_page_stc_Next_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+
+	this.fv_iStartPageNo = this.fv_iStartPageNo + 1;
+	// Transaction()코딩 할 부분
+	this.fnCallback("getProductDetailList", 0, "succ");
+}
+
+//-------------------------------------------------------------------------------------------------
+// Page번호 Setting
+//-------------------------------------------------------------------------------------------------
+this.fn_SetPageNo = function()
+{
+	var sPage = this.fv_iStartPageNo * this.fv_iMaxPageNum;
+	
+	// 이전버튼 처리
+	if (this.fv_iStartPageNo < 1)
+	{
+		this.div_page.stc_Prev.set_visible(false);
+	} 
+	else 
+	{
+		this.div_page.stc_Prev.set_visible(true);
+	}
+
+	// 마지막 버튼 처리
+	if (this.fv_iServerRowCount < this.fv_iUnitSelRowNo)
+	{
+		this.div_page.stc_Next.set_visible(false);
+	}
+	else
+	{
+		this.div_page.stc_Next.set_visible(true);
+	}
+
+	// 인덱스 번호 처리
+	for (var i = 0; i < this.fv_iMaxPageNum; i++)
+	{
+		this.div_page.components["stc_No"+i].set_visible(true);
+		this.div_page.components["stc_No"+i].set_text(sPage+i+1);
+
+		if (this.fv_iServerRowCount < (i * this.fv_iMaxAmount))
+		{
+			this.div_page.components["stc_No"+i].set_visible(false);			
+		} 
+		else 
+		{
+			this.div_page.components["stc_No"+i].set_visible(true);			
+		}
+	}	
+}
+//-------------------------------------------------------------------------------------------------
+// Style조정
+//-------------------------------------------------------------------------------------------------
+this.fn_SetStyle = function()
+{
+	for (var i = 0; i < this.fv_iMaxPageNum; i++)
+	{
+		this.div_page.components["stc_No"+i].style.set_color("black");
+		this.div_page.components["stc_No"+i].style.set_font("9 Dotum");
+	}	
+}
+
+]]></Script>
+  </Form>
+</FDL>

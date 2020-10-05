@@ -437,7 +437,7 @@
             
             // Layout Functions
             //-- Default Layout
-            obj = new Layout("default", "", 0, 21, this.Div06,
+            obj = new Layout("default", "", 70, 21, this.Div06,
             	//-- Layout function
             	function(p) {
             		p.set_taborder("52");

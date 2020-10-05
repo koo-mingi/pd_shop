@@ -66,6 +66,7 @@
     <Service prefixid="aprv" type="form" url="./aprv/" cachelevel="dynamic" communicationversion="0"/>
     <Service prefixid="conc" type="form" url="./conc/" cachelevel="dynamic" communicationversion="0"/>
     <Service prefixid="debt" type="form" url="./debt/" cachelevel="dynamic" communicationversion="0"/>
+    <Service prefixid="product" type="form" url="./product/" cachelevel="dynamic" communicationversion="0"/>
   </Services>
   <Update>
     <Item systemtype="Windows" url="http://localhost:8080/nexacro-sample/packageB">

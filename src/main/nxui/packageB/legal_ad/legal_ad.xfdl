@@ -42,7 +42,7 @@
         <Button id="btn_close" taborder="37" text="닫기" cssclass="btn_WFSA_Search" left="953" top="614" width="55" height="23" class="btn_WFSA_Search" style="background:URL('img::btn_WFSA_Search_N.png') stretch 9,9 left top;color:white;font:bold 9 Dotum;" visible="true" onclick="btn_close_onclick"/>
         <Div id="Div06" taborder="52" text="0 / 150" left="89.84%" top="273" right="3.32%" height="21" visible="false">
           <Layouts>
-            <Layout/>
+            <Layout width="70" height="21"/>
           </Layouts>
         </Div>
         <Div id="Div07" taborder="53" text="0 / 1000" left="89.84%" top="366" right="3.42%" height="21" visible="false"/>

@@ -23,45 +23,11 @@
 
             
             // UI Components Initialize
-            obj = new ImageViewer("ImageViewer00", "absolute", "80", "200", "1010", "559", null, null, this);
+            obj = new ImageViewer("ImageViewer00", "absolute", "2", "1", "98.98%", "99.76%", null, null, this);
             obj.set_taborder("0");
-            obj.set_image("URL('img::lawH.bmp')");
+            obj.set_image("URL('img::IMG_main.png')");
             obj.set_stretch("fixaspectratio");
             obj.style.set_border("0 none white");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00", "absolute", "102", "51", null, "117", "804", null, this);
-            obj.set_taborder("1");
-            obj.set_text("P");
-            obj.style.set_color("yellowgreen");
-            obj.style.set_font("italic 92 @HY견고딕");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static02", "absolute", "266", "90", null, "62", "556", null, this);
-            obj.set_taborder("3");
-            obj.set_text("Law");
-            obj.style.set_color("#646464ff");
-            obj.style.set_font("italic 50 @HY견고딕");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static03", "absolute", "184", "164", "265", "5", null, null, this);
-            obj.set_taborder("4");
-            obj.style.set_background("yellowgreen");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static04", "absolute", "146", "169", null, "22", "507", null, this);
-            obj.set_taborder("5");
-            obj.set_text("Judicial Affairs Management System");
-            obj.style.set_color("#646464ff");
-            obj.style.set_font("bold 12 휴먼모음T");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static01", "absolute", "174", "49", null, "117", "742", null, this);
-            obj.set_taborder("6");
-            obj.set_text("D");
-            obj.style.set_color("yellowgreen");
-            obj.style.set_align("left");
-            obj.style.set_font("italic 82 @HY견고딕");
             this.addChild(obj.name, obj);
 
 

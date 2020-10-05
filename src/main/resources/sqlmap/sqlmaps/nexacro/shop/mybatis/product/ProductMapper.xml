@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- **mapper.java의 경로 -->
+<mapper namespace="nexacro.shop.service.dao.mybatis.ProductMapper"> 
+	
+	<resultMap id="productvo" type="nexacro.shop.vo.product.ProductVO"> 
+		<result property="rownum" column="rownum" />
+		<result property="chk" column="chk" />
+		<result property="code_main" column="code_main" />
+		<result property="code_middle" column="code_middle" />
+		<result property="code_sub" column="code_sub" />
+		<result property="product_code" column="product_code" />
+		<result property="product_name" column="product_name" />	
+		<result property="product_stock" column="product_stock" />	
+		<result property="product_price" column="product_price" />
+		<result property="product_point" column="product_point" />
+		<result property="product_option_enable" column="product_option_enable" />	
+		<result property="product_sell_enable" column="product_sell_enable" />	
+	</resultMap> 
+	
+	<!-- 상품조회 -->
+	<select id="getProductList" resultMap="productvo" parameterType="java.util.HashMap">
+		<![CDATA[
+		select
+			rownum,
+		    'N' as chk,
+	        (select code_name
+	        from cmm_code_detail
+	        where class_code = 'P01' and code_no = substr(product_code,1,3)   ) as "code_main",
+	        (select code_name
+	        from cmm_code_detail
+	        where class_code = 'P02' and code_no = substr(product_code,4,3)  ) as "code_middle",
+	        (select code_name
+	        from cmm_code_detail
+	        where class_code = 'P03' and code_no = substr(product_code,7,3)  ) as "code_sub",
+        	product_code,product_name,product_stock,product_price,product_point,product_option_enable,product_sell_enable
+		from tb_product p
+		where 1=1
+		]]>
+			<if test='!product_code.equals("") and product_code != null'>
+				and product_code like #{product_code}  || '%'
+			</if>
+			<if test='product_name != "".toString()  and product_name != null'>
+				and product_name like #{product_name}
+			</if>
+			<if test='product_sell_enable != "".toString()  and product_sell_enable != null'>
+				and product_sell_enable = #{product_sell_enable}
+			</if>
+    	<![CDATA[
+		]]>
+	</select>
+	
+	
+</mapper>

@@ -14,7 +14,7 @@
                 this.set_name("Login");
                 this.set_titletext("Login");
                 this.set_scrollbars("none");
-                this._setFormPosition(0,0,450,463);
+                this._setFormPosition(0,0,450,501);
             }
             this.style.set_background("transparent");
 
@@ -27,21 +27,21 @@
 
             
             // UI Components Initialize
-            obj = new Div("div_login", "absolute", "0", "0", "450", "463", null, null, this);
+            obj = new Div("div_login", "absolute", "0", "0", "450", "501", null, null, this);
             obj.set_taborder("0");
             obj.style.set_background("transparent URL('img::Login_custom.png')");
             obj.set_scrollbars("none");
             this.addChild(obj.name, obj);
-            obj = new Edit("txt_userId", "absolute", "103", "136", "150", "25", null, null, this.div_login);
+            obj = new Edit("txt_userId", "absolute", "125", "194", "150", "25", null, null, this.div_login);
             obj.set_taborder("27");
             obj.set_displaynulltext("User ID");
             this.div_login.addChild(obj.name, obj);
-            obj = new Edit("txt_userPwd", "absolute", "103", "165", "150", "25", null, null, this.div_login);
+            obj = new Edit("txt_userPwd", "absolute", "125", "280", "150", "25", null, null, this.div_login);
             obj.set_taborder("28");
             obj.set_password("true");
             obj.set_displaynulltext("Password");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("btn_login", "absolute", null, "136", "60", "50", "127", null, this.div_login);
+            obj = new Button("btn_login", "absolute", null, "181", "60", "50", "94", null, this.div_login);
             obj.set_taborder("29");
             obj.set_text("로그인");
             obj.set_wordwrap("char");
@@ -57,7 +57,7 @@
             obj.style.set_color("#ffffffff");
             obj.style.set_font("bold 9 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("btn_join", "absolute", "332", "136", "60", "50", null, null, this.div_login);
+            obj = new Button("btn_join", "absolute", "296", "262", "60", "50", null, null, this.div_login);
             obj.set_taborder("32");
             obj.set_text("회원가입");
             obj.style.set_background("URL('img::btn_WF_crud_N.png') stretch 9,9 left top");
@@ -73,7 +73,7 @@
             obj.style.set_font("bold 9 Dotum");
             obj.style.set_opacity("100");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button01", "absolute", "101", "232", "70", "27", null, null, this.div_login);
+            obj = new Button("Button01", "absolute", "52", "368", "70", "27", null, null, this.div_login);
             obj.set_taborder("34");
             obj.set_text("    관리자    2020102001");
             obj.set_wordwrap("char");
@@ -81,74 +81,62 @@
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button02", "absolute", "73", "397", "70", "27", null, null, this.div_login);
+            obj = new Button("Button02", "absolute", "125", "368", "70", "27", null, null, this.div_login);
             obj.set_taborder("35");
             obj.set_wordwrap("char");
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button03", "absolute", "147", "397", "70", "27", null, null, this.div_login);
+            obj = new Button("Button03", "absolute", "199", "368", "70", "27", null, null, this.div_login);
             obj.set_taborder("36");
             obj.set_wordwrap("char");
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button04", "absolute", "222", "397", "70", "27", null, null, this.div_login);
+            obj = new Button("Button04", "absolute", "274", "368", "70", "27", null, null, this.div_login);
             obj.set_taborder("37");
             obj.set_wordwrap("char");
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button05", "absolute", "296", "397", "70", "27", null, null, this.div_login);
+            obj = new Button("Button05", "absolute", "348", "368", "70", "27", null, null, this.div_login);
             obj.set_taborder("38");
             obj.set_wordwrap("char");
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button06", "absolute", "370", "397", "70", "27", null, null, this.div_login);
-            obj.set_taborder("39");
-            obj.set_wordwrap("char");
-            obj.style.set_align("center middle");
-            obj.style.set_font("8 Dotum");
-            this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button07", "absolute", "-1", "427", "70", "27", null, null, this.div_login);
+            obj = new Button("Button07", "absolute", "51", "398", "70", "27", null, null, this.div_login);
             obj.set_taborder("40");
             obj.set_wordwrap("char");
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button09", "absolute", "147", "427", "70", "27", null, null, this.div_login);
+            obj = new Button("Button09", "absolute", "199", "398", "70", "27", null, null, this.div_login);
             obj.set_taborder("42");
             obj.set_wordwrap("char");
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button10", "absolute", "222", "427", "70", "27", null, null, this.div_login);
+            obj = new Button("Button10", "absolute", "274", "398", "70", "27", null, null, this.div_login);
             obj.set_taborder("43");
             obj.set_wordwrap("char");
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button11", "absolute", "296", "427", "70", "27", null, null, this.div_login);
+            obj = new Button("Button11", "absolute", "348", "398", "70", "27", null, null, this.div_login);
             obj.set_taborder("44");
             obj.set_wordwrap("char");
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button12", "absolute", "370", "427", "70", "27", null, null, this.div_login);
-            obj.set_taborder("45");
-            obj.set_wordwrap("char");
-            obj.style.set_align("center middle");
-            obj.style.set_font("8 Dotum");
-            this.div_login.addChild(obj.name, obj);
-            obj = new Button("Button08", "absolute", "73", "427", "70", "27", null, null, this.div_login);
+            obj = new Button("Button08", "absolute", "125", "398", "70", "27", null, null, this.div_login);
             obj.set_taborder("46");
             obj.set_text("    ");
             obj.set_wordwrap("char");
             obj.style.set_align("center middle");
             obj.style.set_font("8 Dotum");
             this.div_login.addChild(obj.name, obj);
-            obj = new CheckBox("legal_checkbox", "absolute", "101", "197", null, "22", "202", null, this.div_login);
+            obj = new CheckBox("legal_checkbox", "absolute", "125", "336", null, "22", "178", null, this.div_login);
             obj.set_taborder("47");
             obj.set_text("법률관계자 로그인");
             this.div_login.addChild(obj.name, obj);
@@ -169,7 +157,7 @@
             this.div_login.addLayout(obj.name, obj);
 
             //-- Default Layout
-            obj = new Layout("default", "", 450, 463, this,
+            obj = new Layout("default", "", 450, 501, this,
             	//-- Layout function
             	function(p) {
             		p.set_classname("Login");
@@ -283,7 +271,7 @@
             }
         }
 
-        //쇼핑몰계자 로그인
+        //쇼핑몰관계자 로그인
         this.fn_outLogin = function()
         {
         	this.ds_idpw.clearData();
@@ -307,7 +295,7 @@
         	
         	this.gfn_transaction(this,
         						"outLoginCheck",
-        						"administrator/outLogin.do",
+        						"administrator/Login.do",
         						"",
         						"ds_idpw=ds_output",
         						strParam,
@@ -369,7 +357,7 @@
         			var insaName = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "name");
         			var insaAdmYn = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "pos_gbn_code");
         			
-        			if(insaAdmYn == "003"){
+        			if(insaAdmYn == "001" || insaAdmYn == "002" || insaAdmYn == "003"){
         				
         				if(this.ds_idpw.getColumn(this.ds_idpw.rowposition, "put_yn") !== 'N'){
         					application.gds_User.addRow();
@@ -417,8 +405,9 @@
         			var insaSabun = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "sabun");
         			var insaId = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "id");
         			var insaName = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "name");
+        			var insaAdmYn = this.ds_idpw.getColumn(this.ds_idpw.rowposition, "pos_gbn_code");
         			
-        			if(insaAdmYn == "001" || insaAdmYn == "002"){
+        			if(insaAdmYn == "003"){
         				
         				if(this.ds_idpw.getColumn(this.ds_idpw.rowposition, "sabun") != null)
         				{
@@ -584,12 +573,10 @@
             this.div_login.Button03.addEventHandler("onclick", this.Button03_onclick, this);
             this.div_login.Button04.addEventHandler("onclick", this.Button04_onclick, this);
             this.div_login.Button05.addEventHandler("onclick", this.Button05_onclick, this);
-            this.div_login.Button06.addEventHandler("onclick", this.Button06_onclick, this);
             this.div_login.Button07.addEventHandler("onclick", this.Button07_onclick, this);
             this.div_login.Button09.addEventHandler("onclick", this.Button09_onclick, this);
             this.div_login.Button10.addEventHandler("onclick", this.Button10_onclick, this);
             this.div_login.Button11.addEventHandler("onclick", this.Button11_onclick, this);
-            this.div_login.Button12.addEventHandler("onclick", this.Button12_onclick, this);
             this.div_login.Button08.addEventHandler("onclick", this.Button08_onclick, this);
             this.div_login.legal_checkbox.addEventHandler("onclick", this.legal_checkbox_onclick, this);
 

@@ -1221,7 +1221,7 @@
 
         this.btn_uploade_onclick = function(obj,e)
         {
-        	if(this.edt_no.text == "") {
+        	if(this.edt_no.text != "") {
         		alert("소송관리번호를 조회해주세요.");
         		return;
         	}
